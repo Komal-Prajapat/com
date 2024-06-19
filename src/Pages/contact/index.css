@@ -3,6 +3,7 @@
   width: 90% !important;
   margin: auto !important;
 
+  color: black !important;
 }
 
 .contact_heading {
@@ -62,17 +63,20 @@
   font-size: 18px;
   color: #6c6c6c;
 }
-.iconsContactPage:hover{
+
+.iconsContactPage:hover {
   color: white;
 }
+
 .containtlist {
   display: flex;
-
   margin-top: 20px;
+
 }
 
 .data {
   margin-left: 20px;
+
 }
 
 .fromstaricon {
@@ -86,15 +90,22 @@
   color: red;
 }
 
-.inputbox {
-  margin-top: 20px;
+.contctinformation {
+  color: #6c6c6c;
+  font-size: x-small;
 }
 
 .submitbtn {
-  background: #000;
-  width: 150px;
-  padding: 10px;
-  color: white;
+  background: #000 !important;
+  width: 150px !important;
+  padding: 10px !important;
   border-radius: none !important;
+  color: white !important;
+  border-radius: none !important;
+  margin-top: 10px !important;
+}
+
+.inputbox {
+
   margin-top: 10px;
 }

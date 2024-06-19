@@ -63,17 +63,18 @@ const Contact = () => {
           <div className="row">
             <div className="col-lg-6 col-md-12">
               <h3 style={{color:'black'}}>Find us here.</h3>
-              <div className="containtlist">
-                <div className="contacticon">
+              <div className="containtlist" style={{marginTop:'50px'}}>
+                <div className="contacticon" >
                   <CiLocationOn  className="iconsContactPage"/>
                 </div>
-                <div className="data">
-                  <p>Address:</p>
-                  <p style={{width:'300px',height:'cover'}}>
+                
+                <div className="data" >
+                  <li>Address:</li>
+                  <li  className="contctinformation" style={{width:'300px',height:'cover'}}>
                     12, Manik Bagh Rd, Nai 
                     Duniya, Triveni Colony, Indore,
                     Madhya Pradesh 452007
-                  </p>
+                  </li>
                 </div>
               </div>
 
@@ -82,8 +83,8 @@ const Contact = () => {
                   <HiOutlineMailOpen className="iconsContactPage" />
                 </div>
                 <div className="data">
-                  <p>Email:</p>
-                  <p>treasurebox@gmail.com</p>
+                  <li>Email:</li>
+                  <li className="contctinformation">treasurebox@gmail.com</li>
                 </div>
               </div>
 
@@ -92,8 +93,8 @@ const Contact = () => {
                   <FaPhoneAlt  className="iconsContactPage"/>
                 </div>
                 <div className="data">
-                  <p>Phone Number:</p>
-                  <p>92945 88000</p>
+                  <li>Phone Number:</li>
+                  <li className="contctinformation">92945 88000</li>
                 </div>
               </div>
             </div>
@@ -109,7 +110,7 @@ const Contact = () => {
                   <div className="bor8 how-pos4-parent icon-field m-b-2">
                     <input
                       id="email"
-                      className="stext-111 cl2 plh3 size-116 p-l-62 p-r-30"
+                      className="stext-111 cl2 plh3 size-116 p-3 "
                       type="text"
                       name="email"
                       placeholder="Your Email Address"
@@ -130,7 +131,7 @@ const Contact = () => {
                   <div className="bor8 how-pos4-parent icon-field m-b-2">
                     <input
                       id="mobile"
-                      className="stext-111 cl2 plh3 size-116 p-l-62 p-r-30"
+                      className="stext-111 cl2 plh3 size-116 p-3 "
                       type="number"
                       name="mobile"
                       placeholder="Your Mobile Number"
@@ -151,7 +152,7 @@ const Contact = () => {
                   <div className="bor8">
                     <textarea
                       id="message"
-                      className="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25"
+                      className="stext-111 cl2 plh3 size-120 p-3"
                       name="message"
                       placeholder="How Can We Help?"
                       onChange={handleChange}
@@ -167,15 +168,16 @@ const Contact = () => {
                 {/* <ButtonForAll /> */}
 
                 <button
-                  className="btn submitbtn"
+                  className="submitbtn"
                   name="Submit"
                   type="submit"
                   loading={loading}
                   disabled={loading}
                   btn_name="Submit"
                 >
-                  Submit
+                  send message
                 </button>
+                
               </form>
 
             </div>

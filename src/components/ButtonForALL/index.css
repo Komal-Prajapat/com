@@ -25,7 +25,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 1s ease; /* Smooth transition for transform */
+  transition: transform 0.1s ease; /* Smooth transition for transform */
   transform: translateY(-100%); /* Initially translate up by 100% of its own height */
 }
 

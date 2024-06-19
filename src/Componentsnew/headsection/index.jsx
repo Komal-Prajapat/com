@@ -49,7 +49,7 @@ import TryNav from "../com/trynav";
 
 const HeaderSection = ({
   reload,
-  setReload,
+  setReload, 
   fontval,
   setFontval,
   catval,
@@ -427,6 +427,36 @@ const HeaderSection = ({
     setIsOpen(!isOpen);
   };
 
+
+
+
+  const [isDropdownOpenProfile, setIsDropdownOpenProfile] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Function to toggle dropdown visibility
+  const toggleDropdownProfile = () => {
+    setIsDropdownOpenProfile(!isDropdownOpenProfile);
+  };
+
+  // Function to close dropdown when clicking outside
+  const handleClickOutsideProfile = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsDropdownOpenProfile(false);
+    }
+  };
+
+  // Add event listener when component mounts
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutsideProfile);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutsideProfile);
+    };
+  }, []);
+
+
+
+
+
   return (
     <div className={`headersection_container ${isSticky ? "sticky" : ""}`}>
       {/* ============================================ section 1 =================================================== */}
@@ -652,86 +682,71 @@ const HeaderSection = ({
               <Link to="/help" onClick={imageclick}>
                 <span className="navbarListItemsStyle">FAQ</span>
               </Link>
+            
             </li> */}
-            <div className="dropdown-container1">
-              <li className="headersection_container_profile_Link_dis">
-                <Link
-                  //  to="/help"
-                  onClick={toggleDropdown1}
-                >
-                  <FiAlignJustify
-                    style={{ fontSize: "25px" }}
-                    className="mx-3"
-                  />
-                </Link>
-              </li>
-              {isDropdownOpen && (
-                <div className="dropdown-content1">
-                  <ul>
-                    <li className="">
-                      <div className="profile_container">
-                        <div className="profile_logo_container"></div>
+            <div className="dropdown-container1" ref={dropdownRef}>
+      <li className="headersection_container_profile_Link_dis">
+        <Link onClick={toggleDropdownProfile}>
+          <FiAlignJustify style={{ fontSize: "25px" }} className="mx-3" />
+        </Link>
+      </li>
+      {isDropdownOpenProfile && (
+        <div className="dropdown-content1">
+          <ul>
+            <li className="">
+              <div className="profile_container">
+                <div className="profile_logo_container"></div>
+                {username ? (
+                  <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
+                    Hello {username}
+                  </h6>
+                ) : (
+                  <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
+                    Welcome
+                  </h6>
+                )}
+                {user_id ? (
+                  <p>{mobile}</p>
+                ) : (
+                  <p className="profile_welcome_msg">
+                    To access account and manage orders
+                  </p>
+                )}
+                {!user_id && (
+                  <button className="login_btn_profile" onClick={handleprofilePage}>
+                    Login
+                  </button>
+                )}
+              </div>
+            </li>
+            <hr></hr>
+            <li style={{ color: " #c1bcbc" }}>
+              <Link to={"/profile"}>Profile</Link>
+            </li>
+            <li style={{ color: " #c1bcbc" }}>
+              <Link to={"/liked"}>Wishlist</Link>
+            </li>
+            <li style={{ color: " #c1bcbc" }}>
+              <Link to={"/help"}>FAQ</Link>
+            </li>
+            <li style={{ color: " #c1bcbc" }}>
+              <Link to={"/cart"}>Cart</Link>
+            </li>
+            <li style={{ color: " #c1bcbc" }}>
+              <Link to={"/order"}>Order</Link>
+            </li>
+            <hr></hr>
+            <li style={{ color: " #c1bcbc" }}>
+              <Link to={"/logout"}>Log Out</Link>
+            </li>
+          </ul>
+        </div>
+      )}
+    </div>
+  
 
-                        {username ? (
-                          <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
-                            Hello {username}
-                          </h6>
-                        ) : (
-                          <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
-                            Welcome
-                          </h6>
-                        )}
 
-                        {user_id ? (
-                          <p>{mobile}</p>
-                        ) : (
-                          <p className="profile_welcome_msg">
-                            To access account and manage orders
-                          </p>
-                        )}
 
-                        {user_id ? (
-                          ""
-                        ) : (
-                          <button
-                            className="login_btn_profile"
-                            onClick={handleprofilePage}
-                          >
-                            Login
-                          </button>
-                        )}
-                      </div>
-                    </li>
-                    <hr></hr>
-                    <li style={{ color: " #c1bcbc" }}>
-                      <Link to={"/profile"}>Profile</Link>
-                    </li>
-                    <li style={{ color: " #c1bcbc" }}>
-                      <Link to={"/liked"}>Wishlist</Link>
-                    </li>
-                    <li style={{ color: " #c1bcbc" }}>
-                      <Link to={"/help"}>FAQ</Link>
-                    </li>
-                    <li style={{ color: " #c1bcbc" }}>
-                      <Link to={"/cart"}>Cart</Link>
-                    </li>
-                    <li style={{ color: " #c1bcbc" }}>
-                      <Link to={"/cart"}>Order</Link>
-                    </li>
-                    <hr></hr>
-                    <li style={{ color: " #c1bcbc" }}>
-                      <Link to={"/logout"}>Log Out</Link>
-                    </li>
-                    {/* 
-                    <Link to={"/liked"}>Wishlist</Link>               
-                    <Link to={"/cart"}>cart</Link>
-                    <Link to={"/profile"}>Profile</Link>
-                    <hr></hr>
-                    <Link to={"/logout"}>Log Out</Link> */}
-                  </ul>
-                </div>
-              )}
-            </div>
           </div>
         </div>
       </div>
