@@ -1,0 +1,36 @@
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center !important;
+    gap: 15px;
+    margin-top: 20px;
+}
+.prev_next_btn{
+    padding-top: 10px;
+}
+.activebtnpage{
+    background-color: var(--colornewprimary) !important;
+    color: var(--colorWhite);
+    min-height: 30px !important;
+    min-width: 30px !important;
+    border-radius: 50%;
+    text-align: center;
+}
+.notactive{
+    background-color: var(--colorborder) !important;
+    color: var(--colorblack);
+    min-height: 30px !important;
+    min-width: 30px !important;
+    border-radius: 50%;
+    text-align: center;
+}
+.renderpage{
+    width: 200px !important;
+    overflow-x: scroll !important;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 6px;
+}
+/* .renderpage::-webkit-scrollbar {
+    display: none;
+  } */

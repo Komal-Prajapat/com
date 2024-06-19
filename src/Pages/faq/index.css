@@ -1,0 +1,28 @@
+.faq_wrapper_container_fluid{
+    padding: 10px;
+    display: flex;
+}
+
+.faq_container_second_block{
+    width: 80%;
+    margin: auto;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    min-width: 300px;
+}
+@media (max-width: 570px) {
+    .faq_wrapper_container_fluid{
+        display: block;
+    }
+    .faq_container_first_block{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .faq_container_second_block{
+        width: 100%;
+        padding: 15px;
+    }
+}

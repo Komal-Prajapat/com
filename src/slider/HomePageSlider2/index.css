@@ -1,0 +1,65 @@
+.box {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: start;
+    padding-left: 20px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-bottom: 10px;
+  }
+  
+  .box1 {
+    background-image: url("https://ng-outstock.vercel.app/assets/img/shop/banner/banner-sm-1.jpg");
+  }
+  
+  .box2 {
+    background-image: url("https://ng-outstock.vercel.app/assets/img/shop/banner/banner-sm-2.jpg");
+  }
+  
+  .box3 {
+    background-image: url("https://ng-outstock.vercel.app/assets/img/shop/banner/banner-sm-3.jpg");
+  }
+  
+  .box-content {
+   text-align: left;
+
+    position: absolute;
+
+    transition: opacity 0.3s ease;
+  }
+  
+  .box-content p {
+    font-size: 14px;
+    color: black;
+    line-height: 0.ch;
+    text-align: left;
+ 
+  }
+  .box-content:hover{
+color:  #bc8246;
+  } 
+  .box-content button {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .box-content button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+  }
+  
+  .box:hover {
+    transform: scale(1.05);
+  }
+  

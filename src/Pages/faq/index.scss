@@ -1,0 +1,125 @@
+@import"./variable.scss";
+
+.faq-Container h1{
+  color:$DarkBlue;
+  font-weight: 700;
+  margin-bottom: 40px;
+  @media (max-width:$mobile) {
+    text-align : center;
+   margin-top:50px; 
+  }
+}
+.App {
+  
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 50px;
+  @media (max-width:$mobile) {
+    justify-content: center;  
+    padding: 0px;
+   }
+  }
+  .womenForDesktop{
+    display: block;
+    max-width: 250px;
+    margin-right: 40px;
+    @media (max-width:$mobile) {
+    display: none;
+    }
+  }
+.card{
+  width:923px ;
+  min-height:510px ;
+  border-radius: 14px;
+  padding: 30px;
+  background-position: -550px -250px;
+  background-size: 100%;
+  background-color: #fff;
+  display:flex;
+  
+
+  position: relative;
+
+  &::before{
+    // content: url("../../Assect/illustration-box-desktop.svg");
+  
+    position: absolute;
+    left:0;
+    top:40%;
+    transform: translate(-50%,0%);
+    
+    z-index: 99;
+    
+    @media (max-width:$mobile) {
+      
+     display:none;
+    }
+  }
+&>div{
+ 
+  width: 98%;
+  @media screen and (max-width:$mobile) {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:$mobile) {
+width: 90%;
+min-height: 100%;
+margin-top: 50px;
+  background-position:center 1%;
+  background-size:60%;
+  flex-direction: column;
+ 
+  
+  
+}
+}
+.image-container{
+  position: relative;
+  overflow: hidden;
+  & .womenForPhone{
+    display:none;
+  }
+ 
+  @media (max-width:$mobile) {
+    height: 25%;
+    overflow: unset;
+    & .womenForPhone{
+      display:unset;
+    }
+    & .womenForDesktop{
+      display: none;
+    }
+  }
+
+  .women{
+  
+position: absolute;
+left:0;
+top:50%;
+transform: translate(-20%,-50%);
+@media (max-width:$mobile) {
+  
+  max-width: 170px !important;
+  top:-24px;
+  left:50%;
+    transform: translate(-50%,-55%);
+
+}
+  
+}
+.faq-Container{
+ padding: 70px 90px 70px 0;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ @media (max-width:$mobile) {
+   padding: 20px 10px;
+   height: 100%;
+ }
+}
+}

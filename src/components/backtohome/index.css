@@ -1,0 +1,17 @@
+/* **********BAck To Home***************** */
+.backToHome {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    list-style-type: none;
+    background: #bc8246;
+    margin-right: 20px;
+    border: 1px solid #bc8246;
+    z-index: 999;
+}

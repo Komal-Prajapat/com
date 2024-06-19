@@ -1,0 +1,233 @@
+.placeorder_container {
+    min-height: 100vh;
+    width: 100%;
+    padding: 0px 35px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+}
+.center-text{
+    text-align: center;
+}
+
+.order_container_one {
+    min-width: 300px;
+    width: 70%;
+}
+
+.order_container_two {
+    min-width: 300px;
+}
+
+.card_order_login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    margin-top: 25px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px !important;
+}
+
+.order_login_contain {
+    display: flex;
+    gap: 10px;
+    width: 100% !important;
+}
+
+.step_contain p {
+    padding: 5px;
+    /* background-color: whitesmoke; */
+    height: 0px;
+    text-align: center;
+}
+
+.login_number_container h4,
+.order_changelogin_contain h4 {
+    font-size: 14px;
+    color: var(--ordertextcolor);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    margin-top: 3px;
+}
+.login_number_container h3,
+.order_changelogin_contain h3 {
+    font-size: 14px;
+    color: var(--ordertextcolor);
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-weight: 600;
+    margin-top: 3px;
+}
+
+button.login_change_btn {
+    padding: 5px 20px;
+    border: 1px solid var(--colorborder);
+}
+
+.order_cart_containe {
+    box-sizing: border-box;
+    gap: 20px;
+    padding: 15px;
+    display: flex;
+}
+
+.order_remove_contain {
+    box-sizing: border-box;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.login_continue_btn {
+    padding: 10px 43px;
+    background-color: var(--colorprimary);
+    color: #ffffff;
+    width: 155px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    white-space: nowrap;
+    border-radius: 4px;
+}
+
+/* ---------------------------------on change click================================================== */
+.order_changelogin_contain {
+    display: flex;
+    gap: 10px;
+}
+
+.card_order_changelogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 10px;
+    margin-top: 25px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px !important;
+}
+
+.order_changelogin_inside {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+@media (max-width: 570px) {
+    .order_changelogin_inside {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .card_order_login{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+.addresstype_radio span {
+    color: #1976d2;
+}
+
+span {
+    font-size: 12px;
+    color: var(--ordertextcolor);
+}
+
+.placeorder_container p {
+    font-size: 14px !important;
+}
+
+.order_logout_text {
+    color: var(--colorprimary);
+    cursor: pointer;
+    font-weight: 530;
+}
+
+.formcontrol span.MuiTypography-root.MuiTypography-body1.MuiFormControlLabel-label.css-ahj2mt-MuiTypography-root {
+    color: black;
+}
+
+.formcontrol span {
+    color: #1976d2 !important;
+}
+
+.login_number_container {
+    width: 100%;
+}
+
+/* ===============================empty checkout modal=================================================== */
+.emptyorder_container {
+    height: 80vh;
+    text-align: center;
+    padding: 50px;
+}
+
+.empty_card_placeorder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-top: 25px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px !important;
+}
+
+.empty_checkout_dialog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.address-form-error {
+    color: red;
+    font-size: 14px;
+}
+.header-cart-item-rupee{
+    white-space: nowrap;
+}
+
+.addaddress_container {
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.overflow::-webkit-scrollbar {
+    display: none;
+}
+
+.edit_button_container {
+    display: flex;
+}
+.address_update_btn{
+    padding: 10px 43px;
+    background-color: var(--colorprimary);
+    color: #ffffff;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+@media (max-width: 450px) {
+    .edit_button_container {
+        display: flex;
+        flex-direction: column;
+    }
+    .address_update_btn{
+        width: 100% !important;
+    }
+    .addaddress_container {
+        padding: 10px !important;
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

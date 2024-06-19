@@ -1,0 +1,145 @@
+.newcart_container_inside {
+    display: flex;
+    width: 100%;
+    gap: 25px;
+    padding: 10px 15px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cartimg_container {
+    width: 100px;
+    height: 100px;
+    margin-right: 5px;
+}
+
+.cartimg_container img {
+    width: 100%;
+    height: 100%;
+    min-width: 85px;
+    cursor: pointer;
+}
+
+.newcart_product_container {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    padding-right: 10px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.newcart_product_container_inside {
+    width: 70%;
+    margin-bottom: 5px;
+}
+
+.cart_productname {
+    font-size: 14px !important;
+    width: 80% !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+
+
+.cart_productcolor {
+    display: flex;
+    align-items: center;
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 5px;
+}
+
+.margin {
+    margin-top: 15px;
+}
+
+.checkout_btn {
+    width: 100%;
+    border: 1px solid #dedede;
+    margin-top: 25px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.cart_quantity_remove_container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    
+}
+
+.cart_quantity_container {
+    display: flex;
+    border: 1px solid #dedede;
+    align-items: center;
+}
+
+.cart_quantity_container button {
+    text-align: center;
+    width: 30px;
+    height: 30px;
+}
+
+.cart_quantity_container input {
+    text-align: center;
+    width: 40px;
+    height: 30px;
+    border: 1px solid #dedede;
+}
+
+.newcart_container {
+    padding: 5px 30px;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.cart_product_mrp {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+@media (max-width: 570px) {
+    .newcart_product_container {
+        padding-right: 0;
+        width: 50%
+    }
+
+    .newcart_container {
+        padding: 5px 5px;
+    }
+}
+
+.delivery-charge {
+    padding: 0px 5px;
+}
+
+.addmore_text {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--colornewprimary);
+    display: flex;
+    align-items: center;
+    padding: 0 !important;
+    margin: 0 !important;
+    flex-wrap: wrap;
+}
+.justify-center{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    line-height: 20px;
+    margin-top: 10px !important;
+}
+.oos {
+    font-size: 14px !important;
+   color: red;
+}

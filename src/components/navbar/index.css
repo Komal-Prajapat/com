@@ -1,0 +1,11 @@
+/* .nav_btn_hove :hover{
+    color: var(--colorprimary) important;
+} */
+.nav_btn_hove:hover {
+    color: var(--colorprimary) !important;
+    text-decoration: underline;
+}
+.nav_btn_hove.active{
+    text-decoration: underline;
+    color: var(--colorprimary) !important;
+}

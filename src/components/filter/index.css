@@ -1,0 +1,173 @@
+.selected_list {
+	display: flex;
+	gap: 10px;
+}
+
+.price_lable_input {
+	display: flex;
+	gap: 2px;
+}
+
+.price {
+	border: 1px solid var(--colorcl12);
+	padding: 0px 15px;
+	width:50px;
+}
+
+
+
+.input_container_filter {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.clear_filter_btn {
+	font-size: 12px !important;
+	color: var(--colorprimary);
+	font-weight: 600;
+}
+
+.filter_container {
+	width: 100%;
+	display: flex;
+}
+
+.selectedlist_display {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	overflow: auto;
+}
+
+.filter-col4 {
+	width: 176 !important;
+
+}
+
+.filter_container {
+	display: flex !important;
+	justify-content: space-between;
+}
+.desktop_filter_container_fluid{
+	width : 100% !important;
+	background-color: var(--colorWhite);
+	/* padding-right: 50px; */
+	margin-bottom: 5px;
+	animation: slideInDown;
+	animation-duration: 1s;
+}
+
+
+.hidefilter {
+	display: none;
+}
+
+.showFilter {
+	transition: 10s;
+
+}
+
+@media (max-width: 570px) {
+	.filter_container_fluid {
+		top: 0;
+		left: 0;
+		width: 300px;
+		height: 100vh;
+		max-width: calc(100% - 30px);
+		animation: slideInLeft !important;
+		animation-duration: 1s !important;
+		display: block;
+	}
+
+	.filter_container {
+		display: block !important;
+		background-color: var(--colorWhite);
+		padding-right: 40px;
+	}
+
+	/* .wrap-filter {
+		position: absolute !important;
+		top: 70px;
+	} */
+
+	.panel-filter {
+		z-index: 999;
+	}
+	.desktop_filter_container_fluid{
+		display: none;
+	}
+}
+
+.clgray {
+	cursor: pointer;
+	display: flex !important;
+}
+
+@keyframes slideDown {
+	0% {
+		transform: translateY(-100%);
+	}
+
+	50% {
+		transform: translateY(8%);
+	}
+
+	65% {
+		transform: translateY(-4%);
+	}
+
+	80% {
+		transform: translateY(4%);
+	}
+
+	95% {
+		transform: translateY(-2%);
+	}
+
+	100% {
+		transform: translateY(0%);
+	}
+}
+
+@-webkit-keyframes slideDown {
+	0% {
+		-webkit-transform: translateY(-100%);
+	}
+
+	50% {
+		-webkit-transform: translateY(8%);
+	}
+
+	65% {
+		-webkit-transform: translateY(-4%);
+	}
+
+	80% {
+		-webkit-transform: translateY(4%);
+	}
+
+	95% {
+		-webkit-transform: translateY(-2%);
+	}
+
+	100% {
+		-webkit-transform: translateY(0%);
+	}
+}
+
+.filter-link.disabledFilter {
+	color: var(--colorcl12) !important;
+}
+
+.filter-link.activeFilter {
+	color: var(--colorprimary) !important;
+}
+
+.filter_title {
+	white-space: nowrap;
+}
+.filter_apply_dlt{
+	display: flex;
+	gap: 10px;
+}

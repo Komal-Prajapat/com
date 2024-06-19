@@ -1,0 +1,146 @@
+/* .product-img {
+  cursor: pointer !important;
+}
+
+.product_card_container {
+  max-width: 200px;
+  margin-bottom: 12px !important;
+}
+
+
+.card_box img {
+  min-height: 275px !important;
+  width: 100% !important;
+}
+
+.like_icon-div {
+  width: 100% !important;
+  display: flex;
+  padding-right: 5px;
+  justify-content: flex-end;
+
+}
+
+.isotope-item {
+  width: 100%;
+}
+
+.btn-addwish-b2,
+.block2-btn {
+  cursor: pointer !important;
+}
+
+.C_pointer {
+  cursor: pointer;
+}
+
+.text_name {
+  color: var(--colorblack);
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* -------------------------------image rollover--------------------------------------------------------- */
+/* .image_container_product {
+  height: 90% !important;
+  display: flex;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+}
+
+.product-img .rear-img {
+  opacity: 0;
+  position: absolute;
+  top: 5;
+  left: 0;
+  z-index: -1; */ 
+  /* animation: fadeIn;
+  animation-duration: 1s;  */
+  /* -webkit-transition: opacity 1s ease-out;
+  -o-transition: opacity 1s ease-out;
+   transition: opacity 1s ease-out; */
+/* } */
+
+/* .product-img:hover .rear-img {
+  opacity: 1;
+  z-index: 1;
+}
+
+.product-img:hover .main-img {
+  opacity: 0;
+  z-index: 0;
+} */
+
+/* -------------------------------image rollover--------------------------------------------------------- */
+
+/* .product_grid {
+  display: flex;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  width: 100%;
+  flex-wrap: wrap;
+  padding-left: 30px;
+} */
+
+/* .productflex {
+  display: flex !important;
+  overflow-x: scroll;
+  flex-wrap: nowrap !important;
+}
+
+.productflex::-webkit-scrollbar {
+  display: none;
+}
+
+.pro_container {
+  min-width: 200px;
+}
+
+@media (max-width: 768px) {
+  .product_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .pro_container {
+    min-width: 115px;
+  }
+}
+
+@media (max-width: 570px) {
+  .product_card_container{
+    max-width: 160px !important;
+  }
+  .container{
+    padding: 0px 10px !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .product_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px !important;
+  }
+  .product_card_container{
+    max-width: 200px !important;
+  }
+}
+@media (max-width: 420px) {
+  .product_card_container{
+    max-width: 170px !important;
+  }
+}
+.product_card_product_name {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */

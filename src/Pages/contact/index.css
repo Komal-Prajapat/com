@@ -1,0 +1,100 @@
+.contactcontainer {
+  padding: 80px;
+  width: 90% !important;
+  margin: auto !important;
+
+}
+
+.contact_heading {
+  position: relative !important;
+  background-size: cover !important;
+  background-image: url(../../../public/image/about.jpg);
+  height: 173px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.map {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.map iframe {
+  width: 100% !important;
+}
+
+@media (max-width: 991px) {
+  .contact_heading {
+    height: 100px;
+    /* Adjust height for smaller screens */
+  }
+}
+
+.c-pointer {
+  cursor: pointer !important;
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.contacticon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(197, 192, 192);
+}
+
+.contacticon:hover {
+  background: #000 !important;
+  color: white !important;
+}
+
+.iconsContactPage {
+  font-size: 18px;
+  color: #6c6c6c;
+}
+.iconsContactPage:hover{
+  color: white;
+}
+.containtlist {
+  display: flex;
+
+  margin-top: 20px;
+}
+
+.data {
+  margin-left: 20px;
+}
+
+.fromstaricon {
+  color: red;
+  font-size: 5px;
+  margin-bottom: 10px;
+}
+
+.form-error {
+  font-size: xx-small;
+  color: red;
+}
+
+.inputbox {
+  margin-top: 20px;
+}
+
+.submitbtn {
+  background: #000;
+  width: 150px;
+  padding: 10px;
+  color: white;
+  border-radius: none !important;
+  margin-top: 10px;
+}

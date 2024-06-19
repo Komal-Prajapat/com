@@ -1,0 +1,25 @@
+
+.headTermsClass{
+    font-size: 24px !important;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.termsOutsideClass{
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+.termsMainClass{
+    width: 100%;
+    padding: 0px 35px;
+}
+.termsMainClass{
+    min-height: 100vh;
+}
+.terms_content{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}

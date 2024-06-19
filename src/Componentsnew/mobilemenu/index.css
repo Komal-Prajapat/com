@@ -1,0 +1,28 @@
+.mbl_menu_container {
+    background-color: var(--colorWhite);
+    min-height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    padding: 0px 10px;
+    left: 0;
+    z-index: 999;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    animation: slideInLeft; 
+    animation-duration: 1.2s; 
+}
+.mbl_menu_close_icon{
+    text-align: end;
+}
+.mbl_menu_items {
+    display: block;
+    text-align: left;
+    padding: 0px 15px;
+}
+.mbl_menu_li a{
+    color: var(--colorblack);
+    font-weight: 500;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+

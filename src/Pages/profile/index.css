@@ -1,0 +1,40 @@
+.profile_page_container {
+    min-height: 100vh;
+    padding: 50px;
+   margin: 20px;
+   width: 50%;
+   height: cover;
+ margin: auto   ;
+ margin-top: 10px;
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adding shadow effect */
+  }
+  
+  .profile_save_btn {
+    background-color:#bc8246;;
+    color: var(--colorWhite);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    cursor: pointer;
+    width: 150px;
+    float: right;
+  }
+  
+  .profile-textfield label {
+    z-index: 0;
+  }
+  
+  @media (max-width: 570px) {
+    .profile_page_container {
+      padding: 10px;
+    }
+  
+    .profile_save_btn {
+      width: 100%;
+    }
+  }
+  

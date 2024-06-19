@@ -1,0 +1,89 @@
+.login_container{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 25px;
+    min-width: 300px;
+    padding: 20px 15px;
+    background-color: #ffffff;
+}
+.login_container_first{
+    background-color: var(--colorprimary);
+    margin-top: 25px;
+    width: 300px;
+    padding: 25px;
+    color: #ffffff !important;
+    display: flex;
+    flex-direction: column;
+    gap: 115px
+}
+.loginIcon_container{
+    text-align: center;
+}
+.Login_heading{
+    color: #ffffff !important;
+}
+.Login_text{
+    margin-top: 25px !important;
+    color: #ffffff !important;
+    white-space: wrap;
+}
+.loginprivacy{
+font-size: 12px !important;
+font-weight: 400 !important;
+}
+
+
+.otpverify{
+font-size: 12px !important;
+font-weight: 400 !important;
+}
+.otpverify_container{
+margin-top: 20px;
+display: flex;
+flex-direction: column;
+gap: 25px;
+}
+.otpverify_resend{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: #3582fe !important;
+    font-weight: 500;
+    justify-content: center;
+}
+
+.marginBottom{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+@media (max-width: 500px) {
+    .login_container_first{
+        display: none;
+    }
+}
+@media (max-width: 740px) {
+    .otpverify{
+        display: block;
+        }
+}
+.Login_form-error{
+    position: relative;
+    top: -27px;
+    color: red;
+}
+.loginprivacy span{
+    color: var(--colorprimary);
+    cursor: pointer;
+}
+
+/* button.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeMedium.css-78trlr-MuiButtonBase-root-MuiIconButton-root{
+    margin-bottom: 15px;
+} */
+.mobile_phone_field input{
+    padding: 21px 3px 5px !important;
+}
+
+
+
+  

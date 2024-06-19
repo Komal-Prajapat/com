@@ -1,0 +1,14 @@
+.empty_container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.empty_container_fluid{
+    padding: 10px;
+    width: 100%;
+}
+.empty_container_fluid img{
+    max-width: 100% !important;
+}

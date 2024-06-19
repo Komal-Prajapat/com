@@ -1,0 +1,24 @@
+.radio_control{
+    padding-top: 0 !important;
+}
+
+.btn_checkout{
+    font-weight:"600px" !important;
+    background-color: #222 !important;
+    color: var(--colorWhite) !important;
+    width: 150px;
+    padding: 10px 14px;
+    border-radius: 23px;
+    margin-left: 15px;
+
+}
+.btn_checkout:hover{
+    background-color: var(--colorprimary) !important;
+}
+
+.MuiStepLabel-iconContainer .Mui-active{
+    color:var(--colorprimary) !important; 
+}
+.MuiStepLabel-iconContainer .Mui-completed{
+    color:var(--colorprimary) !important; 
+}
