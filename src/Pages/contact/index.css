@@ -73,7 +73,14 @@
   margin-top: 20px;
 
 }
-
+.contactp{
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #848b8a;
+  margin-bottom: 15px;
+  line-height: 24px;
+}
 .data {
   margin-left: 20px;
 
@@ -91,8 +98,13 @@
 }
 
 .contctinformation {
-  color: #6c6c6c;
+  color: #606060;
   font-size: x-small;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #848b8a;
+  line-height: 24px;
 }
 
 .submitbtn {

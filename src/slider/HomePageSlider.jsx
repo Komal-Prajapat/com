@@ -82,7 +82,7 @@ function DarkVariantExample() {
               src="https://ng-outstock.vercel.app/assets/img/slider/slider-1.jpg"
               alt="Third slide"
             />
-          </div>
+          </div> 
         </Carousel.Item>
       </Carousel>
     </div>

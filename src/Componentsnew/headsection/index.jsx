@@ -1,16 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
-import "./index.css";
-import { Box, Divider, Popper } from "@mui/material";
-import { Skeleton } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
+import { Box, Divider, Popper } from "@mui/material";
+import React, { useEffect, useRef, useState } from "react";
+import { FiAlignJustify } from "react-icons/fi";
+import { IoIosArrowDown } from "react-icons/io";
+import { IoBagHandleOutline } from "react-icons/io5";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ToastMessage from "../../utils/ToastMessage";
-import { IoBagHandleOutline, IoPersonOutline } from "react-icons/io5";
-import { CiHeart } from "react-icons/ci";
-import { IoIosArrowDown } from "react-icons/io";
-import { FiAlignJustify } from "react-icons/fi";
-import { CgProfile } from "react-icons/cg";
+import "./index.css";
 
+import swal from "sweetalert";
 import {
   Activecategory,
   Activesubcategory,
@@ -23,33 +21,22 @@ import {
   postApiCall,
   searchhomeapi,
 } from "../../API/baseUrl";
-import swal from "sweetalert";
 import headerlogo from "../../Assect/logo.png";
-import carticon from "../../Assect/cartimg.png";
-import ShoppingCartCheckoutOutlinedIcon from "@mui/icons-material/ShoppingCartCheckoutOutlined";
-import shipicon from "../../Assect/shippingicon.png";
 // import contacticon from "../../Assect/contacticon.png";
 
-import HeadsetMicOutlinedIcon from "@mui/icons-material/HeadsetMicOutlined";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import MenuIcon from "@mui/icons-material/Menu";
-import MobileMenu from "../mobilemenu";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import Login from "../../Pages/login/login";
-import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import Badge from "@mui/material/Badge";
-import { Autocomplete, TextField } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
 import "animate.css";
-import Com from "../com";
-import LiveHelpIcon from "@mui/icons-material/LiveHelp";
-import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
+import Login from "../../Pages/login/login";
 import TryNav from "../com/trynav";
+import MobileMenu from "../mobilemenu";
 
 const HeaderSection = ({
   reload,
-  setReload, 
+  setReload,
   fontval,
   setFontval,
   catval,
@@ -81,10 +68,16 @@ const HeaderSection = ({
   const [cartTotal, setCartTotal] = useState("");
   const [isSticky, setSticky] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [showTryNav, setShowTryNav] = useState(false);
 
-  const toggleDropdown1 = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  // Function to toggle the state
+  const toggleTryNav = () => {
+    setShowTryNav(!showTryNav);
   };
+
+  // const toggleDropdown1 = () => {
+  //   setIsDropdownOpen(!isDropdownOpen);
+  // };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -427,9 +420,6 @@ const HeaderSection = ({
     setIsOpen(!isOpen);
   };
 
-
-
-
   const [isDropdownOpenProfile, setIsDropdownOpenProfile] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -447,15 +437,11 @@ const HeaderSection = ({
 
   // Add event listener when component mounts
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutsideProfile);
+    document.addEventListener("mousedown", handleClickOutsideProfile);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutsideProfile);
+      document.removeEventListener("mousedown", handleClickOutsideProfile);
     };
   }, []);
-
-
-
-
 
   return (
     <div className={`headersection_container ${isSticky ? "sticky" : ""}`}>
@@ -466,7 +452,7 @@ const HeaderSection = ({
       >
         <div className=" sectionBody">
           <div className="headersection_container_profile">
-            <li className="col-lg-5">
+            <li className="col-lg-4">
               {" "}
               <Link to="/" className="web_logo_container_link ">
                 <img
@@ -477,7 +463,24 @@ const HeaderSection = ({
                 />
               </Link>
             </li>
-            <div  className=" col-lg-3 " style={{display:'flex'}}>
+            <div className=" col-lg-4 " style={{ display: "flex" }}>
+              <li className="profile_list navbarListItemsStyle mx-4">
+                <div className="dropdown navbarListItemsStylex">
+                  <button className="dropbtn">
+                    <span
+                      className="navbarListItemsStyle bold"
+                      onClick={toggleTryNav}
+                    >
+                      Shop <IoIosArrowDown />
+                      {/* {showTryNav && <TryNav />} */}
+                    </span>
+                  </button>
+                  <div className="dropdown-content shopdrop">
+                    {/* <TryNav ></TryNav> */}
+                    {showTryNav && <TryNav />}
+                  </div>
+                </div>
+              </li>
               <li
                 className="profile_list navbarListItemsStyle mx-4 "
                 onClick={gotoabout}
@@ -494,24 +497,6 @@ const HeaderSection = ({
               </li>
             </div>
 
-            {/* 
-            <li
-              className="profile_list navbarListItemsStyle"
-              
-             
-            >
-              <div className="dropdown navbarListItemsStylex">
-                <button className="dropbtn">
-                  <span className="navbarListItemsStyle bold">
-                    Shop <IoIosArrowDown />
-                  </span>
-                </button>
-                <div className="dropdown-content shopdrop">
-                  <TryNav></TryNav>
-                </div>
-              </div>
-            </li> */}
-
             <div className="home_page_search_container col-lg-1 text-end">
               <div className="" ref={searchRef}>
                 <div className="home_page_search_container">
@@ -526,7 +511,7 @@ const HeaderSection = ({
                     onChange={(e) => handleOnSearchChange(e)}
                     value={search}
                     placeholder="Search"
-                    style={{ width: "60px", color:'black'}}
+                    style={{ width: "60px", color: "black" }}
                   ></input>
                 </div>
                 {searchdata.length ? (
@@ -578,7 +563,7 @@ const HeaderSection = ({
               </Link>
             </li> */}
 
-            {/* <p onClick={handlelikePage} sx={{ color: "var(--colornewprimary)", cursor: "pointer" }}>Wishlist</p> */}
+            {/* <p onClick={handlelikePage} sx={{   , cursor: "pointer" }}>Wishlist</p> */}
 
             {/* <div ref={profileRef}>
               <li
@@ -664,7 +649,10 @@ const HeaderSection = ({
                 {/* <img onClick={Gotocart} src={carticon} alt="IMG-LOGO" /> */}
               </div>
               <div className="cart_price_count_container" onClick={Gotocart}>
-                <p className="cart_text_count navbarListItemsStyle" style={{marginTop:'30px'}}>
+                <p
+                  className="cart_text_count navbarListItemsStyle"
+                  style={{ marginTop: "30px" }}
+                >
                   <IoBagHandleOutline
                     onClick={Gotocart}
                     className="navbarListItemsStyle"
@@ -685,68 +673,70 @@ const HeaderSection = ({
             
             </li> */}
             <div className="dropdown-container1" ref={dropdownRef}>
-      <li className="headersection_container_profile_Link_dis">
-        <Link onClick={toggleDropdownProfile}>
-          <FiAlignJustify style={{ fontSize: "25px" }} className="mx-3" />
-        </Link>
-      </li>
-      {isDropdownOpenProfile && (
-        <div className="dropdown-content1">
-          <ul>
-            <li className="">
-              <div className="profile_container">
-                <div className="profile_logo_container"></div>
-                {username ? (
-                  <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
-                    Hello {username}
-                  </h6>
-                ) : (
-                  <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
-                    Welcome
-                  </h6>
-                )}
-                {user_id ? (
-                  <p>{mobile}</p>
-                ) : (
-                  <p className="profile_welcome_msg">
-                    To access account and manage orders
-                  </p>
-                )}
-                {!user_id && (
-                  <button className="login_btn_profile" onClick={handleprofilePage}>
-                    Login
-                  </button>
-                )}
-              </div>
-            </li>
-            <hr></hr>
-            <li style={{ color: " #c1bcbc" }}>
-              <Link to={"/profile"}>Profile</Link>
-            </li>
-            <li style={{ color: " #c1bcbc" }}>
-              <Link to={"/liked"}>Wishlist</Link>
-            </li>
-            <li style={{ color: " #c1bcbc" }}>
-              <Link to={"/help"}>FAQ</Link>
-            </li>
-            <li style={{ color: " #c1bcbc" }}>
-              <Link to={"/cart"}>Cart</Link>
-            </li>
-            <li style={{ color: " #c1bcbc" }}>
-              <Link to={"/order"}>Order</Link>
-            </li>
-            <hr></hr>
-            <li style={{ color: " #c1bcbc" }}>
-              <Link to={"/logout"}>Log Out</Link>
-            </li>
-          </ul>
-        </div>
-      )}
-    </div>
-  
-
-
-
+              <li className="headersection_container_profile_Link_dis">
+                <Link onClick={toggleDropdownProfile}>
+                  <FiAlignJustify
+                    style={{ fontSize: "25px" }}
+                    className="mx-3"
+                  />
+                </Link>
+              </li>
+              {isDropdownOpenProfile && (
+                <div className="dropdown-content1">
+                  <ul>
+                    <li className="">
+                      <div className="profile_container">
+                        <div className="profile_logo_container"></div>
+                        {username ? (
+                          <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
+                            Hello {username}
+                          </h6>
+                        ) : (
+                          <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
+                            Welcome
+                          </h6>
+                        )}
+                        {user_id ? (
+                          <p>{mobile}</p>
+                        ) : (
+                          <p className="profile_welcome_msg">
+                            To access account and manage orders
+                          </p>
+                        )}
+                        {!user_id && (
+                          <button
+                            className="login_btn_profile"
+                            onClick={handleprofilePage}
+                          >
+                            Login
+                          </button>
+                        )}
+                      </div>
+                    </li>
+                    <hr></hr>
+                    <li style={{ color: " #c1bcbc" }}>
+                      <Link to={"/profile"}>Profile</Link>
+                    </li>
+                    <li style={{ color: " #c1bcbc" }}>
+                      <Link to={"/liked"}>Wishlist</Link>
+                    </li>
+                    <li style={{ color: " #c1bcbc" }}>
+                      <Link to={"/help"}>FAQ</Link>
+                    </li>
+                    <li style={{ color: " #c1bcbc" }}>
+                      <Link to={"/cart"}>Cart</Link>
+                    </li>
+                    <li style={{ color: " #c1bcbc" }}>
+                      <Link to={"/order"}>Order</Link>
+                    </li>
+                    <hr></hr>
+                    <li style={{ color: " #c1bcbc" }}>
+                      <Link to={"/logout"}>Log Out</Link>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -803,7 +793,7 @@ const HeaderSection = ({
           {/* <div className='home_page_search_container'>
                         <div className="" ref={searchRef}>
                             <div className='home_page_search_container'>
-                                <SearchIcon sx={{ color: "var(--colornewprimary)", fontSize: "20px" }} />
+                                <SearchIcon sx={{   , fontSize: "20px" }} />
                                 <input className="search__input field__input"
                                     id="Search-In-Modal" type="search"
                                     name="search" autocomplete="off"
@@ -838,7 +828,7 @@ const HeaderSection = ({
 
                         </div>
                         <div className='mbl_search_cart_container'>
-                            <SearchIcon sx={{ color: "var(--colornewprimary)", fontSize: "24px" }} />
+                            <SearchIcon sx={{   , fontSize: "24px" }} />
                         </div>
                     </div> */}
 
@@ -848,28 +838,17 @@ const HeaderSection = ({
               color="secondary"
               badgeContent={cartcount}
             >
-              <ShoppingCartIcon
-                onClick={Gotocart}
-                sx={{ color: "var(--colornewprimary)", cursor: "pointer" }}
-              />
+              <ShoppingCartIcon onClick={Gotocart} sx={{ cursor: "pointer" }} />
             </Badge>
-            <FavoriteIcon
-              onClick={handlelikePage}
-              sx={{ color: "var(--colornewprimary)", cursor: "pointer" }}
-            />
-            <SearchIcon
-              onClick={handlesearchPage}
-              sx={{ color: "var(--colornewprimary)", cursor: "pointer" }}
-            />
+            <FavoriteIcon onClick={handlelikePage} sx={{ cursor: "pointer" }} />
+            <SearchIcon onClick={handlesearchPage} sx={{ cursor: "pointer" }} />
             <div className="headersection_container_profile_mobile">
               <div ref={profileRefmobile}>
                 <li
                   onClick={handleClick}
                   className="headersection_container_profile_contain"
                 >
-                  <PersonIcon
-                    sx={{ color: "var(--colornewprimary)", cursor: "pointer" }}
-                  />
+                  <PersonIcon sx={{ cursor: "pointer" }} />
                 </li>
                 <Popper
                   id={idmobileprofile}

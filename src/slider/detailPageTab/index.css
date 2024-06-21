@@ -1,0 +1,62 @@
+/* Inside your index.css or custom CSS file */
+
+.custom-tab-list {
+  text-align: center;
+  margin-top: 50px;
+ 
+}
+
+.deatilpagetab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.react-tabs {
+  border: none;
+}
+
+.react-tabs__tab-list {
+  border-bottom: none;
+}
+
+.react-tabs__tab {
+  border: none;
+  color: black !important;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.react-tabs__tab--selected {
+  font-weight: bold;
+}
+
+.react-tabs__tab-panel {
+  border: none;
+  padding: 20px;
+}
+
+.table_container {
+  width: 100%;
+}
+
+.table_container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table_container table th,
+.table_container table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.table_container table th {
+  font-weight: bold;
+}
+
+.general_title {
+  font-weight: bold;
+}

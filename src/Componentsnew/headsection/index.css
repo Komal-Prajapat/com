@@ -5,7 +5,7 @@ body {
 .headersection_container {
     background: #f5f5f5;
     height: 80px;
-margin-bottom: 10px;
+    margin-bottom: 10px;
 
     align-items: center;
     width: 100%;
@@ -171,7 +171,7 @@ margin-bottom: 10px;
     font-size: 16px;
     color: grey !important;
     /* font-weight: 600; */
-    /* color: var(--colornewprimary); */
+
 }
 
 .cart_price_count {
@@ -620,7 +620,7 @@ margin-bottom: 10px;
     background-color: #ddd;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown .dropdown-content {
     display: block;
 }
 
@@ -630,42 +630,42 @@ margin-bottom: 10px;
 .dropdown-container1 {
     position: relative;
     display: inline-block;
-  }
-  
-  .dropdown-content1 {
-    text-align:start ;
+}
+
+.dropdown-content1 {
+    text-align: start;
     padding: 0px 25px;
     display: block;
     position: absolute;
     background-color: #f9f9f9;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    overflow-y: auto; /* Enable vertical scrollbar */
-    max-height: 300px; /* Set max height of the dropdown content */
+    overflow-y: auto;
+    /* Enable vertical scrollbar */
+    max-height: 300px;
+    /* Set max height of the dropdown content */
     width: 250px;
     right: 0;
     color: #c1bcbc;
-  }
-  
-  .dropdown-content1 ul {
+}
+
+.dropdown-content1 ul {
     list-style-type: none;
     padding: 0;
-  }
-  
-  
-  /* Style the link inside the dropdown */
-  .dropdown-content1 a {
+}
+
+
+/* Style the link inside the dropdown */
+.dropdown-content1 a {
     color: rgb(57, 57, 57);
     text-decoration: none;
     display: block;
     /* color: #9f9f9f; */
     font-size: 15px;
     padding: 3px 0px;
-  }
-  
-  /* Change background color of dropdown links on hover */
-  .dropdown-content1 a:hover {
+}
+
+/* Change background color of dropdown links on hover */
+.dropdown-content1 a:hover {
     background-color: #f1f1f1;
-  }
-  
-  
+}

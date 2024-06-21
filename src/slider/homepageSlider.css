@@ -4,7 +4,6 @@
 
 /* Carousel item content */
 .sliderCon {
-  /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
   padding: 15px;
   margin-top: 40px !important;
   background: white;
@@ -23,6 +22,7 @@
   transform: translateY(-50%);
   color: white;
   text-align: left;
+  width: 500px; /* Default width for larger screens */
 }
 
 .content-text h1,
@@ -36,6 +36,16 @@
   padding: 10px 20px; 
   border: none;
   cursor: pointer;
+}
+
+.sliderheading{
+  animation-delay: .5s !important;
+  animation-duration: .5s !important;
+  line-height: 1.2 !important;
+  color: #323232 !important;
+  margin-bottom: 14px !important;
+  font-size: 36px !important;
+  font-weight: 400px !important;
 }
 
 /* Carousel indicators */
@@ -54,31 +64,37 @@
 .carousel-indicators .active {
   background-color: white; 
 }
-.sliderheading{
-  animation-delay: .5s !important;
-  animation-duration: .5s !important;
-      /* font-weight: 600; */
-      line-height: 1.2 !important;
-      color: #323232 !important;
-      margin-bottom: 14px !important;
-      font-size: 36px !important;
-      font-weight: 400px !important;
-}
+
 /* Responsive adjustments */
+@media (max-width: 1200px) {
+  .content-text {
+    width: 400px;
+  }
+}
+
+@media (max-width: 992px) {
+  .content-text {
+    width: 300px;
+  }
+}
+
 @media (max-width: 768px) {
   .content-text {
     width: 100%;
     padding: 0 20px;
-    text-align: center;
+   
     left: 0;
     right: 0;
   }
+
   .content-text h1 {
     font-size: 24px; 
   }
+
   .content-text p {
     font-size: 14px; 
   }
+
   .content-text button {
     font-size: 14px; 
     padding: 8px 16px; 
@@ -88,19 +104,19 @@
 @media (max-width: 576px) {
   .content-text {
     padding: 0 10px;
+    text-align: left;
   }
+
   .content-text h1 {
     font-size: 20px; 
   }
+
   .content-text p {
     font-size: 12px;
   }
+
   .content-text button {
     font-size: 12px; 
     padding: 6px 12px; 
-  }
-  .sliderCon{
-    background: white;
-    height: 535px;
   }
 }

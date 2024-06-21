@@ -9,7 +9,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { HiOutlineMailOpen } from "react-icons/hi";
 import { FaStar } from "react-icons/fa6";
 import TopPageImage from "../../components/toppageimage";
-import { FaPhoneAlt } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaPhoneAlt } from "react-icons/fa";
 const initialValues = {
   email: "",
   mobile: "",
@@ -57,7 +57,7 @@ const Contact = () => {
 
   return (
     <>
-      <TopPageImage pagename="Contact Us"></TopPageImage>
+      <TopPageImage pagename="Contact Us" bgimg="https://ng-outstock.vercel.app/assets/img/page-title/page-title-2.jpg"></TopPageImage>
       <section className="bg0 p-b-50 m-t-50">
         <div className="contactcontainer">
           <div className="row">
@@ -94,9 +94,31 @@ const Contact = () => {
                 </div>
                 <div className="data">
                   <li>Phone Number:</li>
-                  <li className="contctinformation">92945 88000</li>
+                  <li className="contctinformation">(+91)92945 88000</li>
                 </div>
               </div>
+
+<p className=" contactp" style={{marginTop:'30px'}}>Outstock is a premium Templates theme with advanced admin module. It’s extremely customizable, easy to use and fully responsive and retina ready. Vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+
+              <div className="icon">
+            <a
+              href="https://www.instagram.com/treasureboxlife/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram className="footerSocialMediaIcon" />
+            </a>
+            <a
+              href="https://www.facebook.com/treasureboxlife/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebookF className="footerSocialMediaIcon" />
+            </a>
+            <a href="https://www.google.com/maps/dir/22.710376,75.8417746/treasurebox/@22.7060118,75.8356895,15z">
+              <CiLocationOn className="footerSocialMediaIcon" />
+            </a>
+          </div>
             </div>
 
             <div className="col-lg-6 col-md-12">

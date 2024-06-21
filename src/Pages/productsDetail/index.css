@@ -1,0 +1,28 @@
+.productdetail_container{
+    padding: 50px;
+}
+.btndiv{
+    display: flex;
+justify-content: start;
+}
+.quantitybutton
+{
+    color: #000 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    border: 1px solid #dcdcdc !important;
+    height: 50px !important;
+    width: 110px !important;
+}
+
+.num-product{
+    background: none !important;
+border: none !important;
+}
+.quantityAddSubIncon{
+    font-size: medium;
+    font-weight: bold;
+    margin: 3px;
+    margin-left: 10px;
+    margin-right: 10px;
+}

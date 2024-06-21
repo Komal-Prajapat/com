@@ -12,7 +12,7 @@ const About = () => {
   return (
     <>
 	
-	<TopPageImage pagename="Contact Us"></TopPageImage>
+	<TopPageImage pagename="About Us"></TopPageImage>
      <div className="aboutOuterCon">
 	 <div className="container aboutcontainer" >
         <div className="row">

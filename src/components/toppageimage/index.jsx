@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './inde.css'
-const TopPageImage = ({pagename}) => {
+const TopPageImage = ({pagename , bgimg}) => {
+  const defaultBgImg = 'https://ng-outstock.vercel.app/assets/img/page-title/page-title-1.jpg';
+
   return (
     <div>
          <div
@@ -11,7 +13,7 @@ const TopPageImage = ({pagename}) => {
           justifyContent: "center",
           alignItems: "center",
           background: "black",
-          backgroundImage: `url('https://ng-outstock.vercel.app/assets/img/page-title/page-title-1.jpg')`,
+          backgroundImage: `url(${bgimg || defaultBgImg})`,
           width: "100%",
           height: "70vh",
           backgroundSize:'cover',

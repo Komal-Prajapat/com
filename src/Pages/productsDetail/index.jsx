@@ -34,6 +34,9 @@ import { useRef } from "react";
 import Slider2 from "../../slider/productDetailSlider";
 import "./index.css";
 import TopPageImage from "../../components/toppageimage";
+import { IoMdAdd } from "react-icons/io";
+import { RiSubtractFill } from "react-icons/ri";
+import DetailPageTab from "../../slider/detailPageTab";
 
 const ProductDetail = ({ reload, setReload, setCatval }) => {
   const user_id = localStorage.getItem("user_id");
@@ -333,30 +336,20 @@ const ProductDetail = ({ reload, setReload, setCatval }) => {
       >
         <div className="product_detail_imagecontainer">
           {pending ? (
-            <Skeleton
-              variant="rectangular"
-              minWidth={200}
-              height={350}
-              sx={{ backgroundColor: "#e0e0e0" }}
-            />
+            <Skeleton variant="rectangular" minWidth={200} height={350} />
           ) : (
             <>
-              {/* <div className="imageGallery_container">
-                <ImageGallery
+              <div className="imageGallery_container">
+                {/* <ImageGallery
                   items={images}
                   onClick={openmodal}
                   className="image_gallery_slider"
                   thumbnailPosition="bottom"
                   isRTL="true" 
-                />
-              </div> */}
-              <Slider2
-              // items={images}
-              // onClick={openmodal}
-              // className="image_gallery_slider"
-              // thumbnailPosition="bottom"
-              // isRTL="true"
-              ></Slider2>
+                /> */}
+              </div>
+
+              <Slider2 images={images.map((img) => img.original)} />
             </>
           )}
         </div>
@@ -548,7 +541,29 @@ const ProductDetail = ({ reload, setReload, setCatval }) => {
                               className="color_circle"
                               key={index}
                               onClick={() => handlecolor(item.id, index, item)}
+                              style={{ width: "100%", padding: "10px" }}
                             >
+                              <select
+                                name=""
+                                id=""
+                                style={{ width: "100%", padding: "10px" }}
+                              >
+                                <option
+                                  value="audi"
+                                  style={{ width: "100%", padding: "10px" }}
+                                >
+                                  {" "}
+                                  - Please select -{" "}
+                                </option>
+                                <option
+                                  value="audi"
+                                  style={{ width: "100%", padding: "10px" }}
+                                >
+                                  {item.color_code}
+                                </option>
+                              </select>
+
+                              {/* 
                               {item.selected ? (
                                 <RadioButtonCheckedIcon
                                   sx={{
@@ -563,7 +578,7 @@ const ProductDetail = ({ reload, setReload, setCatval }) => {
                                     fontSize: "36px",
                                   }}
                                 />
-                              )}
+                              )} */}
                             </div>
                           );
                         })}
@@ -610,7 +625,7 @@ const ProductDetail = ({ reload, setReload, setCatval }) => {
               )}
               {/* ************* descrption of product *********** */}
               <hr />
-              <div className="descriptionp">
+               <div className="descriptionp">
                 <RemoveTag
                   ParserText={details?.description}
                   style={{
@@ -622,98 +637,88 @@ const ProductDetail = ({ reload, setReload, setCatval }) => {
                   }}
                 />
               </div>
-              <hr />
-              <p className="summary_icon">
-                        <StarBorderOutlinedIcon />
-                        Specification
-                      </p>
+              <hr /> 
+              {/* <p className="summary_icon">
+                <StarBorderOutlinedIcon />
+                Specification
+              </p>
               <div className="tavle_container">
-                      <table>
-                        <tbody>
-                          {general.map((item, index) => (
-                            <tr key={index}>
-                              <td className="general_title">{item.title}</td>
-                              <td>{item.value}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-<hr/>
-
-
-              <p>Quantity</p>
-              <div className="wrap-num-product flex-w m-r-20 m-tb-10">
-                <div
-                  className="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m"
-                  onClick={handleminus}
-                >
-                  <i className="zmdi zmdi-minus"></i>
-                </div>
-
-                <input
-                  className="mtext-104 cl3 txt-center num-product"
-                  type="number"
-                  name="num-product"
-                  value={counter}
-                />
-
-                <div
-                  className="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m"
-                  onClick={handleplus}
-                >
-                  <i className="fs-16 zmdi zmdi-plus"></i>
-                </div>
+                <table>
+                  <tbody>
+                    {general.map((item, index) => (
+                      <tr key={index}>
+                        <td className="general_title">{item.title}</td>
+                        <td>{item.value}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
+              <hr /> */}
 
-              <div className="cart_wishlist_container_desktop">
-                {details.is_wishlist ? (
-                  <button className="add_cart_btn" onClick={gotowishlist}>
-                    <FavoriteIcon
-                      sx={{ color: "var(--colorprimary)", marginRight: "5px" }}
-                    />{" "}
-                    Wishlisted
-                  </button>
-                ) : (
-                  <button
-                    className="add_cart_btn"
-                    onClick={user_id ? handlelike : handleprofilePage}
-                  >
-                    <FavoriteIcon
-                      sx={{ color: "var(--colorprimary)", marginRight: "5px" }}
-                    />{" "}
-                    Add to Wishlist{" "}
-                  </button>
-                )}
+              <div className="d-flex btndiv">
+              <p>Quantity</p>
+                <div className="quantitybutton  d-flex ">
+                  <div className=" quantityAddSubIncon" onClick={handleminus}>
+                    <RiSubtractFill />
+                  </div>
+
+                  <input
+                    className=" txt-center num-product"
+                    type="number"
+                    name="num-product"
+                    value={counter}
+                    style={{ width: "10px" }}
+                  />
+
+                  <div className="quantityAddSubIncon" onClick={handleplus}>
+                    <IoMdAdd />
+                  </div>
+                </div>
+
                 {checkAddedFunction() ? (
                   <button
                     className={`${
-                      details.is_active === 0 ? "wish_btn_disable" : "wish_btn"
+                      details.is_active === 0
+                        ? "cart_div2_disable"
+                        : "cart_div2"
                     } `}
                     disabled={cartbtnloading || details.is_active === 0}
                     onClick={gotocart}
                   >
                     <ShoppingCartIcon
-                      sx={{ color: "var(--colorWhite)", marginRight: "5px" }}
+                      sx={{ marginRight: "5px" }}
                     />{" "}
                     Go to cart
                   </button>
                 ) : (
                   <button
                     className={`${
-                      details.is_active === 0 ? "wish_btn_disable" : "wish_btn"
+                      details.is_active === 0
+                        ? "cart_div2_disable"
+                        : "cart_div2"
                     } `}
                     disabled={cartbtnloading || details.is_active === 0}
                     onClick={user_id ? handlecart : handleprofilePage}
                   >
                     <ShoppingCartIcon
-                      sx={{ color: "var(--colorWhite)", marginRight: "5px" }}
+                      sx={{ marginRight: "5px" }}
                     />{" "}
-                    Add to cart{" "}
+                    Add to cart
                   </button>
                 )}
-              </div>
 
+                {showloginpopup ? (
+                  <Login
+                    handleafterloginaddtocart={handleafterloginaddtocart}
+                    showloginpopup={showloginpopup}
+                    setShowloginpopup={setShowloginpopup}
+                    {...{ reload, setReload }}
+                  />
+                ) : (
+                  ""
+                )}
+              </div>
               <div className="cart_wishlist_container">
                 {details.is_wishlist ? (
                   <button className="cart_div1" onClick={gotowishlist}>
@@ -733,50 +738,29 @@ const ProductDetail = ({ reload, setReload, setCatval }) => {
                     Add to Wishlist
                   </button>
                 )}
-                {checkAddedFunction() ? (
-                  <button
-                    className={`${
-                      details.is_active === 0
-                        ? "cart_div2_disable"
-                        : "cart_div2"
-                    } `}
-                    disabled={cartbtnloading || details.is_active === 0}
-                    onClick={gotocart}
-                  >
-                    <ShoppingCartIcon
-                      sx={{ color: "var(--colorWhite)", marginRight: "5px" }}
-                    />{" "}
-                    Go to cart
-                  </button>
-                ) : (
-                  <button
-                    className={`${
-                      details.is_active === 0
-                        ? "cart_div2_disable"
-                        : "cart_div2"
-                    } `}
-                    disabled={cartbtnloading || details.is_active === 0}
-                    onClick={user_id ? handlecart : handleprofilePage}
-                  >
-                    <ShoppingCartIcon
-                      sx={{ color: "var(--colorWhite)", marginRight: "5px" }}
-                    />{" "}
-                    Add to cart
-                  </button>
-                )}
 
-                {showloginpopup ? (
-                  <Login
-                    handleafterloginaddtocart={handleafterloginaddtocart}
-                    showloginpopup={showloginpopup}
-                    setShowloginpopup={setShowloginpopup}
-                    {...{ reload, setReload }}
+                <div className="quantitybutton  d-flex ">
+                  <div className=" quantityAddSubIncon" onClick={handleminus}>
+                    <RiSubtractFill />
+                  </div>
+
+                  <input
+                    className=" txt-center num-product"
+                    type="number"
+                    name="num-product"
+                    value={counter}
+                    style={{ width: "10px" }}
                   />
-                ) : (
-                  ""
-                )}
+
+                  <div className="quantityAddSubIncon" onClick={handleplus}>
+                    <IoMdAdd />
+                  </div>
+                </div>
               </div>
-{/* 
+
+              {/* ***************** */}
+
+              {/* 
               <div className="details_container">
                 {details.description ? (
                   <details>
@@ -821,11 +805,11 @@ const ProductDetail = ({ reload, setReload, setCatval }) => {
 
 
               </div> */}
-
-             
             </div>
           )}
         </div>
+
+        <DetailPageTab description={details?.description} general={general} />
       </div>
     </>
   );

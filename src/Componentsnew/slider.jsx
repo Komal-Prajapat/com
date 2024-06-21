@@ -14,6 +14,9 @@ const SliderComponent = ({ reload, setReload, newarrivalList, setNewarrivalList 
   const user_id = localStorage.getItem("user_id");
   const navigate = useNavigate();
 
+  // State to store secondary images
+  const [secondaryImages, setSecondaryImages] = useState({});
+
   const handleDetailPage = (id, name) => {
     const cleanedName = name.replace(/[^\w\s]/gi, '');
     navigate(`/productDetails/${id}/${cleanedName}`);
@@ -43,14 +46,10 @@ const SliderComponent = ({ reload, setReload, newarrivalList, setNewarrivalList 
   };
 
   const handleImageHover = (index, isHovering) => {
-    // Determine the next index
-    const nextIndex = (index + 1) % newarrivalList.length;
-    // Set the hovered image for the current product
-    setNewarrivalList(prevList => {
-      const newList = [...prevList];
-      newList[index].hoveredImage = isHovering ? `${ImageUrl}/${newList[nextIndex].files || newList[nextIndex].file}` : null;
-      return newList;
-    });
+    setSecondaryImages(prevImages => ({
+      ...prevImages,
+      [index]: isHovering ? `${ImageUrl}/${newarrivalList[index].secondary_image}` : null
+    }));
   };
 
   const truncateProductName = (name, maxLength) => {
@@ -65,16 +64,16 @@ const SliderComponent = ({ reload, setReload, newarrivalList, setNewarrivalList 
       <Grid container spacing={3}>
         {newarrivalList.map((item, index) => (
           <Grid item key={index} xs={12} sm={6} md={2}>
-            <div className='product-box' >
-              <div className="product-img-box" >
+            <div className='product-box'>
+              <div className="product-img-box">
                 <img
                   onMouseEnter={() => handleImageHover(index, true)}
                   onMouseLeave={() => handleImageHover(index, false)}
                   onClick={() => handleDetailPage(item.productId || item.id, item.product_name || item.productName)}
                   className='product-image'
-                  src={item.hoveredImage || `${ImageUrl}/${item.files || item.file}`}
+                  src={secondaryImages[index] || `${ImageUrl}/${item.files || item.file}`}
                   alt=""
-                  style={{height:'200px'}}
+                  style={{ height: '200px' }}
                 />
                 <div className="product-icons">
                   <p>
@@ -100,7 +99,7 @@ const SliderComponent = ({ reload, setReload, newarrivalList, setNewarrivalList 
                   }
                 </div>
               </div>
-              <div className="product-description " style={{marginTop:'20px'}}>
+              <div className="product-description" style={{ marginTop: '20px' }}>
                 <p className='product-price'>
                   {item.discount_percent === 0 ?
                     <span className='mrp-with-discount'><CurrencyRupeeIcon sx={{ fontSize: "16px" }} /> {item.discount_amount || item.price}</span>

@@ -152,7 +152,7 @@ const Cart = ({ refresh, setRefresh }) => {a
 
   return (
     <>
-
+    {/* Lorem, ipsum dolor. */}
 
       {pending ? (
         <Loader />
@@ -160,12 +160,13 @@ const Cart = ({ refresh, setRefresh }) => {a
         <div>
           {data.length ? (
             <div className="container">
-<TopPageImage pagename="Cart"></TopPageImage>
+
               <div className="wrap-table-shopping-cart">
                 {data.map((product, index) => {
                   return (
                     <div className="cart_container">
                       <div className="description_quantity">
+<TopPageImage pagename="Cart"></TopPageImage>
                         <div className="cart_img_container">
                           <img
                             src={`${ImageUrl}${product.files}`}
