@@ -475,9 +475,11 @@ const HeaderSection = ({
                       {/* {showTryNav && <TryNav />} */}
                     </span>
                   </button>
-                  <div className="dropdown-content shopdrop">
+                  <div className="">
                     {/* <TryNav ></TryNav> */}
-                    {showTryNav && <TryNav />}
+                    <div className="shoplistdata">
+                      {showTryNav && <TryNav />}
+                    </div>
                   </div>
                 </div>
               </li>
@@ -649,15 +651,19 @@ const HeaderSection = ({
                 {/* <img onClick={Gotocart} src={carticon} alt="IMG-LOGO" /> */}
               </div>
               <div className="cart_price_count_container" onClick={Gotocart}>
-                <p
-                  className="cart_text_count navbarListItemsStyle"
-                  style={{ marginTop: "30px" }}
-                >
+                <p className="cart_text_count navbarListItemsStyle">
                   <IoBagHandleOutline
                     onClick={Gotocart}
-                    className="navbarListItemsStyle"
+                    className="navbarListItemsStyle my-3"
+                    sx={{ cursor: "pointer" }}
+                    style={{
+                      marginTop: "30px",
+                    }}
                   />{" "}
-                  Cart({cartcount ? cartcount : 0})
+                  <span sx={{ cursor: "pointer" }}>
+                    {" "}
+                    Cart({cartcount ? cartcount : 0})
+                  </span>
                 </p>
                 <p className="cart_price_count header-cart-item-rupee">
                   {/* <CurrencyRupeeIcon className="navbarListItemsStyle"/>{" "} */}
@@ -730,9 +736,7 @@ const HeaderSection = ({
                       <Link to={"/order"}>Order</Link>
                     </li>
                     <hr></hr>
-                    <li style={{ color: " #c1bcbc" }}>
-                      <Link to={"/logout"}>Log Out</Link>
-                    </li>
+                    <li style={{ color: " #c1bcbc" }}></li>
                   </ul>
                 </div>
               )}
@@ -779,6 +783,14 @@ const HeaderSection = ({
       </div>
 
       <div className="headersection_container_one nav_align">
+        <div className="web_logo_container">
+          <Link to="/" className="web_logo_container_link_mobile">
+            <img
+              src="https://tse1.mm.bing.net/th?id=OIP.6VJpiEB8bvznoRMNRDREjQHaB1&pid=Api&P=0&h=180"
+              alt="IMG-LOGO"
+            />
+          </Link>
+        </div>
         <div className="headersection_container_third sectionBody">
           <div
             className={`web_nav ${anchorEl === null ? "zindex" : "nozindex"}`}
@@ -838,17 +850,32 @@ const HeaderSection = ({
               color="secondary"
               badgeContent={cartcount}
             >
-              <ShoppingCartIcon onClick={Gotocart} sx={{ cursor: "pointer" }} />
+              {/* <FavoriteIcon onClick={handlelikePage} sx={{ cursor: "pointer" }} /> */}
+              <SearchIcon
+                onClick={handlesearchPage}
+                sx={{ cursor: "pointer" }}
+              />
+              <button onClick={handlesearchPage} sx={{ cursor: "pointer" }}>
+                Search
+              </button>
+              <IoBagHandleOutline
+                onClick={Gotocart}
+                className="navbarListItemsStyle"
+                style={{ marginRight: "2px" }}
+                sx={{ cursor: "pointer" }}
+              />{" "}
+              Cart..({cartcount ? cartcount : 0})
+              {/* <ShoppingCartIcon onClick={Gotocart} sx={{ cursor: "pointer" }} /> */}
             </Badge>
-            <FavoriteIcon onClick={handlelikePage} sx={{ cursor: "pointer" }} />
-            <SearchIcon onClick={handlesearchPage} sx={{ cursor: "pointer" }} />
             <div className="headersection_container_profile_mobile">
               <div ref={profileRefmobile}>
                 <li
                   onClick={handleClick}
                   className="headersection_container_profile_contain"
+                  sx={{ cursor: "pointer" }}
                 >
-                  <PersonIcon sx={{ cursor: "pointer" }} />
+                  <FiAlignJustify style={{ cursor: "pointer" }} />
+                  {/* <PersonIcon sx={{ cursor: "pointer" }} /> */}
                 </li>
                 <Popper
                   id={idmobileprofile}

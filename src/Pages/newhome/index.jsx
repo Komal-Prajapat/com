@@ -135,7 +135,7 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
   return (
     <>
       {/* <Crousal /> */}
-      <div className="home_body_container">
+      <div className="home_body_container ">
         <div className=" ">
           {/* <div className='home_body_container_one'>
           <div className='homebody_left_side_content'>
@@ -182,7 +182,7 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
         </div> */}
 
           <div
-            className="home_body_container_two "
+            className="home_body_container_two container "
             style={{
               width: "90%",
             }}

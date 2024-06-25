@@ -8,7 +8,7 @@ import { Autocomplete, TextField } from '@mui/material'
 import { useParams } from "react-router-dom"
 import { Skeleton } from '@mui/material';
 import Mobilefilter from '../../components/newfilter/mobilefilter'
-
+import TopPageImage from "../../components/toppageimage";
 const SortByData = [
   {
     id: 4,
@@ -222,6 +222,9 @@ const NewProductpage = ({ reload, setReload }) => {
 
   return (
     <div> 
+         <TopPageImage pagename="Shop" bgimg="https://ng-outstock.vercel.app/assets/img/page-title/page-title-2.jpg"></TopPageImage>
+         
+
         <section className="bg0 section_container">
           <div className='mbl_product_filterbtn_container'>
             <button className='invoice_btn' onClick={handleFilter}>Filter</button>

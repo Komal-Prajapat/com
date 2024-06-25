@@ -1,307 +1,453 @@
-import React, { useEffect } from 'react'
-import "./index.css"
-import Empty from '../emptypage/emptyCart'
-import { ImageUrl, deleteApiCall, deleteFromcartApi, getApiCall, getcartApi, getdeliverycharge, postApiCall, quantitydecApi, quantityincApi } from '../../API/baseUrl';
-import ToastMessage from '../../utils/ToastMessage';
-import { useNavigate } from 'react-router-dom';
-import swal from 'sweetalert';
-import Loader from '../../components/loader';
+import React, { useEffect } from "react";
+import "./index.css";
+import Empty from "../emptypage/emptyCart";
+import { RiSubtractLine } from "react-icons/ri";
+import { IoAddOutline } from "react-icons/io5";
+import { GrClose } from "react-icons/gr";
+import TopPageImage from "../../components/toppageimage";
+// import ButtonForAll from '../components/ButtonForALL';
+import {
+  ImageUrl,
+  deleteApiCall,
+  deleteFromcartApi,
+  getApiCall,
+  getcartApi,
+  getdeliverycharge,
+  postApiCall,
+  quantitydecApi,
+  quantityincApi,
+} from "../../API/baseUrl";
+import ToastMessage from "../../utils/ToastMessage";
+import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
+import Loader from "../../components/loader";
 import emptycartlist from "../../Assect/cartempt.jpg";
-import CircleIcon from '@mui/icons-material/Circle';
-import DeleteIcon from '@mui/icons-material/Delete';
-import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
-import ButtonComponent from '../../components/button';
+import CircleIcon from "@mui/icons-material/Circle";
+import DeleteIcon from "@mui/icons-material/Delete";
+import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
+import ButtonComponent from "../../components/button";
+import ButtonForAll from "../../components/ButtonForALL";
+import { WidthFull } from "@mui/icons-material";
 
 const Newcart = ({ reload, setReload }) => {
-    const navigate = useNavigate();
-    const user_id = localStorage.getItem("user_id")
-    const [loading, setLoading] = React.useState(false)
-    const [data, setData] = React.useState([])
-    const [pending, setPending] = React.useState(false)
-    const [price, setprice] = React.useState("")
-    const [deliverycharge, setDeliverycharge] = React.useState("")
-    const [discount, setDiscount] = React.useState("")
-    const [deliverychargevalue, setDeliverychargevalue] = React.useState("")
-    const [totalprice, setTotalprice] = React.useState("")
+  const navigate = useNavigate();
+  const user_id = localStorage.getItem("user_id");
+  const [loading, setLoading] = React.useState(false);
+  const [data, setData] = React.useState([]);
+  const [pending, setPending] = React.useState(false);
+  const [price, setPrice] = React.useState("");
+  const [deliveryCharge, setDeliveryCharge] = React.useState("");
+  const [discount, setDiscount] = React.useState("");
+  const [totalPrice, setTotalPrice] = React.useState("");
 
-    const getCart = async () => {
-        setPending(true)
-        try {
-            const result = await getApiCall(`${getcartApi}/${user_id}`)
-            if (result?.data?.status) {
-                setData(result?.data?.productDetails)
-                setprice(result?.data?.cartTotalPrice)
-                setDeliverycharge(result?.data?.deliveryCharges)
-                setDiscount(result?.data?.discount)
-                setTotalprice(result?.data?.totalCartValue)
-                setPending(false)
-            } else {
-                ToastMessage("error", result.data.message);
-            }
-        } catch (error) {
-        } finally {
-            setPending(false)
-        }
+  // Function to fetch cart data
+  const getCart = async () => {
+    setPending(true);
+    try {
+      const result = await getApiCall(`${getcartApi}/${user_id}`);
+      if (result?.data?.status) {
+        setData(result?.data?.productDetails);
+        setPrice(result?.data?.cartTotalPrice);
+        setDeliveryCharge(result?.data?.deliveryCharges);
+        setDiscount(result?.data?.discount);
+        setTotalPrice(result?.data?.totalCartValue);
+      } else {
+        ToastMessage("error", result.data.message);
+      }
+    } catch (error) {
+      console.log("error", error);
+    } finally {
+      setPending(false);
     }
-    const refreshCart = async () => {
-        try {
-            const result = await getApiCall(`${getcartApi}/${user_id}`)
-            if (result?.data?.status) {
-                setData(result?.data?.productDetails)
-                setprice(result?.data?.cartTotalPrice)
-                setDeliverycharge(result?.data?.deliveryCharges)
-                setDiscount(result?.data?.discount)
-                setTotalprice(result?.data?.totalCartValue)
-            } else {
-            }
-        } catch (error) {
-        }
+  };
+
+  // Function to refresh cart data
+  const refreshCart = async () => {
+    try {
+      const result = await getApiCall(`${getcartApi}/${user_id}`);
+      if (result?.data?.status) {
+        setData(result?.data?.productDetails);
+        setPrice(result?.data?.cartTotalPrice);
+        setDeliveryCharge(result?.data?.deliveryCharges);
+        setDiscount(result?.data?.discount);
+        setTotalPrice(result?.data?.totalCartValue);
+      } else {
+        ToastMessage("error", result.data.message);
+      }
+    } catch (error) {
+      console.log("error", error);
     }
+  };
 
-    useEffect(() => {
-        getCart()
-    }, [])
+  useEffect(() => {
+    getCart();
+  }, []);
 
-    const handleplus = async (id, index) => {
-        setLoading(true)
-        try {
-            const result = await postApiCall(quantityincApi, {
-                id: id,
-                userId: user_id,
-            })
-            if (result?.data?.status) {
-                setLoading(false)
-                data[index].quantity = data[index].quantity + 1
-                setData([...data])
-                setReload(!reload)
-                refreshCart()
-            } else {
-                ToastMessage("error", result.data.message);
-            }
-        } catch (error) {
-        } finally {
-            setPending(false)
-            setLoading(false)
-        }
+  // Function to handle increment quantity
+  const handlePlus = async (id, index) => {
+    setLoading(true);
+    try {
+      const result = await postApiCall(quantityincApi, {
+        id: id,
+        userId: user_id,
+      });
+      if (result?.data?.status) {
+        setLoading(false);
+        data[index].quantity = data[index].quantity + 1;
+        setData([...data]);
+        setReload(!reload);
+        refreshCart();
+      } else {
+        ToastMessage("error", result.data.message);
+      }
+    } catch (error) {
+      console.log("error", error);
+    } finally {
+      setLoading(false);
     }
+  };
 
-
-    const handleminus = async (id, quantity, index) => {
-        if (quantity === 1) {
-        } else {
-            setLoading(true)
-            try {
-                const result = await postApiCall(quantitydecApi, {
-                    id: id,
-                    userId: user_id,
-                })
-                if (result?.data?.status) {
-                    setLoading(false)
-                    data[index].quantity = data[index].quantity - 1
-                    setData([...data])
-                    refreshCart()
-                    setReload(!reload)
-                } else {
-                    ToastMessage("error", result.data.message);
-                }
-            } catch (error) {
-            } finally {
-                setLoading(false)
-            }
-        }
-
-    }
-
-    const moveToCheckout = () => {
-        const checkdata = data?.filter(check => check.is_active === 0)
-        if(checkdata.length ){
-            ToastMessage("error", "please remove out of stoke product from cart to move forward");
-        }else{
-            navigate("/checkout")
-        }
-    }
-
-    const gotodetails = (id, name) => {
-        navigate(`/productDetails/${id}/${name}`)
-    }
-
-    const deletefromCartAlert = (id) => {
-        swal({
-            title: "Are you sure you want to delete?",
-            text: "Once deleted, You won't be able to revert this!",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        }).then((willDelete) => {
-            if (willDelete) {
-                deletefromCart(id)
-            }
+  // Function to handle decrement quantity
+  const handleMinus = async (id, quantity, index) => {
+    if (quantity === 1) {
+      // Handle if quantity is 1
+    } else {
+      setLoading(true);
+      try {
+        const result = await postApiCall(quantitydecApi, {
+          id: id,
+          userId: user_id,
         });
-    }
-
-    const deletefromCart = async (id) => {
-        try {
-            const result = await deleteApiCall(`${deleteFromcartApi}/${user_id}/${id}`)
-            if (result?.data?.status) {
-                ToastMessage("success", result.data.message);
-                const maydata = data.filter(item => item.productId !== id)
-                setData(maydata)
-                refreshCart()
-                setReload(!reload)
-            } else {
-                ToastMessage("error", result.data.message);
-            }
-        } catch (error) {
+        if (result?.data?.status) {
+          setLoading(false);
+          data[index].quantity = data[index].quantity - 1;
+          setData([...data]);
+          refreshCart();
+          setReload(!reload);
+        } else {
+          ToastMessage("error", result.data.message);
         }
+      } catch (error) {
+        console.log("error", error);
+      } finally {
+        setLoading(false);
+      }
     }
+  };
 
+  // Function to navigate to product details page
+  const goToDetails = (id, name) => {
+    navigate(`/productDetails/${id}/${name}`);
+  };
 
-    const handlegetdeliverycharge = async () => {
-        try {
-            const result = await getApiCall(getdeliverycharge)
-            if (result.data.status) {
-                setDeliverychargevalue(result.data.data.cart_value)
-            }
-        } catch (error) {
-            console.log("error", error);
-        }
+  // Function to delete item from cart
+  const deleteFromCartAlert = (id) => {
+    swal({
+      title: "Are you sure you want to delete?",
+      text: "Once deleted, you won't be able to revert this!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        deleteFromCart(id);
+      }
+    });
+  };
+
+  // Function to delete item from cart
+  const deleteFromCart = async (id) => {
+    try {
+      const result = await deleteApiCall(
+        `${deleteFromcartApi}/${user_id}/${id}`
+      );
+      if (result?.data?.status) {
+        ToastMessage("success", result.data.message);
+        const updatedData = data.filter((item) => item.productId !== id);
+        setData(updatedData);
+        refreshCart();
+        setReload(!reload);
+      } else {
+        ToastMessage("error", result.data.message);
+      }
+    } catch (error) {
+      console.log("error", error);
     }
-    useEffect(() => {
-        handlegetdeliverycharge();
+  };
 
-    }, []);
+  // Function to navigate to checkout page
+  const moveToCheckout = () => {
+    const outOfStockProducts = data?.filter((item) => item.is_active === 0);
+    if (outOfStockProducts.length) {
+      ToastMessage(
+        "error",
+        "Please remove out of stock products from the cart to proceed."
+      );
+    } else {
+      navigate("/checkout");
+    }
+  };
 
+  return (
+    <div>
+      <TopPageImage pagename="Cart" />
 
-    return (
-        <div>
-            {pending ? <Loader /> :
-                <div className="newcart_container">
-                    {
-                        data.length ?
-                            <div className="newcart_container_fluid">
-                                {data.map((product, index) => {
-                                    return (
-                                        <div className='newcart_container_inside'>
-                                            <div className='cartimg_container'>
-                                                <img src={`${ImageUrl}${product.files}`} alt="IMG" onClick={() => gotodetails(product.productId, product.product_name)} />
-                                            </div>
-                                            
-                                            <div className='newcart_product_container'>
-                                                <div className='newcart_product_container_inside'>
-                                                    <h3 className='cart_productname'>{product.product_name}</h3>
-                                                    
-                                                    {product.product_size === "FreeSize" ? "" : <p className=''>Size : {product.product_size}</p>}
+      {pending ? (
+        <Loader />
+      ) : (
+        <div className="newcart_container">
+          {data.length ? (
+            <div className="table-wrapper">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.map((product, index) => (
+                    <tr key={index}>
+                      <td>
+                        <div className="cartimg_container">
+                          <img
+                            src={`${ImageUrl}${product.files}`}
+                            alt="Product"
+                            className="cartimgIntable"
+                            onClick={() =>
+                              goToDetails(
+                                product.productId,
+                                product.product_name
+                                
+                              )
+                            }
+                          />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p
+                            className="cart_productname"
+                            onClick={() =>
+                              goToDetails(
+                                product.productId,
+                                product.product_name
+                              )
+                            }
+                          >
+                            {product.product_name}
+                          </p>
+                          {product.product_size !== "FreeSize" && (
+                            <p>Size: {product.product_size}</p>
+                          )}
+                          {product.color_code !== "FreeColor" && (
+                            <p className="cart_productcolor">
+                              Color:{" "}
+                              <CircleIcon
+                                sx={{
+                                  color: product.color_code,
+                                  fontSize: "20px",
+                                }}
+                              />
+                            </p>
+                          )}
+                        </div>
+                      </td>
+                      <td>
+                        <div className="cart_product_mrp header-cart-item-rupee">
+                          <CurrencyRupeeIcon className="rsicon" />
+                          {product.discount_percent === 0
+                            ? product.mrp_amount
+                            : product.discount_amount}
+                        </div>
+                      </td>
+                      {/* ************ qunaitty btn ************* */}
+                      <td>
+                        {product.is_active === 0 ? (
+                          <p className="oos">Out Of Stock</p>
+                        ) : (
+                          <div
+                            className="qunatitydiv d-flex"
+                           
+                          >
+                            <RiSubtractLine
+                              disabled={loading}
+                              onClick={() =>
+                                handleMinus(product.id, product.quantity, index)
+                              }
+                             
+                            />
 
-                                                    {product.color_code === "FreeColor" ? "" : <p className='cart_productcolor'> Color : <CircleIcon sx={{ color: product.color_code, fontSize: "20px" }} /></p>
-                                                    }
+                            <input
+                              type="number"
+                              name="num-product2"
+                              value={product.quantity}
+                              style={{width:'20px',
+                           
+                            }}
+                            />
 
-                                                </div>
+                            <IoAddOutline
+                              type="button"
+                              disabled={loading}
+                              onClick={() => handlePlus(product.id, index)}
+                        
+                            />
+                          </div>
+                        )}
+                      </td>
 
-                                                <div className='cart_quantity_remove_container'>
+                      <td>
+                        <div className="cart_product_mrp header-cart-item-rupee ">
+                          <CurrencyRupeeIcon className="rsicon" />
+                          {product.discount_percent === 0
+                            ? product.mrp_amount * product.quantity
+                            : product.discount_amount * product.quantity}
+                        </div>
+                      </td>
+                      <td>
+                        <div className="remove_btn_container">
+                          <button
+                            className="icon-btn add-btn cart_delete_btn"
+                            onClick={() => deleteFromCartAlert(product.id)}
+                          >
+                            <GrClose className="crosicon" />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <Empty image={emptycartlist} btn="Shop Now" />
+          )}
 
-                                                   {product.is_active  === 0 ? <p className='oos'>Out Of Stock</p> : 
-                                                
-                                                    <div className="cart_quantity_container">
-                                                        <button className="cart_quantitywrap" type='button' disabled={loading} onClick={() => handleminus(product.id, product.quantity, index)}>
-                                                            <i className="fs-16 zmdi zmdi-minus"></i>
-                                                          
-                                                        </button>
+          {/* ***********Table two toatl*********** */}
+          <div className="total2">
+            <h2>Cart Totals</h2>
+            <ul className="tableul">
+              <li className="totalList">
+                <span className="listText">Subtotal</span>
+                <span className="listValue">
+                  <CurrencyRupeeIcon sx={{ fontSize: "18px" }} />{" "}
+                  {Number(totalPrice).toFixed(2)}
+                </span>
+              </li>
+              <li className="totalList">
+                <span className="listText">Total</span>
+                <span className="listValue">
+                  <CurrencyRupeeIcon sx={{ fontSize: "18px" }} />{" "}
+                  {Number(totalPrice).toFixed(2)}
+                </span>
+              </li>
+            </ul>
+          </div>
+          {/* <ButtonForAll
+            name="PROCEED To CEHCKOUT"
+            data-aos="fade-up"
+            type="submit"
+            onClick={moveToCheckout}
+            className="checkoutbtn"
+            style={{WidthFull}}
+          ></ButtonForAll> */}
 
-                                                        <input className="cart_quantitywrap" type="number" name="num-product2" value={product.quantity} />
-
-                                                        <button className="cart_quantitywrap" type='button' disabled={loading} onClick={() => handleplus(product.id, index)}>
-                                                            <i className="fs-16 zmdi zmdi-plus"></i>
-                                                            
-                                                        </button>
-                                                    </div>
-                                                }
-                                                    <div className="remove_btn_container">
-                                                        <button className="icon-btn add-btn cart_delete_btn" onClick={() => deletefromCartAlert(product.id)}>
-                                                            <DeleteIcon sx={{ color: "red", fontSize: "20px", marginTop: "5px" }} />
-                                                        </button>
-                                                    </div>
-                                                    
-                                                </div>
-                                                <div>
-                                                    <p className='cart_product_mrp header-cart-item-rupee'><CurrencyRupeeIcon sx={{ fontSize: "16px" }} />{product.discount_percent === 0 ? product.mrp_amount : product.discount_amount}</p>
-                                                </div>
-
-                                            </div>
-
-
-
-
-                                        </div>
-                                    )
-                                })}
-
-                                <div>
-                                    <div className="margin m-b-20 bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
-                                        <h4 className="mtext-109 cl2 p-b-10 bor12">
-                                            Price Details
-                                        </h4>
-
-                                        <div className="bor12">
-                                            <div className="d-flex">
-                                                <div className="valuesize">
-                                                    Price ({data.length} item) :
-                                                </div>
-                                                <div className="keysize header-cart-item-rupee">
-                                                    <CurrencyRupeeIcon sx={{ fontSize: "16px" }} />{Number(price).toFixed(2)}
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <div className="d-flex">
-                                                    <div className="valuesize">
-                                                        Discount :
-                                                    </div>
-                                                    <div className="keysize header-cart-item-rupee">
-                                                        <CurrencyRupeeIcon sx={{ fontSize: "16px" }} />{discount ? Number(discount).toFixed(2) : "0.00"}
-                                                      </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className='order_total_container_inside delivery-charge'>
-                                                    <p className="valuesize">
-                                                        Delivery Charges :
-                                                    </p>
-                                                    {deliverycharge === "Free" ? <p className="valuesize">{deliverycharge} </p> :
-                                                        <p className="valuesize  header-cart-item-rupee"><CurrencyRupeeIcon sx={{ fontSize: "16px" }} />{deliverycharge}</p>
-                                                    }
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div className="margin m-b-25 d-flex">
-                                            <div className="size-208">
-                                                <span className="mtext-101 cl2">
-                                                    Total :
-                                                </span>
-                                            </div>
-
-                                            <div className="keysize">
-                                                <span className="mtext-110 cl2 header-cart-item-rupee end">
-                                                    <CurrencyRupeeIcon sx={{ fontSize: "18px" }} /> {Number(totalprice).toFixed(2)}
-                                                 </span>
-                                            </div>
-                                        </div>
-                                        <ButtonComponent type="submit" onClick={moveToCheckout} btn_name="Proceed to Checkout" />
-
-                                        {deliverychargevalue === price || deliverychargevalue > price ? <p className='addmore_text justify-center'><p className='addmore_text'>* Add more products worth</p><p className='addmore_text'> <CurrencyRupeeIcon sx={{ fontSize: "18px", display: "flex" }} /> {Number(deliverychargevalue - price).toFixed(2)}</p> to avail Free Delivery</p>
-                                            : ""}
-                                    </div>
-                                </div>
-                            </div>
-                            :
-                            <Empty image={emptycartlist} btn="Shop Now" />
-                    }
-                </div>
-            }
+          <button
+            className="custom-checkout-button"
+            name="PROCEED To CEHCKOUT"
+            data-aos="fade-up"
+            type="submit"
+            onClick={moveToCheckout}
+            style={{ WidthFull }}
+          >
+            PROCEED To CEHCKOUT
+            <div className="innercontainer">PROCEED To CEHCKOUT</div>
+          </button>
         </div>
-    )
-}
+      )}
+    </div>
+  );
+};
 
 export default Newcart;
+
+// {data.length > 0 && (
+//     <div className="margin m-b-20 bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
+//       <h4 className="mtext-109 cl2 p-b-10 bor12">Price Details</h4>
+
+//       <div className="bor12">
+//         <div className="d-flex">
+//           <div className="valuesize">Price ({data.length} item) :</div>
+//           <p className="keysize header-cart-item-rupee">
+//             <CurrencyRupeeIcon sx={{ fontSize: "16px" }} />
+//             {Number(price).toFixed(2)}
+//           </p>
+//         </div>
+
+//         <div>
+//           <div className="d-flex">
+//             <div className="valuesize">Discount :</div>
+//             <div className="keysize header-cart-item-rupee">
+//               <CurrencyRupeeIcon sx={{ fontSize: "16px" }} />
+//               {discount ? Number(discount).toFixed(2) : "0.00"}
+//             </div>
+//           </div>
+//         </div>
+
+//         <div>
+//           <div className="order_total_container_inside delivery-charge">
+//             <p className="valuesize">Delivery Charges :</p>
+//             {deliveryCharge === "Free" ? (
+//               <p className="valuesize">{deliveryCharge} </p>
+//             ) : (
+//               <p className="valuesize header-cart-item-rupee">
+//                 <CurrencyRupeeIcon sx={{ fontSize: "16px" }} />
+//                 {deliveryCharge}
+//               </p>
+//             )}
+//           </div>
+//         </div>
+//       </div>
+
+//       <div className="margin m-b-25 d-flex">
+//         <div className="size-208">
+//           <span className="mtext-101 cl2">Total :</span>
+//         </div>
+
+//         <div className="keysize">
+//           <span className="mtext-110 cl2 header-cart-item-rupee end">
+//             <CurrencyRupeeIcon sx={{ fontSize: "18px" }} />{" "}
+//             {Number(totalPrice).toFixed(2)}
+//           </span>
+//         </div>
+//       </div>
+
+//       <ButtonComponent
+//         type="submit"
+//         onClick={moveToCheckout}
+//         btn_name="Proceed to Checkout"
+//       />
+
+//       {/* Conditionally display add more products for free delivery */}
+//       {deliveryCharge === price || deliveryCharge > price ? (
+//         <p className="addmore_text justify-center">
+//           <p className="addmore_text">* Add more products worth</p>
+//           <p className="addmore_text">
+//             {" "}
+//             <CurrencyRupeeIcon
+//               sx={{ fontSize: "18px", display: "flex" }}
+//             />{" "}
+//             {Number(deliveryCharge - price).toFixed(2)}
+//           </p>{" "}
+//           to avail Free Delivery
+//         </p>
+//       ) : (
+//         ""
+//       )}
+//     </div>
+//   )}

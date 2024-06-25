@@ -1,3 +1,7 @@
+.web_logo_container{
+    display: flex;
+    justify-content: center;
+}
 .mbl_menu_container {
     background-color: var(--colorWhite);
     min-height: 100vh;
@@ -24,5 +28,18 @@
     font-weight: 500;
     font-size: 18px;
     text-transform: uppercase;
+}
+.mbl_menu_items ul li a{
+    padding: 12px 0;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    font-size: 14px;
+    color: #000;
+    font-weight: 600;
+    text-transform: uppercase;
+    position: relative;
+    cursor: pointer;
+text-decoration: none;
+    line-height: 24px;
 }
 

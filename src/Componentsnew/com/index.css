@@ -1,31 +1,14 @@
-.catval:after {
-  content: '\25BC';
-  margin-left: 5px;
-  color: #ccc;
-  
-}
-
-.ListItems {
-  color: #ccc !important;
-  display: inline-flex;
-  margin-left: 20px;
-  position: relative;
-
-}
-
 .catdropdown_subcatcontainer {
-  background-color: #fff;
+  /* background-color: #fff; */
   border: 1px solid #ccc;
+
   padding: 5px;
-  position: absolute;
+  position: absolute; /* Adjust positioning as needed */
   top: 100%;
   left: 0;
   z-index: 1;
-  display: none;
-}
-
-.ListItems:hover .catdropdown_subcatcontainer {
-  display: block;
+  display: block; /* Ensure the subcategory list is initially visible */
+  color: black;
 }
 
 .subcatval {
@@ -36,5 +19,5 @@
 }
 
 .subcatval:hover {
-  background-color: #f0f0f0;
+  /* background-color: #f0f0f0; */
 }

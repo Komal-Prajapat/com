@@ -475,9 +475,9 @@ const Filter = ({ setShowfilter, setProductList, shownav, showfilter, showtext }
 						</ul>
 					</div>
 					<div className="filter-col1 p-r-15 p-b-10 ">
-						<div className="mtext-102 cl2 p-b-15 htext">
-							Category
-						</div>
+						<h3 className="text productheading">
+						Product Categories
+						</h3>
 						<ul>
 							{categoryList.map((item, index) => {
 								return (

@@ -161,7 +161,9 @@
 }
 
 .filter-link.activeFilter {
-	color: var(--colorprimary) !important;
+	
+    color: #bc8246 !important; 
+ 
 }
 
 .filter_title {
@@ -170,4 +172,15 @@
 .filter_apply_dlt{
 	display: flex;
 	gap: 10px;
+}
+
+
+/* **************************************** */
+.productheading{
+	font-family: Poppins, sans-serif;
+    color: #201f1f;
+    margin-top: 0;
+    font-weight: 500;
+    line-height: 1.2;
+    transition: all .3s ease-out 0s;
 }

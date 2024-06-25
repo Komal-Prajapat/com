@@ -1,5 +1,3 @@
-// DarkVariantExample.js
-
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import './homepageSlider.css';
@@ -23,19 +21,16 @@ function DarkVariantExample() {
         pause={false} // Do not pause on hover
         className="HomePageSliderCon"
       >
-        <Carousel.Item >
+        <Carousel.Item>
           <div className="carousel-item-content">
-            <div className="content-text" style={{
-              width:"500px",
-              paddingLeft:'100px'
-            }}>
+            <div className="content-text">
               <h2 className='sliderheading'>Lorem ipsum .</h2>
               <p data-aos="fade-up">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Laborum eaque culpa nemo quae odit quasi delectus, ducimus magni
                 necessitatibus error iure, tempore cumque ex.
               </p>
-              <ButtonForAll name="Disconer now" data-aos="fade-up"></ButtonForAll>
+              <ButtonForAll name="Discover now" data-aos="fade-up"></ButtonForAll>
             </div>
             <img
               className="d-block w-100"
@@ -44,18 +39,16 @@ function DarkVariantExample() {
             />
           </div>
         </Carousel.Item>
-        <Carousel.Item style={{ height: '100vh' }}>
+        <Carousel.Item>
           <div className="carousel-item-content">
-            <div className="content-text" style={{
-              width:"400px",
-              paddingLeft:'100px'}}>
+            <div className="content-text">
               <h2 className='sliderheading'>Lorem ipsum dolo</h2>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Laborum eaque culpa nemo quae odit quasi delectus, ducimus magni
                 necessitatibus error iure, tempore cumque ex.
               </p>
-              <ButtonForAll name="Disconer now" data-aos="fade-up"></ButtonForAll>
+              <ButtonForAll name="Discover now"></ButtonForAll>
             </div>
             <img
               className="d-block w-100"
@@ -64,25 +57,23 @@ function DarkVariantExample() {
             />
           </div>
         </Carousel.Item>
-        <Carousel.Item style={{ height: '100vh' }}>
+        <Carousel.Item>
           <div className="carousel-item-content">
-            <div className="content-text" style={{
-              width:"400px",
-              paddingLeft:'100px'}}>
+            <div className="content-text">
               <h2 className='sliderheading'>Lorem ipsum </h2>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Laborum eaque culpa nemo quae odit quasi delectus, ducimus magni
                 necessitatibus error iure, tempore cumque ex.
               </p>
-              <ButtonForAll name="Disconer now" data-aos="fade-up"></ButtonForAll>
+              <ButtonForAll name="Discover now"></ButtonForAll>
             </div>
             <img
               className="d-block w-100"
               src="https://ng-outstock.vercel.app/assets/img/slider/slider-1.jpg"
               alt="Third slide"
             />
-          </div> 
+          </div>
         </Carousel.Item>
       </Carousel>
     </div>

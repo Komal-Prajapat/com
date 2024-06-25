@@ -6,11 +6,12 @@
     background-color: #ffffff;
 }
 .login_container_first{
-    background-color: var(--colorprimary);
+    /* background-color: var(--colorprimary); */
+    background: #f5f5f5;
     margin-top: 25px;
     width: 300px;
     padding: 25px;
-    color: #ffffff !important;
+
     display: flex;
     flex-direction: column;
     gap: 115px
@@ -19,11 +20,11 @@
     text-align: center;
 }
 .Login_heading{
-    color: #ffffff !important;
+   
 }
 .Login_text{
     margin-top: 25px !important;
-    color: #ffffff !important;
+ 
     white-space: wrap;
 }
 .loginprivacy{

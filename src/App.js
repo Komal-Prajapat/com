@@ -29,8 +29,10 @@ import Shipping from './Pages/return/shipping';
 import Paymentfail from './Pages/newcheckout/paymentfail';
 import Paymentdone from './Pages/newcheckout/paymentdone';
 import UseScrollToTop from './components/topOpen';
-import { Shop } from '@mui/icons-material';
+import { Shop, Try } from '@mui/icons-material';
+import TryNav from './Componentsnew/com/trynav';
 import Com from './Componentsnew/com';
+import NotFound from './components/NotFound/NotFound';
 // import Navbar2 from './components/header2';
 
 
@@ -80,8 +82,9 @@ function App() {
         { path: "shipping", element: <Shipping /> },
         { path: "payment-cancel", element: <Paymentfail /> },
         { path: "payment-callback", element: <Paymentdone /> },
-        { path: "shop", element: <Com /> },
-        // { path: "navbar", element: <Navbar2 /> },
+        { path: "shop", element: <TryNav /> },
+         { path:"", element:<NotFound></NotFound>}
+     
       ]
     },
     {

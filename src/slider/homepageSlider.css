@@ -55,14 +55,16 @@
 
 .carousel-indicators li {
   background-color: red; 
-  border: none;
-  width: 10px; 
+  border: 1px solid black;
+  width: 10px !important ; 
+  border-radius: 100% !important;
   height: 10px; 
   margin: 0 5px; 
 }
 
 .carousel-indicators .active {
-  background-color: white; 
+  /* background-color: white;  */
+  background: #6b6868;
 }
 
 /* Responsive adjustments */

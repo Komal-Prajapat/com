@@ -309,16 +309,16 @@ const Newfilter = ({name,categoryvalueforapi,categoryList,categoryheading, setCa
 		<div>
 			
 			<div className="new_filter_container">
-				<div className="filter-title flex-w flex-sb-m p-b-8">
+				{/* <div className="filter-title flex-w flex-sb-m p-b-8">
 					<span className="mtext-103 cl2 htext">
 						Filter
 					</span>
-				</div>
+				</div> */}
 
-				<div className='selectedlist_display'>
+				{/* <div className='selectedlist_display'>
 					{selectedlist.map((item, index) => {
 						return (
-							<div key={index}>
+							<div key={index}> 
 								<li className="">
 									<p className="flex-c-m stext-107 cl6 size-301 bor7 p-lr-10 hov-tag1 trans-04 m-r-5 m-b-5 selected_list">
 										<p className='filter_title'>{item.name ? item.name : item.category_name}</p>
@@ -328,12 +328,12 @@ const Newfilter = ({name,categoryvalueforapi,categoryList,categoryheading, setCa
 							</div>
 						)
 					})}
-				</div>
+				</div> */}
 				{selectedlist.length ?
 					<div className='selected_btn_prop'>
 						<div className='filter_apply_dlt'>
 							{/* <button className='clear_filter_btn' onClick={handlefilterapply}>Apply</button> */}
-							<button className='clear_filter_btn' onClick={ClearAll}>Clear All</button>
+							{/* <button className='clear_filter_btn' onClick={ClearAll}>Clear All</button> */}
 						</div>
 
 					</div>
@@ -341,10 +341,10 @@ const Newfilter = ({name,categoryvalueforapi,categoryList,categoryheading, setCa
 				}
 				<div className="">
 					<div className="filter-col1 p-r-15 p-b-10 ">
-						<div className="mtext-102 cl2 p-b-15 htext">
-							{categoryheading ? "Category" :"Sub Category" }
+						<div >
+						<h3 className="productheading ">	{categoryheading ? "Product Categories" :"Sub Category" }</h3>
 						</div>
-						<ul>
+						<ul className='productList'>
 							{categoryList.map((item, index) => {
 								return (
 									<div key={index}>
@@ -367,8 +367,8 @@ const Newfilter = ({name,categoryvalueforapi,categoryList,categoryheading, setCa
 
 
 					<div className="filter-col2 p-r-15 p-b-10">
-						<div className="mtext-102 cl2 p-b-15 htext">
-							Price
+						<div className="priceheading">
+						Filter By Price
 						</div>
 
 						<div className='price_slider'>

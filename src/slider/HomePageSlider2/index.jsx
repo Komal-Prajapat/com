@@ -23,7 +23,7 @@ const HoomepageSlider2 = () => {
               <p>Decoration & Accessories</p>
               <span className="DiscovernowBNT">Discover now</span>
             </div>
-          </div>
+          </div>x
         </div>
 
         {/* Third Column */}
