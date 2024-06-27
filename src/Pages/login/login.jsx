@@ -8,12 +8,15 @@ import ToastMessage from '../../utils/ToastMessage';
 import { LoginFormSchema } from '../../utils/validation';
 import ButtonComponent from '../../components/LoginBtn/Button';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
-import MuiPhoneNumber from 'mui-phone-number';
+import MuiPhoneNumber from 'mui-phone-number'; 
+// import MuiPhoneNumber from '@mui/icons-material/PhoneNumber';
+
 import { OtpverifyApi, loginApi, postApiCall, resendotpApi } from '../../API/baseUrl';
 import Modal from '@mui/material/Modal';
 import CloseIcon from '@mui/icons-material/Close';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { Button } from 'bootstrap';
 
 const initialValues = {
   mobile: "",
@@ -282,7 +285,7 @@ const Login = ({ handleafterloginaddtocart, wishlist,handlelike, setShowloginpop
               <p className='loginprivacy'>By continuing, you agree to TreasureBox's <span onClick={gototerms}>Terms & conditions.</span></p>
             </div>
             <Grid sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
-              <ButtonComponent btn_name="Request OTP" loading={loading} type="submit" />
+              <button  loading={loading} type="submit" className='loginbtn'>Request OTP</button>
             </Grid>
           </Box>
         }

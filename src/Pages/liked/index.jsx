@@ -67,10 +67,10 @@ const Liked = () => {
                 </div>
                 </div>
                 :
-               <div className="emptycon">
+               <div className="emptycon"> 
              <div className="data">
              <h3>No Wishlist Items Found</h3>
-             <ButtonForAll name="CONTINUE SHOPING"></ButtonForAll>
+             <ButtonForAll name="CONTINUE SHOPING" className="btnWishlist"></ButtonForAll>
              </div>
                </div>
             }

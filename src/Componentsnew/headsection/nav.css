@@ -16,22 +16,14 @@ body {
 
 
 .sticky {
-
     position: fixed;
     top: 0;
-    height: 80px !important;
+    /* height: 80px; */
     width: 100%;
-    padding-bottom: 20px !important;
+    padding-bottom: 100px !important;
     background: white !important;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-   
-
 }
-
-.sticky .shoplistdata {
-    /* display: none; */
-}
-
 
 .navbarListItemsStyle {
     font-size: 14px !important;
@@ -421,10 +413,6 @@ body {
         text-align: start;
     }
 
-    .cart_text_count {
-        display: none;
-    }
-
     .web_logo_container_link_mobole {
         display: block;
     }
@@ -486,10 +474,6 @@ body {
     .web_mbl_nav {
         display: block;
     }
-
-    .cart_text_count {
-        display: none;
-    }
 }
 
 @media (max-width: 1050px) {
@@ -504,20 +488,12 @@ body {
         justify-content: space-between;
         display: flex;
     }
-
-    .cart_text_count {
-        display: none;
-    }
 }
 
 @media (max-width: 730px) {
     .header_cart_container {
         display: none;
 
-    }
-
-    .cart_text_count {
-        display: none;
     }
 
 }
@@ -568,6 +544,7 @@ body {
     transform: translateY(-50%);
 } */
 .cart_badge span {
+    
     height: 15px !important;
     width: 15px !important;
     border-radius: 50% !important;
@@ -581,7 +558,6 @@ body {
     position: absolute;
     left: 5px;
     top: 2px;
-    display: none !important;
 }
 
 .textfeild {
@@ -680,8 +656,8 @@ body {
 
 .shoplistdata {
     position: relative;
-    left: -400px;
-    top: 50px;
+    left: -460px;
+
     text-align: start;
     padding: 0px 25px;
     display: block;
@@ -741,6 +717,3 @@ body {
 .dropdown-content1 a:hover {
     background-color: #f1f1f1;
 }
-
-
-/* ****************************************************** this is my tyr page ******************** */

@@ -10,10 +10,12 @@
     flex-wrap: wrap !important;
 }
 .price{
-    border: 1px solid var(--colorcl12);
+    border: none !important;
     padding: 0px 5px !important;
     width: 60px !important;
     text-align: center !important;
+    color: black;
+    font-weight: 600;
 }
 
 .filter_container_fluid {

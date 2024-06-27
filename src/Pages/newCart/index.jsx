@@ -196,9 +196,11 @@ const Newcart = ({ reload, setReload }) => {
         <Loader />
       ) : (
         <div className="newcart_container">
+
+        
           {data.length ? (
-            <div className="table-wrapper">
-              <table className="table">
+            <div className="">
+              <table className="table table-wrapper">
                 <thead>
                   <tr>
                     <th>Image</th>
@@ -323,13 +325,9 @@ const Newcart = ({ reload, setReload }) => {
                   ))}
                 </tbody>
               </table>
-            </div>
-          ) : (
-            <Empty image={emptycartlist} btn="Shop Now" />
-          )}
 
-          {/* ***********Table two toatl*********** */}
-          <div className="total2">
+
+              <div className="total2">
             <h2>Cart Totals</h2>
             <ul className="tableul">
               <li className="totalList">
@@ -348,14 +346,7 @@ const Newcart = ({ reload, setReload }) => {
               </li>
             </ul>
           </div>
-          {/* <ButtonForAll
-            name="PROCEED To CEHCKOUT"
-            data-aos="fade-up"
-            type="submit"
-            onClick={moveToCheckout}
-            className="checkoutbtn"
-            style={{WidthFull}}
-          ></ButtonForAll> */}
+     
 
           <button
             className="custom-checkout-button"
@@ -368,6 +359,13 @@ const Newcart = ({ reload, setReload }) => {
             PROCEED To CEHCKOUT
             <div className="innercontainer">PROCEED To CEHCKOUT</div>
           </button>
+            </div>
+          ) : (
+            <Empty image={emptycartlist} btn="Shop Now" />
+          )}
+
+        
+       
         </div>
       )}
     </div>
@@ -375,79 +373,3 @@ const Newcart = ({ reload, setReload }) => {
 };
 
 export default Newcart;
-
-// {data.length > 0 && (
-//     <div className="margin m-b-20 bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
-//       <h4 className="mtext-109 cl2 p-b-10 bor12">Price Details</h4>
-
-//       <div className="bor12">
-//         <div className="d-flex">
-//           <div className="valuesize">Price ({data.length} item) :</div>
-//           <p className="keysize header-cart-item-rupee">
-//             <CurrencyRupeeIcon sx={{ fontSize: "16px" }} />
-//             {Number(price).toFixed(2)}
-//           </p>
-//         </div>
-
-//         <div>
-//           <div className="d-flex">
-//             <div className="valuesize">Discount :</div>
-//             <div className="keysize header-cart-item-rupee">
-//               <CurrencyRupeeIcon sx={{ fontSize: "16px" }} />
-//               {discount ? Number(discount).toFixed(2) : "0.00"}
-//             </div>
-//           </div>
-//         </div>
-
-//         <div>
-//           <div className="order_total_container_inside delivery-charge">
-//             <p className="valuesize">Delivery Charges :</p>
-//             {deliveryCharge === "Free" ? (
-//               <p className="valuesize">{deliveryCharge} </p>
-//             ) : (
-//               <p className="valuesize header-cart-item-rupee">
-//                 <CurrencyRupeeIcon sx={{ fontSize: "16px" }} />
-//                 {deliveryCharge}
-//               </p>
-//             )}
-//           </div>
-//         </div>
-//       </div>
-
-//       <div className="margin m-b-25 d-flex">
-//         <div className="size-208">
-//           <span className="mtext-101 cl2">Total :</span>
-//         </div>
-
-//         <div className="keysize">
-//           <span className="mtext-110 cl2 header-cart-item-rupee end">
-//             <CurrencyRupeeIcon sx={{ fontSize: "18px" }} />{" "}
-//             {Number(totalPrice).toFixed(2)}
-//           </span>
-//         </div>
-//       </div>
-
-//       <ButtonComponent
-//         type="submit"
-//         onClick={moveToCheckout}
-//         btn_name="Proceed to Checkout"
-//       />
-
-//       {/* Conditionally display add more products for free delivery */}
-//       {deliveryCharge === price || deliveryCharge > price ? (
-//         <p className="addmore_text justify-center">
-//           <p className="addmore_text">* Add more products worth</p>
-//           <p className="addmore_text">
-//             {" "}
-//             <CurrencyRupeeIcon
-//               sx={{ fontSize: "18px", display: "flex" }}
-//             />{" "}
-//             {Number(deliveryCharge - price).toFixed(2)}
-//           </p>{" "}
-//           to avail Free Delivery
-//         </p>
-//       ) : (
-//         ""
-//       )}
-//     </div>
-//   )}

@@ -161,7 +161,7 @@ const Profile = () => {
                             aria-labelledby="demo-radio-buttons-group-label"
                             defaultValue={value}
                             name="gender"
-                            className='addresstype_radio'
+                            className='addresstype_radio d-flex'
                             value={value}
                             onChange={handleradioChange}
                         >

@@ -82,7 +82,7 @@ function App() {
         { path: "shipping", element: <Shipping /> },
         { path: "payment-cancel", element: <Paymentfail /> },
         { path: "payment-callback", element: <Paymentdone /> },
-        { path: "shop", element: <TryNav /> },
+        { path: "shop", elemxent: <TryNav /> },
          { path:"", element:<NotFound></NotFound>}
      
       ]

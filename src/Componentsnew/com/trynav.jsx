@@ -1,107 +1,129 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from "react";
 import "./index.css";
-import { Activecategory, Activesubcategory, getApiCall } from '../../API/baseUrl';
-import { Link ,useLocation} from 'react-router-dom';
-import DarkVariantExample from '../../slider/HomePageSlider';
+import {
+  Activecategory,
+  Activesubcategory,
+  getApiCall,
+} from "../../API/baseUrl";
+import { Link, useLocation } from "react-router-dom";
 
 const TryNav = () => {
-    const [categoryList, setCategoryList] = useState([]);
-    const [subcategoryList, setSubcategoryList] = useState([]);
-    const [subcategoryfilterList, setSubcategoryfilterList] = useState([]);
-    const [catval, setCatval] = useState("");
+  const [categoryList, setCategoryList] = useState([]);
+  const [subcategoryList, setSubcategoryList] = useState([]);
+  const [subcategoryfilterList, setSubcategoryfilterList] = useState([]);
+  const [catval, setCatval] = useState("");
+  const [showTryNav, setShowTryNav] = useState(false); // State to manage visibility of TryNav
+  const tryNavRef = useRef(null); // Ref for TryNav component
 
-    const handlecatClick = (name) => {
-        setCatval(name);
+  const handlecatClick = (name) => {
+    setCatval(name);
+  };
+
+  const fetchcategoryList = async () => {
+    try {
+      const result = await getApiCall(Activecategory);
+      if (result.data.status) {
+        const categoryData = result.data.category.map((item) => {
+          item.type = "category";
+          return item;
+        });
+        setCategoryList(categoryData);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
+  const fetchsubcategoryList = async () => {
+    try {
+      const result = await getApiCall(Activesubcategory);
+      if (result.data.status) {
+        setSubcategoryList(result.data.data);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchcategoryList();
+    fetchsubcategoryList();
+  }, []);
+
+  const handlemouseover = (id) => {
+    const myarray = subcategoryList.filter((item) => item.parentId == id);
+    setSubcategoryfilterList(myarray);
+  };
+
+  const location = useLocation();
+  const { pathname } = location;
+
+  // Handle click outside TryNav to close it
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (tryNavRef.current && !tryNavRef.current.contains(event.target)) {
+        setShowTryNav(false);
+      }
     };
 
-    const fetchcategoryList = async () => {
-        try {
-            const result = await getApiCall(Activecategory);
-            if (result.data.status) {
-                const categoryData = result.data.category.map((item) => {
-                    item.type = "category";
-                    return item;
-                });
-                setCategoryList(categoryData);
-            }
-        } catch (error) {
-            console.log("error", error);
-        }
+    if (showTryNav) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
     };
+  }, [showTryNav]);
 
-    const fetchsubcategoryList = async () => {
-        try {
-            const result = await getApiCall(Activesubcategory);
-            if (result.data.status) {
-                setSubcategoryList(result.data.data);
-            }
-        } catch (error) {
-            console.log("error", error);
-        }
-    };
+  // Toggle TryNav visibility
+  const toggleTryNav = () => {
+    setShowTryNav((prev) => !prev);
+  };
 
-    useEffect(() => {
-        fetchcategoryList();
-        fetchsubcategoryList();
-    }, []);
-
-    const handlemouseover = (id) => {
-        const myarray = subcategoryList.filter(item => item.parentId == id);
-        setSubcategoryfilterList(myarray);
-    };
-
-    const location = useLocation();
-    const { pathname } = location;
-    const splitLocation = pathname.split("/");
-
-    return (
-      <>
-          <nav className="navbar navbar-expand-lg navbar-light ">
-            <div className="container">
-                {/* <Link className="navbar-brand" to="/">Your Brand</Link> */}
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul className="navbar-nav">
-                        {categoryList.map((item, index) => (
-                            <li key={index} className="nav-item dropdown">
-                                <Link
-                                    id="navbarDropdown"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                    className={catval === item.category_name ? "nav-link dropdown-toggle active" : "nav-link dropdown-toggle"}
-                                    to={`/product/${item.id}/${item.category_name}`}
-                                    onClick={() => handlecatClick(item.category_name)}
-                                    onMouseOver={() => handlemouseover(item.id)}
-                                >
-                                    {item.category_name}
-                                </Link>
-                                <ul className="dropdown-menu">
-                                    {subcategoryfilterList[0]?.parentId == item.id && (
-                                        subcategoryfilterList.map((subcategory, index) => (
-                                            <li key={index}>
-                                                <Link
-                                                    className='dropdown-item'
-                                                    to={`/product/${subcategory.category_name}/${subcategory.id}/${subcategory.parentId}`}
-                                                >
-                                                    {subcategory.category_name}
-                                                </Link>
-                                            </li>
-                                        ))
-                                    )}
-                                </ul>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        
-      </>
-    );
+  return (
+    <>
+    <div className="navbar">
+<ul className="navbar-nav">
+              {categoryList.map((item, index) => (
+                <li key={index} className="">
+                  <Link
+                    
+                    role="button"
+            
+                 
+                  
+                    to={`/product/${item.id}/${item.category_name}`}
+                    onClick={() => handlecatClick(item.category_name)}
+                    onMouseOver={() => handlemouseover(item.id)}
+                    style={{
+                      cursor: "pointer",
+                    }}
+                    className="category_nameList"
+                  >
+                    {item.category_name}
+                  </Link>
+                  <ul >
+                    {subcategoryfilterList[0]?.parentId == item.id &&
+                      subcategoryfilterList.map((subcategory, index) => (
+                        <li key={index}>
+                          <Link
+                            className="subcategory_nameList"
+                            to={`/product/${subcategory.category_name}/${subcategory.id}/${subcategory.parentId}`}
+                            
+                          >
+                            {subcategory.category_name}
+                          </Link>
+                        </li>
+                      ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+</div>
+    </>
+  );
 };
 
 export default TryNav;

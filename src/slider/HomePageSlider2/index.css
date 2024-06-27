@@ -1,65 +1,120 @@
+/* .box {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: start;
+  padding-left: 20px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-bottom: 10px;
+} */
+
+.box1 {
+  background-image: url("https://ng-outstock.vercel.app/assets/img/shop/banner/banner-sm-1.jpg");
+}
+
+.box2 {
+  background-image: url("https://ng-outstock.vercel.app/assets/img/shop/banner/banner-sm-2.jpg");
+}
+
+.box3 {
+  background-image: url("https://ng-outstock.vercel.app/assets/img/shop/banner/banner-sm-3.jpg");
+}
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+/* Container for the slider */
+.HomepageSliderCon2 {
+  padding: 10px;
+}
+
+/* Bootstrap grid system */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.col-md-4 {
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+
+/* Box styles */
 .box {
+  
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-bottom: 20px;
+  text-align: left;
+  padding-left: 3px;
+  
+}
+
+/* Adjust box height and styles for different screen sizes */
+@media (max-width: 1200px) {
+  .box {
+    height: 250px;
+  }
+}
+
+@media (max-width: 992px) {
+  .box {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .box {
+    height: 250px;
+  }
+}
+
+@media (max-width: 576px) {
+  .box {
     height: 200px;
-    background-size: cover;
-    background-position: center;
+    width: 100%;
+    padding: 10px !important;
     display: flex;
-    justify-content: start;
-    padding-left: 20px;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    margin-bottom: 10px;
+    justify-content: left;
+    font-size: smaller;
   }
-  
-  .box1 {
-    background-image: url("https://ng-outstock.vercel.app/assets/img/shop/banner/banner-sm-1.jpg");
-  }
-  
-  .box2 {
-    background-image: url("https://ng-outstock.vercel.app/assets/img/shop/banner/banner-sm-2.jpg");
-  }
-  
-  .box3 {
-    background-image: url("https://ng-outstock.vercel.app/assets/img/shop/banner/banner-sm-3.jpg");
-  }
-  
-  .box-content {
-   text-align: left;
+}
 
-    position: absolute;
+/* Box content styles */
 
-    transition: opacity 0.3s ease;
-  }
-  
-  .box-content p {
-    font-size: 14px;
-    color: black;
-    line-height: 0.ch;
-    text-align: left;
- 
-  }
-  .box-content:hover{
-color:  #bc8246;
-  } 
-  .box-content button {
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #000;
-    color: #000;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .box-content button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-  }
-  
-  .box:hover {
-    transform: scale(1.05);
-  }
-  
+.box-content p {
+  font-size: 16px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+
+.DiscovernowBNT:hover{
+  color: #bc8246;
+}

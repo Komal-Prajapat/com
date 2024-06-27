@@ -1,5 +1,3 @@
-/* homepageSlider.css */
-
 /* Default styles */
 
 /* Carousel item content */
@@ -25,8 +23,9 @@
   width: 500px; /* Default width for larger screens */
 }
 
-.content-text h1,
-.content-text p {
+.content-text h2,
+.content-text p,
+.content-text button {
   margin-bottom: 10px;
 }
 
@@ -38,14 +37,14 @@
   cursor: pointer;
 }
 
-.sliderheading{
+.sliderheading {
   animation-delay: .5s !important;
   animation-duration: .5s !important;
   line-height: 1.2 !important;
   color: #323232 !important;
   margin-bottom: 14px !important;
   font-size: 36px !important;
-  font-weight: 400px !important;
+  font-weight: 400;
 }
 
 /* Carousel indicators */
@@ -63,7 +62,6 @@
 }
 
 .carousel-indicators .active {
-  /* background-color: white;  */
   background: #6b6868;
 }
 
@@ -82,14 +80,13 @@
 
 @media (max-width: 768px) {
   .content-text {
-    width: 100%;
+    width: calc(100% - 40px); /* Adjust to the specific padding or margin of the parent container */
     padding: 0 20px;
-   
     left: 0;
     right: 0;
   }
 
-  .content-text h1 {
+  .content-text h2 {
     font-size: 24px; 
   }
 
@@ -105,11 +102,12 @@
 
 @media (max-width: 576px) {
   .content-text {
+    width: calc(100% - 20px); /* Adjust to the specific padding or margin of the parent container */
     padding: 0 10px;
     text-align: left;
   }
 
-  .content-text h1 {
+  .content-text h2 {
     font-size: 20px; 
   }
 

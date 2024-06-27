@@ -157,19 +157,19 @@ const SliderComponent = ({
                 >
                   {truncateProductName(
                     item.product_name || item.productName,
-                    10
+                    15
                   )}
                 </p>
                 <p className="product-price">
                   {item.discount_percent === 0 ? (
                     <span className="mrp-with-discount product-icon_rs">
-                      <CurrencyRupeeIcon  />{" "}
+                      <CurrencyRupeeIcon  style={{fontSize:'14px'}}/>{" "}
                       {item.discount_amount || item.price}
                     </span>
                   ) : (
                     <>
                       <span className="mrp-with-discount product-icon_rs">
-                        <CurrencyRupeeIcon />
+                        <CurrencyRupeeIcon style={{fontSize:'14px'}}/>
                         {item.discount_amount}
                       </span>
                       <strike className="discount-mrp">
@@ -181,9 +181,9 @@ const SliderComponent = ({
                     </>
                   )}
                 </p>
-                <div className="addtocart">
+                {/* <div className="addtocart">
                   <IoAddSharp /> <span> Add to cart</span>
-                </div>
+                </div> */}
                 
               </div>
             </div>

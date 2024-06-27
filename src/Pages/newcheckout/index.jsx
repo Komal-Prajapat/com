@@ -350,10 +350,8 @@ const OrderCheckout = ({ reload, setReload }) => {
     <>
       <TopPageImage pagename="Checkout" />
 
-      <div className="checkoutpagecon"  style={{
-          marginTop: "100px",
-        }}>
-      <div className="toplogincon d-flex" >
+      <div className="checkoutpagecon">
+        {/* <div className="toplogincon d-flex" >
         <div className="login"><FaFolder className="folder"/>
         Returning customer? <Link to={"/login"}> <span>Click here to login</span></Link></div>
 
@@ -361,250 +359,252 @@ const OrderCheckout = ({ reload, setReload }) => {
         <FaFolder className="folder"/>
 Have a coupon? Click here to enter your code
         </div>
-      </div>
+      </div> */}
 
-      <div
-        className="ordercheckout_container"
-       
-      >
-        {showsuccessPopup ? (
-          <SuccessDialog
-            successDialog={showsuccessPopup}
-            orderId={orderId}
-            setSuccessDialog={setShowsuccessPopup}
-          />
-        ) : (
-          ""
-        )}
+        <div
+          className="ordercheckout_container"
+          style={{
+            marginTop: "100px",
+          }}
+        >
+          {showsuccessPopup ? (
+            <SuccessDialog
+              successDialog={showsuccessPopup}
+              orderId={orderId}
+              setSuccessDialog={setShowsuccessPopup}
+            />
+          ) : (
+            ""
+          )}
 
-        {loader ? (
-          <Loader />
-        ) : (
-          <div className="ordercheckout_container_inside">
-            <div className="topbar d-flex"></div>
+          {loader ? (
+            <Loader />
+          ) : (
+            <div className="ordercheckout_container_inside">
+              <div className="topbar d-flex"></div>
 
-            <form
-              className="ordercheckout_customer_information_container"
-              onSubmit={handleSubmit2}
-            >
-              <h3>Billing Details</h3>
-              <div className="ordercheckout_customer_contact_container">
-                <h2 className="checkout_heading_text fs-26">Contact</h2>
-              </div>
-              <div className="ordercheckout_customer_contact_field">
-                <div className="fullwidth">
-                  <TextField
-                    className="profile-textfield"
-                    value={values.mobile}
-                    fullWidth
-                    name="mobile"
-                    focused
-                    id="mobile"
-                    label="Mobile Number"
-                    variant="outlined"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  {errors.mobile && touched.mobile ? (
-                    <p className="address-form-error">{errors.mobile}</p>
-                  ) : null}
+              <form
+                className="ordercheckout_customer_information_container"
+                onSubmit={handleSubmit2}
+              >
+                <h3>Billing Details</h3>
+                <div className="ordercheckout_customer_contact_container">
+                  <h3 className="checkout_heading_text fs-26">Contact</h3>
                 </div>
-              </div>
-
-              <div className="ordercheckout_customer_contact_container">
-                <h2 className="checkout_heading_text margin-top fs-26">
-                  Delivery
-                </h2>
-              </div>
-              <div className="ordercheckout_customer_contact_field">
-                <div className="fullwidth">
-                  <TextField
-                    className="profile-textfield "
-                    value={values.firstname}
-                    fullWidth
-                    name="firstname"
-                    id="firstname"
-                    label="First Name"
-                    variant="outlined"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  {errors.firstname && touched.firstname ? (
-                    <p className="address-form-error">{errors.firstname}</p>
-                  ) : null}
+                <div className="ordercheckout_customer_contact_field">
+                  <div className="fullwidth">
+                    <TextField
+                      className="profile-textfield"
+                      value={values.mobile}
+                      fullWidth
+                      name="mobile"
+                      focused
+                      id="mobile"
+                      label="Mobile Number"
+                      variant="outlined"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.mobile && touched.mobile ? (
+                      <p className="address-form-error">{errors.mobile}</p>
+                    ) : null}
+                  </div>
                 </div>
 
-                <div className="fullwidth">
-                  <TextField
-                    className="profile-textfield "
-                    value={values.lastname}
-                    fullWidth
-                    name="lastname"
-                    id="lastname"
-                    label="Last Name"
-                    variant="outlined"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  {errors.lastname && touched.lastname ? (
-                    <p className="address-form-error">{errors.lastname}</p>
-                  ) : null}
+                <div className="ordercheckout_customer_contact_container">
+                  <h3 className="checkout_heading_text margin-top ">
+                    Delivery
+                  </h3>
                 </div>
-              </div>
-              <div className="ordercheckout_customer_contact_field">
-                <div className="fullwidth">
-                  <TextField
-                    className="profile-textfield"
-                    value={values.address}
-                    fullWidth
-                    name="address"
-                    id="address"
-                    label="Address"
-                    variant="outlined"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  {errors.address && touched.address ? (
-                    <p className="address-form-error">{errors.address}</p>
-                  ) : null}
+                <div className="ordercheckout_customer_contact_field">
+                  <div className="fullwidth">
+                    <TextField
+                      className="profile-textfield "
+                      value={values.firstname}
+                      fullWidth
+                      name="firstname"
+                      id="firstname"
+                      label="First Name"
+                      variant="outlined"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.firstname && touched.firstname ? (
+                      <p className="address-form-error">{errors.firstname}</p>
+                    ) : null}
+                  </div>
+
+                  <div className="fullwidth">
+                    <TextField
+                      className="profile-textfield "
+                      value={values.lastname}
+                      fullWidth
+                      name="lastname"
+                      id="lastname"
+                      label="Last Name"
+                      variant="outlined"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.lastname && touched.lastname ? (
+                      <p className="address-form-error">{errors.lastname}</p>
+                    ) : null}
+                  </div>
                 </div>
-              </div>
-              <div className="ordercheckout_customer_contact_field">
-                <div className="fullwidth">
-                  <TextField
-                    className="profile-textfield"
-                    value={values.city}
-                    fullWidth
-                    name="city"
-                    id="city"
-                    label="City"
-                    variant="outlined"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  {errors.city && touched.city ? (
-                    <p className="address-form-error">{errors.city}</p>
-                  ) : null}
+                <div className="ordercheckout_customer_contact_field">
+                  <div className="fullwidth">
+                    <TextField
+                      className="profile-textfield"
+                      value={values.address}
+                      fullWidth
+                      name="address"
+                      id="address"
+                      label="Address"
+                      variant="outlined"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.address && touched.address ? (
+                      <p className="address-form-error">{errors.address}</p>
+                    ) : null}
+                  </div>
+                </div>
+                <div className="ordercheckout_customer_contact_field">
+                  <div className="fullwidth">
+                    <TextField
+                      className="profile-textfield"
+                      value={values.city}
+                      fullWidth
+                      name="city"
+                      id="city"
+                      label="City"
+                      variant="outlined"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.city && touched.city ? (
+                      <p className="address-form-error">{errors.city}</p>
+                    ) : null}
+                  </div>
+
+                  <div className="fullwidth">
+                    <TextField
+                      className="profile-textfield"
+                      value={values.state}
+                      fullWidth
+                      name="state"
+                      id="state"
+                      label="State"
+                      variant="outlined"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.state && touched.state ? (
+                      <p className="address-form-error">{errors.state}</p>
+                    ) : null}
+                  </div>
+                  <div className="fullwidth">
+                    <TextField
+                      className="profile-textfield"
+                      value={values.pincode}
+                      fullWidth
+                      name="pincode"
+                      id="pincode"
+                      label="Pincode"
+                      variant="outlined"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.pincode && touched.pincode ? (
+                      <p className="address-form-error">{errors.pincode}</p>
+                    ) : null}
+                  </div>
+                </div>
+                <div className="ordercheckout_customer_contact_field">
+                  <div className="fullwidth">
+                    <TextField
+                      className="profile-textfield"
+                      value={values.email}
+                      fullWidth
+                      name="email"
+                      id="email"
+                      label="Email"
+                      variant="outlined"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.email && touched.email ? (
+                      <p className="address-form-error">{errors.email}</p>
+                    ) : null}
+                  </div>
+                </div>
+                <Grid item xs={12} sm={12} md={12} lg={12} sx={{}}>
+                  <FormLabel id="demo-radio-buttons-group-label checkout_heading_text">
+                    Address Type
+                  </FormLabel>
+                  <RadioGroup
+                    aria-labelledby="demo-radio-buttons-group-label"
+                    defaultValue="1"
+                    name="addressType"
+                    className="addresstype_radio"
+                    value={value}
+                    onChange={handleradioChange}
+                  >
+                    <FormControlLabel
+                      value="1"
+                      control={<Radio />}
+                      label={<p>Home (All day delivery)</p>}
+                    />
+                    <FormControlLabel
+                      value="0"
+                      control={<Radio />}
+                      label={
+                        <p className="adress_text">
+                          Work (Delivery between 10AM to 5PM)
+                        </p>
+                      }
+                    />
+                  </RadioGroup>
+                </Grid>
+                <div className="ordercheckout_customer_contact_container">
+                  <h2 className="checkout_heading_text margin-top fs-26">
+                    Payment
+                  </h2>
+                </div>
+                <div className="ordercheckout_customer_contact_field">
+                  <RadioGroup
+                    aria-labelledby="demo-radio-buttons-group-label"
+                    defaultValue="0"
+                    name="radio-buttons-group"
+                    onChange={handlepaymentChange}
+                  >
+                    <FormControlLabel
+                      className="formcontrol"
+                      value="0"
+                      control={<Radio sx={{ color: "blue" }} />}
+                      label={<p>Net Banking</p>}
+                    />
+
+                    <FormControlLabel
+                      className="formcontrol"
+                      value="1"
+                      control={<Radio sx={{ color: "blue" }} />}
+                      label={<p>Cash on Delivery (COD)</p>}
+                    />
+                  </RadioGroup>
                 </div>
 
-                <div className="fullwidth">
-                  <TextField
-                    className="profile-textfield"
-                    value={values.state}
-                    fullWidth
-                    name="state"
-                    id="state"
-                    label="State"
-                    variant="outlined"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  {errors.state && touched.state ? (
-                    <p className="address-form-error">{errors.state}</p>
-                  ) : null}
-                </div>
-                <div className="fullwidth">
-                  <TextField
-                    className="profile-textfield"
-                    value={values.pincode}
-                    fullWidth
-                    name="pincode"
-                    id="pincode"
-                    label="Pincode"
-                    variant="outlined"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  {errors.pincode && touched.pincode ? (
-                    <p className="address-form-error">{errors.pincode}</p>
-                  ) : null}
-                </div>
-              </div>
-              <div className="ordercheckout_customer_contact_field">
-                <div className="fullwidth">
-                  <TextField
-                    className="profile-textfield"
-                    value={values.email}
-                    fullWidth
-                    name="email"
-                    id="email"
-                    label="Email"
-                    variant="outlined"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  {errors.email && touched.email ? (
-                    <p className="address-form-error">{errors.email}</p>
-                  ) : null}
-                </div>
-              </div>
-              <Grid item xs={12} sm={12} md={12} lg={12} sx={{}}>
-                <FormLabel id="demo-radio-buttons-group-label">
-                  Address Type
-                </FormLabel>
-                <RadioGroup
-                  aria-labelledby="demo-radio-buttons-group-label"
-                  defaultValue="1"
-                  name="addressType"
-                  className="addresstype_radio"
-                  value={value}
-                  onChange={handleradioChange}
-                >
-                  <FormControlLabel
-                    value="1"
-                    control={<Radio />}
-                    label={<p>Home (All day delivery)</p>}
-                  />
-                  <FormControlLabel
-                    value="0"
-                    control={<Radio />}
-                    label={
-                      <p className="adress_text">
-                        Work (Delivery between 10AM to 5PM)
-                      </p>
-                    }
-                  />
-                </RadioGroup>
-              </Grid>
-              <div className="ordercheckout_customer_contact_container">
-                <h2 className="checkout_heading_text margin-top fs-26">
-                  Payment
-                </h2>
-              </div>
-              <div className="ordercheckout_customer_contact_field">
-                <RadioGroup
-                  aria-labelledby="demo-radio-buttons-group-label"
-                  defaultValue="0"
-                  name="radio-buttons-group"
-                  onChange={handlepaymentChange}
-                >
-                  <FormControlLabel
-                    className="formcontrol"
-                    value="0"
-                    control={<Radio sx={{ color: "blue" }} />}
-                    label={<p>Net Banking</p>}
-                  />
+                <ButtonForAll
+                  type="submit"
+                  loading={loading}
+                  disabled={loading}
+                  name="Place Order"
+                ></ButtonForAll>
+              </form>
 
-                  <FormControlLabel
-                    className="formcontrol"
-                    value="1"
-                    control={<Radio sx={{ color: "blue" }} />}
-                    label={<p>Cash on Delivery (COD)</p>}
-                  />
-                </RadioGroup>
-              </div>
-
-              <ButtonForAll
-                type="submit"
-                loading={loading}
-                disabled={loading}
-                name="Place Order"
-              ></ButtonForAll>
-            </form>
-
-            <div className="ordercheckout_summarycontainer">
-              <div className="ordercheckout_summarycontainer_inside">
-                {/* {data.map((product, index) => {
+              <div className="ordercheckout_summarycontainer">
+                <div className="ordercheckout_summarycontainer_inside">
+                  {/* {data.map((product, index) => {
                   return (
                     <div
                       key={index}
@@ -680,83 +680,85 @@ Have a coupon? Click here to enter your code
                   );
                 })} */}
 
-                {/* <div className='order_summary_discount_container' >
+                  {/* <div className='order_summary_discount_container' >
                             <input type='text' className='coupon_code_field' placeholder='Promo Code' value="" />
                             <button className='discount_button' type='button' >Apply</button>
                         </div> */}
 
-                <div className="order_total_container">
-                  <h3>Your order</h3>
-                  <table className="order_total_container_inside">
-                    <th className="valuesize">Price ({data.length} item) :</th>
-                    <th className="valuesize header-cart-item-rupee">
-                      <CurrencyRupeeIcon sx={{ fontSize: "16px" }} />{" "}
-                      {Number(price).toFixed(2)}
-                    </th>
-                  </table>
-                  <table className="order_total_container_inside">
-                    <th className="valuesize">Discount :</th>
-                    <th className="valuesize header-cart-item-rupee">
-                      <CurrencyRupeeIcon sx={{ fontSize: "16px" }} />
-                      {discount ? Number(discount).toFixed(2) : "0.00"}
-                    </th>
-                  </table>
-                  <table className="order_total_container_inside">
-                    <th className="valuesize">Delivery Charges :</th>
-                    {deliverycharge === "Free" ? (
-                      <th className="valuesize header-cart-item-rupee">
-                        {deliverycharge}
+                  <div className="order_total_container">
+                    <h3>Your order</h3>
+                    <table className="order_total_container_inside">
+                      <th className="valuesize">
+                        Price ({data.length} item) :
                       </th>
-                    ) : (
-                      <p className="valuesize header-cart-item-rupee">
+                      <th className="valuesize header-cart-item-rupee">
                         <CurrencyRupeeIcon sx={{ fontSize: "16px" }} />{" "}
-                        {deliverycharge}
-                      </p>
-                    )}
-                  </table>
-                  <table className="order_total_container_inside">
-                    <th className="valuesize">Total Price :</th>
-                    <th className="valuesize  header-cart-item-rupee totalpricenewcart">
-                      <CurrencyRupeeIcon sx={{ fontSize: "16px" }} />
-                      {Number(totalprice).toFixed(2)}
-                    </th>
-                  </table>
+                        {Number(price).toFixed(2)}
+                      </th>
+                    </table>
+                    <table className="order_total_container_inside">
+                      <th className="valuesize">Discount :</th>
+                      <th className="valuesize header-cart-item-rupee">
+                        <CurrencyRupeeIcon sx={{ fontSize: "16px" }} />
+                        {discount ? Number(discount).toFixed(2) : "0.00"}
+                      </th>
+                    </table>
+                    <table className="order_total_container_inside">
+                      <th className="valuesize">Delivery Charges :</th>
+                      {deliverycharge === "Free" ? (
+                        <th className="valuesize header-cart-item-rupee">
+                          {deliverycharge}
+                        </th>
+                      ) : (
+                        <p className="valuesize header-cart-item-rupee">
+                          <CurrencyRupeeIcon sx={{ fontSize: "16px" }} />{" "}
+                          {deliverycharge}
+                        </p>
+                      )}
+                    </table>
+                    <table className="order_total_container_inside">
+                      <th className="valuesize">Total Price :</th>
+                      <th className="valuesize  header-cart-item-rupee totalpricenewcart">
+                        <CurrencyRupeeIcon sx={{ fontSize: "16px" }} />
+                        {Number(totalprice).toFixed(2)}
+                      </th>
+                    </table>
 
-                  <p>
-                    <a
-                      class="DirectBank togglebtnFirst"
-                      data-bs-toggle="collapse"
-                      href="#multiCollapseExample1"
-                      role="button"
-                      aria-expanded="false"
-                      aria-controls="multiCollapseExample1"
-                    >
-                      DIRECT BANK TRANSFER
-                    </a>
-                  </p>
-                  <div class="row">
-                    <div class="col">
-                      <div
-                        class="collapse multi-collapse"
-                        id="multiCollapseExample1"
+                    <p>
+                      <a
+                        class="DirectBank togglebtnFirst"
+                        data-bs-toggle="collapse"
+                        href="#multiCollapseExample1"
+                        role="button"
+                        aria-expanded="false"
+                        aria-controls="multiCollapseExample1"
                       >
-                        <div class="card card-body">
-                          Make your payment directly into our bank account.
-                          Please use your Order ID as the payment reference.
-                          Your order won’t be shipped until the funds have
-                          cleared in our account.
+                        DIRECT BANK TRANSFER
+                      </a>
+                    </p>
+                    <div class="row">
+                      <div class="col">
+                        <div
+                          class="collapse multi-collapse"
+                          id="multiCollapseExample1"
+                        >
+                          <div class="card card-body">
+                            Make your payment directly into our bank account.
+                            Please use your Order ID as the payment reference.
+                            Your order won’t be shipped until the funds have
+                            cleared in our account.
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  <ButtonForAll name=" place order "></ButtonForAll>
+                    <ButtonForAll name=" place order "></ButtonForAll>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
       </div>
     </>
   );

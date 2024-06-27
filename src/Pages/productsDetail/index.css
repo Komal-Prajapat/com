@@ -1,9 +1,10 @@
 .productdetail_container{
     padding: 50px;
 }
-.btndiv{
+.productBTNLAst{
     display: flex;
-justify-content: start;
+justify-content: space-around;
+align-items: center;
 }
 .quantitybutton
 {
@@ -12,6 +13,9 @@ justify-content: start;
     font-weight: 400 !important;
     border: 1px solid #dcdcdc !important;
     height: 50px !important;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     width: 110px !important;
 }
 
@@ -26,3 +30,11 @@ border: none !important;
     margin-left: 10px;
     margin-right: 10px;
 }
+
+.read-more-btn {
+    background-color: transparent;
+    border: none;
+    color:#bc8246;
+    cursor: pointer;
+  }
+  

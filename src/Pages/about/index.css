@@ -1,13 +1,13 @@
-.aboutOuterCon{
+/* Default styles */
+.aboutOuterCon {
   padding: 10px !important;
   background: white !important;
 }
+
 .aboutcontainer {
-
-  background:  #f5f5f5 !important;
-  padding: 100px !important; 
+  background: #f5f5f5 !important;
+  padding: 100px !important;
 }
-
 
 .about_boxes {
   display: flex;
@@ -35,7 +35,7 @@
 }
 
 .aboutimg:hover {
-  border-width: 6px; 
+  border-width: 6px;
 }
 
 .about_explore,
@@ -65,8 +65,64 @@
   width: 8px;
 }
 
-/* Responsive image adjustments */
+/* Responsive adjustments */
 .hov-img0 img {
   max-width: 100%;
   height: auto;
+}
+
+/* Media Queries for responsiveness */
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+  .aboutcontainer {
+    padding: 80px !important;
+  }
+  .about_boxes_inside {
+    flex: 1 1 calc(33.33% - 40px);
+    max-width: calc(33.33% - 40px);
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .aboutcontainer {
+    padding: 60px !important;
+  }
+  .about_boxes_inside {
+    flex: 1 1 calc(50% - 40px);
+    max-width: calc(50% - 40px);
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .aboutcontainer {
+    padding: 40px !important;
+  }
+  .about_boxes_inside {
+    flex: 1 1 calc(50% - 30px);
+    max-width: calc(50% - 30px);
+  }
+  .aboutimg{
+    display: none;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575px) {
+  .aboutcontainer {
+    padding: 20px !important;
+  }
+  .about_boxes_inside {
+    flex: 1 1 calc(100% - 20px);
+    max-width: calc(100% - 20px);
+  }
+  .col-md-5 {
+    order: -1;
+    text-align: center;
+  }
+  .aboutimg{
+    display: none;
+  }
 }

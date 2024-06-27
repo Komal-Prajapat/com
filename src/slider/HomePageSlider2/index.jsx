@@ -1,10 +1,10 @@
 import React from "react";
 import "./index.css";
-import ButtonForAll from "../../components/ButtonForALL";
+import span from "../../components/ButtonForALL"; // Assuming this is correctly imported
 
 const HoomepageSlider2 = () => {
   return (
-    <div className=" HomepageSliderCon2">
+    <div className="HomepageSliderCon2 container-fluid">
       <div className="row">
         {/* First Column */}
         <div className="col-12 col-md-4">
@@ -23,7 +23,7 @@ const HoomepageSlider2 = () => {
               <p>Decoration & Accessories</p>
               <span className="DiscovernowBNT">Discover now</span>
             </div>
-          </div>x
+          </div>
         </div>
 
         {/* Third Column */}

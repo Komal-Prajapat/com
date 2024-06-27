@@ -322,6 +322,26 @@ const ProductDetail = ({ reload, setReload, setCatval }) => {
     return checkSelected.length;
   };
 
+
+
+
+  const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
+
+const toggleDescription = () => {
+  setIsDescriptionExpanded(!isDescriptionExpanded);
+};
+
+const readmorefunction = (description, maxLength) => {
+  if (!description) return "";
+
+  if (description.length > maxLength && !isDescriptionExpanded) {
+    return `${description.substring(0, maxLength)}... `;
+  }
+  return description;
+};
+
+  
+
   return (
     <>
       <TopPageImage pagename="Product Details"></TopPageImage>
@@ -625,19 +645,25 @@ const ProductDetail = ({ reload, setReload, setCatval }) => {
               )}
               {/* ************* descrption of product *********** */}
               <hr />
-               <div className="descriptionp">
-                <RemoveTag
-                  ParserText={details?.description}
-                  style={{
-                    fontSizesize: "14px",
-                    lineHeight: "24px",
-                    color: "red",
-                    fontFamily: "sans-serif",
-                    marginBottom: "0",
-                  }}
-                />
-              </div>
-              <hr /> 
+              <div className="descriptionp">
+  <RemoveTag
+    ParserText={readmorefunction(details?.description, 200)}
+    style={{
+      fontSize: "14px",
+      lineHeight: "24px",
+      color: "red",
+      fontFamily: "sans-serif",
+      marginBottom: "0",
+    }}
+  />
+  {details?.description && details?.description.length > 200 && (
+    <button className="read-more-btn" onClick={toggleDescription}>
+      {isDescriptionExpanded ? "Read less" : "Read more"}
+    </button>
+  )}
+</div>
+
+              <hr />
               {/* <p className="summary_icon">
                 <StarBorderOutlinedIcon />
                 Specification
@@ -656,9 +682,9 @@ const ProductDetail = ({ reload, setReload, setCatval }) => {
               </div>
               <hr /> */}
 
-              <div className="d-flex btndiv">
-              <p>Quantity</p>
-                <div className="quantitybutton  d-flex ">
+              <div className="d-flex productBTNLAst">
+                <p>Quantity</p>
+                <div className="quantitybutton  ">
                   <div className=" quantityAddSubIncon" onClick={handleminus}>
                     <RiSubtractFill />
                   </div>
@@ -686,10 +712,7 @@ const ProductDetail = ({ reload, setReload, setCatval }) => {
                     disabled={cartbtnloading || details.is_active === 0}
                     onClick={gotocart}
                   >
-                    <ShoppingCartIcon
-                      sx={{ marginRight: "5px" }}
-                    />{" "}
-                    Go to cart
+                    <ShoppingCartIcon sx={{ marginRight: "5px" }} /> Go to cart
                   </button>
                 ) : (
                   <button
@@ -701,10 +724,7 @@ const ProductDetail = ({ reload, setReload, setCatval }) => {
                     disabled={cartbtnloading || details.is_active === 0}
                     onClick={user_id ? handlecart : handleprofilePage}
                   >
-                    <ShoppingCartIcon
-                      sx={{ marginRight: "5px" }}
-                    />{" "}
-                    Add to cart
+                    <ShoppingCartIcon sx={{ marginRight: "5px" }} /> Add to cart
                   </button>
                 )}
 

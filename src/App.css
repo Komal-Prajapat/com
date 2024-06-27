@@ -18634,7 +18634,7 @@ iframe {
 
 	.home_body_container,
 	.sectionBody {
-		width: 1470px !important;
+		/* width: 1470px !important; */
 		max-width: 100%;
 	}
 }

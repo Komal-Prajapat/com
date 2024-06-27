@@ -255,6 +255,7 @@ const HeaderSection = ({
     setCatval("");
     setAnchorEl(null);
     setAnchorE3(null);
+    setShowTryNav(false);
   };
   const gotocontact = () => {
     navigate("/contact");
@@ -262,11 +263,13 @@ const HeaderSection = ({
     setAnchorEl(null);
     setAnchorE3(null);
     toggleDropdown();
+    setShowTryNav(false);
   };
   const gotoabout = () => {
     navigate("/about");
     setCatval("");
     setAnchorEl(null);
+    setShowTryNav(false);
     setAnchorE3(null);
   };
   const gotoshop = () => {
@@ -274,6 +277,7 @@ const HeaderSection = ({
     setCatval("");
     setAnchorEl(null);
     setAnchorE3(null);
+    setShowTryNav(false);
   };
 
   const handleprofilePage = () => {
@@ -285,17 +289,21 @@ const HeaderSection = ({
     setCatval("");
     setAnchorEl(null);
     setAnchorE3(null);
+    setShowTryNav(false);
   };
 
   const Gotocart = () => {
     navigate("/cart");
     setCatval("");
     setAnchorEl(null);
+    setShowTryNav(false);
     setAnchorE3(null);
+    setShowTryNav(false);
   };
 
   const imageclick = () => {
     setCatval("");
+    setShowTryNav(false);
   };
 
   const handlesearchPage = () => {
@@ -303,6 +311,7 @@ const HeaderSection = ({
     setCatval("");
     setAnchorEl(null);
     setAnchorE3(null);
+    setShowTryNav(false);
   };
 
   const handlelikePage = () => {
@@ -310,11 +319,13 @@ const HeaderSection = ({
     setCatval("");
     setAnchorEl(null);
     setAnchorE3(null);
+    setShowTryNav(false);
   };
 
   const handlelogout = () => {
     setAnchorEl(null);
     setAnchorE3(null);
+    setShowTryNav(false);
     swal({
       title: "Are you sure you want to logout?",
       text: "Once logged out, you can't get access to your Orders, Wishlist and Recommendations",
@@ -340,6 +351,7 @@ const HeaderSection = ({
         getcartcount();
         navigate("/");
         setCatval("");
+        setShowTryNav(false);
       } else {
         ToastMessage("error", result.data.message);
       }
@@ -350,13 +362,16 @@ const HeaderSection = ({
 
   const handlemblmenu = () => {
     setShowmblMenu(!showmblMenu);
+    setShowTryNav(false);
   };
   const searchshow = () => {
     setSearchvisibal(!searchvisible);
+    setShowTryNav(false);
   };
 
   const handleOnSearchChange = async (e) => {
     setAnchorE2(anchorE2 ? null : e.currentTarget);
+    setShowTryNav(false);
     setSearch(e.target.value);
     try {
       const { data } = await baseUrl.post(searchhomeapi, {
@@ -379,6 +394,7 @@ const HeaderSection = ({
     setLoading(true);
     try {
       const result = await getApiCall(getdeliverycharge);
+      setShowTryNav(false);
       if (result.data.status) {
         setLoading(false);
         setDeliverycharge(result.data.data.cart_value);
@@ -443,366 +459,312 @@ const HeaderSection = ({
     };
   }, []);
 
+  const [showTryNav1, setShowTryNav1] = useState(false);
+  const tryNavRef1 = useRef(null); // Ref to reference the TryNav component
+
+  // Function to handle clicks outside TryNav to close it
+  const handleClickOutside = (event) => {
+    if (tryNavRef1.current && !tryNavRef1.current.contains(event.target)) {
+      setShowTryNav1(false);
+    }
+  };
+
+  // Effect to add click event listener when showTryNav is true
+  useEffect(() => {
+    if (showTryNav1) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showTryNav1]);
+
+  // Toggle function to show/hide TryNav
+  const toggleTryNav1 = () => {
+    setShowTryNav1((prev) => !prev);
+  };
+
   return (
-    <div className={`headersection_container ${isSticky ? "sticky" : ""}`}>
-      {/* ============================================ section 1 =================================================== */}
-      <div
-        className="headersection_container_one welcome_container "
-        style={{ alignContent: "center" }}
-      >
-        <div className=" sectionBody">
-          <div className="headersection_container_profile">
-            <li className="col-lg-4">
-              {" "}
-              <Link to="/" className="web_logo_container_link ">
-                <img
-                  src={headerlogo}
-                  alt="IMG-LOGO"
-                  onClick={imageclick}
-                  style={{ width: "200px", marginRight: "100px" }}
-                />
-              </Link>
-            </li>
-            <div className=" col-lg-4 " style={{ display: "flex" }}>
-              <li className="profile_list navbarListItemsStyle mx-4">
-                <div className="dropdown navbarListItemsStylex">
-                  <button className="dropbtn">
-                    <span
-                      className="navbarListItemsStyle bold"
-                      onClick={toggleTryNav}
-                    >
-                      Shop <IoIosArrowDown />
-                      {/* {showTryNav && <TryNav />} */}
-                    </span>
-                  </button>
-                  <div className="">
-                    {/* <TryNav ></TryNav> */}
-                    <div className="shoplistdata">
-                      {showTryNav && <TryNav />}
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li
-                className="profile_list navbarListItemsStyle mx-4 "
-                onClick={gotoabout}
-              >
-                About
-              </li>
-
-              <li
-                className="profile_list navbarListItemsStyle"
-                onClick={gotocontact}
-                // style={{color:'black' }}
-              >
-                Contact
-              </li>
-            </div>
-
-            <div className="home_page_search_container col-lg-1 text-end">
-              <div className="" ref={searchRef}>
-                <div className="home_page_search_container">
-                  <SearchIcon onClick={searchshow} className="NavbarICON " />
-
-                  <input
-                    className="search__input field__input navbarListItemsStyle"
-                    id="Search-In-Modal"
-                    type="search"
-                    name="search"
-                    autocomplete="off"
-                    onChange={(e) => handleOnSearchChange(e)}
-                    value={search}
-                    placeholder="Search"
-                    style={{ width: "60px", color: "black" }}
-                  ></input>
-                </div>
-                {searchdata.length ? (
-                  <div className="search_list_container">
-                    {searchdata.length
-                      ? searchdata.map((name, index) => {
-                          return (
-                            <div className="search_list_data" key={index}>
-                              <div className="search_data_img_name">
-                                <img
-                                  onClick={() =>
-                                    handleDetailPage(name.id, name?.productName)
-                                  }
-                                  className=""
-                                  src={`${ImageUrl}/${
-                                    name.files ? name.files : name.file
-                                  }`}
-                                  alt=""
-                                  height={40}
-                                  width={40}
-                                />
-                                <p
-                                  className="product_list"
-                                  onClick={() =>
-                                    handleDetailPage(name.id, name?.productName)
-                                  }
-                                >
-                                  {name?.productName}
-                                </p>
-                              </div>
-                              <Divider />
-                            </div>
-                          );
-                        })
-                      : ""}
-                  </div>
-                ) : (
-                  ""
-                )}
-              </div>
-            </div>
-
-            {/* <li className="headersection_container_profile_Link_dis lightcolor">
-              <Link to="/liked" onClick={imageclick}>
-                <span className="navbarListItemsStyle">
-                  {" "}
-                  <CiHeart color="navbarListItemsStyle" /> Wishlist
-                </span>
-              </Link>
-            </li> */}
-
-            {/* <p onClick={handlelikePage} sx={{   , cursor: "pointer" }}>Wishlist</p> */}
-
-            {/* <div ref={profileRef}>
-              <li
-                onClick={handleClick}
-                className="headersection_container_profile_contain"
-              >
-                <p className="profile_list navbarListItemsStyle">
-                  {" "}
-                  <IoPersonOutline className="navbarListItemsStyle" /> Profile
-                </p>
-              </li>
-              <Popper id={id} open={open} anchorEl={anchorEl}>
-                <Box className="container_profile_fluid">
-                  <div className="profile_container container_profile">
-                    <div className="profile_container">
-                      <div className="profile_logo_container"></div>
-
-                      {username ? (
-                        <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
-                          Hello {username}
-                        </h6>
-                      ) : (
-                        <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
-                          Welcome
-                        </h6>
-                      )}
-
-                      {user_id ? (
-                        <p>{mobile}</p>
-                      ) : (
-                        <p className="profile_welcome_msg">
-                          To access account and manage orders
-                        </p>
-                      )}
-
-                      {user_id ? (
-                        ""
-                      ) : (
-                        <button
-                          className="login_btn_pr ofile"
-                          onClick={handleprofilePage}
-                        >
-                          Login
-                        </button>
-                      )}
-                    </div>
-                    <Divider />
-                    <div className="profile_container">
-                      <p
-                        className="profile_list "
-                        onClick={user_id ? GotoProfile : handleprofilePage}
-                      >
-                        My Profile
-                      </p>
-                      <p
-                        className="profile_list"
-                        onClick={user_id ? GotoOrders : handleprofilePage}
-                      >
-                        Orders
-                      </p>
-                      <p
-                        className="profile_list"
-                        onClick={user_id ? handlelikePage : handleprofilePage}
-                      >
-                        Wishlist
-                      </p>
-
-                      {user_id ? <Divider sx={{ marginTop: "3px" }} /> : ""}
-                      {user_id ? (
-                        <p className="profile_list" onClick={handlelogout}>
-                          Logout
-                        </p>
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                  </div>
-                </Box>
-              </Popper>
-            </div> */}
-            <div className="cart_container_fluid">
-              <div className="cart_icon">
-                {/* <img onClick={Gotocart} src={carticon} alt="IMG-LOGO" /> */}
-              </div>
-              <div className="cart_price_count_container" onClick={Gotocart}>
-                <p className="cart_text_count navbarListItemsStyle">
-                  <IoBagHandleOutline
-                    onClick={Gotocart}
-                    className="navbarListItemsStyle my-3"
-                    sx={{ cursor: "pointer" }}
-                    style={{
-                      marginTop: "30px",
-                    }}
-                  />{" "}
-                  <span sx={{ cursor: "pointer" }}>
-                    {" "}
-                    Cart({cartcount ? cartcount : 0})
-                  </span>
-                </p>
-                <p className="cart_price_count header-cart-item-rupee">
-                  {/* <CurrencyRupeeIcon className="navbarListItemsStyle"/>{" "} */}
-                  {/* {cartTotal ? Number(cartTotal).toFixed(2) : "0.00"} */}
-                </p>
-              </div>
-            </div>
-            {/* <li className="headersection_container_profile_Link_dis">
-              <LiveHelpIcon className="navbarListItemsStyle" />
-              <Link to="/help" onClick={imageclick}>
-                <span className="navbarListItemsStyle">FAQ</span>
-              </Link>
-            
-            </li> */}
-            <div className="dropdown-container1" ref={dropdownRef}>
-              <li className="headersection_container_profile_Link_dis">
-                <Link onClick={toggleDropdownProfile}>
-                  <FiAlignJustify
-                    style={{ fontSize: "25px" }}
-                    className="mx-3"
+    <>
+      <div className={`headersection_container container-fluid ${isSticky ? "sticky" : ""}`}>
+        {/* ============================================ section 1 =================================================== */}
+        <div
+          className="headersection_container_one welcome_container "
+          style={{ alignContent: "center" }}
+        >
+          <div className=" sectionBody">
+            <div className="headersection_container_profile ">
+              <li className="col-lg-4">
+                {" "}
+                <Link to="/" className="web_logo_container_link ">
+                  <img
+                    src={headerlogo}
+                    alt="IMG-LOGO"
+                    onClick={imageclick}
+                    style={{ width: "150px" }}
                   />
                 </Link>
               </li>
-              {isDropdownOpenProfile && (
-                <div className="dropdown-content1">
-                  <ul>
-                    <li className="">
-                      <div className="profile_container">
-                        <div className="profile_logo_container"></div>
-                        {username ? (
-                          <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
-                            Hello {username}
-                          </h6>
-                        ) : (
-                          <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
-                            Welcome
-                          </h6>
-                        )}
-                        {user_id ? (
-                          <p>{mobile}</p>
-                        ) : (
-                          <p className="profile_welcome_msg">
-                            To access account and manage orders
-                          </p>
-                        )}
-                        {!user_id && (
-                          <button
-                            className="login_btn_profile"
-                            onClick={handleprofilePage}
-                          >
-                            Login
-                          </button>
-                        )}
+              <div className=" col-lg-4 " style={{ display: "flex" }}>
+                <li
+                  className="profile_list navbarListItemsStyle mx-4"
+                  ref={tryNavRef1}
+                >
+                  <div className="dropdown navbarListItemsStylex">
+                    <button className="dropbtn" onClick={toggleTryNav}>
+                      <span
+                        className="navbarListItemsStyle bold"
+                        onClick={toggleTryNav}
+                      >
+                        Shop <IoIosArrowDown />
+                      </span>
+                    </button>
+                    <div className="">
+                      {/* <TryNav ></TryNav> */}
+                      <div
+                        className="shoplistdata"
+                        style={{ background: "white", width: "1220px" }}
+                      >
+                        {showTryNav && <TryNav />}
                       </div>
-                    </li>
-                    <hr></hr>
-                    <li style={{ color: " #c1bcbc" }}>
-                      <Link to={"/profile"}>Profile</Link>
-                    </li>
-                    <li style={{ color: " #c1bcbc" }}>
-                      <Link to={"/liked"}>Wishlist</Link>
-                    </li>
-                    <li style={{ color: " #c1bcbc" }}>
-                      <Link to={"/help"}>FAQ</Link>
-                    </li>
-                    <li style={{ color: " #c1bcbc" }}>
-                      <Link to={"/cart"}>Cart</Link>
-                    </li>
-                    <li style={{ color: " #c1bcbc" }}>
-                      <Link to={"/order"}>Order</Link>
-                    </li>
-                    <hr></hr>
-                    <li style={{ color: " #c1bcbc" }}></li>
-                  </ul>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  className="profile_list navbarListItemsStyle mx-4 "
+                  onClick={gotoabout}
+                >
+                  About
+                </li>
+
+                <li
+                  className="profile_list navbarListItemsStyle"
+                  onClick={gotocontact}
+                  // style={{color:'black' }}
+                >
+                  Contact
+                </li>
+              </div>
+
+              <div className="home_page_search_container col-lg-1 text-end">
+                <div className="" ref={searchRef}>
+                  <div className="home_page_search_container">
+                    <SearchIcon onClick={searchshow} className="NavbarICON " />
+
+                    <input
+                      className="search__input field__input navbarListItemsStyle"
+                      id="Search-In-Modal"
+                      type="search"
+                      name="search"
+                      autocomplete="off"
+                      onChange={(e) => handleOnSearchChange(e)}
+                      value={search}
+                      placeholder="Search"
+                      style={{ width: "60px", color: "black" }}
+                    ></input>
+                  </div>
+                  {searchdata.length ? (
+                    <div className="search_list_container">
+                      {searchdata.length
+                        ? searchdata.map((name, index) => {
+                            return (
+                              <div className="search_list_data" key={index}>
+                                <div className="search_data_img_name">
+                                  <img
+                                    onClick={() =>
+                                      handleDetailPage(
+                                        name.id,
+                                        name?.productName
+                                      )
+                                    }
+                                    className=""
+                                    src={`${ImageUrl}/${
+                                      name.files ? name.files : name.file
+                                    }`}
+                                    alt=""
+                                    height={40}
+                                    width={40}
+                                  />
+                                  <p
+                                    className="product_list"
+                                    onClick={() =>
+                                      handleDetailPage(
+                                        name.id,
+                                        name?.productName
+                                      )
+                                    }
+                                  >
+                                    {name?.productName}
+                                  </p>
+                                </div>
+                                <Divider />
+                              </div>
+                            );
+                          })
+                        : ""}
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
-              )}
+              </div>
+
+              <div className="cart_container_fluid">
+                <div className="cart_icon">
+                  {/* <img onClick={Gotocart} src={carticon} alt="IMG-LOGO" /> */}
+                </div>
+                <div className="cart_price_count_container" onClick={Gotocart}>
+                  <p className="cart_text_count navbarListItemsStyle">
+                    <IoBagHandleOutline
+                      onClick={Gotocart}
+                      className="navbarListItemsStyle my-3"
+                      sx={{ cursor: "pointer" }}
+                      style={{
+                        marginTop: "30px",
+                      }}
+                    />{" "}
+                    <span
+                      sx={{ cursor: "pointer" }}
+                      style={{ marginTop: "30px" }}
+                    >
+                      {" "}
+                      Cart({cartcount ? cartcount : 0})
+                    </span>
+                  </p>
+                  <p className="cart_price_count header-cart-item-rupee">
+                    {/* <CurrencyRupeeIcon className="navbarListItemsStyle"/>{" "} */}
+                    {/* {cartTotal ? Number(cartTotal).toFixed(2) : "0.00"} */}
+                  </p>
+                </div>
+              </div>
+
+              <div className="dropdown-container1" ref={dropdownRef}>
+                <li className="headersection_container_profile_Link_dis">
+                  <Link onClick={toggleDropdownProfile}>
+                    <FiAlignJustify
+                      style={{ fontSize: "25px" }}
+                      className="mx-3"
+                    />
+                  </Link>
+                </li>
+                {isDropdownOpenProfile && (
+                  <div className="dropdown-content1">
+                    <ul>
+                      <li className="">
+                        <div className="profile_container">
+                          <div className="profile_logo_container"></div>
+                          {username ? (
+                            <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
+                              Hello {username}
+                            </h6>
+                          ) : (
+                            <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
+                              Welcome
+                            </h6>
+                          )}
+                          {user_id ? (
+                            <p>{mobile}</p>
+                          ) : (
+                            <p className="profile_welcome_msg">
+                              To access account and manage orders
+                            </p>
+                          )}
+                          {!user_id && (
+                            <button
+                              className="login_btn_profile"
+                              onClick={handleprofilePage}
+                            >
+                              Login
+                            </button>
+                          )}
+                        </div>
+                      </li>
+                      <hr></hr>
+                      <li style={{ color: " #c1bcbc" }}>
+                        <Link to={"/profile"}>Profile</Link>
+                      </li>
+                      <li style={{ color: " #c1bcbc" }}>
+                        <Link to={"/liked"}>Wishlist</Link>
+                      </li>
+                      <li style={{ color: " #c1bcbc" }}>
+                        <Link to={"/help"}>FAQ</Link>
+                      </li>
+                      <li style={{ color: " #c1bcbc" }}>
+                        <Link to={"/cart"}>Cart</Link>
+                      </li>
+                      <li style={{ color: " #c1bcbc" }}>
+                        <Link to={"/order"}>Order</Link>
+                      </li>
+                      <hr></hr>
+                      <li style={{ color: " #c1bcbc" }}></li>
+                    </ul>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* ============================================ section 1 =================================================== */}
-      <div className="headersection_container_one">
-        <div className="headersection_container_two sectionBody">
-          {/* <div className='web_logo_container'>
+        {/* ============================================ section 1 =================================================== */}
+        <div className="headersection_container_one">
+          <div className="headersection_container_two sectionBody">
+            {/* <div className='web_logo_container'>
                         <Link to="/" className="web_logo_container_link">
                             <img src={headerlogo} alt="IMG-LOGO" onClick={imageclick} />
                         </Link>
                     </div> */}
-          <div className="header_cart_container">
-            <div className="contact_container_fluid">
-              <div className="cart_icon">
-                {/* <img src={shipicon} alt="IMG-LOGO" /> */}
-                {/* <LocalShippingOutlinedIcon sx={{ fontSize: "40px", mt: 1 }} /> */}
-              </div>
-              {/* <div className='cart_price_count_container'>
+            <div className="header_cart_container">
+              <div className="contact_container_fluid">
+                <div className="cart_icon">
+                  {/* <img src={shipicon} alt="IMG-LOGO" /> */}
+                  {/* <LocalShippingOutlinedIcon sx={{ fontSize: "40px", mt: 1 }} /> */}
+                </div>
+                {/* <div className='cart_price_count_container'>
                                 <p className='shiping_text'>Free standard shipping</p>
                                 {loading ?
                                     <Skeleton variant="rectangular" width={200} height={25} sx={{ backgroundColor: "#e0e0e0", borderRadius: "4px" }} />
                                     : <p className='cart_price_count header-cart-item-rupee'>on all orders {deliverycharge === 0 ? "" : <p className='cart_price_count header-cart-item-rupee' style={{ marginLeft: "5px" }}> over<CurrencyRupeeIcon sx={{ fontSize: "16px" }} /> {deliverycharge}</p>} </p>
                                 }
                             </div> */}
-            </div>
-
-            <div className="contact_container_fluid">
-              <div className="cart_icon">
-                {/* <img src={contacticon} alt="IMG-LOGO" /> */}
-                {/* <HeadsetMicOutlinedIcon sx={{ fontSize: "40px" }} /> */}
               </div>
-              {/* <div className='cart_price_count_container'>
+
+              <div className="contact_container_fluid">
+                <div className="cart_icon">
+                  {/* <img src={contacticon} alt="IMG-LOGO" /> */}
+                  {/* <HeadsetMicOutlinedIcon sx={{ fontSize: "40px" }} /> */}
+                </div>
+                {/* <div className='cart_price_count_container'>
                                 <p className='shiping_text'>treasurebox@gmail.com</p>
                                 <p className='cart_price_count'></p>
                             </div> */}
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="headersection_container_one nav_align">
-        <div className="web_logo_container">
-          <Link to="/" className="web_logo_container_link_mobile">
-            <img
-              src="https://tse1.mm.bing.net/th?id=OIP.6VJpiEB8bvznoRMNRDREjQHaB1&pid=Api&P=0&h=180"
-              alt="IMG-LOGO"
-            />
-          </Link>
-        </div>
-        <div className="headersection_container_third sectionBody">
-          <div
-            className={`web_nav ${anchorEl === null ? "zindex" : "nozindex"}`}
-          >
-            {/* <Com {...{ catval, setCatval }} /> */}
+        <div className="headersection_container_one nav_align">
+          <div className="web_logo_container">
+            <Link to="/" className="web_logo_container_link_mobile">
+              <img
+                src="https://tse1.mm.bing.net/th?id=OIP.6VJpiEB8bvznoRMNRDREjQHaB1&pid=Api&P=0&h=180"
+                alt="IMG-LOGO"
+              />
+            </Link>
           </div>
+          <div className="headersection_container_third sectionBody">
+            <div
+              className={`web_nav ${anchorEl === null ? "zindex" : "nozindex"}`}
+            >
+              {/* <Com {...{ catval, setCatval }} /> */}
+            </div>
 
-          <div className="web_mbl_nav" onClick={handlemblmenu}>
-            <MenuIcon sx={{ cursor: "pointer", marginTop: "5px" }} />
-          </div>
+            <div className="web_mbl_nav" onClick={handlemblmenu}>
+              <MenuIcon sx={{ cursor: "pointer" }} />
+            </div>
 
-          {/* <div className='home_page_search_container'>
+            {/* <div className='home_page_search_container'>
                         <div className="" ref={searchRef}>
                             <div className='home_page_search_container'>
                                 <SearchIcon sx={{   , fontSize: "20px" }} />
@@ -844,154 +806,156 @@ const HeaderSection = ({
                         </div>
                     </div> */}
 
-          <div className="icon_list_header">
-            <Badge
-              className="cart_badge "
-              color="secondary"
-              badgeContent={cartcount}
-            >
-              {/* <FavoriteIcon onClick={handlelikePage} sx={{ cursor: "pointer" }} /> */}
-              <SearchIcon
-                onClick={handlesearchPage}
-                sx={{ cursor: "pointer" }}
-              />
-              <button onClick={handlesearchPage} sx={{ cursor: "pointer" }}>
-                Search
-              </button>
-              <IoBagHandleOutline
-                onClick={Gotocart}
-                className="navbarListItemsStyle"
-                style={{ marginRight: "2px" }}
-                sx={{ cursor: "pointer" }}
-              />{" "}
-              Cart..({cartcount ? cartcount : 0})
-              {/* <ShoppingCartIcon onClick={Gotocart} sx={{ cursor: "pointer" }} /> */}
-            </Badge>
-            <div className="headersection_container_profile_mobile">
-              <div ref={profileRefmobile}>
-                <li
-                  onClick={handleClick}
-                  className="headersection_container_profile_contain"
+            <div className="icon_list_header">
+              <Badge
+                className="cart_badge "
+                color="secondary"
+                badgeContent={cartcount}
+              >
+                {/* <FavoriteIcon onClick={handlelikePage} sx={{ cursor: "pointer" }} /> */}
+                <SearchIcon
+                  onClick={handlesearchPage}
                   sx={{ cursor: "pointer" }}
-                >
-                  <FiAlignJustify style={{ cursor: "pointer" }} />
-                  {/* <PersonIcon sx={{ cursor: "pointer" }} /> */}
-                </li>
-                <Popper
-                  id={idmobileprofile}
-                  open={openMobileProfile}
-                  anchorE1={anchorE3}
-                >
-                  <Box className="container_profile_fluid">
-                    <div className="profile_container container_profile">
-                      <div className="profile_container">
-                        <div className="profile_logo_container">
-                          <img src={headerlogo} alt="IMG-LOGO" width={150} />
+                />
+                <button onClick={handlesearchPage} sx={{ cursor: "pointer" }}>
+                  Search
+                </button>
+                <IoBagHandleOutline
+                  onClick={Gotocart}
+                  className="navbarListItemsStyle"
+                  style={{ marginRight: "2px" }}
+                  sx={{ cursor: "pointer" }}
+                />{" "}
+                Cart..({cartcount ? cartcount : 0})
+                {/* <ShoppingCartIcon onClick={Gotocart} sx={{ cursor: "pointer" }} /> */}
+              </Badge>
+              <div className="headersection_container_profile_mobile">
+                <div ref={profileRefmobile}>
+                  <li
+                    onClick={handleClick}
+                    className="headersection_container_profile_contain"
+                    sx={{ cursor: "pointer" }}
+                  >
+                    <FiAlignJustify style={{ cursor: "pointer" }} />
+                    {/* <PersonIcon sx={{ cursor: "pointer" }} /> */}
+                  </li>
+                  <Popper
+                    id={idmobileprofile}
+                    open={openMobileProfile}
+                    anchorE1={anchorE3}
+                  >
+                    <Box className="container_profile_fluid">
+                      <div className="profile_container container_profile">
+                        <div className="profile_container">
+                          <div className="profile_logo_container">
+                            <img src={headerlogo} alt="IMG-LOGO" width={150} />
+                          </div>
+
+                          {username ? (
+                            <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
+                              Hello {username}
+                            </h6>
+                          ) : (
+                            <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
+                              Welcome
+                            </h6>
+                          )}
+
+                          {user_id ? (
+                            <p>{mobile}</p>
+                          ) : (
+                            <p className="profile_welcome_msg">
+                              To access account and manage orders
+                            </p>
+                          )}
+
+                          {user_id ? (
+                            ""
+                          ) : (
+                            <button
+                              className="login_btn_profile"
+                              onClick={handleprofilePage}
+                            >
+                              Login
+                            </button>
+                          )}
                         </div>
-
-                        {username ? (
-                          <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
-                            Hello {username}
-                          </h6>
-                        ) : (
-                          <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
-                            Welcome
-                          </h6>
-                        )}
-
-                        {user_id ? (
-                          <p>{mobile}</p>
-                        ) : (
-                          <p className="profile_welcome_msg">
-                            To access account and manage orders
-                          </p>
-                        )}
-
-                        {user_id ? (
-                          ""
-                        ) : (
-                          <button
-                            className="login_btn_profile"
-                            onClick={handleprofilePage}
+                        <Divider />
+                        <div className="profile_container">
+                          <p
+                            className="profile_list"
+                            onClick={user_id ? GotoProfile : handleprofilePage}
                           >
-                            Login
-                          </button>
-                        )}
-                      </div>
-                      <Divider />
-                      <div className="profile_container">
-                        <p
-                          className="profile_list"
-                          onClick={user_id ? GotoProfile : handleprofilePage}
-                        >
-                          My Profile
-                        </p>
-                        <p
-                          className="profile_list"
-                          onClick={user_id ? GotoOrders : handleprofilePage}
-                        >
-                          Orders
-                        </p>
-                        <p
-                          className="profile_list"
-                          onClick={user_id ? handlelikePage : handleprofilePage}
-                        >
-                          Wishlist
-                        </p>
-                        <p className="profile_list" onClick={gotocontact}>
-                          Contact Us
-                        </p>
-                        <p className="profile_list " onClick={gotoabout}>
-                          About Us
-                        </p>
-                        {user_id ? <Divider sx={{ marginTop: "3px" }} /> : ""}
-                        {user_id ? (
-                          <p className="profile_list" onClick={handlelogout}>
-                            Logout
+                            My Profile
                           </p>
-                        ) : (
-                          ""
-                        )}
+                          <p
+                            className="profile_list"
+                            onClick={user_id ? GotoOrders : handleprofilePage}
+                          >
+                            Orders
+                          </p>
+                          <p
+                            className="profile_list"
+                            onClick={
+                              user_id ? handlelikePage : handleprofilePage
+                            }
+                          >
+                            Wishlist
+                          </p>
+                          <p className="profile_list" onClick={gotocontact}>
+                            Contact Us
+                          </p>
+                          <p className="profile_list " onClick={gotoabout}>
+                            About Us
+                          </p>
+                          {user_id ? <Divider sx={{ marginTop: "3px" }} /> : ""}
+                          {user_id ? (
+                            <p className="profile_list" onClick={handlelogout}>
+                              Logout
+                            </p>
+                          ) : (
+                            ""
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  </Box>
-                </Popper>
+                    </Box>
+                  </Popper>
+                </div>
+
+                <li className="headersection_container_profile_Link_dis">
+                  <Link to="/help" onClick={imageclick}>
+                    <span className="navbarListItemsStyle">FAQ</span>
+                  </Link>
+                </li>
               </div>
-
-              <li className="headersection_container_profile_Link_dis">
-                <Link to="/help" onClick={imageclick}>
-                  <span className="navbarListItemsStyle">FAQ</span>
-                </Link>
-              </li>
             </div>
+
+            {showmblMenu ? (
+              <MobileMenu
+                onClick={handlemblmenu}
+                setShowmblMenu={setShowmblMenu}
+                setCatval={setCatval}
+              />
+            ) : (
+              ""
+            )}
+            {/* </div> */}
+
+            {showloginpopup ? (
+              <Login
+                showloginpopup={showloginpopup}
+                setShowloginpopup={setShowloginpopup}
+                reload={reload}
+                setReload={setReload}
+                {...{ setCartTotal, setCartcount }}
+              />
+            ) : (
+              ""
+            )}
           </div>
-
-          {showmblMenu ? (
-            <MobileMenu
-              onClick={handlemblmenu}
-              setShowmblMenu={setShowmblMenu}
-              setCatval={setCatval}
-            />
-          ) : (
-            ""
-          )}
-          {/* </div> */}
-
-          {showloginpopup ? (
-            <Login
-              showloginpopup={showloginpopup}
-              setShowloginpopup={setShowloginpopup}
-              reload={reload}
-              setReload={setReload}
-              {...{ setCartTotal, setCartcount }}
-            />
-          ) : (
-            ""
-          )}
         </div>
-      </div>
 
-      {/* <div className="headersection_category_img">
+        {/* <div className="headersection_category_img">
         {categoryList.map((item, index) => {
           return (
             <Link
@@ -1010,7 +974,9 @@ const HeaderSection = ({
           );
         })}
       </div> */}
-    </div>
+      </div>
+      ;
+    </>
   );
 };
 

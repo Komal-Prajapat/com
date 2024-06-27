@@ -7,40 +7,32 @@ const TwoConSlider = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-lg-5 d-flex  boxcon" style={{
-            padding:'30px',
-         marginRight:'10px   ',
-         width:'490px'
-        }}>
-          <div className="textcontainerdiv ">
+        <div className="col-lg-6 mb-4 boxcon d-flex" style={{ padding: '30px' ,marginRight:"12px"}}>
+          <div className="textcontainerdiv">
             <p className="productname">Products Accessories</p>
-            <h4>Wooden container Bowl</h4>
-            <ButtonForAll name="Buynow"></ButtonForAll>
+            <h4>Wooden Container Bowl</h4>
+            <ButtonForAll name="Buy Now" />
           </div>
           <div className="">
             <img
               src="https://cdn.images.fecom-media.com/FE00008240/images/HE1478394_153085-P.jpg"
               className="img-fluid twoconimage"
-              alt="Responsive image"
+              alt="Product Image"
             />
           </div>
         </div>
 
-        <div className="col-lg-5 d-flex  boxcon" style={{
-            padding:'30px',
-            marginRight:'10px   ',
-            width:'490px'  
-        }}>
-          <div className="textcontainerdiv ">
+        <div className="col-lg-5 mb-4 boxcon d-flex" style={{ padding: '30px' }}>
+          <div className="textcontainerdiv">
             <p className="productname">Products Accessories</p>
             <h4>Wooden container Bowl</h4>
-            <ButtonForAll name="Buynow"></ButtonForAll>
+            <ButtonForAll name="Buynow" />
           </div>
           <div className="">
             <img
               src="https://cdn.images.fecom-media.com/FE00008240/images/HE1478394_153085-P.jpg"
-              className="img-fluid twoconimage "
-              alt="Responsive image"
+              className="img-fluid twoconimage"
+              alt="Product Image"
             />
           </div>
         </div>

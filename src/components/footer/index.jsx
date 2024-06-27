@@ -4,237 +4,226 @@ import "./index.css";
 import logo from "../../Assect/logo.png";
 import Login from "../../Pages/login/login";
 import { Activecategory, getApiCall } from "../../API/baseUrl";
-import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
-import instaicon from "../../Assect/instagram.svg";
-import { FaInstagram } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
+import { FaInstagram, FaFacebookF } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
-import ButtonForAll from "../ButtonForALL";
 
-const Footer = ({ catval, setCatval }) => {
-  const user_id = localStorage.getItem("user_id");
+const Footer = ({ catval, setCatval, bgcolor, textcolor , imptext}) => {
   const [showloginpopup, setShowloginpopup] = useState(false);
-  const [categoryList, setCategoryList] = useState(false);
+  const [categoryList, setCategoryList] = useState([]);
 
-  const handleprofilePage = () => {
-    setShowloginpopup(!showloginpopup);
-  };
-
-  const handlecatClick = (name) => {
-    setCatval(name);
-  };
-  const handleemptycatval = () => {
-    setCatval("");
-  };
-
-  const fetchcategoryList = async () => {
+  const fetchCategoryList = async () => {
     try {
       const result = await getApiCall(Activecategory);
       if (result.data.status) {
-        const categoryData = result.data.category.map((item) => {
-          item.type = "category";
-          return item;
-        });
+        const categoryData = result.data.category.map((item) => ({
+          ...item,
+          type: "category",
+        }));
         setCategoryList(categoryData);
       }
     } catch (error) {
-      console.log("error", error);
-    } finally {
+      console.log("Error fetching categories:", error);
     }
   };
 
   useEffect(() => {
-    fetchcategoryList();
+    fetchCategoryList();
   }, []);
 
+  const handleCatClick = (name) => {
+    setCatval(name);
+  };
+
+  const handleEmptyCatval = () => {
+    setCatval("");
+  };
+
+  const handleProfilePage = () => {
+    setShowloginpopup(!showloginpopup);
+  };
+
+  // Define default colors
+  const defaultBgColor = "#ffffff";
+  const defaultTextColor = "#000000";
+
+  // Determine final colors based on props or defaults
+  const finalBgColor = bgcolor || defaultBgColor;
+  const finalTextColor = textcolor || defaultTextColor;
+
   return (
-    <footer className=" footer container"
-    style={{
-      padding:'50px'
-    }}
-    >
+    <footer className="footer container-fluid" style={{ padding: '50px', backgroundColor: finalBgColor, color: finalTextColor }}>
       <div className="container">
         <div className="row footer_list">
           <div className="col-2-2 col-lg-3">
-
             <ul className="footer_links">
-            <p className="footerheading">Categories</p>
-              {categoryList.length
-                ? categoryList?.map((name, index) => {
-                    return (
-                      <li key={index}>
-                        <Link
-                          className=""
-                          onClick={() => handlecatClick(name.category_name)}
-                          to={`/product/${name.id}/${name.category_name}`}
-                        >
-                          {" "}
-                          <p className=" ">
-                            {" "}
-                            {name.category_name}
-                          </p>
-                        </Link>
-                      </li>
-                    );
-                  })
-                : ""}
+              <p className="footerheading" style={{
+                color:finalTextColor
+              }}>Categories</p>
+              {categoryList.length > 0 ? (
+                categoryList.map((name, index) => (
+                  <li key={index}>
+                    <Link
+                      className=""
+                      onClick={() => handleCatClick(name.category_name)}
+                      to={`/product/${name.id}/${name.category_name}`}
+                    >
+                      <p style={{
+                color:finalTextColor
+              }}>{name.category_name}</p>
+                    </Link>
+                  </li>
+                ))
+              ) : (
+                <li>No categories found</li>
+              )}
             </ul>
           </div>
 
-          <div className="col-2-2 col-lg-3 ">
-
+          <div className="col-2-2 col-lg-3">
             <ul className="footer_links">
-            <p className="footerheading">Help</p>
-              <li className="nospace">
-                <Link
-                  onClick={handleemptycatval}
-                  to="/contact"
-                  className=""
-                >
+              <p className="footerheading" style={{
+                color:finalTextColor
+              }}>Help</p>
+              <li className="nospace" style={{
+                color:finalTextColor
+              }}>
+                <Link onClick={handleEmptyCatval} to="/contact" className="">
                   Contact
                 </Link>
               </li>
-
-              <li className="nospace">
-                <Link
-                  onClick={handleemptycatval}
-                  to="/help"
-                  className=""
-                >
+              <li className="nospace" style={{
+                color:finalTextColor
+              }}>
+                <Link onClick={handleEmptyCatval} to="/help" className="">
                   FAQs
                 </Link>
               </li>
-
-              <li className="nospace">
-                <Link
-                  onClick={handleemptycatval}
-                  to="/terms"
-                  className=""
-                >
+              <li className="nospace" style={{
+                color:finalTextColor
+              }}>
+                <Link onClick={handleEmptyCatval} to="/terms" className="">
                   Terms and Conditions
                 </Link>
               </li>
-
-              <li className="nospace">
-                <Link
-                  onClick={handleemptycatval}
-                  to="/privacy"
-                  className=""
-                >
+              <li className="nospace" style={{
+                color:finalTextColor
+              }}>
+                <Link onClick={handleEmptyCatval} to="/privacy" className="">
                   Privacy Policy
                 </Link>
               </li>
-
-              <li className="nospace">
-                <Link
-                  onClick={handleemptycatval}
-                  to="/about"
-                  className=""
-                >
+              <li className="nospace" style={{
+                color:finalTextColor
+              }}>
+                <Link onClick={handleEmptyCatval} to="/about" className="">
                   About Us
                 </Link>
               </li>
-
-              <li className="nospace">
-                <Link
-                  onClick={handleemptycatval}
-                  to="/return"
-                  className=" "
-                >
+              <li className="nospace" style={{
+                color:finalTextColor
+              }}>
+                <Link onClick={handleEmptyCatval} to="/return" className="">
                   Return Policy
                 </Link>
               </li>
-
-              <li className="nospace">
-                <Link
-                  onClick={handleemptycatval}
-                  to="/refund"
-                  className=" "
-                >
+              <li className="nospace" style={{
+                color:finalTextColor
+              }}>
+                <Link onClick={handleEmptyCatval} to="/refund" className="">
                   Refund Policy
                 </Link>
               </li>
-
-              <li className="nospace">
-                <Link
-                  onClick={handleemptycatval}
-                  to="/shipping"
-                  className=" "
-                >
+              <li className="nospace" style={{
+                color:finalTextColor
+              }}>
+                <Link onClick={handleEmptyCatval} to="/shipping" className="">
                   Shipping Policy
                 </Link>
               </li>
             </ul>
           </div>
 
-          <div className="col-2-2 col-lg-3">
-            <p className=" footerheading">
-              GET IN TOUCH
-            </p>
-
-            {/* <p className="stext-107 footcolorlinks size-201 nospace">
-							Any questions? <p style={{ color: "#ffffff", whiteSpace: "nowrap" }}>Let us know </p> <p style={{ color: "#ffffff", cursor: "pointer", whiteSpace: "nowrap" }}  onClick={handleemptycatval}>(+91) 92945 88000</p>
-						</p> */}
-            <p className="">
-              Any questions?{" "}
-              <p style={{ whiteSpace: "nowrap" }}>Let us know </p>
+          <div className="col-2-2 col-lg-3" style={{
+                color:finalTextColor
+              }}>
+            <p className="footerheading" style={{
+                color:finalTextColor
+              }}>GET IN TOUCH</p>
+            <p style={{
+                color:finalTextColor
+              }}>
+              Any questions? <span>Let us know</span>
               <a
-                style={{ cursor: "pointer", whiteSpace: "nowrap" }}
-                onClick={handleemptycatval}
-                href="tel:+91 92945 88000"
+                onClick={handleEmptyCatval}
+                href="tel:+919294588000"
                 className="footcolorlinks"
+                style={{
+                color:finalTextColor
+              }}
               >
                 (+91) 92945 88000
               </a>
             </p>
-
-            <p className="stext-301 nospace footcolor p-b-10 p-t-15">
+            <p className="stext-301 nospace footcolor p-b-10 p-t-15" style={{
+                color:finalTextColor
+              }}>
               Follow Us
             </p>
           </div>
         </div>
 
-        {/* <div className=" container-footer">
-					<div className='footer_logo_container'><img src={logo} alt='' className="footer_logo_img" /></div>
-
-				</div> */}
         <div className="empty_footer_div"></div>
 
-        <div className="social_links ">
+        <div className="social_links">
           <div className="copy">
-            <p>
-              Copyright &copy; Outstock. All rights reserved. Powered by
-              Theme_pure
+            <p style={{
+                color:finalTextColor
+              }}>
+              Copyright &copy; <span  style={{
+              color: imptext
+             }}>Outstock.</span> All rights reserved. Powered by
+             <span style={{
+              color: imptext
+             }}> Theme_pure</span>
             </p>
           </div>
-          <div className="icon">
+          <div className="icon" style={{
+                color:finalTextColor
+              }}>
             <a
               href="https://www.instagram.com/treasureboxlife/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaInstagram className="footerSocialMediaIcon" />
+              <FaInstagram className="footerSocialMediaIcon" style={{
+                color:finalTextColor
+              }}/>
             </a>
             <a
               href="https://www.facebook.com/treasureboxlife/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaFacebookF className="footerSocialMediaIcon" />
+              <FaFacebookF className="footerSocialMediaIcon" style={{
+                color:finalTextColor
+              }}/>
             </a>
-            <a href="https://www.google.com/maps/dir/22.710376,75.8417746/treasurebox/@22.7060118,75.8356895,15z">
-              <CiLocationOn className="footerSocialMediaIcon" />
+            <a
+              href="https://www.google.com/maps/dir/22.710376,75.8417746/treasurebox/@22.7060118,75.8356895,15z"
+            >
+              <CiLocationOn className="footerSocialMediaIcon" style={{
+                color:finalTextColor
+              }} />
             </a>
           </div>
         </div>
       </div>
-      {showloginpopup ? (
+
+      {showloginpopup && (
         <Login
           showloginpopup={showloginpopup}
           setShowloginpopup={setShowloginpopup}
         />
-      ) : (
-        ""
       )}
     </footer>
   );

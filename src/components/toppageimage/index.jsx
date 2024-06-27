@@ -24,7 +24,9 @@ const TopPageImage = ({pagename , bgimg}) => {
           {pagename}
           </h1>
 
-          <ul style={{ display: "flex" , marginLeft:'30px' }} className="bread-crumbangle">
+          <ul style={{ display: "flex" ,
+          justifyContent:'center'
+          }} className="bread-crumbangle">
             <li>
               <Link to="/" className="cl8 hov-cl1 trans-04 bread-crumbangle">
                 Home <span> / </span>

@@ -107,7 +107,7 @@ const HomePage = ({ reload, setReload }) => {
         <div className="sec-banner bg0 banner_container">
           <div className="container">
             {/* ======================================new arrival====================================================== */}
-            <div className="head_btn_container">
+            <div className="head_btn_container mt-3">
               <h3>New Arrival</h3>
               <button className="btn_mbl" onClick={handlecategory}>
                 View all

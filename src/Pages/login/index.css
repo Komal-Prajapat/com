@@ -6,7 +6,7 @@
     background-color: #ffffff;
 }
 .login_container_first{
-    /* background-color: var(--colorprimary); */
+
     background: #f5f5f5;
     margin-top: 25px;
     width: 300px;
@@ -48,11 +48,19 @@ gap: 25px;
     align-items: center;
     gap: 5px;
     font-size: 14px;
-    color: #3582fe !important;
+    /* color: #3582fe !important; */
     font-weight: 500;
     justify-content: center;
 }
-
+.loginbtn{
+    padding: 20px;
+    width: 200px;
+    border: 0.1px solid rgb(131, 128, 128);
+}
+.loginbtn:hover{
+    color: white;
+    background: #bc8246;
+}
 .marginBottom{
     display: flex;
     flex-direction: column;
@@ -70,11 +78,11 @@ gap: 25px;
 }
 .Login_form-error{
     position: relative;
-    top: -27px;
+    top: -20px;
+    font-size: x-small;
     color: red;
 }
 .loginprivacy span{
-    color: var(--colorprimary);
     cursor: pointer;
 }
 

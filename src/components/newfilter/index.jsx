@@ -384,7 +384,7 @@ const Newfilter = ({name,categoryvalueforapi,categoryList,categoryheading, setCa
 								disableSwap
 							/>
 						</div>
-						<div className='input_container_filter'>
+						<div className='input_container_filter mt-3'>
 							<div className='price_lable_input'>
 								<p>From</p>
 								<div className='price'>{range[0]}</div>
