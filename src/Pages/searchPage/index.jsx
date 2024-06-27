@@ -50,7 +50,7 @@ const SearchPage = () => {
                   <img onClick={() => handleListClick(item.id, item?.productName)} className='' src={`${ImageUrl}/${item.files ? item.files : item.file}`} alt="" height={40} width={40} />
                   <p className='product_list' onClick={() => handleListClick(item.id, item?.productName)} >{item?.productName}</p>
                 </div>
-                <Divider />
+                
               </>
             )
           })}

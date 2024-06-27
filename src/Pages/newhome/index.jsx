@@ -184,17 +184,15 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
 
           <div
             className="home_body_container_two container "
-           style={{
-            width:'90%'
-           }}
+            style={{
+              width: "90%",
+            }}
           >
             {pending ? (
               <Homeskeleton />
             ) : (
               <div>
-                <div className="home_body_container_inside"
-                
-                 >
+                <div className="home_body_container_inside">
                   <HomePageSlider></HomePageSlider>
 
                   {/* <div className='home_body_box_one'>
@@ -234,15 +232,17 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
                       <h3
                         class="home_body_product_heading col "
                         style={{ color: "black", textAlign: "center" }}
-                      >Trending Products
+                      >
+                        Trending Products
                         {/* Best Sellers */}
                       </h3>
-                     
 
                       <hr class="headingLine1 col" style={{ width: "70px" }} />
-
                     </div>
-                    <p style={{textAlign:'center'}} className="mb-5">Mirum est notare quam littera gothica quam nunc putamus parum claram!</p>
+                    <p style={{ textAlign: "center" }} className="mb-5">
+                      Mirum est notare quam littera gothica quam nunc putamus
+                      parum claram!
+                    </p>
 
                     <div className="home_body_product_head_container">
                       <div className="product_container">
@@ -325,7 +325,7 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
                 {/* </div> */}
                 <div className="home_body_product_container">
                   <div className="home_body_product_head_container">
-                  <div
+                    <div
                       class="row  d-flex"
                       style={{
                         display: "flex",
@@ -339,12 +339,15 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
                         class="home_body_product_heading col "
                         style={{ color: "black", textAlign: "center" }}
                       >
-                     New Arrival
+                        New Arrival
                       </h3>
 
                       <hr class="headingLine1 col" style={{ width: "80px" }} />
                     </div>
-                    <p style={{textAlign:'center'}} className="mb-5">Mirum est notare quam littera gothica quam nunc putamus parum claram!</p>
+                    <p style={{ textAlign: "center" }} className="mb-5">
+                      Mirum est notare quam littera gothica quam nunc putamus
+                      parum claram!
+                    </p>
                     <div className="newarrival_container">
                       <SliderComponent
                         {...{
@@ -355,7 +358,7 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
                         }}
                       />
                     </div>
-                      <TwoConSlider></TwoConSlider>
+                    <TwoConSlider></TwoConSlider>
                   </div>
                 </div>
               </div>

@@ -16,25 +16,36 @@ const SearchBar = ({handleOnSearchChange, setSearch , search, border,onBlur}) =>
     }
     return (
         <>
-            <div className={`${border ? "border" : "search_container"} `}>
+            <div className={`${border ? "border" : "search_container"} `}
+            style={{
+                height:'70vh',
+                background:'white',
+                width:'100%'
+            }}>
             <div className="header__search-header">
-            {border ? "" : <RxCross2  sx={{ marginRight: "5px", marginLeft: "15px" }} onClick={goBack} />}
-            <h3>Search</h3>
+            {border ? "" : <RxCross2  sx={{ marginRight: "5px", marginLeft: "15px" }} onClick={goBack} className='searchcross'/>}
+            <h3 className='searchheaing'>Search</h3>
             </div>
-                <div className="search_input_container">
+                <div className="search_input_container d-flex">
 
-                    <input className="mtext-107 cl2 searchinput" name="search-product" placeholder="Search"
+                    <input className="mtext-107 cl2 searchinput" name="search-product" placeholder="Search for products..."
                         required="" 
                         onChange={(e) => handleOnSearchChange(e)}
                         onBlur={onBlur}
                         type="search"
                         value={search}
                         autoFocus={true} />
+                        <CiSearch className='searchicon_searchPage' 
+                         style={{
+                            marginLeft:'-20px' ,
+                            color:'black'
+                         }}
+                        />
                 </div>
                 {search ?
                     <CloseIcon sx={{ color: "var(--colorblack)", marginRight: "15px", fontSize: "18px" }} onClick={clearsearch} />
                     : <button className="flex-c-m fs-16 cl2 hov-cl1 trans-04 search_btn_icon">
-                    <CiSearch />
+                    
                     </button>
                 }
             </div>

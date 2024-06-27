@@ -6,6 +6,9 @@
         margin: 2px !important;
     }
 }
+.searchList_container{
+    text-align: center;
+}
 .search_list{
     padding: 15px;
     width: 90%;
