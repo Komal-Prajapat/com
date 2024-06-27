@@ -1,12 +1,31 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./index.css";
-import { GoChevronDown, GoChevronUp } from "react-icons/go";
+import { GoChevronUp, GoChevronDown } from "react-icons/go";
+import { GrFormNext } from "react-icons/gr";
 
 const Slider2 = ({ images }) => {
   const [hoveredImage, setHoveredImage] = useState(images[0]);
-  const [isHovered, setIsHovered] = useState(false);
   const [startIndex, setStartIndex] = useState(0); // Index of the first visible image
   const sliderRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Function to check if the device width is less than 768px (standard tablet/mobile breakpoint)
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Initial check when component mounts
+    checkIfMobile();
+
+    // Event listener to update on window resize
+    window.addEventListener('resize', checkIfMobile);
+
+    // Cleanup function to remove event listener
+    return () => {
+      window.removeEventListener('resize', checkIfMobile);
+    };
+  }, []);
 
   const handleClick = (src) => {
     setHoveredImage(src);
@@ -26,49 +45,43 @@ const Slider2 = ({ images }) => {
 
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-md-4">
+      <div className="row silderrow">
+        <div className="col-lg-4 col-md-6">
           <div className="slider-container">
-            <GoChevronUp className="chevron-icon" onClick={handleChevronUpClick} />
-            <div className="d-flex flex-wrap" style={{
-              height:'300px'
-            }}>
+            {isMobile ? (
+              <GrFormNext className="chevron-icon" onClick={handleChevronUpClick} />
+            ) : (
+              <GoChevronUp className="chevron-icon" onClick={handleChevronUpClick} />
+            )}
+            <div className="d-flex flex-wrap "
+             style={{
+              justifyContent:'center'
+             }}>
               {images.slice(startIndex, startIndex + 3).map((src, index) => (
                 <img
                   key={startIndex + index} // Use a unique key
                   src={src} 
                   alt="xyz"
-                  className="image img-thumbnail product_img"
+                  className="image img-thumbnail"
                   onClick={() => handleClick(src)}
-                  onMouseEnter={() => setHoveredImage(src)}
-                  style={{
-                    marginBottom: '10px',
-                    cursor: 'pointer',
-                    width:'80px',
-                    height:'80px'
-                
-                  }}
                 />
               ))}
             </div>
-            <GoChevronDown className="chevron-icon" onClick={handleChevronDownClick} />
+            {isMobile ? (
+              <GrFormNext className="chevron-icon" onClick={handleChevronDownClick} />
+            ) : (
+              <GoChevronDown className="chevron-icon" onClick={handleChevronDownClick} />
+            )}
           </div>
         </div>
-        <div className="col-md-8 mt-4 mt-md-0">
+        <div className="col-lg-8 col-md-6 mt-4 mt-md-0">
           {hoveredImage && (
-            <div
-              className="hovered-image-wrapper"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
-              <div className="hovered-image-container">
-                <img
-                  src={hoveredImage}
-                  alt="Hovered"
-                  className="img-fluid hovered-image"
-                  style={{ width: '100%' }} 
-                />
-              </div>
+            <div className="hovered-image-wrapper">
+              <img
+                src={hoveredImage}
+                alt="Hovered"
+                className="img-fluid hovered-image"
+              />
             </div>
           )}
         </div>

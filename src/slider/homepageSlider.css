@@ -15,7 +15,7 @@
 .content-text {
   position: absolute;
   top: 50%;
-  left: 20px;
+  left: 100px;
   right: 20px;
   transform: translateY(-50%);
   color: white;
@@ -51,7 +51,9 @@
 .carousel-indicators {
   bottom: 10px;
 }
-
+.carousel-indicators [data-bs-target]{
+  background-color: red;
+}
 .carousel-indicators li {
   background-color: red; 
   border: 1px solid black;

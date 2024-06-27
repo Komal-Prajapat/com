@@ -612,9 +612,7 @@ const HeaderSection = ({
               </div>
 
               <div className="cart_container_fluid">
-                <div className="cart_icon">
-                  {/* <img onClick={Gotocart} src={carticon} alt="IMG-LOGO" /> */}
-                </div>
+              
                 <div className="cart_price_count_container" onClick={Gotocart}>
                   <p className="cart_text_count navbarListItemsStyle">
                     <IoBagHandleOutline
@@ -622,21 +620,18 @@ const HeaderSection = ({
                       className="navbarListItemsStyle my-3"
                       sx={{ cursor: "pointer" }}
                       style={{
-                        marginTop: "30px",
+                        marginTop: "20px " ,
                       }}
                     />{" "}
                     <span
                       sx={{ cursor: "pointer" }}
-                      style={{ marginTop: "30px" }}
+                      style={{ marginTop: "20px" }}
                     >
                       {" "}
                       Cart({cartcount ? cartcount : 0})
                     </span>
                   </p>
-                  <p className="cart_price_count header-cart-item-rupee">
-                    {/* <CurrencyRupeeIcon className="navbarListItemsStyle"/>{" "} */}
-                    {/* {cartTotal ? Number(cartTotal).toFixed(2) : "0.00"} */}
-                  </p>
+                 
                 </div>
               </div>
 
@@ -708,42 +703,7 @@ const HeaderSection = ({
         </div>
 
         {/* ============================================ section 1 =================================================== */}
-        <div className="headersection_container_one">
-          <div className="headersection_container_two sectionBody">
-            {/* <div className='web_logo_container'>
-                        <Link to="/" className="web_logo_container_link">
-                            <img src={headerlogo} alt="IMG-LOGO" onClick={imageclick} />
-                        </Link>
-                    </div> */}
-            <div className="header_cart_container">
-              <div className="contact_container_fluid">
-                <div className="cart_icon">
-                  {/* <img src={shipicon} alt="IMG-LOGO" /> */}
-                  {/* <LocalShippingOutlinedIcon sx={{ fontSize: "40px", mt: 1 }} /> */}
-                </div>
-                {/* <div className='cart_price_count_container'>
-                                <p className='shiping_text'>Free standard shipping</p>
-                                {loading ?
-                                    <Skeleton variant="rectangular" width={200} height={25} sx={{ backgroundColor: "#e0e0e0", borderRadius: "4px" }} />
-                                    : <p className='cart_price_count header-cart-item-rupee'>on all orders {deliverycharge === 0 ? "" : <p className='cart_price_count header-cart-item-rupee' style={{ marginLeft: "5px" }}> over<CurrencyRupeeIcon sx={{ fontSize: "16px" }} /> {deliverycharge}</p>} </p>
-                                }
-                            </div> */}
-              </div>
-
-              <div className="contact_container_fluid">
-                <div className="cart_icon">
-                  {/* <img src={contacticon} alt="IMG-LOGO" /> */}
-                  {/* <HeadsetMicOutlinedIcon sx={{ fontSize: "40px" }} /> */}
-                </div>
-                {/* <div className='cart_price_count_container'>
-                                <p className='shiping_text'>treasurebox@gmail.com</p>
-                                <p className='cart_price_count'></p>
-                            </div> */}
-              </div>
-            </div>
-          </div>
-        </div>
-
+      
         <div className="headersection_container_one nav_align">
           <div className="web_logo_container">
             <Link to="/" className="web_logo_container_link_mobile">
@@ -754,11 +714,7 @@ const HeaderSection = ({
             </Link>
           </div>
           <div className="headersection_container_third sectionBody">
-            <div
-              className={`web_nav ${anchorEl === null ? "zindex" : "nozindex"}`}
-            >
-              {/* <Com {...{ catval, setCatval }} /> */}
-            </div>
+           
 
             <div className="web_mbl_nav" onClick={handlemblmenu}>
               <MenuIcon sx={{ cursor: "pointer" }} />

@@ -8,11 +8,6 @@
   position: relative; /* Ensure relative positioning for absolute child */
 }
 
-.addresstype_radio{
-  display: flex !important;
-  flex-direction: row;
-  /* background: #000; */
-}
 .form-container-box {
   background-color: rgba(255, 255, 255, 0.9); 
   padding: 20px;
@@ -28,4 +23,34 @@
       padding: 10px;
       width: 90%;
   }
+}
+
+
+/* Custom styles for radio buttons and container */
+.radio-container {
+  
+  align-items: flex-start;
+}
+
+.addresstype_radio {
+  display: flex;
+
+  align-items: center;
+}
+
+.addresstype_radio .MuiFormControlLabel-root {
+  margin-right: 20px; 
+}
+
+/* Custom styles for radio button color */
+.addresstype_radio span {
+  color: #bc8246 !important; 
+  
+}
+.css-dmmspl-MuiFormGroup-root{
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: start !important;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.38);
 }

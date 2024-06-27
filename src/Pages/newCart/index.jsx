@@ -3,7 +3,7 @@ import "./index.css";
 import Empty from "../emptypage/emptyCart";
 import { RiSubtractLine } from "react-icons/ri";
 import { IoAddOutline } from "react-icons/io5";
-import { GrClose } from "react-icons/gr";
+import { GrFormClose } from "react-icons/gr";
 import TopPageImage from "../../components/toppageimage";
 // import ButtonForAll from '../components/ButtonForALL';
 import {
@@ -215,6 +215,7 @@ const Newcart = ({ reload, setReload }) => {
                   {data.map((product, index) => (
                     <tr key={index}>
                       <td>
+                      <div className="carttablecon">
                         <div className="cartimg_container">
                           <img
                             src={`${ImageUrl}${product.files}`}
@@ -228,6 +229,7 @@ const Newcart = ({ reload, setReload }) => {
                               )
                             }
                           />
+                        </div>
                         </div>
                       </td>
                       <td>
@@ -317,7 +319,8 @@ const Newcart = ({ reload, setReload }) => {
                             className="icon-btn add-btn cart_delete_btn"
                             onClick={() => deleteFromCartAlert(product.id)}
                           >
-                            <GrClose className="crosicon" />
+                            
+                            <GrFormClose className="crosicon" />
                           </button>
                         </div>
                       </td>

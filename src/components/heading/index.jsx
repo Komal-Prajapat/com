@@ -19,6 +19,6 @@ export const HelpHeading = <Typography variant="h4" gutterBottom mt={1} sx={{ fo
 How can we help you ?</Typography>
 
 export const LikedHeading = <Typography variant="h5" gutterBottom mt={1} sx={{ fontWeight: "500" , color:"#000", marginLeft:0 , whiteSpace:"nowrap",}}>
-Your Wishlist</Typography>
+</Typography>
 
 

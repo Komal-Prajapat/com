@@ -155,30 +155,29 @@ const Profile = () => {
                             <p className="form-error">{errors.mobile}</p>
                         )}
                     </Grid>
-                    <Grid item xs={12} sm={12} md={12} lg={12} sx={{}}>
-                        <FormLabel id="demo-radio-buttons-group-label"><p>Your Gender</p></FormLabel>
-                        <RadioGroup
-                            aria-labelledby="demo-radio-buttons-group-label"
-                            defaultValue={value}
-                            name="gender"
-                            className='addresstype_radio d-flex'
-                            value={value}
-                            onChange={handleradioChange}
-                        >
-                            <FormControlLabel
-                                type="button"
-                                value="male"
-                                control={<Radio />}
-                                label={<p>Male</p>}
-                            />
-                            <FormControlLabel
-                                type="button"
-                                value="female"
-                                control={<Radio />}
-                                label={<p>Female</p>}
-                            />
-                        </RadioGroup>
-                    </Grid>
+                    <Grid item xs={12} sm={12} md={12} lg={12} className="radio-container">
+      <FormLabel id="demo-radio-buttons-group-label"><p>Your Gender</p></FormLabel>
+      <RadioGroup
+        aria-labelledby="demo-radio-buttons-group-label"
+        defaultValue={value}
+        name="gender"
+        className="addresstype_radio d-flex"
+        value={value}
+        onChange={handleradioChange}
+      >
+        <FormControlLabel
+          value="male"
+          control={<Radio sx={{ color: "#bc8246" }} />} // Custom color for the radio button
+          label={<p>Male</p>}
+        />
+        <FormControlLabel
+          value="female"
+          control={<Radio sx={{ color: "#bc8246" }} />} // Custom color for the radio button
+          label={<p>Female</p>}
+        />
+      </RadioGroup>
+    </Grid>
+
                     <Grid item xs={12} sm={12} md={12} lg={12} sx={{}}>
                         <ButtonForAll name={loading ? 'Loading...' : "Save"} type='submit' disabled={loading} />
                     </Grid>

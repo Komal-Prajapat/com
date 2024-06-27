@@ -9,9 +9,11 @@ const TwoConSlider = () => {
       <div className="row">
         <div className="col-lg-6 mb-4 boxcon d-flex" style={{ padding: '30px' ,marginRight:"12px"}}>
           <div className="textcontainerdiv">
-            <p className="productname">Products Accessories</p>
+            <span className="productname">Products Accessories</span>
             <h4>Wooden Container Bowl</h4>
-            <ButtonForAll name="Buy Now" />
+            <div className="buynowbtn">
+            <ButtonForAll name="Buy Now"  />
+            </div>
           </div>
           <div className="">
             <img
@@ -24,9 +26,11 @@ const TwoConSlider = () => {
 
         <div className="col-lg-5 mb-4 boxcon d-flex" style={{ padding: '30px' }}>
           <div className="textcontainerdiv">
-            <p className="productname">Products Accessories</p>
+            <span className="productname">Products Accessories</span>
             <h4>Wooden container Bowl</h4>
-            <ButtonForAll name="Buynow" />
+            <div className="buynowbtn">
+            <ButtonForAll name="Buy now"  />
+            </div>
           </div>
           <div className="">
             <img

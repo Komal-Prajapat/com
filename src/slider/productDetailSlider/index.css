@@ -1,5 +1,4 @@
-/* Inside your index.css or custom CSS file */
-
+/* General styles */
 .container {
   margin: 0 auto;
   padding: 20px;
@@ -11,24 +10,14 @@
   justify-content: center;
 }
 
-.col-md-4 {
-  flex: 0 0 100%;
-  max-width: 100%;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.col-md-8 {
-  flex: 0 0 100%;
-  max-width: 100%;
-  text-align: center;
-}
-
+/* Styles for the slider */
 .slider-container {
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .chevron-icon {
@@ -36,8 +25,6 @@
   cursor: pointer;
   color: #bc8246;
   text-align: center;
-  
-  /* margin-left: 30px; */
   font-weight: bold;
 }
 
@@ -52,13 +39,15 @@
 .image {
   width: 80px;
   height: 80px;
-  object-fit: cover; /* Ensure images maintain aspect ratio */
+  object-fit: cover;
+  /* Ensure images maintain aspect ratio */
   cursor: pointer;
   margin-bottom: 10px;
 }
 
 .img-thumbnail {
-  border: none; /* Remove thumbnail border */
+  border: none;
+  /* Remove thumbnail border */
 }
 
 .hovered-image-wrapper {
@@ -71,17 +60,8 @@
 }
 
 @media (max-width: 768px) {
-  .col-md-4 {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
 
-  .col-md-8 {
-    flex: 0 0 100%;
-    max-width: 100%;
-    margin-top: 20px;
-  }
-
+  /* Adjustments for smaller screens */
   .slider-container {
     flex-direction: row;
     align-items: flex-start;
@@ -96,5 +76,13 @@
     width: 60px;
     height: 60px;
     margin-bottom: 5px;
+  }
+
+  .silderrow {
+    display: flex;
+
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }

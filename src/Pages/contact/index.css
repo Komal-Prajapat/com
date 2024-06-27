@@ -155,3 +155,12 @@
     margin-bottom: 10px; /* Adjust spacing between items */
   }
 }
+.footerSocialMediaIcon{
+  margin-top: 30px;
+  font-size: 18px;
+  color: #606060;
+}
+.footerSocialMediaIcon:hover{
+  color: #bc8246;
+  font-weight: bold;
+}

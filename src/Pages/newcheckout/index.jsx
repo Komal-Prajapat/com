@@ -752,7 +752,7 @@ Have a coupon? Click here to enter your code
                       </div>
                     </div>
 
-                    <ButtonForAll name=" place order "></ButtonForAll>
+                    <ButtonForAll name=" Place order "></ButtonForAll>
                   </div>
                 </div>
               </div>

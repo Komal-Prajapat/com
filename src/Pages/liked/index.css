@@ -6,7 +6,7 @@
   min-height: 550px;
   display: flex;
   flex-wrap: wrap;
-  margin-top: 100px;
+  margin-top: 50px;
   justify-content: center;
 }
 
@@ -29,7 +29,9 @@
   padding: 5px;
   text-align: center;
 }
+.wishList_img{
 
+}
 @media (max-width: 768px) {
   /* For tablets and smaller desktops */
   .wishlist_container .product_box {

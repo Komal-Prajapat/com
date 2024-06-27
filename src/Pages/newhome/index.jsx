@@ -226,10 +226,10 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
                       style={{
                         display: "flex",
                         justifyContent: "center",
-                        marginTop: "100px",
+                        marginTop: "50px",
                       }}
                     >
-                      <hr class="headingLine1 col" style={{ width: "80px" }} />
+                      <hr class="headingLine1 col" style={{ width: "70px" }} />
 
                       <h3
                         class="home_body_product_heading col "
@@ -239,7 +239,7 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
                       </h3>
                      
 
-                      <hr class="headingLine1 col" style={{ width: "80px" }} />
+                      <hr class="headingLine1 col" style={{ width: "70px" }} />
 
                     </div>
                     <p style={{textAlign:'center'}} className="mb-5">Mirum est notare quam littera gothica quam nunc putamus parum claram!</p>

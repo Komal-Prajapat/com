@@ -56,14 +56,20 @@ const Liked = () => {
 
 <TopPageImage pagename="Wishlist"></TopPageImage>
         {pending ? <Loader/> :
-        <div>
+        <div style={{
+            background:'white'
+        }}>
             {productList.length ?
                 <div>
                     <div className='wishlist_heading'>
-                        {LikedHeading}
+                        {/* {LikedHeading} */}
                     </div>
-                <div className='wishlist_container'>
-                      <ProductBox renderproduct={productList}  setProductList={setProductList}  productApifunc={updateApiCall} />
+                <div className='wishlist_container'
+                
+                >
+                   <div className="wishList_img ">
+                   <ProductBox renderproduct={productList}  setProductList={setProductList}  productApifunc={updateApiCall} />
+                   </div>
                 </div>
                 </div>
                 :

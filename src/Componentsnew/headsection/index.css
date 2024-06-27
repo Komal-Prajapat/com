@@ -180,14 +180,9 @@ body {
 .cart_text_count {
     font-size: 16px;
     color: grey !important;
-    /* font-weight: 600; */
-    margin-top: 30px;
-
-}
-
-.cart_price_count {
-    font-size: 16px;
+margin-top: 15px;
     font-weight: 600;
+
 }
 
 .cart_price_count_container {
@@ -611,6 +606,7 @@ body {
 
 .web_nav {
     width: 100% !important;
+    display: none;
 }
 
 .animate__slideInRight {
