@@ -2,7 +2,7 @@
 
 /* Container styles */
 .newcart_container {
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: auto;
   padding: 100px;
   background: white;
@@ -29,7 +29,7 @@
   padding: 12px;
   text-align: center;
 
-  vertical-align: center;
+  vertical-align: baseline;
   border-right: 1px solid #eaedff;
 
   border-top: 1px solid #eaedff;
@@ -292,4 +292,8 @@ ul {
     /* background: #000; */
   }
 
+}
+.custom-ok-button , .custom_cancel_button{
+  background: #bc8246 !important;
+  /* border-radius: 0px !important; */
 }

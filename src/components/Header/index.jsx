@@ -12,6 +12,7 @@ import AddIcon from "@mui/icons-material/Add";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Login from "../../Pages/login/login";
 import ToastMessage from "../../utils/ToastMessage";
+import {hederlogoForMobile}  from '../../../public/images/hederlogoMobile.png'
 import {
   getApiCall,
   getcartApi,
@@ -537,7 +538,7 @@ const Header = ({ reload, setReload, refresh, setRefresh }) => {
           {/* <!-- Logo moblie -->		 */}
           <div className="logo-mobile">
             <Link to="/" className="logo">
-              <img src={headerlogo} alt="IMG-LOGO" />
+              <img src="https://tse1.mm.bing.net/th?id=OIP.6VJpiEB8bvznoRMNRDREjQHaB1&pid=Api&P=0&h=180" alt="IMG-LOGO" />
             </Link>
           </div>
 

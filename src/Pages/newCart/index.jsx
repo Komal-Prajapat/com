@@ -146,7 +146,15 @@ const Newcart = ({ reload, setReload }) => {
       title: "Are you sure you want to delete?",
       text: "Once deleted, you won't be able to revert this!",
       icon: "warning",
-      buttons: true,
+      buttons: {
+        cancel: "Cancel",
+      
+        confirm: {
+          text: "Delete",
+          value: true,
+          className: "custom-ok-button",
+        },
+      },
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
@@ -154,6 +162,7 @@ const Newcart = ({ reload, setReload }) => {
       }
     });
   };
+  
 
   // Function to delete item from cart
   const deleteFromCart = async (id) => {
@@ -320,7 +329,12 @@ const Newcart = ({ reload, setReload }) => {
                             onClick={() => deleteFromCartAlert(product.id)}
                           >
                             
-                            <GrFormClose className="crosicon" />
+                            <GrFormClose className="crosicon" style={{
+                              fontSize:"18px",
+                              color:"black",
+                              verticalAlign:"center",
+                              
+                            }} />
                           </button>
                         </div>
                       </td>

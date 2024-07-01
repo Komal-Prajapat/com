@@ -16,7 +16,7 @@ export default function Loader() {
 
   return (
     <div style={{height:"100vh" ,width:"100%", paddingTop:"250px" , textAlign:"center"}}>
-      <CircularProgress color="secondary" size="50px"/>
+      <CircularProgress color="secondar#bc8246y" size="50px"/>
     </div>
   );
 }

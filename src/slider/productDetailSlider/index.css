@@ -40,9 +40,14 @@
   width: 80px;
   height: 80px;
   object-fit: cover;
-  /* Ensure images maintain aspect ratio */
+  
   cursor: pointer;
   margin-bottom: 10px;
+}
+.image_Con{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .img-thumbnail {
@@ -61,12 +66,18 @@
 
 @media (max-width: 768px) {
 
-  /* Adjustments for smaller screens */
+
   .slider-container {
     flex-direction: row;
     align-items: flex-start;
   }
-
+  .image_Con{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
   .chevron-icon {
     margin-left: 0;
     margin-top: 10px;

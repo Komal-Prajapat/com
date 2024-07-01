@@ -92,6 +92,9 @@ const ProductBox = ({
                               item.product_name || item.productName
                             )
                       }
+                      style={{
+                          borderBottom:'0.1px solid black'
+                        }}
                     />
                   </li>
                   <li>
@@ -106,6 +109,9 @@ const ProductBox = ({
                             user_id
                           )
                         }
+                        className="my-2" style={{
+                          borderBottom:'0.1px solid black'
+                        }}
                       />
                     ) : (
                       <FavoriteBorderIcon
@@ -118,11 +124,16 @@ const ProductBox = ({
                             user_id
                           )
                         }
+                        className="my-2" style={{
+                          borderBottom:'0.1px solid black'
+                        }}
                       />
                     )}
                   </li>
                 </ul>
               </div>
+
+
             </div>
             <div className="product_box_description">
               {item.is_active === 0 ? (
@@ -142,6 +153,7 @@ const ProductBox = ({
                 >
                   {item.product_name || item.productName}
                 </span>
+
               </li>
 
               <li className="product_price">

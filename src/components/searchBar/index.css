@@ -1,6 +1,7 @@
 .header__search-header{
    
     
+   
     text-align: center;
 }
 .searchinput{
@@ -41,7 +42,7 @@
     color: #bc8246;
 }
 .search_container input , .border input{
-    
+    margin: auto;
     width: 90%;
     padding-left: 10px;
     background: none;

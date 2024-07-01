@@ -49,6 +49,7 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
   const fetchcategoryList = async () => {
     setPending(true);
     try {
+      
       const result = await getApiCall(Activecategory);
 
       if (result.data.status) {

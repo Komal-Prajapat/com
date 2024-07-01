@@ -1,8 +1,7 @@
-.newcart_container{
-    /* height: 70vh; */
-}
+
 .empty_container {
-  
+  background: white;
+  height: 70vh;
     display: flex;
     flex-direction: column;
     text-align: center;

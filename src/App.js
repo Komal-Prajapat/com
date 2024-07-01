@@ -83,7 +83,7 @@ function App() {
         { path: "payment-cancel", element: <Paymentfail /> },
         { path: "payment-callback", element: <Paymentdone /> },
         { path: "shop", elemxent: <TryNav /> },
-         { path:"", element:<NotFound></NotFound>}
+         { path:"*", element:<NotFound></NotFound>}
      
       ]
     },

@@ -9,6 +9,7 @@ import emptyWishlist from "../../Assect/emptywishlist.png";
 import ProductBox from '../../Componentsnew/productBox';
 import TopPageImage from '../../components/toppageimage';
 import ButtonForAll from '../../components/ButtonForALL';
+import { Link } from 'react-router-dom';
 
 const Liked = () => {
     const user_id = localStorage.getItem("user_id")
@@ -76,7 +77,11 @@ const Liked = () => {
                <div className="emptycon"> 
              <div className="data">
              <h3>No Wishlist Items Found</h3>
-             <ButtonForAll name="CONTINUE SHOPING" className="btnWishlist"></ButtonForAll>
+           <div className="btnWishlist">
+           <Link to={"/product"} style={{ textDecoration: 'none' }}><ButtonForAll name="CONTINUE SHOPING"  style={{
+                margin:'auto',
+             }}></ButtonForAll></Link>
+           </div>
              </div>
                </div>
             }

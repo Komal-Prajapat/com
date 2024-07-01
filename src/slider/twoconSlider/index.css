@@ -4,9 +4,7 @@ body, html {
   margin: 0;
   padding: 0;
 }
-.row {
-  --bs-gutter-x: 4.5rem;
-}
+
 .boxcon {
   /* margin-bottom: 20px; */
   padding-top: 30px;

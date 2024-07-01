@@ -25,7 +25,7 @@ function DarkVariantExample() {
           <div className="carousel-item-content">
             <div className="content-text">
               <h2 className='sliderheading'>Lorem ipsum .</h2>
-              <p data-aos="fade-up">
+              <p data-aos="fade-up" className='decrptionHomeSlider'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Laborum eaque culpa nemo quae odit quasi delectus, ducimus magni
                 necessitatibus error iure, tempore cumque ex.
@@ -43,7 +43,7 @@ function DarkVariantExample() {
           <div className="carousel-item-content">
             <div className="content-text">
               <h2 className='sliderheading'>Lorem ipsum dolo</h2>
-              <p>
+              <p className='decrptionHomeSlider'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Laborum eaque culpa nemo quae odit quasi delectus, ducimus magni
                 necessitatibus error iure, tempore cumque ex.
@@ -61,7 +61,7 @@ function DarkVariantExample() {
           <div className="carousel-item-content">
             <div className="content-text">
               <h2 className='sliderheading'>Lorem ipsum </h2>
-              <p>
+              <p className='decrptionHomeSlider'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Laborum eaque culpa nemo quae odit quasi delectus, ducimus magni
                 necessitatibus error iure, tempore cumque ex.

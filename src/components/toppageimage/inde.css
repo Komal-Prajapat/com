@@ -3,4 +3,8 @@
 }
 .bread-crumbangle{
     text-decoration: none;
+    margin-left: 3px;
+}
+.bread-crumbangle:hover{
+color: #bc8246 !important;
 }

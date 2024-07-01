@@ -282,7 +282,11 @@ const Login = ({ handleafterloginaddtocart, wishlist,handlelike, setShowloginpop
                 <p className="Login_form-error">{errors.mobile}</p>
               ) : null}
 
-              <p className='loginprivacy'>By continuing, you agree to TreasureBox's <span onClick={gototerms}>Terms & conditions.</span></p>
+              <p className='loginprivacy'>By continuing, you agree to TreasureBox's <span onClick={gototerms}
+              style={{
+                color:"#bc8246"
+              }}
+              >Terms & conditions.</span></p>
             </div>
             <Grid sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
               <button  loading={loading} type="submit" className='loginbtn'>Request OTP</button>

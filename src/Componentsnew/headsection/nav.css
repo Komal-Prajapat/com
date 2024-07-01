@@ -26,7 +26,7 @@ body {
 }
 
 .navbarListItemsStyle {
-    font-size: 14px !important;
+    font-size: 19px !important;
 
     color: black !important;
     margin-left: 10px !important;
@@ -391,19 +391,7 @@ body {
     cursor: pointer;
 }
 
-/* Hide for mobile devices by default */
-.web_logo_container_link_mobile {
-    display: none;
-}
 
-/* Media query for mobile devices */
-@media (max-width: 768px) {
-
-    /* Adjust the width value as per your design */
-    .web_logo_container_link_mobile {
-        display: block;
-    }
-}
 
 
 @media (max-width: 570px) {

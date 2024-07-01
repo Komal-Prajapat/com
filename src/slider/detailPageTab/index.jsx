@@ -9,7 +9,7 @@ const DetailPageTab = ({ description, general }) => {
 
   return (
     <div className="detailpagetab">
-      <Tabs style={{ width: "100%" }}>
+      <Tabs>
         <TabList className="custom-tab-list">
           <Tab>Description</Tab>
           {showSpecificationTab && <Tab>Specification</Tab>}
@@ -19,6 +19,7 @@ const DetailPageTab = ({ description, general }) => {
           <RemoveTag
             ParserText={description}
             style={{
+              width: "100%", // Ensure description content takes full width
               fontSize: "14px",
               lineHeight: "24px",
               color: "red",
@@ -29,9 +30,9 @@ const DetailPageTab = ({ description, general }) => {
         </TabPanel>
 
         {showSpecificationTab && (
-          <TabPanel style={{ width: "100%" }}>
+          <TabPanel>
             <div className="table_container">
-              <table style={{ width: "100%" }}>
+              <table>
                 <tbody>
                   {general.map((item, index) => (
                     <tr key={index}>

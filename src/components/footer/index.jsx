@@ -43,7 +43,7 @@ const Footer = ({ catval, setCatval, bgcolor, textcolor , imptext}) => {
   };
 
   // Define default colors
-  const defaultBgColor = "#ffffff";
+  const defaultBgColor = "#f5f5f5";
   const defaultTextColor = "#000000";
 
   // Determine final colors based on props or defaults

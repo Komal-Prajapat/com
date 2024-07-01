@@ -219,11 +219,15 @@ const Contact = () => {
       </section>
       <iframe
         title="Google Map"
-        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14716.453281537717!2d75.88825034999999!3d22.761175450000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1718699644594!5m2!1sen!2sin"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.7762832509848!2d75.84771087344964!3d22.699370628315652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fdf8143cc3e5%3A0x54bc4ea63891ccef!2sTREASURE%20BOX!5e0!3m2!1sen!2sin!4v1719562376595!5m2!1sen!2sin"
         style={{ width: "100%", height: "300px", border: "0" }}
         allowFullScreen=""
         loading="lazy"ind
       ></iframe>
+
+
+
+      
     </>
   );
 };

@@ -11,6 +11,7 @@ import emptyorderlist from "../../Assect/emptyorder.jpg"
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import Pagination from '@mui/material/Pagination';
 import { makeStyles } from '@material-ui/core/styles';
+import TopPageImage from '../../components/toppageimage';
 
 
 const Orders = () => {
@@ -65,6 +66,7 @@ const Orders = () => {
 
     return (
         <>
+         <TopPageImage name="Oder"></TopPageImage>
             {pending ? <Loader /> :
 <>
                 <div className='orderhistory_container'>
@@ -134,7 +136,10 @@ const Orders = () => {
                             {orderHistory.length ? <Pagination count={Math.ceil(pageCount / 5)}  defaultPage={5} siblingCount={0}  page={currentPage} onChange={handleChange} /> : ""}
                         </div>
                         :
-                        <Empty image={emptyorderlist} btn="Shop Now" />
+                     <div className="">
+                     
+                     <Empty image={emptyorderlist} btn="Shop Now" />
+                     </div>
                     }
                 </div>
                

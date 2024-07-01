@@ -1,5 +1,9 @@
 .search_container_fluid{
     margin: 2px;
+    width: 100vw;
+    position: absolute;
+    left: 0px;
+    top: 0px;
 }
 @media (max-width: 570px) {
     .search_container_fluid{

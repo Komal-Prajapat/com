@@ -88,9 +88,7 @@
     right: 0;
   }
 
-  .content-text h2 {
-    font-size: 24px; 
-  }
+
 
   .content-text p {
     font-size: 14px; 
@@ -103,22 +101,21 @@
 }
 
 @media (max-width: 576px) {
-  .content-text {
-    width: calc(100% - 20px); /* Adjust to the specific padding or margin of the parent container */
-    padding: 0 10px;
-    text-align: left;
-  }
+ 
 
   .content-text h2 {
-    font-size: 20px; 
+    font-size: 10px; 
   }
 
-  .content-text p {
-    font-size: 12px;
-  }
 
   .content-text button {
     font-size: 12px; 
     padding: 6px 12px; 
+  }
+  .decrptionHomeSlider{
+    display: none;
+  }
+  .sliderheading{
+    font-size: smaller;
   }
 }

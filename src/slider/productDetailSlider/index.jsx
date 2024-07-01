@@ -53,7 +53,7 @@ const Slider2 = ({ images }) => {
             ) : (
               <GoChevronUp className="chevron-icon" onClick={handleChevronUpClick} />
             )}
-            <div className="d-flex flex-wrap "
+            <div className="d-flex flex-wrap  image_Con"
              style={{
               justifyContent:'center'
              }}>

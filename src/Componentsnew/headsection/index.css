@@ -48,12 +48,7 @@ body {
     color: black !important;
 }
 
-.NavbarICON {
 
-    font-size: larger !important;
-    color: #848b8a !important;
-
-}
 
 .headersection_container_one {
     width: 90%;
@@ -395,18 +390,11 @@ margin-top: 15px;
     cursor: pointer;
 }
 
-/* Hide for mobile devices by default */
-.web_logo_container_link_mobile {
-    display: none;
-}
 
 /* Media query for mobile devices */
 @media (max-width: 768px) {
 
-    /* Adjust the width value as per your design */
-    .web_logo_container_link_mobile {
-        display: block;
-    }
+ 
 }
 
 
@@ -740,3 +728,30 @@ margin-top: 15px;
 
 
 /* ****************************************************** this is my tyr page ******************** */
+
+
+
+/* Default styling for .logo-mobile */
+.logo-mobile {
+    width: 100px;
+    display: none; 
+    
+  }
+  
+  
+  @media (max-width: 767px) {
+    .logo-mobile {
+        mix-blend-mode: multiply;
+        background-color: transparent;
+        display: none;
+        width: 100px;
+        margin: auto;
+    }
+    .logo-mobile img{
+        justify-content: center;
+width: 100px;
+margin: auto;
+    }
+  }
+  
+  

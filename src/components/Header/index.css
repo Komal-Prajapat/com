@@ -569,6 +569,7 @@
   width: 100%;
 }
 
+
 /*------------------------------------------------------------------
   [ Logo mobile ]*/
 .logo-mobile {
@@ -982,3 +983,18 @@
 .main-menu-m .active a {
   color: var(--colorprimary) !important;
 }
+
+
+
+/* Default styling for .logo-mobile */
+.logo-mobile {
+  display: none; 
+}
+
+
+@media (max-width: 767px) {
+  .logo-mobile {
+    display: block;
+  }
+}
+

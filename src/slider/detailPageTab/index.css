@@ -1,23 +1,24 @@
-/* Inside your index.css or custom CSS file */
-
 .custom-tab-list {
   text-align: center;
   margin-top: 50px;
- 
 }
 
-.deatilpagetab {
+.detailpagetab {
   display: flex;
   justify-content: center;
   align-items: center;
-} 
+}
 
 .react-tabs {
-  border: none;
+  width: 100%; /* Ensure tabs take up full width */
 }
 
 .react-tabs__tab-list {
   border-bottom: none;
+  width: 100%; /* Tab list takes up full width */
+  max-width: 100%; /* Optional: Ensure no overflow */
+  display: flex;
+  justify-content: center; /* Center tabs horizontally */
 }
 
 .react-tabs__tab {
@@ -33,16 +34,20 @@
 }
 
 .react-tabs__tab-panel {
+  width: 80vw; /* Tab panels take up full width */
   border: none;
+  margin: auto;
   padding: 20px;
 }
 
 .table_container {
-  width: 100%;
+  width: 100%; /* Ensure table container takes up full width */
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
 }
 
 .table_container table {
-  width: 100%;
+  width: 100%; /* Ensure table takes up full width */
+  min-width: 100%; /* Minimum width to prevent horizontal overflow */
   border-collapse: collapse;
 }
 

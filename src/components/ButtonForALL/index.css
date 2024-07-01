@@ -8,10 +8,12 @@
   cursor: pointer;
   border: 1px solid black !important;
   display: flex;
+  text-decoration: none;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: color 0.2s, border-color 0.2s; /* Smooth transition for color and border-color */
+  transition: color 0.2s, border-color 0.2s;
+  
 }
 
 .custom-button:hover {
@@ -21,6 +23,7 @@
 
 .innercontainer {
   position: absolute;
+  text-decoration: none;
   top: 0;
   left: 0;
   width: 100%;

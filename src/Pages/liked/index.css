@@ -3,7 +3,7 @@
 /* Wishlist Container */
 .wishlist_container {
   padding: 10px;
-  min-height: 550px;
+  height: cover;
   display: flex;
   flex-wrap: wrap;
   margin-top: 50px;
@@ -78,7 +78,8 @@
 }
 
 .emptycon {
-  /* height: 70vh; */
+  height: 70vh;
+
   display: flex;
   justify-content: center;
   align-items: center;

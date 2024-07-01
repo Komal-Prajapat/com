@@ -307,7 +307,10 @@ const NewProductpage = ({ reload, setReload }) => {
 
               </div>
               : 
-              <div className="Product_page_product_container">
+              <div className="Product_page_product_container" 
+              style={{
+                cursor:"pointer"
+              }}>
               {
                 productList.length ? 
                 <ProductBox renderproduct={productList} setProductList={setProductList} productApifunc={updateApiCall} {...{ reload, setReload }} />

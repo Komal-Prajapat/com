@@ -33,6 +33,7 @@ import "animate.css";
 import Login from "../../Pages/login/login";
 import TryNav from "../com/trynav";
 import MobileMenu from "../mobilemenu";
+import SearchPage from "../../Pages/searchPage";
 
 const HeaderSection = ({
   reload,
@@ -486,6 +487,24 @@ const HeaderSection = ({
     setShowTryNav1((prev) => !prev);
   };
 
+
+
+  // *************************
+  // ************SEarch *************
+  // *************************
+
+    const [showPopup, setShowPopup] = useState(false);
+
+    const handleSearchClick = () => {
+      setShowPopup(true);
+    };
+  
+    const handleClosePopup = () => {
+      setShowPopup(false);
+    };  
+    
+    
+    
   return (
     <>
       <div className={`headersection_container container-fluid ${isSticky ? "sticky" : ""}`}>
@@ -503,13 +522,13 @@ const HeaderSection = ({
                     src={headerlogo}
                     alt="IMG-LOGO"
                     onClick={imageclick}
-                    style={{ width: "150px" }}
+                    style={{ width: "200px" }}
                   />
                 </Link>
               </li>
               <div className=" col-lg-4 " style={{ display: "flex" }}>
                 <li
-                  className="profile_list navbarListItemsStyle mx-4"
+                  className="profile_list navbarListItemsStyle "
                   ref={tryNavRef1}
                 >
                   <div className="dropdown navbarListItemsStylex">
@@ -530,10 +549,10 @@ const HeaderSection = ({
                         {showTryNav && <TryNav />}
                       </div>
                     </div>
-                  </div>
+                  </div>  
                 </li>
                 <li
-                  className="profile_list navbarListItemsStyle mx-4 "
+                  className="profile_list navbarListItemsStyle "
                   onClick={gotoabout}
                 >
                   About
@@ -548,10 +567,10 @@ const HeaderSection = ({
                 </li>
               </div>
 
-              <div className="home_page_search_container col-lg-1 text-end">
+              {/* <div className="home_page_search_container col-lg-1 ">
                 <div className="" ref={searchRef}>
                   <div className="home_page_search_container">
-                    <SearchIcon onClick={searchshow} className="NavbarICON " />
+              
 
                     <input
                       className="search__input field__input navbarListItemsStyle"
@@ -559,10 +578,11 @@ const HeaderSection = ({
                       type="search"
                       name="search"
                       autocomplete="off"
+                      onClick={searchshow}
                       onChange={(e) => handleOnSearchChange(e)}
                       value={search}
                       placeholder="Search"
-                      style={{ width: "60px", color: "black" }}
+                      style={{ width: "100px", color: "black" }}
                     ></input>
                   </div>
                   {searchdata.length ? (
@@ -609,7 +629,19 @@ const HeaderSection = ({
                     ""
                   )}
                 </div>
-              </div>
+              </div> */}
+              <div>
+
+              <button onClick={handleSearchClick}>Search</button>
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <button className="close-button" onClick={handleClosePopup}>close</button>
+            <SearchPage onClose={handleClosePopup}   />
+          </div>
+        </div>
+      )}</div>
+
 
               <div className="cart_container_fluid">
               
@@ -666,14 +698,18 @@ const HeaderSection = ({
                               To access account and manage orders
                             </p>
                           )}
-                          {!user_id && (
-                            <button
-                              className="login_btn_profile"
-                              onClick={handleprofilePage}
-                            >
-                              Login
-                            </button>
-                          )}
+                          {user_id ? (
+                              ""
+                            ) : (
+                              <button
+                                className="login_btn_profile"
+                                onClick={
+                                  user_id ? handlelogout : handleprofilePage
+                                }
+                              >
+                                {user_id ? "Logout" : "Login"}
+                              </button>
+                            )}
                         </div>
                       </li>
                       <hr></hr>
@@ -705,67 +741,29 @@ const HeaderSection = ({
         {/* ============================================ section 1 =================================================== */}
       
         <div className="headersection_container_one nav_align">
-          <div className="web_logo_container">
-            <Link to="/" className="web_logo_container_link_mobile">
-              <img
-                src="https://tse1.mm.bing.net/th?id=OIP.6VJpiEB8bvznoRMNRDREjQHaB1&pid=Api&P=0&h=180"
-                alt="IMG-LOGO"
-              />
+        <div className="logo-mobile"  style={{
+          marginBottom:"3px"
+        }}>
+            <Link to="/" className="logo">
+              <img src="https://tse1.mm.bing.net/th?id=OIP.6VJpiEB8bvznoRMNRDREjQHaB1&pid=Api&P=0&h=180" alt="IMG-LOGO" />
             </Link>
           </div>
-          <div className="headersection_container_third sectionBody">
+                 <div className="headersection_container_third sectionBody"
+                 >
            
 
             <div className="web_mbl_nav" onClick={handlemblmenu}>
               <MenuIcon sx={{ cursor: "pointer" }} />
             </div>
-
-            {/* <div className='home_page_search_container'>
-                        <div className="" ref={searchRef}>
-                            <div className='home_page_search_container'>
-                                <SearchIcon sx={{   , fontSize: "20px" }} />
-                                <input className="search__input field__input"
-                                    id="Search-In-Modal" type="search"
-                                    name="search" autocomplete="off"
-                                    onChange={(e) => handleOnSearchChange(e)}
-                                    value={search}
-                                    placeholder="Search"></input>
-                                {search.length ?
-                                    <CloseIcon onClick={clearsearch} /> : ""
-                                }
-                            </div>
-
-                            {searchdata.length ?
-                                <div className="search_list_container" >
-                                    {
-                                        searchdata.length ?
-                                            searchdata.map((name, index) => {
-                                                return (
-                                                    <div className="search_list_data" key={index}>
-                                                        <div className="search_data_img_name">
-                                                            <img onClick={() => handleDetailPage(name.id, name?.productName)} className='' src={`${ImageUrl}/${name.files ? name.files : name.file}`} alt="" height={40} width={40} />
-                                                            <p className='product_list' onClick={() => handleDetailPage(name.id, name?.productName)} >{name?.productName}</p>
-                                                        </div>
-                                                        <Divider />
-                                                    </div>
-                                                )
-                                            })
-                                            : ""
-                                    }
-
-                                </div>
-                                : ""}
-
-                        </div>
-                        <div className='mbl_search_cart_container'>
-                            <SearchIcon sx={{   , fontSize: "24px" }} />
-                        </div>
-                    </div> */}
-
-            <div className="icon_list_header">
+           
+           <div className="icon_list_header"
+            style={{
+              marginRight:"3px "
+            }}
+            >
               <Badge
                 className="cart_badge "
-                color="secondary"
+                color="black"
                 badgeContent={cartcount}
               >
                 {/* <FavoriteIcon onClick={handlelikePage} sx={{ cursor: "pointer" }} /> */}
@@ -778,11 +776,11 @@ const HeaderSection = ({
                 </button>
                 <IoBagHandleOutline
                   onClick={Gotocart}
-                  className="navbarListItemsStyle"
-                  style={{ marginRight: "2px" }}
+                  className=""
+                  style={{ marginLeft: "31px" ,fontSize:"21px" , color:"black" , marginRight:"2px"}}
                   sx={{ cursor: "pointer" }}
                 />{" "}
-                Cart..({cartcount ? cartcount : 0})
+               Cart..({cartcount ? cartcount : 0})
                 {/* <ShoppingCartIcon onClick={Gotocart} sx={{ cursor: "pointer" }} /> */}
               </Badge>
               <div className="headersection_container_profile_mobile">
@@ -803,9 +801,9 @@ const HeaderSection = ({
                     <Box className="container_profile_fluid">
                       <div className="profile_container container_profile">
                         <div className="profile_container">
-                          <div className="profile_logo_container">
+                          {/* <div className="profile_logo_container">
                             <img src={headerlogo} alt="IMG-LOGO" width={150} />
-                          </div>
+                          </div> */}
 
                           {username ? (
                             <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
@@ -911,25 +909,7 @@ const HeaderSection = ({
           </div>
         </div>
 
-        {/* <div className="headersection_category_img">
-        {categoryList.map((item, index) => {
-          return (
-            <Link
-              key={index}
-              className={
-                catval === item.category_name
-                  ? "active_category-img category-img"
-                  : "category-img"
-              }
-              onClick={() => handlecatClick(item.category_name)}
-              to={`/product/${item.id}/${item.category_name}`}
-            >
-              {" "}
-              <img src={`${ImageUrl}${item.files}`} alt="" />
-            </Link>
-          );
-        })}
-      </div> */}
+       
       </div>
       ;
     </>
