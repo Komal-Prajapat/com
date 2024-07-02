@@ -31,7 +31,8 @@ const CategoryList = () => {
         {categoryList.map((category, index) => (
           <li key={index} className="category-item">
             <Link
-              to={`/product/${category.id}/${category.category_name}`}
+            
+              to={`/product`}
               className="category-link"
             >
               {category.category_name}

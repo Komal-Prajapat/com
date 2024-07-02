@@ -224,25 +224,24 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
                       class="row  d-flex"
                       style={{
                         display: "flex",
-                        justifyContent: "center",
+                        justifyContent: "space-evenly",
                         marginTop: "50px",
                       }}
                     >
-                      <hr class="headingLine1 col" style={{ width: "70px" }} />
+                      <hr class="headingLine1 col" style={{ width: "30%" }} />
 
                       <h3
                         class="home_body_product_heading col "
-                        style={{ color: "black", textAlign: "center" }}
+                        style={{ color: "black", textAlign: "center",width:"30%" }}
                       >
                         Trending Products
                         {/* Best Sellers */}
                       </h3>
 
-                      <hr class="headingLine1 col" style={{ width: "70px" }} />
+                      <hr class="headingLine1 col" style={{ width: "30%" }} />
                     </div>
                     <p style={{ textAlign: "center" }} className="mb-5">
-                      Mirum est notare quam littera gothica quam nunc putamus
-                      parum claram!
+                    Discover the latest in-demand products everyone's talking about
                     </p>
 
                     <div className="home_body_product_head_container">
@@ -346,8 +345,7 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
                       <hr class="headingLine1 col" style={{ width: "80px" }} />
                     </div>
                     <p style={{ textAlign: "center" }} className="mb-5">
-                      Mirum est notare quam littera gothica quam nunc putamus
-                      parum claram!
+                    Check out our latest arrivals – just in time for you
                     </p>
                     <div className="newarrival_container">
                       <SliderComponent

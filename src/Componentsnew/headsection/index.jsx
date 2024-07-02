@@ -275,7 +275,7 @@ const HeaderSection = ({
     setShowTryNav(false);
     setAnchorE3(null);
   };
-    const gotohelp = () => {
+  const gotohelp = () => {
     navigate("/help");
     setCatval("");
     setAnchorEl(null);
@@ -510,26 +510,27 @@ const HeaderSection = ({
     setShowPopup(false);
   };
 
+  //   ****************************
+  //   Shop Component hidden
+  // *************************
 
-
-//   ****************************
-//   Shop Component hidden
-// *************************
-
-const [isDropdownOpenShop, setIsDropdownOpenShop] = useState(false);
+  const [isDropdownOpenShop, setIsDropdownOpenShop] = useState(false);
   const dropdownRefShop = useRef(null);
 
   useEffect(() => {
     const handleOutsideClickShop = (event) => {
-      if (dropdownRefShop.current && !dropdownRefShop.current.contains(event.target)) {
+      if (
+        dropdownRefShop.current &&
+        !dropdownRefShop.current.contains(event.target)
+      ) {
         setIsDropdownOpenShop(false);
       }
     };
 
-    document.addEventListener('mousedown', handleOutsideClickShop);
+    document.addEventListener("mousedown", handleOutsideClickShop);
 
     return () => {
-      document.removeEventListener('mousedown', handleOutsideClickShop);
+      document.removeEventListener("mousedown", handleOutsideClickShop);
     };
   }, []);
 
@@ -537,15 +538,12 @@ const [isDropdownOpenShop, setIsDropdownOpenShop] = useState(false);
     setIsDropdownOpenShop(!isDropdownOpenShop);
   };
 
-
-
   return (
     <>
       <div
         className={`headersection_container container-fluid ${
           isSticky ? "sticky" : ""
         }`}
-       
       >
         {/* ============================================ section 1 =================================================== */}
         <div className="headersection_container_one welcome_container  desktopNavbar ">
@@ -562,26 +560,30 @@ const [isDropdownOpenShop, setIsDropdownOpenShop] = useState(false);
               </Link>
             </li>
 
-            <li className="profile_list navbarListItemsStyle" ref={dropdownRefShop}>
-          <div className="dropdown navbarListItemsStylex d-flex">
-            <button className="dropbtn" onClick={toggleDropdownShop}>
-              <span className="navbarListItemsStcyle bold">
-                Shop <IoIosArrowDown className="navbarListItemsStyle" />
-              </span>
-            </button>
-            <div className="">
-              <div className="shoplistdata mx-3" style={{  width: "1220px" }}>
-                {isDropdownOpenShop && <CategoryAndSubcategoryComponent />}
+            <li
+              className="profile_list navbarListItemsStyle"
+              ref={dropdownRefShop}
+            >
+              <div className="dropdown navbarListItemsStylex d-flex">
+                <button className="dropbtn" onClick={toggleDropdownShop}>
+                  <span className="navbarListItemsStcyle bold">
+                    Shop <IoIosArrowDown className="navbarListItemsStyle" />
+                  </span>
+                </button>
+                <div className="">
+                  <div
+                    className="shoplistdata mx-3"
+                    style={{ width: "1220px" }}
+                  >
+                    {isDropdownOpenShop && <CategoryAndSubcategoryComponent />}
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </li>
-
+            </li>
 
             <li
               className="profile_list navbarListItemsStyle "
               onClick={gotoabout}
-              
             >
               About
             </li>
@@ -634,7 +636,7 @@ const [isDropdownOpenShop, setIsDropdownOpenShop] = useState(false);
                 <li className="headersection_container_profile_Link_dis">
                   <Link onClick={toggleDropdownProfile}>
                     <FiAlignJustify
-                      style={{ fontSize: "25px" ,color:"black" }}
+                      style={{ fontSize: "25px", color: "black" }}
                       className="mx-3"
                     />
                   </Link>
@@ -643,12 +645,22 @@ const [isDropdownOpenShop, setIsDropdownOpenShop] = useState(false);
                   <div className="dropdown-content1">
                     <ul>
                       <li className="">
-                        <div className="profile_container">
-                          <div className="profile_logo_container"></div>
+                        <div className="profile_container"
+                        style={{
+                          padding:"10px "
+                        }}
+                        >
+                     
                           {username ? (
-                            <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
+                            <h4
+                              style={{
+                                color: "#bc8246",
+                                fontWeight: 600,
+                                paddingTop: "3px",
+                              }}
+                            >
                               Hello {username}
-                            </h6>
+                            </h4>
                           ) : (
                             <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
                               Welcome
@@ -701,195 +713,187 @@ const [isDropdownOpenShop, setIsDropdownOpenShop] = useState(false);
           </div>
         </div>
 
-
-        
         {/* ============================================ 
               *************Mobile device*************
           =================================================== */}
-   
 
-  
-      
-      <div className=" mobilenavbar">
-        <div className="logo-mobile">
-          <Link to="/" className="logo">
-            <img
-              src="https://tse1.mm.bing.net/th?id=OIP.6VJpiEB8bvznoRMNRDREjQHaB1&pid=Api&P=0&h=180"
-              alt="IMG-LOGO"
-            />
-          </Link>
-        </div>
-        <div className="d-flex mobilenavbarLink">
-          <li className="" onClick={handlemblmenu}
-          style={{
-            justifyContent:"start"
-          }}
-          >
-           
-            <MenuIcon sx={{ cursor: "pointer" }} className="mobiletoggle"/>
-          
-          </li>
-
-          <div className="listofmoabilenavbar" 
-           style={{
-            justifyContent:"end",
-display:"flex"
-          }}
-          >
-
-<li>
-              {" "}
-              <button onClick={handleSearchClick}>Search</button>
-              {showPopup && (
-                <div className="popup">
-                  <div className="popup-content">
-                    <button className="close-button" onClick={handleClosePopup}>
-                      close
-                    </button>
-                    <SearchPage onClose={handleClosePopup} />
-                  </div>
-                </div>
-              )}
+        <div className=" mobilenavbar">
+          <div className="logo-mobile">
+            <Link to="/" className="logo">
+              <img
+                src="https://tse1.mm.bing.net/th?id=OIP.6VJpiEB8bvznoRMNRDREjQHaB1&pid=Api&P=0&h=180"
+                alt="IMG-LOGO"
+              />
+            </Link>
+          </div>
+          <div className="d-flex mobilenavbarLink">
+            <li
+              className=""
+              onClick={handlemblmenu}
+              style={{
+                justifyContent: "start",
+              }}
+            >
+              <MenuIcon sx={{ cursor: "pointer" }} className="mobiletoggle" />
             </li>
 
-
-          <li className="icon_list_header">
-            <Badge
-              className="cart_badge"
-              color="black"
-              badgeContent={cartcount}
+            <div
+              className="listofmoabilenavbar"
+              style={{
+                justifyContent: "end",
+                display: "flex",
+              }}
             >
-           
-
-
-             
-              <IoBagHandleOutline
-                onClick={Gotocart}
-                style={{
-                  marginLeft: "31px",
-                  fontSize: "16px",
-                  color: "black",
-                  marginRight: "2px",
-                }}
-                sx={{ cursor: "pointer" }}
-              />
-              Cart..({cartcount ? cartcount : 0})
-            </Badge>
-          </li>
-          {/* Profile section */}
-          <li className="headersection_container_profile_mobile">
-            <div ref={profileRefmobile}>
-              <li
-                onClick={handleClick}
-                className="headersection_container_profile_contain"
-              >
-                <FiAlignJustify style={{ cursor: "pointer" }} />
-              </li>
-              <Popper
-                id={idmobileprofile}
-                open={openMobileProfile}
-                anchorE1={anchorE3}
-              >
-                <Box className="container_profile_fluid">
-                  {/* Profile container */}
-                  <div className="profile_container container_profile">
-                    {/* Profile content */}
-                    {username ? (
-                      <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
-                        Hello {username}
-                      </h6>
-                    ) : (
-                      <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
-                        Welcome
-                      </h6>
-                    )}
-
-                    {user_id ? (
-                      <p>{mobile}</p>
-                    ) : (
-                      <p className="profile_welcome_msg">
-                        To access account and manage orders
-                      </p>
-                    )}
-
-                    {user_id ? (
-                      ""
-                    ) : (
+              <li>
+                {" "}
+                <button onClick={handleSearchClick}>Search</button>
+                {showPopup && (
+                  <div className="popup">
+                    <div className="popup-content">
                       <button
-                        className="login_btn_profile"
-                        onClick={handleprofilePage}
+                        className="close-button"
+                        onClick={handleClosePopup}
                       >
-                        Login
+                        close
                       </button>
-                    )}
+                      <SearchPage onClose={handleClosePopup} />
+                    </div>
                   </div>
-                  <Divider />
+                )}
+              </li>
 
-                  {/* Additional profile links */}
-                  <div className="profile_container">
-                    <p
-                      className="profile_list"
-                      onClick={user_id ? GotoProfile : handleprofilePage}
-                    >
-                      My Profile
-                    </p>
-                    <p
-                      className="profile_list"
-                      onClick={user_id ? GotoOrders : handleprofilePage}
-                    >
-                      Orders
-                    </p>
-                    <p className="profile_list" onClick={handlelikePage}>
-                      Wishlist
-                    </p>
-                    <p className="profile_list" onClick={gotocontact}>
-                      Contact Us
-                    </p>
-                    <p className="profile_list" onClick={gotoabout}>
-                      About Us
-                    </p>
-                    <p className="profile_list" onClick={gotohelp}>
-                      About Us
-                    </p>
-                    {user_id ? <Divider sx={{ marginTop: "3px" }} /> : ""}
-                    {user_id ? (
-                      <p className="profile_list" onClick={handlelogout}>
-                        Logout
-                      </p>
-                    ) : (
-                      ""
-                    )}
-                  </div>
-                </Box>
-              </Popper>
+              <li className="icon_list_header">
+                <Badge
+                  className="cart_badge"
+                  color="black"
+                  badgeContent={cartcount}
+                >
+                  <IoBagHandleOutline
+                    onClick={Gotocart}
+                    style={{
+                      marginLeft: "31px",
+                      fontSize: "16px",
+                      color: "black",
+                      marginRight: "2px",
+                    }}
+                    sx={{ cursor: "pointer" }}
+                  />
+                  Cart..({cartcount ? cartcount : 0})
+                </Badge>
+              </li>
+              {/* Profile section */}
+              <li className="headersection_container_profile_mobile">
+                <div ref={profileRefmobile}>
+                  <li
+                    onClick={handleClick}
+                    className="headersection_container_profile_contain"
+                  >
+                    <FiAlignJustify style={{ cursor: "pointer" }} />
+                  </li>
+                  <Popper
+                    id={idmobileprofile}
+                    open={openMobileProfile}
+                    anchorE1={anchorE3}
+                  >
+                    <Box className="container_profile_fluid">
+                      {/* Profile container */}
+                      <div className="profile_container container_profile">
+                        {/* Profile content */}
+                        {username ? (
+                          <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
+                            Hello {username}
+                          </h6>
+                        ) : (
+                          <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
+                            Welcome
+                          </h6>
+                        )}
+
+                        {user_id ? (
+                          <p>{mobile}</p>
+                        ) : (
+                          <p className="profile_welcome_msg">
+                            To access account and manage orders
+                          </p>
+                        )}
+
+                        {user_id ? (
+                          ""
+                        ) : (
+                          <button
+                            className="login_btn_profile"
+                            onClick={handleprofilePage}
+                          >
+                            Login
+                          </button>
+                        )}
+                      </div>
+                      <Divider />
+
+                      {/* Additional profile links */}
+                      <div className="profile_container">
+                        <p
+                          className="profile_list"
+                          onClick={user_id ? GotoProfile : handleprofilePage}
+                        >
+                          My Profile
+                        </p>
+                        <p
+                          className="profile_list"
+                          onClick={user_id ? GotoOrders : handleprofilePage}
+                        >
+                          Orders
+                        </p>
+                        <p className="profile_list" onClick={handlelikePage}>
+                          Wishlist
+                        </p>
+                        <p className="profile_list" onClick={gotocontact}>
+                          Contact Us
+                        </p>
+                        <p className="profile_list" onClick={gotoabout}>
+                          About Us
+                        </p>
+                        <p className="profile_list" onClick={gotohelp}>
+                          About Us
+                        </p>
+                        {user_id ? <Divider sx={{ marginTop: "3px" }} /> : ""}
+                        {user_id ? (
+                          <p className="profile_list" onClick={handlelogout}>
+                            Logout
+                          </p>
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                    </Box>
+                  </Popper>
+                </div>
+
+                {/* Help link */}
+              </li>
+
+              {/* Mobile Menu */}
+              {showmblMenu && (
+                <MobileMenu
+                  onClick={handlemblmenu}
+                  setShowmblMenu={setShowmblMenu}
+                  setCatval={setCatval}
+                />
+              )}
+
+              {/* Login Popup */}
+              {showloginpopup && (
+                <Login
+                  showloginpopup={showloginpopup}
+                  setShowloginpopup={setShowloginpopup}
+                  reload={reload}
+                  setReload={setReload}
+                  {...{ setCartTotal, setCartcount }}
+                />
+              )}
             </div>
-
-            {/* Help link */}
-           
-          </li>
-
-          {/* Mobile Menu */}
-          {showmblMenu && (
-            <MobileMenu
-              onClick={handlemblmenu}
-              setShowmblMenu={setShowmblMenu}
-              setCatval={setCatval}
-            />
-          )}
-
-          {/* Login Popup */}
-          {showloginpopup && (
-            <Login
-              showloginpopup={showloginpopup}
-              setShowloginpopup={setShowloginpopup}
-              reload={reload}
-              setReload={setReload}
-              {...{ setCartTotal, setCartcount }}
-            />
-          )}
           </div>
         </div>
-      </div>
       </div>
       ;
     </>
