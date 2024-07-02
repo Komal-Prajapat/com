@@ -292,7 +292,7 @@ export const paymentApi = "product/razorpay/payment"
 
 
 
-
+export const CategoryAndSubcategoryApi ="category/get-categories-list"
 
 
 

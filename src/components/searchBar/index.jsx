@@ -1,66 +1,134 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import { CiSearch } from 'react-icons/ci';
 import { RxCross2 } from 'react-icons/rx';
-const SearchBar = ({ handleOnSearchChange, setSearch, search, border, onBlur }) => {
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import './index.css';
+import { getApiCall } from '../../API/baseUrl';
+import CategoryList from '../productCategoryname';
+// import { getApiCall } from '../../API/baseUrl'; 
 
-    const clearSearch = () => {
-        setSearch('');
+
+const SearchBar = ({ handleOnSearchChange, setSearch, search, border, onClose }) => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const result = await getApiCall(''); 
+        if (result.data.status) {
+          setCategories(result.data.category); 
+        }
+      } catch (error) {
+        console.log('Error fetching categories:', error);
+      }
     };
 
-  
-        const [isVisible, setIsVisible] = useState(true);
-      
-        const handleClick = () => {
-          setIsVisible(false); 
-        };
-    
-    return (
-       <>
-         {isVisible&&(
-        <div className={`${border ? 'border' : 'search_container'}`} style={{
-            background: 'white',
-            width: '100%',
-            boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
-            padding: '20px',
-            boxSizing: 'border-box',
-        }}>
-            <div className="header__search-header" style={{ textAlign: 'center' }}
-            
-            >
-            {isVisible && (
-                <RxCross2 className='searchcross' style={{ marginRight: '5px', marginLeft: '15px', fontSize: '20px', cursor: 'pointer' }} onClick={handleClick} />
-      )}
-                <h3 className='searchheading' style={{ fontFamily: 'Poppins, sans-serif', color: '#201f1f', fontWeight: 500, lineHeight: 1.2, marginTop: '10px' }}>Search</h3>
+    fetchCategories();
+  }, []);
+
+  const clearSearch = () => {
+    setSearch('');
+  };
+
+  return (
+    <Popup
+      position="right center"
+      trigger={
+        <button>
+          <div
+            className={`${border ? 'border' : 'search_container'}`}
+            style={{
+              background: 'white',
+              width: '100vw',
+              boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
+              padding: '20px',
+              boxSizing: 'border-box',
+            }}
+          >
+            <div className="header__search-header" style={{ textAlign: 'center' }}>
+              <RxCross2
+                className="searchcross"
+                style={{
+                  marginRight: '5px',
+                  marginLeft: '15px',
+                  fontSize: '20px',
+                  cursor: 'pointer',
+                  color: '#bc8246',
+                  fontWeight: 'bold',
+                }}
+                onClick={onClose}
+              />
+              <h3
+                className="searchheading"
+                style={{
+                  fontFamily: 'Poppins, sans-serif',
+                  color: '#201f1f',
+                  fontWeight: 500,
+                  lineHeight: 1.2,
+                  marginTop: '10px',
+                }}
+              >
+                Search
+              </h3>
             </div>
-            <div className="search_input_container" style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
-                <CiSearch className='searchicon_searchPage' style={{ marginLeft: '-20px', color: 'black', fontSize: '20px' }} />
-                <input
-                    className="searchinput"
-                    name="search-product"
-                    placeholder="Search for products..."
-                    value={search}
-                    onChange={(e) => handleOnSearchChange(e)}
-                    onBlur={onBlur}
-                    type="search"
-                    autoFocus={true}
-                    style={{
-                        height: '40px',
-                        width: '100%',
-                        maxWidth: '400px',
-                        border: 'none',
-                        borderBottom: '1px solid #ebebeb',
-                        padding: '0 15px',
-                        marginLeft: '10px',
-                        boxSizing: 'border-box',
-                    }}
-                />
-                {search && <CloseIcon onClick={clearSearch} style={{ cursor: 'pointer', marginLeft: '10px', fontSize: '20px', color: '#bc8246' }} />}
-            </div>
+        <div className="">
+          <CategoryList></CategoryList>
         </div>
-         )}
-       </>
-    );
+
+            <div
+              className="search_input_container"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                marginTop: '20px',
+                margin: 'auto',
+                width: '90%',
+                borderBottom: '1px solid black',
+              }}
+            >
+              <CiSearch
+                className="searchicon_searchPage"
+                style={{ marginLeft: '-20px', color: 'black', fontSize: '20px' }}
+              />
+              <input
+                className="searchinput"
+                name="search-product"
+                placeholder="Search for products..."
+                value={search}
+                onChange={(e) => handleOnSearchChange(e)}
+                onBlur={onClose}
+                type="search"
+                autoFocus={true}
+                style={{
+                  height: '40px',
+                  width: '70vw',
+                  maxWidth: '400px',
+                  border: 'none',
+                  borderBottom: '1px solid #ebebeb',
+                  padding: '0 15px',
+                  boxSizing: 'border-box',
+                }}
+              />
+              {search && (
+                <CloseIcon
+                  onClick={clearSearch}
+                  style={{
+                    cursor: 'pointer',
+                    marginLeft: '10px',
+                    fontSize: '20px',
+                    color: '#bc8246',
+                  }}
+                />
+              )}
+            </div>
+          </div>
+        </button>
+      }
+      className="popup-animation" 
+    />
+  );
 };
 
 export default SearchBar;

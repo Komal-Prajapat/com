@@ -250,7 +250,12 @@ const Login = ({ handleafterloginaddtocart, wishlist,handlelike, setShowloginpop
             <Grid sx={{ display: "flex", flexDirection:"column", justifyContent: "center", mt: 5 }}>
 
               <ButtonComponent btn_name="Verify" loading={loading} type="submit" onClick={OtpVerify} />
-              <p className='otpverify_resend'> {minutes === 0 && seconds === 0 ? "" : 
+              <p className='otpverify_resend my-4 '
+              style={{
+                textAlign:"center"
+              }}
+              
+               > {minutes === 0 && seconds === 0 ? "" : 
                 <p className='otpverify_resend'>
                   {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
                 </p>

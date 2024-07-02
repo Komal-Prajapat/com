@@ -1,0 +1,32 @@
+.CategoryAndSubcategoryCon {
+    padding: 10px;
+    background-color: white;
+}
+
+.CategoryAndSubcategoryCon ul {
+    list-style-type: none;
+    padding: 15px;
+}
+
+.CategoryAndSubcategoryCon ul li {
+    margin-bottom: 10px;
+}
+
+.CategoryAndSubcategoryCon ul li a {
+    text-decoration: none !important; 
+    color: black;
+    font-weight: bold;
+}
+
+.CategoryAndSubcategoryCon ul ul {
+    padding-left: 20px;
+}
+
+.bothList {
+    color: black;
+    
+}
+.bothList:hover {
+    color: #bc8246;
+    font-weight: bold;
+}

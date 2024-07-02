@@ -376,7 +376,7 @@ summary {
     }
    
     .cart_wishlist_container {
-      display: flex;
+      display: none;
       font-size: 15px;
       font-weight: 600;
       bottom: 0;

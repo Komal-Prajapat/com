@@ -52,12 +52,18 @@ gap: 25px;
     font-weight: 500;
     justify-content: center;
 }
-.loginbtn{
+.loginbtn {
     padding: 20px;
     width: 200px;
+    /* background: #bc8246; */
     border: 0.1px solid rgb(131, 128, 128);
 }
-.loginbtn:hover{
+.loading_btn:hover{
+
+    color: white;
+        background: #bc8246;
+}
+.loginbtn:hover {
     color: white;
     background: #bc8246;
 }

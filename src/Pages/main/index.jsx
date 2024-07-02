@@ -7,6 +7,7 @@ import HeaderSection from '../../Componentsnew/headsection';
 import Newhome from '../newhome';
 import BacktoHome from '../../components/backtohome';
 
+
 const Main = ({ reload, setReload, catval, setCatval }) => {
   const { pathname } = useLocation();
   const [fontval, setFontval] = useState('');
@@ -24,6 +25,7 @@ const Main = ({ reload, setReload, catval, setCatval }) => {
   return (
     <>
       <UseScrollToTop />
+
       <HeaderSection {...{ reload, setReload, fontval, setFontval, catval, setCatval }} />
       <div className="section_body">
         {isHomePage ? <Newhome {...{ reload, setReload, catval, setCatval }} /> : <Outlet />}

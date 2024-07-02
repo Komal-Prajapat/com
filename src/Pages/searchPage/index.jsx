@@ -5,7 +5,7 @@ import { ImageUrl, postApiCall, searchhomeapi } from '../../API/baseUrl';
 import { Divider } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const SearchPage = () => {
+const SearchPage = ({onClose}) => {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [offset, setOffset] = useState(1);
@@ -40,7 +40,7 @@ const SearchPage = () => {
 
   return (
     <div className='search_container_fluid'>
-      <SearchBar {...{ handleOnSearchChange, setSearch, search }} />
+      <SearchBar {...{ handleOnSearchChange, setSearch, search ,onClose}} />
       {search ?
         <div className='searchList_container'>
           {data.map((item) => {
