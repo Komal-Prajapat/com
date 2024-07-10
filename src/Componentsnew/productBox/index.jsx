@@ -3,6 +3,7 @@ import "./index.css"; // Ensure your custom CSS file is correctly imported
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import Grid from "@mui/material/Grid";
 import {
   ImageUrl,
   addtowishlist,
@@ -54,147 +55,154 @@ const ProductBox = ({
       }
     } else {
       setShowLoginPopup(!showLoginPopup);
-    }
+    } 
   };
 
   return (
     <>
       <div className="product_grid">
-        {renderproduct.map((item, index) => (
-          <div className="product_box" key={index}>
-            <div className="product_img_box">
-              <div className="product_img">
-                <img
-                  onClick={() =>
-                    handleDetailPage(
-                      item.productId || item.id,
-                      item.product_name || item.productName
-                    )
-                  }
-                  className="product_image"
-                  src={`${ImageUrl}/${item.files || item.file}`}
-                  alt=""
-                />
-              </div>
-              <div className="product_icon">
-                <ul>
-                  <li>
-                    <ShoppingBagOutlinedIcon
-                      disabled={item.is_active === 0}
-                      sx={{
-                        cursor: item.is_active === 0 ? "no-drop" : "pointer",
-                      }}
+        <Grid container spacing={3}>
+          {renderproduct.map((item, index) => (
+            <Grid xs={12} sm={6} md={3}>
+              <div className="product_box" key={index}>
+                <div className="product_img_box">
+                  <div className="product_img">
+                    <img
                       onClick={() =>
-                        item.is_active === 0
-                          ? ""
-                          : handleDetailPage(
-                              item.productId || item.id,
-                              item.product_name || item.productName
-                            )
+                        handleDetailPage(
+                          item.productId || item.id,
+                          item.product_name || item.productName
+                        )
                       }
-                      style={{
-                          borderBottom:'0.1px solid black'
-                        }}
+                      className="product_image"
+                      src={`${ImageUrl}/${item.files || item.file}`}
+                      alt=""
                     />
+                  </div>
+                  <div className="product_icon">
+                    <ul>
+                      <li>
+                        <ShoppingBagOutlinedIcon
+                          disabled={item.is_active === 0}
+                          sx={{
+                            cursor:
+                              item.is_active === 0 ? "no-drop" : "pointer",
+                          }}
+                          onClick={() =>
+                            item.is_active === 0
+                              ? ""
+                              : handleDetailPage(
+                                  item.productId || item.id,
+                                  item.product_name || item.productName
+                                )
+                          }
+                          style={{
+                            borderBottom: "0.1px solid black",
+                          }}
+                        />
+                      </li>
+                      <li>
+                        {item.is_wishlist ? (
+                          <FavoriteIcon
+                            sx={{
+                              color: "var(--colorprimary)",
+                              cursor: "pointer",
+                            }}
+                            onClick={() =>
+                              handleLikeToggle(
+                                item.id || item.productId,
+                                index,
+                                "remove",
+                                user_id
+                              )
+                            }
+                            className="my-2"
+                            style={{
+                              borderBottom: "0.1px solid black",
+                            }}
+                          />
+                        ) : (
+                          <FavoriteBorderIcon
+                            sx={{ cursor: "pointer" }}
+                            onClick={() =>
+                              handleLikeToggle(
+                                item.id || item.productId,
+                                index,
+                                "add",
+                                user_id
+                              )
+                            }
+                            className="my-2"
+                            style={{
+                              borderBottom: "0.1px solid black",
+                            }}
+                          />
+                        )}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="product_box_description">
+                  {item.is_active === 0 ? (
+                    <p className="outofstock test-align">Out Of Stock</p>
+                  ) : (
+                    ""
+                  )}
+                  <li className="product_name_con">
+                    <span
+                      className="product_name"
+                      onClick={() =>
+                        handleDetailPage(
+                          item.productId || item.id,
+                          item.product_name || item.productName
+                        )
+                      }
+                    >
+                      {item.product_name || item.productName}
+                    </span>
                   </li>
-                  <li>
-                    {item.is_wishlist ? (
-                      <FavoriteIcon
-                        sx={{ color: "var(--colorprimary)", cursor: "pointer" }}
-                        onClick={() =>
-                          handleLikeToggle(
-                            item.id || item.productId,
-                            index,
-                            "remove",
-                            user_id
-                          )
-                        }
-                        className="my-2" style={{
-                          borderBottom:'0.1px solid black'
-                        }}
-                      />
+
+                  <li className="product_price">
+                    {item.discount_percent === 0 ? (
+                      <span className="mrpwithdiscount">
+                        <CurrencyRupeeIcon
+                          style={{
+                            fontSize: "14px",
+                            color: "black",
+                          }}
+                        />{" "}
+                        {item.discount_amount || item.price}
+                      </span>
                     ) : (
-                      <FavoriteBorderIcon
-                        sx={{ cursor: "pointer" }}
-                        onClick={() =>
-                          handleLikeToggle(
-                            item.id || item.productId,
-                            index,
-                            "add",
-                            user_id
-                          )
-                        }
-                        className="my-2" style={{
-                          borderBottom:'0.1px solid black'
-                        }}
-                      />
+                      <>
+                        <span className="mrpwithdiscount">
+                          <CurrencyRupeeIcon
+                            style={{
+                              fontSize: "14px",
+                              color: "black",
+                            }}
+                          />
+                          {item.discount_amount}
+                        </span>
+                        <strike className="discount_mrp">
+                          {item.mrp_amount || item.price}
+                        </strike>
+                        <span className="discount_percent">
+                          {item.discount_percent}% off{" "}
+                        </span>
+                      </>
                     )}
                   </li>
-                </ul>
-              </div>
 
-
-            </div>
-            <div className="product_box_description">
-              {item.is_active === 0 ? (
-                <p className="outofstock test-align">Out Of Stock</p>
-              ) : (
-                ""
-              )}
-              <li className="product_name_con">
-                <span
-                  className="product_name"
-                  onClick={() =>
-                    handleDetailPage(
-                      item.productId || item.id,
-                      item.product_name || item.productName
-                    )
-                  }
-                >
-                  {item.product_name || item.productName}
-                </span>
-
-              </li>
-
-              <li className="product_price">
-                {item.discount_percent === 0 ? (
-                  <span className="mrpwithdiscount">
-                    <CurrencyRupeeIcon
-                      style={{
-                        fontSize: "14px",
-                        color: "black",
-                      }}
-                    />{" "}
-                    {item.discount_amount || item.price}
-                  </span>
-                ) : (
-                  <>
-                    <span className="mrpwithdiscount">
-                      <CurrencyRupeeIcon
-                        style={{
-                          fontSize: "14px",
-                          color: "black",
-                        }}
-                      />
-                      {item.discount_amount}
-                    </span>
-                    <strike className="discount_mrp">
-                      {item.mrp_amount || item.price}
-                    </strike>
-                    <span className="discount_percent">
-                      {item.discount_percent}% off{" "}
-                    </span>
-                  </>
-                )}
-              </li>
-
-              {/* <div className="addtocart">
+                  {/* <div className="addtocart">
                              
                             <IoAddSharp />  <span> Add to cart</span>
                             </div> */}
-            </div>
-          </div>
-        ))}
+                </div>
+              </div>
+            </Grid>
+          ))}
+        </Grid>
         {showLoginPopup && (
           <Login
             showloginpopup={showLoginPopup}

@@ -168,18 +168,22 @@ const Profile = () => {
         <FormControlLabel
           value="male"
           control={<Radio sx={{ color: "#bc8246" }} />} // Custom color for the radio button
-          label={<p>Male</p>}
+          label={<p style={{
+            marginBottom:"0px"
+          }}>Male</p>}
         />
         <FormControlLabel
           value="female"
           control={<Radio sx={{ color: "#bc8246" }} />} // Custom color for the radio button
-          label={<p>Female</p>}
+          label={<p style={{
+            marginBottom:"0px"
+          }}>Female</p>}
         />
       </RadioGroup>
     </Grid>
 
                     <Grid item xs={12} sm={12} md={12} lg={12} sx={{}}>
-                        <ButtonForAll name={loading ? 'Loading...' : "Save"} type='submit' disabled={loading} />
+                        <ButtonForAll name={loading ? 'Loading' : "Save"} type='submit' disabled={loading} />
                     </Grid>
                 </Grid>
             </Box>

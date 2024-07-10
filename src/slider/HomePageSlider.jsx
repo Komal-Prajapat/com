@@ -24,7 +24,7 @@ function DarkVariantExample() {
         <Carousel.Item>
           <div className="carousel-item-content">
             <div className="content-text">
-              <h2 className='sliderheading'>Lorem ipsum .</h2>
+              <h2 className='sliderheading'>Lorem ipsum </h2>
               <p data-aos="fade-up" className='decrptionHomeSlider'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Laborum eaque culpa nemo quae odit quasi delectus, ducimus magni

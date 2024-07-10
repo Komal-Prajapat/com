@@ -11,8 +11,10 @@ import TopPageImage from "../../components/toppageimage";
 const About = () => {
   return (
     <>
+	  <div className="TopPageForMobile">
+  	<TopPageImage pagename="About Us"></TopPageImage>
+      </div>
 	
-	<TopPageImage pagename="About Us"></TopPageImage>
      <div className="aboutOuterCon">
 	 <div className="container aboutcontainer" >
         <div className="row">

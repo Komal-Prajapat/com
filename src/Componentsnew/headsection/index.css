@@ -1,6 +1,10 @@
 body {
     font-family: 'Times New Roman', Times, serif !important;
 }
+.container-fluid{
+    z-index: 999999 !important;
+    display: block;
+}
 .sectionBody{
     margin: auto;
     display: flex;
@@ -156,7 +160,7 @@ body {
     }
 
     .icon_list_header {
-        display: flex;
+      
         gap: 5px;
         align-items: center;
     }
@@ -338,10 +342,12 @@ body {
     display: block;
   }
   
+  
   @media only screen and (max-width: 768px) {
     .headersection_container {
       flex-direction: column;
       padding: 10px;
+  
     }
   
     .headersection_container_one {
@@ -392,8 +398,9 @@ body {
     margin: auto;
     position: absolute;
     top: 79px;
-    left: 51vw;
+    left: 25vw;
     overflow: auto;
+    width: 57vw !important;
     height: 283px;
 }
     
@@ -422,3 +429,36 @@ mobile navbar
         color: black;
         font-weight: bold;
     }
+    .logo-mobile img{
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        mix-blend-mode: multiply;
+    margin: auto;
+    display: flex;
+    padding: 4px;
+    }
+
+
+
+
+
+
+
+
+    /* *************Bottom Sheet******** */
+    :root {
+        --rsbs-backdrop-bg: rgba(0, 0, 0, 0.6);
+        --rsbs-bg: #fff;
+        --rsbs-handle-bg: hsla(0, 0%, 0%, 0.14);
+        --rsbs-max-w: auto;
+        --rsbs-ml: env(safe-area-inset-left);
+        --rsbs-mr: env(safe-area-inset-right);
+        --rsbs-overlay-rounded: 26px;
+      }
+
+      .bottomsheet{
+        padding: 20px;
+      }
+      [data-rsbs-backdrop]{
+        background-color: rgba(0, 0, 0, 0.1) !important;
+      }

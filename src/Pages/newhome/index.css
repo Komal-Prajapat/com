@@ -22,12 +22,11 @@
   /* Container for the main content sections */
   .home_body_container_two {
     width: 100%;
-    max-width: 1200px; /* Adjust as per your design */
+   
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    /* margin-top: 20px; */
   }
   
   /* Category container styles */
@@ -100,15 +99,17 @@
   @media (max-width: 1090px) {
     .home_body_container_two {
       flex-direction: column;
+      width: 90%;
       align-items: center;
     }
   }
+  
   
   /* Media query for mobile devices */
   @media (max-width: 820px) {
     .home_body_box_one,
     .home_body_box_two {
-      width: 100%;
+      width: 100% !important;
     }
   
     .home_body_product_container {
@@ -134,6 +135,7 @@
     .home_body_box_one,
     .home_body_box_two {
       height: 250px;
+      width: 100% !important;
     }
   
     .home_body_product_heading {

@@ -1,7 +1,7 @@
-*{
+* {
   margin: 0px;
   padding: 0px;
-  /* border:  0.1px solid red; */
+
   font-family: 'Poppins', sans-serif !important;
 
 }
@@ -9,38 +9,40 @@
 
 
 @media (max-width: 820px) {
-body{
-  background:#f5f5f5  !important;
-  font-family: Poppins, sans-serif !important;
+  body {
+    background: #f5f5f5 !important;
+    font-family: Poppins, sans-serif !important;
     font-size: 14px !important;
     font-weight: 400 !important;
     color: #848b8a !important;
   }
-  
- }
- 
 
-body{
-  background:  #f5f5f5 !important;
+}
+
+
+body {
+  background: #f5f5f5 !important;
   font-family: Poppins, sans-serif !important;
-    font-size: 14px !important;
-    font-weight: 400 !important;
-    color: #848b8a !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: #848b8a !important;
 }
 
 
 /* **************login btn ********** */
-.login_btn_profile{
+.login_btn_profile {
   width: 150px !important;
   border: 0.1px solid black !important;
   padding: 10px !important;
   border-radius: 0px !important;
   color: black !important;
 }
-.login_btn_profile:hover{
+
+.login_btn_profile:hover {
   color: white !important;
   background: #bc8246 !important;
 }
+
 :root {
   /* / Font size variables / */
   --small: 12px;
@@ -52,7 +54,7 @@ body{
   /* / color code variable / */
 
   --colorWhite: #fff;
-  --colornewprimary:#bc8246;
+  --colornewprimary: #bc8246;
   --colorblack: #000;
   --colorblue: #007bff;
   --colorprimary: #C20014;
@@ -90,13 +92,13 @@ body{
    --fontMontserrat:  Linearicons-Free;
    --fontjosefin:  Linearicons-Free; */
   --fontsans: Montserrat Alternates, sans-serif !important;
-  --fontroboto:Montserrat Alternates, sans-serif !important;
-   --fontmonospace: Montserrat Alternates, sans-serif !important;
-   --fontpoppins:Montserrat Alternates, sans-serif !important;
-   --fontLinearicons: Montserrat Alternates, sans-serif !important;
-   --fontSacramento: Sacramento ;
-   --fontMontserrat: Montserrat Alternates, sans-serif !important;
-   --fontjosefin: Montserrat Alternates, sans-serif !important;
+  --fontroboto: Montserrat Alternates, sans-serif !important;
+  --fontmonospace: Montserrat Alternates, sans-serif !important;
+  --fontpoppins: Montserrat Alternates, sans-serif !important;
+  --fontLinearicons: Montserrat Alternates, sans-serif !important;
+  --fontSacramento: Sacramento;
+  --fontMontserrat: Montserrat Alternates, sans-serif !important;
+  --fontjosefin: Montserrat Alternates, sans-serif !important;
 }
 
 
@@ -229,7 +231,7 @@ h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
+
 }
 
 abbr[title],
@@ -242,7 +244,7 @@ abbr[data-original-title] {
 }
 
 address {
-  margin-bottom: 1rem;
+
   font-style: normal;
   line-height: inherit;
 }
@@ -251,7 +253,7 @@ ol,
 ul,
 dl {
   margin-top: 0;
-  margin-bottom: 1rem;
+
 }
 
 ol ol,
@@ -331,7 +333,7 @@ samp {
 
 pre {
   margin-top: 0;
-  margin-bottom: 1rem;
+
   overflow: auto;
 }
 
@@ -393,7 +395,7 @@ select,
 optgroup,
 textarea {
   margin: 0;
- 
+
   font-size: inherit;
   line-height: inherit;
 }
@@ -580,7 +582,7 @@ h6,
 
 hr {
   margin-top: 1rem;
-  margin-bottom: 1rem;
+
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -621,7 +623,7 @@ mark,
 }
 
 .blockquote {
-  margin-bottom: 1rem;
+
   font-size: 1.25rem;
 }
 
@@ -667,9 +669,7 @@ mark,
 code,
 kbd,
 pre,
-samp {
-
-}
+samp {}
 
 code {
   padding: 0.2rem 0.4rem;
@@ -696,7 +696,7 @@ kbd {
 pre {
   display: block;
   margin-top: 0;
-  margin-bottom: 1rem;
+
   font-size: 90%;
   color: #212529;
 }
@@ -870,6 +870,7 @@ pre code {
   flex: 0 0 16.666667%;
   max-width: 16.666667%;
 }
+
 .col-2-2 {
   -ms-flex: 0 0 16.666667%;
   flex: 0 0 16.666667%;
@@ -1602,7 +1603,7 @@ pre code {
 .table {
   width: 100%;
   max-width: 100%;
-  margin-bottom: 1rem;
+
   background-color: transparent;
 }
 
@@ -1976,9 +1977,7 @@ select.form-control-lg:not([size]):not([multiple]),
   height: calc(2.3125rem + 2px);
 }
 
-.form-group {
-  margin-bottom: 1rem;
-}
+.form-group {}
 
 .form-text {
   display: block;
@@ -4278,7 +4277,7 @@ tbody.collapse.show {
 
 .breadcrumb {
   padding: 0.75rem 1rem;
-  margin-bottom: 1rem;
+
   list-style: none;
   background-color: #e9ecef;
   border-radius: 0.25rem;
@@ -4542,7 +4541,7 @@ tbody.collapse.show {
 
 .alert {
   padding: 0.75rem 1.25rem;
-  margin-bottom: 1rem;
+
   border: 1px solid transparent;
   border-radius: 0.25rem;
 }
@@ -5302,7 +5301,7 @@ button.close {
   display: block;
   max-width: 276px;
   padding: 1px;
- 
+
   font-style: normal;
   font-weight: normal;
   line-height: 1.5;
@@ -9212,7 +9211,7 @@ a.text-dark:hover {
 
 body {
   box-sizing: border-box;
-  
+
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -9289,7 +9288,7 @@ abbr[title] {
 }
 
 address {
-  margin-bottom: 1rem;
+
   font-style: normal;
   line-height: inherit
 }
@@ -9387,7 +9386,7 @@ samp {
 
 pre {
   margin-top: 0;
-  margin-bottom: 1rem;
+
   overflow: auto
 }
 
@@ -11201,12 +11200,16 @@ body {
   }
 }
 
+.css-1c32n2y-MuiBadge-root {
+  z-index: -9;
+}
+
 /*# sourceMappingURL=bootstrap-grid.css.map */
 
 /* -----------------------------bootstrap grid------------------------------------------------- */
 body {
   box-sizing: border-box;
-  
+
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -11240,7 +11243,7 @@ section {
 
 body {
   margin: 0;
- 
+
   font-size: 1rem;
   font-weight: normal;
   line-height: 1.5;
@@ -11270,7 +11273,7 @@ h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
+
 }
 
 abbr[title],
@@ -11283,7 +11286,7 @@ abbr[data-original-title] {
 }
 
 address {
-  margin-bottom: 1rem;
+
   font-style: normal;
   line-height: inherit;
 }
@@ -11292,7 +11295,7 @@ ol,
 ul,
 dl {
   margin-top: 0;
-  margin-bottom: 1rem;
+
 }
 
 ol ol,
@@ -11372,7 +11375,7 @@ samp {
 
 pre {
   margin-top: 0;
-  margin-bottom: 1rem;
+
   overflow: auto;
 }
 
@@ -11454,4 +11457,278 @@ html [type="button"],
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* **********************************************************
+********************************************************** */
+/* Extra Small Devices (phones) */
+@media (max-width: 576px) {
+  .TopPageForMobile {
+    display: none;
+  }
+
+  .productdetail_container {
+    padding: 0px !important;
+  }
+
+  .footer {
+    padding: 0px !important;
+  }
+
+  .newcart_container {
+    width: 100% !important;
+    padding: 0px !important;
+    background-color: #000;
+  }
+
+  .table-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-x: scroll !important;
+  }
+
+  .total2 {
+    padding: 10px !important;
+  }
+
+  .tablecart2 {
+    display: flex !important;
+
+    overflow-x: scroll !important;
+  }
+
+  .CATEGORY-LIST_FOR_mobile ul li a {
+    /* font-size: xx-small; */
+    display: flex;
+  }
+
+
+  .ContactUsForMobile {
+    margin-top: 20px;
+
+  }
+
+  .SearchBarCategoryListForMobile {
+    display: none;
+  }
+
+  .productBTNLAst {
+    flex-direction: column;
+    margin-top: 2px;
+    margin-right: auto;
+  }
+
+  .newProduct_page_container {
+    margin: 10px;
+  }
+
+  .carousel-indicators [data-bs-target] {
+    display: none;
+  }
+
+  .headingLine1 {
+    display: none;
+  }
+
+  .headersection_container {
+    height: 67px !important;
+    padding: 0px !important;
+  }
+
+  .sliderCon {
+    padding: 15px;
+    margin-top: 0px !important;
+    background: white;
+  }
+
+  .product_detail_infocontainer {
+    padding: 10px !important;
+  }
+
+  .react-tabs__tab-panel {
+    width: 100vw !important;
+    padding: 10px;
+  }
+
+  .quantitybutton {
+    margin-right: auto !important;
+    margin-right: auto !important;
+  }
+
+  .cart_div2 {
+    margin-right: auto !important;
+    margin-top: 2px !important;
+  }
+
+  .empty_container_fluid img {
+    display: block !important;
+    width: 90vw;
+  }
+
+  .empty_container_fluid h1 {
+    display: none;
+  }
+
+  .likebuttonForMobile {
+    display: block !important;
+    height: 30px !important;
+    background: white !important;
+    width: 30px !important;
+    border-radius: 100% !important;
+    color: black !important;
+    text-align: center !important;
+    position: absolute;
+    vertical-align: baseline;
+    right: 10px;
+    top: 2px;
+    padding: 3px;
+    z-index: 9999;
+  }
+
+  .product-icon {
+    border-bottom: none !important;
+  }
+
+  .product-icons {
+    display: none !important;
+  }
+
+  .CartForLaptop {
+    display: none !important;
+  }
+
+  .cartimg_container {
+    width: auto !important;
+  }
+
+  .carttablecon {
+    margin: 10px !important;
+    padding-top: 10px !important;
+  }
+
+  .cart_productname,
+  .cart_product_mrp,
+  .cart_product_mrp,
+  .rsicon {
+    color: black !important
+  }
+
+  .qunatitydivforMobile {
+    padding: 2px !important;
+    border: 1px solid #bc8246 !important;
+    width: 100px;
+    justify-content: space-around;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+
+  .cartimg_container {
+    padding: 6% !important;
+  }
+
+  .totalList {
+    width: 84vw !important;
+  }
+
+  .qunatitydivforMobile input {
+    background: none !important;
+  }
+  .productBTNLAst{}
+}
+
+/* Small Devices (portrait tablets and larger phones) */
+@media (min-width: 577px) and (max-width: 767px) {
+  .TopPageForMobile {
+    display: none;
+  }
+
+  .newcart_container {
+    width: 100% !important;
+    padding: 0px !important;
+
+
+  }
+
+  .headingLine1 {
+    display: none;
+  }
+ 
+.home_body_container{
+  /* background-color: chartreuse !important; */
+}
+    .container{
+width: 90vw !important;
+}
+.total2{
+margin: 10px;
+}
+.faq_container_second_block{
+width: 90vw !important;
+}
+
+
+.cartForMovbile{
+  display: none !important;
+}
+.Toppage{
+
+height: 50vh !important;
+}
+.product_img_box{
+  width: 50vw !important;
+  }
+  
+}
+
+
+/* Medium Devices (landscape tablets and medium-sized desktops) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .wishlist_container{
+   margin: 20px;
+  }
+  .ContactUsForMobile{
+    margin-top: 20px;
+  }
+  .cartForMovbile{
+    display: none;
+  }
+  .newProduct_page_container{
+    margin: 20px;
+  }
+  .react-tabs__tab-panel{
+    width: 90vw;
+  }
+    .cartForMovbile{
+    display: none;
+  }
+}
+
+/* Large Devices (larger desktops) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .cartForMovbile{
+    display: none;
+  }
+}
+
+/* Extra Large Devices (extra large desktops and TVs) */
+@media (min-width: 1200px) {
+  .cartForMovbile{
+    display: none;
+  }
+}
+
+
+.formcontrol span{
+  color: #bc8246 !important;
 }

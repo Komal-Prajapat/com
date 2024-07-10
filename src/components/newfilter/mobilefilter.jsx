@@ -389,7 +389,8 @@ const Mobilefilter = ({categoryheading,  showfilter, setShowfilter, sortval, set
 					</span>
 
 					<div className="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart" onClick={closefilter}>
-						<i className="zmdi zmdi-close"></i>
+				
+						<CloseIcon sx={{ fontSize: "14px", cursor: "pointer"}}/>
 					</div>
 				</div>
 

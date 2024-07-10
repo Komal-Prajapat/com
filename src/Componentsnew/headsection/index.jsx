@@ -36,7 +36,11 @@ import TryNav from "../com/trynav";
 import MobileMenu from "../mobilemenu";
 import SearchPage from "../../Pages/searchPage";
 import CategoryAndSubcategoryComponent from "../../components/productCategoryname/BothCategorySubCategory.jsx";
+import ButtonForAll from "../../components/ButtonForALL/index.jsx";
 
+import { BottomSheet } from "react-spring-bottom-sheet";
+import "react-spring-bottom-sheet/dist/style.css";
+import BottomSheetCom from "../../components/bottomSheet/index.jsx";
 const HeaderSection = ({
   reload,
   setReload,
@@ -72,6 +76,17 @@ const HeaderSection = ({
   const [isSticky, setSticky] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showTryNav, setShowTryNav] = useState(false);
+  const [openMobileProfilebtn, setOpenMobileProfilebtn] = useState(false);
+
+
+
+  const openMobileProfilebtnOn = () => {
+    setOpenMobileProfilebtn(true);
+  };
+
+  const MobileProfilebtnOff = () => {
+    setOpenMobileProfilebtn(false);
+  };
 
   // Function to toggle the state
   const toggleTryNav = () => {
@@ -538,12 +553,18 @@ const HeaderSection = ({
     setIsDropdownOpenShop(!isDropdownOpenShop);
   };
 
+
+
+  
   return (
     <>
       <div
         className={`headersection_container container-fluid ${
           isSticky ? "sticky" : ""
         }`}
+        style={{
+          height: "100px",
+        }}
       >
         {/* ============================================ section 1 =================================================== */}
         <div className="headersection_container_one welcome_container  desktopNavbar ">
@@ -566,7 +587,7 @@ const HeaderSection = ({
             >
               <div className="dropdown navbarListItemsStylex d-flex">
                 <button className="dropbtn" onClick={toggleDropdownShop}>
-                  <span className="navbarListItemsStcyle bold">
+                  <span className=" bold navbarListItemsStyle">
                     Shop <IoIosArrowDown className="navbarListItemsStyle" />
                   </span>
                 </button>
@@ -575,7 +596,12 @@ const HeaderSection = ({
                     className="shoplistdata mx-3"
                     style={{ width: "1220px" }}
                   >
-                    {isDropdownOpenShop && <CategoryAndSubcategoryComponent />}
+                    {isDropdownOpenShop && (
+                      <CategoryAndSubcategoryComponent
+                        toggleDropdown={toggleDropdown}
+                        dropdownRef={dropdownRef}
+                      />
+                    )}
                   </div>
                 </div>
               </div>
@@ -598,7 +624,12 @@ const HeaderSection = ({
 
             <li>
               {" "}
-              <button onClick={handleSearchClick}>Search</button>
+              <button
+                onClick={handleSearchClick}
+                className="navbarListItemsStyle"
+              >
+                Search
+              </button>
               {showPopup && (
                 <div className="popup">
                   <div className="popup-content">
@@ -611,7 +642,11 @@ const HeaderSection = ({
               )}
             </li>
 
-            <li onClick={Gotocart} sx={{ cursor: "pointer" }}>
+            <li
+              onClick={Gotocart}
+              style={{ cursor: "pointer" }}
+              className="navbarListItemsStyle"
+            >
               {" "}
               <IoBagHandleOutline
                 onClick={Gotocart}
@@ -621,22 +656,21 @@ const HeaderSection = ({
                   marginTop: "20px ",
                 }}
               />{" "}
-              <span
-                className="               
-                  Cart({cartcount ? cartcount : 0})
-          "
-              >
-                Cart({cartcount ? cartcount : 0})
-              </span>
+              Cart({cartcount ? cartcount : 0})
             </li>
 
             <li>
               {" "}
               <div className="dropdown-container1" ref={dropdownRef}>
-                <li className="headersection_container_profile_Link_dis">
+                <li className="">
                   <Link onClick={toggleDropdownProfile}>
                     <FiAlignJustify
-                      style={{ fontSize: "25px", color: "black" }}
+                      style={{
+                        fontSize: "25px",
+                        color: "black",
+                        fontWeight: "blod",
+                        marginLeft:"10px"
+                      }}
                       className="mx-3"
                     />
                   </Link>
@@ -645,12 +679,12 @@ const HeaderSection = ({
                   <div className="dropdown-content1">
                     <ul>
                       <li className="">
-                        <div className="profile_container"
-                        style={{
-                          padding:"10px "
-                        }}
+                        <div
+                          className="profile_container"
+                          style={{
+                            padding: "10px ",
+                          }}
                         >
-                     
                           {username ? (
                             <h4
                               style={{
@@ -678,14 +712,20 @@ const HeaderSection = ({
                           ) : (
                             <button
                               className="login_btn_profile"
-                              onClick={
-                                user_id ? handlelogout : handleprofilePage
-                              }
+                              onClick={handleprofilePage}
                             >
-                              {user_id ? "Logout" : "Login"}
+                              Login
                             </button>
                           )}
                         </div>
+                      </li>
+                      <li style={{ color: " #c1bcbc" }}>
+                        {user_id ? <Divider sx={{ marginTop: "3px" }} /> : ""}
+                        {user_id ? (
+                          <ButtonForAll name="Logout"></ButtonForAll>
+                        ) : (
+                          ""
+                        )}
                       </li>
                       <hr></hr>
                       <li style={{ color: " #c1bcbc" }}>
@@ -703,8 +743,6 @@ const HeaderSection = ({
                       <li style={{ color: " #c1bcbc" }}>
                         <Link to={"/order"}>Order</Link>
                       </li>
-                      <hr></hr>
-                      <li style={{ color: " #c1bcbc" }}></li>
                     </ul>
                   </div>
                 )}
@@ -762,11 +800,17 @@ const HeaderSection = ({
                 )}
               </li>
 
-              <li className="icon_list_header">
+              <li
+                className="icon_list_header"
+                style={{
+                  cursor: "pointer",
+                }}
+                onClick={Gotocart}
+              >
                 <Badge
                   className="cart_badge"
                   color="black"
-                  badgeContent={cartcount}
+                  // badgeContent={cartcount}
                 >
                   <IoBagHandleOutline
                     onClick={Gotocart}
@@ -775,99 +819,42 @@ const HeaderSection = ({
                       fontSize: "16px",
                       color: "black",
                       marginRight: "2px",
+                      cursor: "pointer",
                     }}
                     sx={{ cursor: "pointer" }}
                   />
-                  Cart..({cartcount ? cartcount : 0})
+                  Cart({cartcount ? cartcount : 0})
                 </Badge>
               </li>
               {/* Profile section */}
-              <li className="headersection_container_profile_mobile">
-                <div ref={profileRefmobile}>
-                  <li
-                    onClick={handleClick}
-                    className="headersection_container_profile_contain"
-                  >
-                    <FiAlignJustify style={{ cursor: "pointer" }} />
-                  </li>
-                  <Popper
-                    id={idmobileprofile}
-                    open={openMobileProfile}
-                    anchorE1={anchorE3}
-                  >
-                    <Box className="container_profile_fluid">
-                      {/* Profile container */}
-                      <div className="profile_container container_profile">
-                        {/* Profile content */}
-                        {username ? (
-                          <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
-                            Hello {username}
-                          </h6>
-                        ) : (
-                          <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
-                            Welcome
-                          </h6>
-                        )}
-
-                        {user_id ? (
-                          <p>{mobile}</p>
-                        ) : (
-                          <p className="profile_welcome_msg">
-                            To access account and manage orders
-                          </p>
-                        )}
-
-                        {user_id ? (
-                          ""
-                        ) : (
-                          <button
-                            className="login_btn_profile"
-                            onClick={handleprofilePage}
-                          >
-                            Login
-                          </button>
-                        )}
-                      </div>
-                      <Divider />
-
-                      {/* Additional profile links */}
-                      <div className="profile_container">
-                        <p
-                          className="profile_list"
-                          onClick={user_id ? GotoProfile : handleprofilePage}
-                        >
-                          My Profile
-                        </p>
-                        <p
-                          className="profile_list"
-                          onClick={user_id ? GotoOrders : handleprofilePage}
-                        >
-                          Orders
-                        </p>
-                        <p className="profile_list" onClick={handlelikePage}>
-                          Wishlist
-                        </p>
-                        <p className="profile_list" onClick={gotocontact}>
-                          Contact Us
-                        </p>
-                        <p className="profile_list" onClick={gotoabout}>
-                          About Us
-                        </p>
-                        <p className="profile_list" onClick={gotohelp}>
-                          About Us
-                        </p>
-                        {user_id ? <Divider sx={{ marginTop: "3px" }} /> : ""}
-                        {user_id ? (
-                          <p className="profile_list" onClick={handlelogout}>
-                            Logout
-                          </p>
-                        ) : (
-                          ""
-                        )}
-                      </div>
-                    </Box>
-                  </Popper>
-                </div>
+              <li className="headersection_container_profile_mobile    icon_list_header">
+              
+                    <FiAlignJustify onClick={() => setOpenMobileProfilebtn(true)}  style={{
+                      fontSize: "20px",
+                      marginLeft:"10px"
+                    }}/>
+               
+                <BottomSheet
+                  open={openMobileProfilebtn}
+                  className="bottomsheet "
+                  
+                >
+                  <BottomSheetCom
+                    username={username}
+                    user_id={user_id}
+                    GotoProfile={GotoProfile}
+                    handleprofilePage={handleprofilePage}
+                    GotoOrders={GotoOrders}
+                    mobile={mobile}
+                    handlelikePage={handlelikePage}
+                    gotocontact={gotocontact}
+                    gotoabout={gotoabout}
+                    handlelogout={handlelogout}
+                    MobileProfilebtnOff={MobileProfilebtnOff}
+                    openMobileProfilebtnOn={openMobileProfilebtnOn}
+                  ></BottomSheetCom>
+                </BottomSheet>
+                <div></div>
 
                 {/* Help link */}
               </li>
@@ -895,7 +882,6 @@ const HeaderSection = ({
           </div>
         </div>
       </div>
-      ;
     </>
   );
 };

@@ -5,7 +5,7 @@ import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 import CloseIcon from '@mui/icons-material/Close';
 import Slider from "@mui/material/Slider";
 import { Activecategory, filterApi, getApiCall, postApiCall } from '../../API/baseUrl';
-
+import { RxCross2 } from "react-icons/rx";
 const SortByData = [
 	{
 		id: 4,
@@ -334,13 +334,13 @@ const Filter = ({ setShowfilter, setProductList, shownav, showfilter, showtext }
 						)
 					})}
 				</div>
-				<div>
+				{/* <div>
 					{selectedlist.length ?
 						<div className='filter_apply_dlt'><button className='clear_filter_btn' onClick={handlefilterapply}>Apply</button>
 							<button className='clear_filter_btn' onClick={ClearAll}>Clear All</button>
 						</div> : ""}
 
-				</div>
+				</div> */}
 
 				<div className="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm filter_container">
 
@@ -426,11 +426,11 @@ const Filter = ({ setShowfilter, setProductList, shownav, showfilter, showtext }
 					</span>
 
 					<div className="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart" onClick={closefilter}>
-						<i className="zmdi zmdi-close"></i>
+					<RxCross2 />
 					</div>
 				</div>
 
-				<div className='selectedlist_display'>
+				{/* <div className='selectedlist_display'>
 					{selectedlist.map((item, index) => {
 						return (
 							<div key={index}>
@@ -452,7 +452,7 @@ const Filter = ({ setShowfilter, setProductList, shownav, showfilter, showtext }
 
 					</div>
 						: ""
-						}
+						} */}
 				<div className="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm filter_container">
 
 					<div className="filter-col1 p-r-15 p-b-10 ">

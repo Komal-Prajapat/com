@@ -1,5 +1,5 @@
 .orderhistory_container{
-    min-height: 100vh;
+    min-height:cover;
     padding: 15px 10px 15px 0px;
     width: 100%;
     box-sizing: border-box;
@@ -14,7 +14,7 @@
 }
 
 .Order_container{
-    min-height: 100vh;
+    min-height: cover;
     width: 100%;
 }
 .orderDetailsOutsideClass {

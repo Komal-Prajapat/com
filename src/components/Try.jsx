@@ -75,7 +75,7 @@ const FormComponent = () => {
               <option value="Canada">Canada</option>
             </Field>
 
-            <input type="date" />
+            <input type="date" x/>
             <ErrorMessage name="country" component="div" className="error" />
           </div>
           <button type="submit" style={{ marginTop: '10px' }}>Submit</button>

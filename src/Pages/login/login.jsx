@@ -214,7 +214,7 @@ const Login = ({ handleafterloginaddtocart, wishlist,handlelike, setShowloginpop
             <CloseIcon sx={{ float: "right", cursor: "pointer" }} onClick={handleprofilePageclose} />
 
             <div className="otpverify_container">
-              <FormControl variant="outlined" fullWidth sx={{ mt: 2 }}>
+              <FormControl variant="outlined"  sx={{ mt: 2 }}>
                 <InputLabel htmlFor="password" required >Enter OTP</InputLabel>
                 <OutlinedInput
                   name="otp"

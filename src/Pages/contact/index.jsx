@@ -54,15 +54,16 @@ const Contact = () => {
 
   return (
     <>
-      <TopPageImage
-        pagename="Contact Us"
-        bgimg="https://ng-outstock.vercel.app/assets/img/page-title/page-title-2.jpg"
-      />
+   
+        <div className="TopPageForMobile">
+        <TopPageImage    pagename="Contact Us"
+        bgimg="https://ng-outstock.vercel.app/assets/img/page-title/page-title-2.jpg" />
+      </div>
       <section className="bg0 p-b-50 m-t-50">
         <div className="contactcontainer">
           <div className="row">
             <div className="col-lg-6 col-md-12">
-              <h3 style={{ color: "black" }}>Find us here.</h3>
+              <h3 style={{ color: "black" }}>Find us here</h3>
               <div className="containtlist" style={{ marginTop: "50px" }}>
                 <div className="contacticon">
                   <CiLocationOn className="iconsContactPage" />
@@ -138,9 +139,9 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="col-lg-6 col-md-12">
+            <div className="col-lg-6 col-md-12 ">
               <form onSubmit={handleSubmit2}>
-                <h3 className="mtext-105 cl2 p-b-30">Contact Us.</h3>
+                <h3 className="mtext-105 cl2 p-b-30 ContactUsForMobile">Contact Us.</h3>
 
                 <div className="inputbox">
                   <label htmlFor="email">

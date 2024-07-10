@@ -9,6 +9,9 @@ import ToastMessage from "../../utils/ToastMessage";
 import "react-image-gallery/styles/css/image-gallery.css";
 import ImageGallery from "react-image-gallery";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
+
+  
 import {
   addtocartApi,
   addtowishlist,
@@ -340,12 +343,16 @@ const readmorefunction = (description, maxLength) => {
   return description;
 };
 
-  
+const scrollToTop = () => {
+  scroll.scrollToTop();
+};
+
 
   return (
     <>
+    <div  className="TopPageForMobile">
       <TopPageImage pagename="Product Details"></TopPageImage>
-
+</div>  
       {/* <!-- Product Detail --> */}
 
       <div
@@ -546,103 +553,61 @@ const readmorefunction = (description, maxLength) => {
                   In-Stock, Ready to Ship
                 </p>
               )}
+            
+              {/* {info.length ? (
+  <div className="input_container">
+    {info[0]?.color_code === "FreeColor" ? (
+      ""
+    ) : (
+      <div className="color-div">
+        <div className="size-203  respon6">Color</div>
+        <div className="size_container">
+          {info?.map((item, index) => (
+            <div
+              className="color_circle"
+              key={index}
+              onClick={() => handlecolor(item.id, index, item)}
+              style={{ width: "100%", padding: "10px" }}
+            >
+              <select
+                name=""
+                id=""
+                style={{ width: "100%", padding: "10px" }}
+              >
+                <option value=""> - Please select - </option>
+                <option value={item.color_code}>{item.color_code}</option>
+              </select>
+      
+            </div>
+          ))}
+        </div>
+      </div>
+    )} */}
 
-              {info.length ? (
-                <div className="input_container">
-                  {info[0]?.color_code === "FreeColor" ? (
-                    ""
-                  ) : (
-                    <div className="">
-                      <div className="size-203  respon6 color-div">Color</div>
-                      <div className="size_container">
-                        {info?.map((item, index) => {
-                          return (
-                            <div
-                              className="color_circle"
-                              key={index}
-                              onClick={() => handlecolor(item.id, index, item)}
-                              style={{ width: "100%", padding: "10px" }}
-                            >
-                              <select
-                                name=""
-                                id=""
-                                style={{ width: "100%", padding: "10px" }}
-                              >
-                                <option
-                                  value="audi"
-                                  style={{ width: "100%", padding: "10px" }}
-                                >
-                                  {" "}
-                                  - Please select -{" "}
-                                </option>
-                                <option
-                                  value="audi"
-                                  style={{ width: "100%", padding: "10px" }}
-                                >
-                                  {item.color_code}
-                                </option>
-                              </select>
+    {/* {size[0]?.name === "FreeSize" || size[0]?.name === "" ? (
+      ""
+    ) : (
+      <div className=" p-b-10">
+        <div className="size-203  respon6">Size</div>
+        <div className="size_container">
+          {size.map((item, index) => (
+            <div
+              key={index}
+              className={`${item.selected ? "size_circle_active" : "size_circle"}`}
+              onClick={() => handlesizeclick(index, item, size)}
+            >
+              {item.name}
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+) : (
+  ""
+)} */}
 
-                              {/* 
-                              {item.selected ? (
-                                <RadioButtonCheckedIcon
-                                  sx={{
-                                    color: item.color_code,
-                                    fontSize: "36px",
-                                  }}
-                                />
-                              ) : (
-                                <CircleIcon
-                                  sx={{
-                                    color: item.color_code,
-                                    fontSize: "36px",
-                                  }}
-                                />
-                              )} */}
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
 
-                  {size[0]?.name === "FreeSize" || size[0]?.name === "" ? (
-                    ""
-                  ) : (
-                    <div className=" p-b-10">
-                      <div className="size-203  respon6">Size</div>
-
-                      <div className="size_container">
-                        {size.map((item, index) => {
-                          return (
-                            <>
-                              {item?.name ? (
-                                <div
-                                  key={index}
-                                  className={`${
-                                    item.selected
-                                      ? "size_circle_active"
-                                      : "size_circle"
-                                  } `}
-                                  onClick={() =>
-                                    handlesizeclick(index, item, size)
-                                  }
-                                >
-                                  {item?.name ? item.name : ""}
-                                </div>
-                              ) : (
-                                ""
-                              )}
-                            </>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ) : (
-                ""
-              )}
               {/* ************* descrption of product *********** */}
               <hr />
               <div className="descriptionp">
@@ -651,18 +616,26 @@ const readmorefunction = (description, maxLength) => {
     style={{
       fontSize: "14px",
       lineHeight: "24px",
-      color: "red",
+      color: "#bc8246",
       fontFamily: "sans-serif",
       marginBottom: "0",
     }}
   />
-  {details?.description && details?.description.length > 200 && (
-    <button className="read-more-btn" onClick={toggleDescription}>
-      {isDescriptionExpanded ? "Read less" : "Read more"}
-    </button>
-  )}
-</div>
 
+
+
+</div>
+  <ScrollLink
+              to="readmore"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              className="read-more-btn"
+
+            >
+              Read more
+            </ScrollLink>
               <hr />
               {/* <p className="summary_icon">
                 <StarBorderOutlinedIcon />
@@ -683,7 +656,17 @@ const readmorefunction = (description, maxLength) => {
               <hr /> */}
 
               <div className="d-flex productBTNLAst">
-                <p>Quantity</p>
+              <div className="d-flex"
+              
+              style={{
+               marginRight:"auto"
+
+              }}>
+              <p style={{
+                marginRight:"4px",
+                marginBottom:"0px"
+                
+              }}> Quantity</p>
                 <div className="quantitybutton  ">
                   <div className=" quantityAddSubIncon" onClick={handleminus}>
                     <RiSubtractFill />
@@ -701,6 +684,7 @@ const readmorefunction = (description, maxLength) => {
                     <IoMdAdd />
                   </div>
                 </div>
+              </div>
 
                 {checkAddedFunction() ? (
                   <button
@@ -828,8 +812,13 @@ const readmorefunction = (description, maxLength) => {
             </div>
           )}
         </div>
+<div id="readmore">
+  
+<DetailPageTab description={details?.description } general={general} id="readmore"/>
+</div>
 
-        <DetailPageTab description={details?.description} general={general} />
+
+  
       </div>
     </>
   );

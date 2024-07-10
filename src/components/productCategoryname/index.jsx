@@ -26,7 +26,7 @@ const CategoryList = () => {
   };
 
   return (
-    <div className="category-list">
+    <div className="category-list CATEGORY-LIST_FOR_mobile">
       <ul style={{ display: "flex", flexWrap: "wrap", justifyContent: "flex-start" }}>
         {categoryList.map((category, index) => (
           <li key={index} className="category-item">

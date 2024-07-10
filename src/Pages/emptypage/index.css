@@ -1,7 +1,8 @@
 
 .empty_container {
   background: white;
-  height: 70vh;
+
+
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -14,7 +15,7 @@
 }
 
 .empty_container_fluid img {
-    max-width: 100% !important;
+   display: none;
 }
 .shopnow{
    

@@ -34,7 +34,7 @@ border: none !important;
 .read-more-btn {
     background-color: transparent;
     border: none;
-    color:#bc8246;
+    color:#bc8246 !important; 
     cursor: pointer;
   }
   

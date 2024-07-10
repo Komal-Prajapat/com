@@ -69,7 +69,7 @@
 
   .slider-container {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
   }
   .image_Con{
     margin-top: 20px;

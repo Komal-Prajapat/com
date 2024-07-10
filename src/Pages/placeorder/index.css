@@ -85,7 +85,7 @@ button.login_change_btn {
 
 .login_continue_btn {
     padding: 10px 43px;
-    background-color: var(--colorprimary);
+    background-color:   #bc8246;
     color: #ffffff;
     width: 155px;
     display: flex;
@@ -146,9 +146,7 @@ button.login_change_btn {
     color: black;
 }
 
-.formcontrol span {
-    color: #1976d2 !important;
-}
+
 
 .login_number_container {
     width: 100%;
@@ -178,8 +176,9 @@ button.login_change_btn {
 }
 
 .address-form-error {
+    text-align: left;
     color: red;
-    font-size: 14px;
+    font-size: 10px;
 }
 .header-cart-item-rupee{
     white-space: nowrap;

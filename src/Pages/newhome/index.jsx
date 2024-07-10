@@ -185,9 +185,7 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
 
           <div
             className="home_body_container_two container "
-            style={{
-              width: "90%",
-            }}
+       
           >
             {pending ? (
               <Homeskeleton />
@@ -226,9 +224,11 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
                         display: "flex",
                         justifyContent: "space-evenly",
                         marginTop: "50px",
+                        width:'90%',
+                        margin:'auto'
                       }}
                     >
-                      <hr class="headingLine1 col" style={{ width: "30%" }} />
+                      <hr class="headingLine1 col" style={{ width: "20%" }} />
 
                       <h3
                         class="home_body_product_heading col "
@@ -238,7 +238,7 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
                         {/* Best Sellers */}
                       </h3>
 
-                      <hr class="headingLine1 col" style={{ width: "30%" }} />
+                      <hr class="headingLine1 col" style={{ width: "20%" }} />
                     </div>
                     <p style={{ textAlign: "center" }} className="mb-5">
                     Discover the latest in-demand products everyone's talking about
@@ -331,6 +331,8 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
                         display: "flex",
                         justifyContent: "center",
                         paddingTop: "100px",
+                           width:'90%',
+                        margin:'auto'
                       }}
                     >
                       <hr class="headingLine1 col" style={{ width: "80px" }} />

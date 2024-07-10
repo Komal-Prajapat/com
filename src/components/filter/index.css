@@ -34,10 +34,11 @@
 }
 
 .selectedlist_display {
-	display: flex;
+	display: none;
 	align-items: center;
 	width: 100%;
 	overflow: auto;
+
 }
 
 .filter-col4 {
@@ -70,7 +71,7 @@
 
 @media (max-width: 570px) {
 	.filter_container_fluid {
-		top: 0;
+		top: 80px;
 		left: 0;
 		width: 300px;
 		height: 100vh;
@@ -84,6 +85,8 @@
 		display: block !important;
 		background-color: var(--colorWhite);
 		padding-right: 40px;
+		height: 100vh;
+        overflow: scroll;
 	}
 
 	/* .wrap-filter {

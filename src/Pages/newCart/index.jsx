@@ -28,6 +28,7 @@ import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import ButtonComponent from "../../components/button";
 import ButtonForAll from "../../components/ButtonForALL";
 import { WidthFull } from "@mui/icons-material";
+import CartForMobile from "../CartForMobile";
 
 const Newcart = ({ reload, setReload }) => {
   const navigate = useNavigate();
@@ -148,7 +149,7 @@ const Newcart = ({ reload, setReload }) => {
       icon: "warning",
       buttons: {
         cancel: "Cancel",
-      
+
         confirm: {
           text: "Delete",
           value: true,
@@ -162,7 +163,6 @@ const Newcart = ({ reload, setReload }) => {
       }
     });
   };
-  
 
   // Function to delete item from cart
   const deleteFromCart = async (id) => {
@@ -197,18 +197,19 @@ const Newcart = ({ reload, setReload }) => {
     }
   };
 
-  return (
-    <div>
-      <TopPageImage pagename="Cart" />
-
+  return (<>
+    
+    <div className="CartForLaptop">
+    <TopPageImage pagename="Cart" />
       {pending ? (
         <Loader />
       ) : (
         <div className="newcart_container">
-
-        
           {data.length ? (
             <div className="">
+              <div className="TopPageForMobile">
+             
+              </div>
               <table className="table table-wrapper">
                 <thead>
                   <tr>
@@ -224,21 +225,20 @@ const Newcart = ({ reload, setReload }) => {
                   {data.map((product, index) => (
                     <tr key={index}>
                       <td>
-                      <div className="carttablecon">
-                        <div className="cartimg_container">
-                          <img
-                            src={`${ImageUrl}${product.files}`}
-                            alt="Product"
-                            className="cartimgIntable"
-                            onClick={() =>
-                              goToDetails(
-                                product.productId,
-                                product.product_name
-                                
-                              )
-                            }
-                          />
-                        </div>
+                        <div className="carttablecon">
+                          <div className="cartimg_container">
+                            <img
+                              src={`${ImageUrl}${product.files}`}
+                              alt="Product"
+                              className="cartimgIntable"
+                              onClick={() =>
+                                goToDetails(
+                                  product.productId,
+                                  product.product_name
+                                )
+                              }
+                            />
+                          </div>
                         </div>
                       </td>
                       <td>
@@ -283,32 +283,25 @@ const Newcart = ({ reload, setReload }) => {
                         {product.is_active === 0 ? (
                           <p className="oos">Out Of Stock</p>
                         ) : (
-                          <div
-                            className="qunatitydiv d-flex"
-                           
-                          >
+                          <div className="qunatitydiv d-flex">
                             <RiSubtractLine
                               disabled={loading}
                               onClick={() =>
                                 handleMinus(product.id, product.quantity, index)
                               }
-                             
                             />
 
                             <input
                               type="number"
                               name="num-product2"
                               value={product.quantity}
-                              style={{width:'20px',
-                           
-                            }}
+                              style={{ width: "20px" }}
                             />
 
                             <IoAddOutline
                               type="button"
                               disabled={loading}
                               onClick={() => handlePlus(product.id, index)}
-                        
                             />
                           </div>
                         )}
@@ -328,13 +321,14 @@ const Newcart = ({ reload, setReload }) => {
                             className="icon-btn add-btn cart_delete_btn"
                             onClick={() => deleteFromCartAlert(product.id)}
                           >
-                            
-                            <GrFormClose className="crosicon" style={{
-                              fontSize:"18px",
-                              color:"black",
-                              verticalAlign:"center",
-                              
-                            }} />
+                            <GrFormClose
+                              className="crosicon"
+                              style={{
+                                fontSize: "18px",
+                                color: "black",
+                                verticalAlign: "center",
+                              }}
+                            />
                           </button>
                         </div>
                       </td>
@@ -343,49 +337,55 @@ const Newcart = ({ reload, setReload }) => {
                 </tbody>
               </table>
 
-
               <div className="total2">
-            <h2>Cart Totals</h2>
-            <ul className="tableul">
-              <li className="totalList">
-                <span className="listText">Subtotal</span>
-                <span className="listValue">
-                  <CurrencyRupeeIcon sx={{ fontSize: "18px" }} />{" "}
-                  {Number(totalPrice).toFixed(2)}
-                </span>
-              </li>
-              <li className="totalList">
-                <span className="listText">Total</span>
-                <span className="listValue">
-                  <CurrencyRupeeIcon sx={{ fontSize: "18px" }} />{" "}
-                  {Number(totalPrice).toFixed(2)}
-                </span>
-              </li>
-            </ul>
-          </div>
-     
-
-          <button
-            className="custom-checkout-button"
-            name="PROCEED To CEHCKOUT"
-            data-aos="fade-up"
-            type="submit"
-            onClick={moveToCheckout}
-            style={{ WidthFull }}
-          >
-            PROCEED To CEHCKOUT
-            <div className="innercontainer">PROCEED To CEHCKOUT</div>
-          </button>
+                <h2>Cart Totals</h2>
+                <div className="tablecart2">
+                  <ul className="tableul">
+                    <li className="totalList">
+                      <span className="listText">Subtotal</span>
+                      <span className="listValue">
+                        <CurrencyRupeeIcon sx={{ fontSize: "18px" }} />{" "}
+                        {Number(totalPrice).toFixed(2)}
+                      </span>
+                    </li>
+                    <li className="totalList">
+                      <span className="listText">Discount</span>
+                      <span className="listValue">10% off</span>
+                    </li>
+                    <li className="totalList">
+                      <span className="listText">Total</span>
+                      <span className="listValue">
+                        <CurrencyRupeeIcon sx={{ fontSize: "18px" }} />{" "}
+                        {Number(totalPrice - totalPrice * 0.1).toFixed(2)}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <button
+                  className="custom-checkout-button"
+                  name="PROCEED To CEHCKOUT"
+                  data-aos="fade-up"
+                  type="submit"
+                  onClick={moveToCheckout}
+                  style={{ WidthFull }}
+                >
+                  PROCEED To CEHCKOUT
+                  <div className="innercontainer">PROCEED To CEHCKOUT</div>
+                </button>
+              </div>
             </div>
           ) : (
             <Empty image={emptycartlist} btn="Shop Now" />
           )}
-
-        
-       
         </div>
       )}
     </div>
+
+    <div className="cartForMovbile">
+<CartForMobile></CartForMobile>
+
+    </div>
+  </>
   );
 };
 

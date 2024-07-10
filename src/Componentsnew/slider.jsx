@@ -29,7 +29,7 @@ const SliderComponent = ({
   // State to store secondary images
   const [secondaryImages, setSecondaryImages] = useState({});
 
-  const handleDetailPage = (id, name) => {
+  const handleDetailPage = (id, name) => {  
     const cleanedName = name.replace(/[^\w\s]/gi, "");
     navigate(`/productDetails/${id}/${cleanedName}`);
   };
@@ -82,6 +82,40 @@ const SliderComponent = ({
           <Grid item key={index} xs={12} sm={6} md={3}>
             <div className="product-box">
               <div className="product-img-box">
+
+
+
+              <div className="likebuttonForMobile">
+                {item.is_wishlist ? (
+                    <p>
+                      <FavoriteIcon
+                        className="product-icon"
+                        onClick={() =>
+                          handleLikeToggle(
+                            item.id || item.productId,
+                            index,
+                            "remove",
+                            user_id
+                          )
+                        }
+                      />
+                    </p>
+                  ) : (
+                    <p>
+                      <FavoriteBorderIcon
+                        className="product-icon"
+                        onClick={() =>
+                          handleLikeToggle(
+                            item.id || item.productId,
+                            index,
+                            "add",
+                            user_id
+                          )
+                        }
+                      />
+                    </p>
+                  )}
+                </div>
                 <img
                   onMouseEnter={() => handleImageHover(index, true)}
                   onMouseLeave={() => handleImageHover(index, false)}
@@ -141,6 +175,8 @@ const SliderComponent = ({
                     </p>
                   )}
                 </div>
+
+             
               </div>
               <div
                 className="product-description"

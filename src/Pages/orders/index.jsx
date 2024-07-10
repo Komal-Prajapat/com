@@ -66,13 +66,17 @@ const Orders = () => {
 
     return (
         <>
-         <TopPageImage name="Oder"></TopPageImage>
+
             {pending ? <Loader /> :
 <>
                 <div className='orderhistory_container'>
                     {orderHistory?.length ?
                     //  <Pagination data={orderHistory} itemsPerPage={itemsPerPage} onChangePage={handlePageChange} />
                         <div className='orderhistory_container_fluid'>
+                        
+<div className="TopPageForMobile">
+  	<TopPageImage pagename="Order"></TopPageImage>
+      </div>
                             {orderHistory?.map((val, index) => <div key={index}>
                                 <Stack className='historyCompDivInside' onClick={() => handleDetails(val.order_id_fk)} >
                                     <div className='orderIdButtonAndTrack'>

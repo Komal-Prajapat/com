@@ -11,7 +11,7 @@ const TopPageImage = ({ pagename, bgimg }) => {
   return (
     <div>
       <div
-        className=""
+        className="Toppage"
         style={{
           display: "flex",
           justifyContent: "center",

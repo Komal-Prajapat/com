@@ -14,13 +14,14 @@
   border-collapse: collapse;
   margin-bottom: 20px;
   border: 1px solid #eaedff;
-  overflow: hidden;
+overflow-x: scroll;
 
 }
 
 .table-wrapper {
+margin-top: 30px;
 
-  background: #eaedff;
+  
 
 }
 
@@ -181,6 +182,7 @@ ul {
   font-weight: 500;
   line-height: 1.2;
   transition: all 0.3s ease-out 0s;
+
 }
 
 .table thead th {

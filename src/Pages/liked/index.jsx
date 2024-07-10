@@ -54,21 +54,31 @@ const Liked = () => {
     return (
         <>
 
+<div className="TopPageForMobile">
+  	<TopPageImage pagename="Wishlist"></TopPageImage>
+      </div>
 
-<TopPageImage pagename="Wishlist"></TopPageImage>
         {pending ? <Loader/> :
         <div style={{
-            background:'white'
+            height:"100vh",
+            background:'white',
+            display:"flex",
+            justifyContent:"center",
+            alignItems:"center"
         }}>
             {productList.length ?
-                <div>
+                <div >
                     <div className='wishlist_heading'>
-                        {/* {LikedHeading} */}
+                        {LikedHeading}
                     </div>
                 <div className='wishlist_container'
                 
                 >
-                   <div className="wishList_img ">
+                   <div className="wishList_img "
+                
+                style={{
+                    padding:"20px"
+                }}>
                    <ProductBox renderproduct={productList}  setProductList={setProductList}  productApifunc={updateApiCall} />
                    </div>
                 </div>
@@ -77,10 +87,9 @@ const Liked = () => {
                <div className="emptycon"> 
              <div className="data">
              <h3>No Wishlist Items Found</h3>
-           <div className="btnWishlist">
-           <Link to={"/product"} style={{ textDecoration: 'none' }}><ButtonForAll name="CONTINUE SHOPING"  style={{
-                margin:'auto',
-             }}></ButtonForAll></Link>
+           <div className="btnWishlist"
+          >
+           <Link to={"/product"} style={{ textDecoration: 'none' }}><ButtonForAll name="CONTINUE SHOPING"  className="Wishlistbtn"></ButtonForAll></Link>
            </div>
              </div>
                </div>

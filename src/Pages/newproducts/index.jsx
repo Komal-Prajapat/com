@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom"
 import { Skeleton } from '@mui/material';
 import Mobilefilter from '../../components/newfilter/mobilefilter'
 import TopPageImage from "../../components/toppageimage";
+import ButtonForAll from '../../components/ButtonForALL'
 const SortByData = [
   {
     id: 4,
@@ -222,12 +223,16 @@ const NewProductpage = ({ reload, setReload }) => {
 
   return (
     <div> 
-         <TopPageImage pagename="Shop" bgimg="https://ng-outstock.vercel.app/assets/img/page-title/page-title-2.jpg"></TopPageImage>
+       <div  className="TopPageForMobile">
+       <TopPageImage pagename="Shop" bgimg="https://ng-outstock.vercel.app/assets/img/page-title/page-title-2.jpg"></TopPageImage>
+</div>  
+        
          
 
         <section className="bg0 section_container">
           <div className='mbl_product_filterbtn_container'>
-            <button className='invoice_btn' onClick={handleFilter}>Filter</button>
+            {/* <button className='invoice_btn' >Filter</button> */}
+            <ButtonForAll name="Filter" onClick={handleFilter}/> 
           </div>
 
           {showfilter ? <Mobilefilter {...{categoryheading, showfilter, setShowfilter, sortval, setProductList, setSortval, selectedlist, setSelectedlist, ranfgevaluefilter, setRanfgevaluefilter }} /> : ""}

@@ -22,7 +22,7 @@ body, html {
 
 .textcontainerdiv h4 {
   font-size: 16px;
-  /* line-height: 0.3; */
+  text-align: left !important;
   color: black;
 }
 .textcontainerdiv h4:hover{
@@ -70,11 +70,18 @@ body, html {
 
 @media (max-width: 576px) {
   .boxcon {
-    padding: 20px;
+    padding: 0px !important;
+    width: 90vw !important;
+    margin-right: 0px !important;
+    
   }
 
+  .textcontainerdiv h4{
+    text-align: left;
+  }
   .textcontainerdiv {
     width: 100%;
+    text-align: left !important;
   }
 
   .textcontainerdiv button {

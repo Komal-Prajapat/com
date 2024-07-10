@@ -51,8 +51,10 @@ const Footer = ({ catval, setCatval, bgcolor, textcolor , imptext}) => {
   const finalTextColor = textcolor || defaultTextColor;
 
   return (
-    <footer className="footer container-fluid" style={{ padding: '50px', backgroundColor: finalBgColor, color: finalTextColor }}>
-      <div className="container">
+    <footer className="footer container-fluid" style={{ padding: '50px', backgroundColor: finalBgColor, color: finalTextColor, }}>
+      <div className="container" style={{
+         width:"90%"
+      }}>
         <div className="row footer_list">
           <div className="col-2-2 col-lg-3">
             <ul className="footer_links">
@@ -168,26 +170,7 @@ const Footer = ({ catval, setCatval, bgcolor, textcolor , imptext}) => {
                 color:finalTextColor
               }}>
               Follow Us
-            </p>
-          </div>
-        </div>
-
-        <div className="empty_footer_div"></div>
-
-        <div className="social_links">
-          <div className="copy">
-            <p style={{
-                color:finalTextColor
-              }}>
-              Copyright &copy; <span  style={{
-              color: imptext
-             }}>Outstock.</span> All rights reserved. Powered by
-             <span style={{
-              color: imptext
-             }}> Theme_pure</span>
-            </p>
-          </div>
-          <div className="icon" style={{
+              <div className="icon" style={{
                 color:finalTextColor
               }}>
             <a
@@ -196,7 +179,8 @@ const Footer = ({ catval, setCatval, bgcolor, textcolor , imptext}) => {
               rel="noopener noreferrer"
             >
               <FaInstagram className="footerSocialMediaIcon" style={{
-                color:finalTextColor
+                color:finalTextColor ,
+                             
               }}/>
             </a>
             <a
@@ -205,18 +189,27 @@ const Footer = ({ catval, setCatval, bgcolor, textcolor , imptext}) => {
               rel="noopener noreferrer"
             >
               <FaFacebookF className="footerSocialMediaIcon" style={{
-                color:finalTextColor
+                color:finalTextColor,
+            
               }}/>
             </a>
             <a
               href="https://www.google.com/maps/dir/22.710376,75.8417746/treasurebox/@22.7060118,75.8356895,15z"
+              
             >
               <CiLocationOn className="footerSocialMediaIcon" style={{
-                color:finalTextColor
+                color:finalTextColor,
+            
               }} />
             </a>
           </div>
+            </p>
+          </div>
         </div>
+
+        <div className="empty_footer_div"></div>
+
+     
       </div>
 
       {showloginpopup && (

@@ -29,6 +29,7 @@
     
 }
 
+
 .nospace {
     margin-top: 10px;
 }
@@ -78,5 +79,8 @@
 }
 
 .footerSocialMediaIcon:hover {
-
+color: #bc8246;
+font-size: larger;
+font-weight: bold;
+border-bottom: none !important;
 }

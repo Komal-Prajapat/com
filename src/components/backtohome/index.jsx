@@ -12,7 +12,10 @@ const scrollToTop = () => {
 const BacktoHome = () => {
   return (
     <div>
-            <div className="backToHome" onClick={scrollToTop}>
+            <div className="backToHome" onClick={scrollToTop} 
+            style={{
+              cursor:"pointer"
+            }}>
       <FaArrowTurnUp />
 
       </div>

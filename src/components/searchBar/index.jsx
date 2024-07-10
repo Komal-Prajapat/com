@@ -73,7 +73,7 @@ const SearchBar = ({ handleOnSearchChange, setSearch, search, border, onClose })
                 Search
               </h3>
             </div>
-        <div className="">
+        <div className="SearchBarCategoryListForMobile">
           <CategoryList></CategoryList>
         </div>
 
