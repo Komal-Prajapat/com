@@ -20,7 +20,7 @@
   transform: translateY(-50%);
   color: white;
   text-align: left;
-  width: 500px; /* Default width for larger screens */
+  width: 500px; 
 }
 
 .content-text h2,

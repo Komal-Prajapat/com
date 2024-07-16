@@ -462,3 +462,54 @@ mobile navbar
       [data-rsbs-backdrop]{
         background-color: rgba(0, 0, 0, 0.1) !important;
       }
+
+
+
+      /* ******************login logout btn**************** */
+
+
+
+      .custom-buttonlogout {
+        position: relative;
+        background: none !important;
+        width: 160px;
+        height: 50px;
+        color: black; 
+        font-size: 16px;
+        cursor: pointer;
+        border: 1px solid black !important;
+        display: flex;
+        text-decoration: none;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        transition: color 0.2s, border-color 0.2s;
+        
+      }
+      
+      .custom-buttonlogout:hover {
+      
+        border-color: transparent; /* Transparent border on hover */
+      }
+      
+      .innercontainerlogout {
+        position: absolute;
+        text-decoration: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* background-color: transparent; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.1s ease; /* Smooth transition for transform */
+        transform: translateY(-100%); /* Initially translate up by 100% of its own height */
+      }
+      
+      .custom-buttonlogout:hover .innercontainerlogout {
+        transform: translateY(0); 
+        background-color: #bc8246; /* Background color for fill effect */
+        color: white; /* Text color change on hover */
+      }
+      

@@ -50,7 +50,7 @@ const MobileMenu = ({ onClick, setShowmblMenu, setCatval }) => {
               <Divider />
               <li className="mbl_menu_li">
                 <Link to="/contact" onClick={closemenu} className="">
-                  Contact Us
+                  Contact Us...
                 </Link>
               </li>
               <Divider />

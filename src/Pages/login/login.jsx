@@ -175,7 +175,8 @@ const Login = ({ handleafterloginaddtocart, wishlist,handlelike, setShowloginpop
   }
   // ----------------------------------------------api call-----------------------------------------------
   return (
-    <Modal
+  <div className="mt-5">
+      <Modal
       open={showloginpopup}
       aria-labelledby="parent-modal-title"
       aria-describedby="parent-modal-description"
@@ -302,6 +303,7 @@ const Login = ({ handleafterloginaddtocart, wishlist,handlelike, setShowloginpop
       </Box>
 
     </Modal>
+  </div>
 
   )
 }

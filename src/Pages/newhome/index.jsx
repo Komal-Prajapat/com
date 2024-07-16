@@ -200,15 +200,16 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
 								 :
 								 <img src={`${ImageUrl}${titleList[0]?.files}`} alt='' onClick={()=>titleList[0]?.category_id ?  handlecategory(titleList[0]?.category_id,titleList[0]?.category_name) : ""} />
 								}
-                </div> */}
+                </div>
 
-                  {/* <div className='home_body_box_two'> */}
-                  {/* <div className='home_body_box_one'>
+                  <div className='home_body_box_two'>
+                   <div className='home_body_box_one'>
                 {titleList[1]?.sub_categoryId ?
 								 <img src={`${ImageUrl}${titleList[1]?.files}`} alt='' onClick={()=> titleList[1]?.sub_categoryId ?  handlesubcategory(titleList[1]?.sub_categoryId,titleList[1]?.subCategory_name,titleList[1]?.category_id,titleList[1]?.category_name) : ""}/>
 								 :
 								 <img src={`${ImageUrl}${titleList[1]?.files}`} alt='' onClick={()=>titleList[1]?.category_id ?  handlecategory(titleList[1]?.category_id,titleList[1]?.category_name) : ""} />
 								}
+                </div> 
                 </div> */}
                 </div>
                 {featuredList.length ? (

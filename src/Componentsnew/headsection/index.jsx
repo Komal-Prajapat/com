@@ -41,6 +41,7 @@ import ButtonForAll from "../../components/ButtonForALL/index.jsx";
 import { BottomSheet } from "react-spring-bottom-sheet";
 import "react-spring-bottom-sheet/dist/style.css";
 import BottomSheetCom from "../../components/bottomSheet/index.jsx";
+import { RxCross2 } from "react-icons/rx";
 const HeaderSection = ({
   reload,
   setReload,
@@ -77,8 +78,6 @@ const HeaderSection = ({
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showTryNav, setShowTryNav] = useState(false);
   const [openMobileProfilebtn, setOpenMobileProfilebtn] = useState(false);
-
-
 
   const openMobileProfilebtnOn = () => {
     setOpenMobileProfilebtn(true);
@@ -351,6 +350,7 @@ const HeaderSection = ({
     setAnchorEl(null);
     setAnchorE3(null);
     setShowTryNav(false);
+    console.log("Done");
     swal({
       title: "Are you sure you want to logout?",
       text: "Once logged out, you can't get access to your Orders, Wishlist and Recommendations",
@@ -553,9 +553,6 @@ const HeaderSection = ({
     setIsDropdownOpenShop(!isDropdownOpenShop);
   };
 
-
-
-  
   return (
     <>
       <div
@@ -669,7 +666,7 @@ const HeaderSection = ({
                         fontSize: "25px",
                         color: "black",
                         fontWeight: "blod",
-                        marginLeft:"10px"
+                        marginLeft: "10px",
                       }}
                       className="mx-3"
                     />
@@ -707,7 +704,7 @@ const HeaderSection = ({
                               To access account and manage orders
                             </p>
                           )}
-                          {user_id ? (
+                          {/* {user_id ? (
                             ""
                           ) : (
                             <button
@@ -716,17 +713,25 @@ const HeaderSection = ({
                             >
                               Login
                             </button>
-                          )}
+                          )} */}
                         </div>
                       </li>
-                      <li style={{ color: " #c1bcbc" }}>
-                        {user_id ? <Divider sx={{ marginTop: "3px" }} /> : ""}
-                        {user_id ? (
-                          <ButtonForAll name="Logout"></ButtonForAll>
-                        ) : (
-                          ""
-                        )}
-                      </li>
+                      {user_id ? (
+                        <button
+                          className="login_btn_profile"
+                          style={{ color: "#c1bcbc" }}
+                          onClick={handlelogout}
+                        >
+                          Logout..
+                        </button>
+                      ) : (
+                        <button
+                          className="login_btn_profile"
+                          onClick={handleprofilePage}
+                        >
+                          Login
+                        </button>
+                      )}
                       <hr></hr>
                       <li style={{ color: " #c1bcbc" }}>
                         <Link to={"/profile"}>Profile</Link>
@@ -828,18 +833,122 @@ const HeaderSection = ({
               </li>
               {/* Profile section */}
               <li className="headersection_container_profile_mobile    icon_list_header">
-              
-                    <FiAlignJustify onClick={() => setOpenMobileProfilebtn(true)}  style={{
-                      fontSize: "20px",
-                      marginLeft:"10px"
-                    }}/>
-               
+                <FiAlignJustify
+                  onClick={() => setOpenMobileProfilebtn(true)}
+                  style={{
+                    fontSize: "20px",
+                    marginLeft: "10px",
+                  }}
+                />
+
                 <BottomSheet
                   open={openMobileProfilebtn}
                   className="bottomsheet "
-                  
                 >
-                  <BottomSheetCom
+                  <div>
+                    <div
+                      className="profile_container container_profile"
+                      style={{
+                        padding: "20px",
+                      }}
+                    >
+                      <RxCross2
+                        onClick={MobileProfilebtnOff}
+                        className="CorssButton"
+                      />
+                      {/* Profile content */}
+                      {username ? (
+                        <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
+                          Hello {username}
+                        </h6>
+                      ) : (
+                        <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
+                          Welcome
+                        </h6>
+                      )}
+
+                      {user_id ? (
+                        <p>{mobile}</p>
+                      ) : (
+                        <p className="profile_welcome_msg">
+                          To access account and manage orders
+                        </p>
+                      )}
+                    </div>
+                    <Divider />
+
+                    <div
+                      className="profile_container"
+                      style={{
+                        padding: "20px",
+                        zIndex: "9999",
+                      }}
+                    >
+                      <p
+                        className="profile_list"
+                        onClick={user_id ? GotoProfile : handleprofilePage}
+                        style={{
+                          cursor: "pointer",
+                        }}
+                      >
+                        My Profile
+                      </p>
+                      <p
+                        className="profile_list"
+                        onClick={user_id ? GotoOrders : handleprofilePage}
+                        style={{
+                          cursor: "pointer",
+                        }}
+                      >
+                        Orders
+                      </p>
+                      <p
+                        className="profile_list"
+                        onClick={handlelikePage}
+                        style={{
+                          cursor: "pointer",
+                        }}
+                      >
+                        Wishlist
+                      </p>
+                      <p
+                        className="profile_list"
+                        onClick={gotocontact}
+                        style={{
+                          cursor: "pointer",
+                        }}
+                      >
+                        Contact Us
+                      </p>
+                      <p
+                        className="profile_list"
+                        onClick={gotoabout}
+                        style={{
+                          cursor: "pointer",
+                        }}
+                      >
+                        About Us
+                      </p>
+                      {user_id ? (
+                        <button
+                          className="login_btn_profile"
+                          style={{ color: "#c1bcbc" }}
+                          onClick={logoutfromapp}
+                        >
+                          Logout
+                        </button>
+                      ) : (
+                        <button
+                          className="login_btn_profile"
+                          onClick={handleprofilePage}
+                        >
+                          Login
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* <BottomSheetCom
                     username={username}
                     user_id={user_id}
                     GotoProfile={GotoProfile}
@@ -852,7 +961,8 @@ const HeaderSection = ({
                     handlelogout={handlelogout}
                     MobileProfilebtnOff={MobileProfilebtnOff}
                     openMobileProfilebtnOn={openMobileProfilebtnOn}
-                  ></BottomSheetCom>
+                    logoutfromapp={logoutfromapp}
+                  ></BottomSheetCom> */}
                 </BottomSheet>
                 <div></div>
 
@@ -865,6 +975,7 @@ const HeaderSection = ({
                   onClick={handlemblmenu}
                   setShowmblMenu={setShowmblMenu}
                   setCatval={setCatval}
+                  handlelogout={handlelogout}
                 />
               )}
 

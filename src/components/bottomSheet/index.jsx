@@ -2,7 +2,7 @@ import React from "react";
 import ButtonForAll from "../ButtonForALL";
 import { Divider } from "@mui/material";
 import { RxCross2 } from "react-icons/rx";
-import './index.css'
+import "./index.css";
 const BottomSheetCom = ({
   GotoOrders,
   handleprofilePage,
@@ -14,7 +14,7 @@ const BottomSheetCom = ({
   gotocontact,
   gotoabout,
   handlelogout,
-  MobileProfilebtnOff
+  MobileProfilebtnOff,
 }) => {
   return (
     <div>
@@ -24,9 +24,7 @@ const BottomSheetCom = ({
           padding: "20px",
         }}
       >
-   
-      <RxCross2 onClick={MobileProfilebtnOff}
-      className="CorssButton" />
+        <RxCross2 onClick={MobileProfilebtnOff} className="CorssButton" />
         {/* Profile content */}
         {username ? (
           <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
@@ -111,20 +109,16 @@ const BottomSheetCom = ({
         >
           About Us
         </p>
-
-        {user_id ? <Divider sx={{ marginTop: "3px" }} /> : ""}
-        {user_id ? (
-          <ButtonForAll
-            name="Logout"
-            className="profile_list"
-            onClick={handlelogout}
-            style={{
-              cursor: "pointer",
-            }}
-          ></ButtonForAll>
-        ) : (
-          ""
-        )}
+        <button style={{ color: " #c1bcbc" }} className="custom-buttonlogout">
+          Logout
+          {user_id ? (
+            <p className="innercontainerlogout" onClick={handlelogout}>
+              Logout
+            </p>
+          ) : (
+            ""
+          )}
+        </button>
       </div>
     </div>
   );
