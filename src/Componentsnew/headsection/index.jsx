@@ -815,7 +815,7 @@ const HeaderSection = ({
                 <Badge
                   className="cart_badge"
                   color="black"
-                  // badgeContent={cartcount}
+                 
                 >
                   <IoBagHandleOutline
                     onClick={Gotocart}
@@ -832,19 +832,16 @@ const HeaderSection = ({
                 </Badge>
               </li>
               {/* Profile section */}
-              <li className="headersection_container_profile_mobile    icon_list_header">
-                <FiAlignJustify
-                  onClick={() => setOpenMobileProfilebtn(true)}
-                  style={{
-                    fontSize: "20px",
-                    marginLeft: "10px",
-                  }}
-                />
-
-                <BottomSheet
-                  open={openMobileProfilebtn}
+              <div className="headersection_container_profile_mobile">
+         
+                
+            <BottomSheet
+                  // open={openMobileProfilebtn}
                   className="bottomsheet "
+                  id={idmobileprofile} open={openMobileProfile} anchorE1={anchorE3}
                 >
+                
+    
                   <div>
                     <div
                       className="profile_container container_profile"
@@ -856,7 +853,7 @@ const HeaderSection = ({
                         onClick={MobileProfilebtnOff}
                         className="CorssButton"
                       />
-                      {/* Profile content */}
+                    
                       {username ? (
                         <h6 style={{ color: "#5d5555", fontWeight: 600 }}>
                           Hello {username}
@@ -948,7 +945,19 @@ const HeaderSection = ({
                     </div>
                   </div>
 
-                  {/* <BottomSheetCom
+                 
+                </BottomSheet>
+        
+                <div></div>
+
+             
+              </div>
+
+
+
+
+
+ {/* <BottomSheetCom
                     username={username}
                     user_id={user_id}
                     GotoProfile={GotoProfile}
@@ -963,11 +972,20 @@ const HeaderSection = ({
                     openMobileProfilebtnOn={openMobileProfilebtnOn}
                     logoutfromapp={logoutfromapp}
                   ></BottomSheetCom> */}
-                </BottomSheet>
-                <div></div>
 
-                {/* Help link */}
-              </li>
+
+                  <div className='headersection_container_profile_mobile' >
+                            <div ref={profileRefmobile}>
+                                <li onClick={handleClick} className='headersection_container_profile_contain'>
+                                    <PersonIcon sx={{ color: "var(--colornewprimary)", cursor: "pointer" }} />
+                                </li>
+                              
+                            </div>
+                           
+                        </div>
+                  
+
+
 
               {/* Mobile Menu */}
               {showmblMenu && (
