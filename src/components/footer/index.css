@@ -2,7 +2,7 @@
     display: flex !important;
     justify-content: space-between;
     font-size: smaller;
-   
+
 
 }
 
@@ -19,14 +19,14 @@
 
 
 .footcolorlinks {
-  
+
     margin-top: 2px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .footcolorlinks:hover {
     border-bottom: 2px solid white;
-    
+
 }
 
 
@@ -37,11 +37,11 @@
 .empty_footer_div {
     border: 0.1px solid rgb(141, 137, 137);
     width: 100%;
-  
+
 }
 
 .footerheading {
- 
+
     font-weight: bold;
 }
 
@@ -54,7 +54,7 @@
 
 .footer_list a:hover {
     border-bottom: 2px solid white;
-   
+
 
 }
 
@@ -79,8 +79,8 @@
 }
 
 .footerSocialMediaIcon:hover {
-color: #bc8246;
-font-size: larger;
-font-weight: bold;
-border-bottom: none !important;
+    color: var(--primary-color);
+    font-size: larger;
+    font-weight: bold;
+    border-bottom: none !important;
 }

@@ -25,7 +25,7 @@ const Help = () => {
           <h3
             style={{
               textAlign: "center",
-              color: "#bc8246",
+              color: " var(--primary-color)",
             }}
           >
             FAQ (Frequently Asked Questions){" "}

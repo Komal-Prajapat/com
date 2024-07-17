@@ -9,7 +9,7 @@ const NotFound = () => {
       <span>COMPONENT NOT FOUND</span>
       <h2>Nothing To See Here!</h2>
       
-      <p>The page are looking for has been moved or doesn’t exist anymore, if you like you can return to our homepage. If the problem persists, please send us an email to  <a href="mailto:basictheme400@gmail.com">basictheme400@gmail.com</a>.</p>
+      <p>The page are looking for has been moved or doesn’t exist anymore, if you like you can return to our homepage. </p>
       <div className="btn" style={{ textDecoration: 'none' , 
       margin:"auto" }}>
       <Link to="/" style={{ textDecoration: 'none' , 

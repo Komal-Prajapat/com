@@ -10,8 +10,8 @@
     font-size: 15px;
     color: #fff;
     list-style-type: none;
-    background: #bc8246;
+    background: var(--primary-color);
     margin-right: 20px;
-    border: 1px solid #bc8246;
+    border: 1px solid var(--primary-color);
     z-index: 999;
 }

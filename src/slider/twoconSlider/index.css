@@ -1,6 +1,7 @@
 /* index.css */
 
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
 }
@@ -8,7 +9,7 @@ body, html {
 .boxcon {
   /* margin-bottom: 20px; */
   padding-top: 30px;
-  background: #f5f5f5 !important;
+  background: var(--secondary-color) !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,13 +26,14 @@ body, html {
   text-align: left !important;
   color: black;
 }
-.textcontainerdiv h4:hover{
 
-  color: #bc8246;
+.textcontainerdiv h4:hover {
+
+  color: var(--primary-color);
 }
 
 .productname {
-  color: #bc8246;
+  color: var(--primary-color);
 }
 
 .twoconimage {
@@ -49,9 +51,11 @@ body, html {
 .twoconimage:hover {
   transform: scale(1.1);
 }
-.buynowbtn{
+
+.buynowbtn {
   margin-top: 15px;
 }
+
 @media (max-width: 992px) {
   .textcontainerdiv {
     text-align: center;
@@ -73,12 +77,13 @@ body, html {
     padding: 0px !important;
     width: 90vw !important;
     margin-right: 0px !important;
-    
+
   }
 
-  .textcontainerdiv h4{
+  .textcontainerdiv h4 {
     text-align: left;
   }
+
   .textcontainerdiv {
     width: 100%;
     text-align: left !important;

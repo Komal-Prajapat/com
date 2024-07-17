@@ -1,11 +1,12 @@
 /* .nav_btn_hove :hover{
-    color: var(--colorprimary) important;
+    color: var(--primary-color) important;
 } */
 .nav_btn_hove:hover {
-    color: var(--colorprimary) !important;
+    color: var(--primary-color) !important;
     text-decoration: underline;
 }
-.nav_btn_hove.active{
+
+.nav_btn_hove.active {
     text-decoration: underline;
-    color: var(--colorprimary) !important;
+    color: var(--primary-color) !important;
 }

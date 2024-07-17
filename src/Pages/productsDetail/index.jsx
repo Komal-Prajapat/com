@@ -9,9 +9,8 @@ import ToastMessage from "../../utils/ToastMessage";
 import "react-image-gallery/styles/css/image-gallery.css";
 import ImageGallery from "react-image-gallery";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 
-  
 import {
   addtocartApi,
   addtowishlist,
@@ -325,34 +324,30 @@ const ProductDetail = ({ reload, setReload, setCatval }) => {
     return checkSelected.length;
   };
 
-
-
-
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
 
-const toggleDescription = () => {
-  setIsDescriptionExpanded(!isDescriptionExpanded);
-};
+  const toggleDescription = () => {
+    setIsDescriptionExpanded(!isDescriptionExpanded);
+  };
 
-const readmorefunction = (description, maxLength) => {
-  if (!description) return "";
+  const readmorefunction = (description, maxLength) => {
+    if (!description) return "";
 
-  if (description.length > maxLength && !isDescriptionExpanded) {
-    return `${description.substring(0, maxLength)}... `;
-  }
-  return description;
-};
+    if (description.length > maxLength && !isDescriptionExpanded) {
+      return `${description.substring(0, maxLength)}... `;
+    }
+    return description;
+  };
 
-const scrollToTop = () => {
-  scroll.scrollToTop();
-};
-
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
 
   return (
     <>
-    <div  className="TopPageForMobile">
-      <TopPageImage pagename="Product Details"></TopPageImage>
-</div>  
+      <div className="TopPageForMobile">
+        <TopPageImage pagename="Product Details"></TopPageImage>
+      </div>
       {/* <!-- Product Detail --> */}
 
       <div
@@ -553,7 +548,7 @@ const scrollToTop = () => {
                   In-Stock, Ready to Ship
                 </p>
               )}
-            
+
               {/* {info.length ? (
   <div className="input_container">
     {info[0]?.color_code === "FreeColor" ? (
@@ -584,7 +579,7 @@ const scrollToTop = () => {
       </div>
     )} */}
 
-    {/* {size[0]?.name === "FreeSize" || size[0]?.name === "" ? (
+              {/* {size[0]?.name === "FreeSize" || size[0]?.name === "" ? (
       ""
     ) : (
       <div className=" p-b-10">
@@ -607,35 +602,30 @@ const scrollToTop = () => {
   ""
 )} */}
 
-
               {/* ************* descrption of product *********** */}
               <hr />
               <div className="descriptionp">
-  <RemoveTag
-    ParserText={readmorefunction(details?.description, 200)}
-    style={{
-      fontSize: "14px",
-      lineHeight: "24px",
-      color: "#bc8246",
-      fontFamily: "sans-serif",
-      marginBottom: "0",
-    }}
-  />
-
-
-
-</div>
-  <ScrollLink
-              to="readmore"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              className="read-more-btn"
-
-            >
-              Read more
-            </ScrollLink>
+                <RemoveTag
+                  ParserText={readmorefunction(details?.description, 200)}
+                  style={{
+                    fontSize: "14px",
+                    lineHeight: "24px",
+                    color: " var(--primary-color)",
+                    fontFamily: "sans-serif",
+                    marginBottom: "0",
+                  }}
+                />
+              </div>
+              <ScrollLink
+                to="readmore"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                className="read-more-btn"
+              >
+                Read more
+              </ScrollLink>
               <hr />
               {/* <p className="summary_icon">
                 <StarBorderOutlinedIcon />
@@ -656,35 +646,39 @@ const scrollToTop = () => {
               <hr /> */}
 
               <div className="d-flex productBTNLAst">
-              <div className="d-flex"
-              
-              style={{
-               marginRight:"auto"
+                <div
+                  className="d-flex"
+                  style={{
+                    marginRight: "auto",
+                  }}
+                >
+                  <p
+                    style={{
+                      marginRight: "4px",
+                      marginBottom: "0px",
+                    }}
+                  >
+                    {" "}
+                    Quantity
+                  </p>
+                  <div className="quantitybutton  ">
+                    <div className=" quantityAddSubIncon" onClick={handleminus}>
+                      <RiSubtractFill />
+                    </div>
 
-              }}>
-              <p style={{
-                marginRight:"4px",
-                marginBottom:"0px"
-                
-              }}> Quantity</p>
-                <div className="quantitybutton  ">
-                  <div className=" quantityAddSubIncon" onClick={handleminus}>
-                    <RiSubtractFill />
-                  </div>
+                    <input
+                      className=" txt-center num-product"
+                      type="number"
+                      name="num-product"
+                      value={counter}
+                      style={{ width: "10px" }}
+                    />
 
-                  <input
-                    className=" txt-center num-product"
-                    type="number"
-                    name="num-product"
-                    value={counter}
-                    style={{ width: "10px" }}
-                  />
-
-                  <div className="quantityAddSubIncon" onClick={handleplus}>
-                    <IoMdAdd />
+                    <div className="quantityAddSubIncon" onClick={handleplus}>
+                      <IoMdAdd />
+                    </div>
                   </div>
                 </div>
-              </div>
 
                 {checkAddedFunction() ? (
                   <button
@@ -727,7 +721,7 @@ const scrollToTop = () => {
                 {details.is_wishlist ? (
                   <button className="cart_div1" onClick={gotowishlist}>
                     <FavoriteIcon
-                      sx={{ color: "var(--colorprimary)", marginRight: "5px" }}
+                      sx={{ color: "var(--primary-color)", marginRight: "5px" }}
                     />{" "}
                     Wishlisted
                   </button>
@@ -737,7 +731,7 @@ const scrollToTop = () => {
                     onClick={user_id ? handlelike : handleprofilePage}
                   >
                     <FavoriteIcon
-                      sx={{ color: "var(--colorprimary)", marginRight: "5px" }}
+                      sx={{ color: "var(--primary-color)", marginRight: "5px" }}
                     />{" "}
                     Add to Wishlist
                   </button>
@@ -812,13 +806,13 @@ const scrollToTop = () => {
             </div>
           )}
         </div>
-<div id="readmore">
-  
-<DetailPageTab description={details?.description } general={general} id="readmore"/>
-</div>
-
-
-  
+        <div id="readmore">
+          <DetailPageTab
+            description={details?.description}
+            general={general}
+            id="readmore"
+          />
+        </div>
       </div>
     </>
   );

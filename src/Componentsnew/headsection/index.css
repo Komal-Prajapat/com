@@ -1,19 +1,22 @@
 body {
     font-family: 'Times New Roman', Times, serif !important;
 }
-.container-fluid{
+
+.container-fluid {
     z-index: 999999 !important;
     display: block;
 }
-.sectionBody{
+
+.sectionBody {
     margin: auto;
     display: flex;
     width: 90%;
     justify-content: space-around;
     align-items: center;
 }
+
 .headersection_container {
-    background: #f5f5f5;
+    background: var(--secondary-color);
     height: 30px;
     padding: 20px;
 
@@ -34,7 +37,7 @@ body {
     padding-bottom: 20px !important;
     background: white !important;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-   
+
 
 }
 
@@ -49,6 +52,7 @@ body {
     position: relative;
     z-index: 0 !important;
 }
+
 /* ----------------------------------- Bharat Patel ---------------------------------- */
 
 .search_list_container {
@@ -109,17 +113,14 @@ body {
     height: 50px;
     min-width: 50px;
     width: 50px;
-    border: 2px solid var(--colorprimary);
+    border: 2px solid var(--primary-color);
     border-radius: 10px;
     cursor: pointer;
 }
 
 
 /* Media query for mobile devices */
-@media (max-width: 768px) {
-
- 
-}
+@media (max-width: 768px) {}
 
 
 @media (max-width: 570px) {
@@ -137,8 +138,8 @@ body {
     }
 
     .headersection_category_img {
-        background-color: var(--colorWhite);
-  
+        background-color: var(--white-color);
+
         width: 100%;
         padding: 10px;
         border-bottom: 1px solid #ebebeb;
@@ -160,7 +161,7 @@ body {
     }
 
     .icon_list_header {
-      
+        z-index: -9;
         gap: 5px;
         align-items: center;
     }
@@ -318,125 +319,135 @@ body {
 
 
 
-  
-  /* Example: Style the dropdown menus */
-  .dropdown-content1 {
+
+/* Example: Style the dropdown menus */
+.dropdown-content1 {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-  }
-  
-  .dropdown-content1 a {
+}
+
+.dropdown-content1 a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-  }
-  
-  .dropdown-content1 a:hover {background-color: #f1f1f1;}
-  
-  .dropdown-container1:hover .dropdown-content1 {
+}
+
+.dropdown-content1 a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown-container1:hover .dropdown-content1 {
     display: block;
-  }
-  
-  
-  @media only screen and (max-width: 768px) {
+}
+
+
+@media only screen and (max-width: 768px) {
     .headersection_container {
-      flex-direction: column;
-      padding: 10px;
-  
+        flex-direction: column;
+        padding: 10px;
+
     }
-  
+
     .headersection_container_one {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-  
+
     .logo img {
-      width: 150px; /* Adjust mobile logo size */
+        width: 150px;
+        /* Adjust mobile logo size */
     }
-  
+
     .sectionBody {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     /* Example: Styles for mobile dropdown */
     .dropdown-content1 {
-      width: 100%;
-      left: 0;
-      right: 0;
-      box-shadow: none;
-      border: none;
-      background-color: #ffffff;
+        width: 100%;
+        left: 0;
+        right: 0;
+        box-shadow: none;
+        border: none;
+        background-color: #ffffff;
     }
-  
+
     .dropdown-container1:hover .dropdown-content1 {
-      display: block;
+        display: block;
     }
-  }
-  @media only screen and (min-width: 769px) {
+}
+
+@media only screen and (min-width: 769px) {
     .mobilenavbar {
-      display: none;
+        display: none;
     }
-  }
-  @media only screen and (max-width: 768px) {
+}
+
+@media only screen and (max-width: 768px) {
     .desktopNavbar {
-      display: none;
+        display: none;
     }
-.container_profile_fluid{
-    background-color: white;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    padding: 24px;
-    margin: auto;
-    position: absolute;
-    top: 79px;
-    left: 25vw;
-    overflow: auto;
-    width: 57vw !important;
-    height: 283px;
-}
-    
-  }
-    /* **********************imp*********** */
 
-    .navbarListItemsStyle{
-        color: black;
-        cursor: pointer;
+    .container_profile_fluid {
+        background-color: white;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        padding: 24px;
+        margin: auto;
+        position: absolute;
+        top: 79px;
+        left: 25vw;
+        overflow: auto;
+        width: 57vw !important;
+        height: 283px;
     }
-.navbarListItemsStyle:hover{
-    color: #bc8246;
+
 }
 
-    /* **********************************************************
+/* **********************imp*********** */
+
+.navbarListItemsStyle {
+    color: var(--navbar-link-color);
+    cursor: pointer;
+}
+
+.navbarListItemsStyle:hover {
+    color: var(--primary-color);
+}
+
+/* **********************************************************
 mobile navbar
 
     ********************************************** */
 
-    .mobilenavbarLink{
-        display: flex;
-        justify-content: space-around;
-        flex-direction: row;
-    }
-    .mobiletoggle{
-        color: black;
-        font-weight: bold;
-    }
-    .logo-mobile img{
-        cursor: pointer;
-        transition: transform 0.3s ease;
-        mix-blend-mode: multiply;
+.mobilenavbarLink {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.mobiletoggle {
+    color: black;
+    font-weight: bold;
+}
+
+.logo-mobile img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    mix-blend-mode: multiply;
     margin: auto;
     display: flex;
     padding: 4px;
-    }
+}
 
 
 
@@ -445,71 +456,76 @@ mobile navbar
 
 
 
-    /* *************Bottom Sheet******** */
-    :root {
-        --rsbs-backdrop-bg: rgba(0, 0, 0, 0.6);
-        --rsbs-bg: #fff;
-        --rsbs-handle-bg: hsla(0, 0%, 0%, 0.14);
-        --rsbs-max-w: auto;
-        --rsbs-ml: env(safe-area-inset-left);
-        --rsbs-mr: env(safe-area-inset-right);
-        --rsbs-overlay-rounded: 26px;
-      }
+/* *************Bottom Sheet******** */
+:root {
+    --rsbs-backdrop-bg: rgba(0, 0, 0, 0.6);
+    --rsbs-bg: #fff;
+    --rsbs-handle-bg: hsla(0, 0%, 0%, 0.14);
+    --rsbs-max-w: auto;
+    --rsbs-ml: env(safe-area-inset-left);
+    --rsbs-mr: env(safe-area-inset-right);
+    --rsbs-overlay-rounded: 26px;
+}
 
-      .bottomsheet{
-        padding: 20px;
-      }
-      [data-rsbs-backdrop]{
-        background-color: rgba(0, 0, 0, 0.1) !important;
-      }
+.bottomsheet {
+    padding: 20px;
+}
 
-
-
-      /* ******************login logout btn**************** */
+[data-rsbs-backdrop] {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}
 
 
 
-      .custom-buttonlogout {
-        position: relative;
-        background: none !important;
-        width: 160px;
-        height: 50px;
-        color: black; 
-        font-size: 16px;
-        cursor: pointer;
-        border: 1px solid black !important;
-        display: flex;
-        text-decoration: none;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        transition: color 0.2s, border-color 0.2s;
-        
-      }
-      
-      .custom-buttonlogout:hover {
-      
-        border-color: transparent; /* Transparent border on hover */
-      }
-      
-      .innercontainerlogout {
-        position: absolute;
-        text-decoration: none;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        /* background-color: transparent; */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.1s ease; /* Smooth transition for transform */
-        transform: translateY(-100%); /* Initially translate up by 100% of its own height */
-      }
-      
-      .custom-buttonlogout:hover .innercontainerlogout {
-        transform: translateY(0); 
-        background-color: #bc8246; /* Background color for fill effect */
-        color: white; /* Text color change on hover */
-      }
-      
+/* ******************login logout btn**************** */
+
+
+
+.custom-buttonlogout {
+    position: relative;
+    background: none !important;
+    width: 160px;
+    height: 50px;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid black !important;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: color 0.2s, border-color 0.2s;
+
+}
+
+.custom-buttonlogout:hover {
+
+    border-color: transparent;
+    /* Transparent border on hover */
+}
+
+.innercontainerlogout {
+    position: absolute;
+    text-decoration: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: transparent; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease;
+    /* Smooth transition for transform */
+    transform: translateY(-100%);
+    /* Initially translate up by 100% of its own height */
+}
+
+.custom-buttonlogout:hover .innercontainerlogout {
+    transform: translateY(0);
+    background-color: var(--primary-color);
+    /* Background color for fill effect */
+    color: white;
+    /* Text color change on hover */
+}

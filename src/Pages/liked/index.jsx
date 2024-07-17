@@ -60,11 +60,14 @@ const Liked = () => {
 
         {pending ? <Loader/> :
         <div style={{
-            height:"100vh",
+            width:"90vw",
+            height:"cover",
             background:'white',
             display:"flex",
-            justifyContent:"center",
-            alignItems:"center"
+            justifyContent:"space-evenly",
+            alignItems:"center",
+            margin:"auto",
+            padding:"20px"
         }}>
             {productList.length ?
                 <div >

@@ -13,8 +13,8 @@
 
 .category-link {
   text-decoration: none;
-  color: black;
-  font-weight: bold;
+  color: #323232;
+  /* font-weight: bold; */
   padding: 10px;
 }
 

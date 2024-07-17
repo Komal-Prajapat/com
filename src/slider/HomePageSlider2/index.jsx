@@ -10,7 +10,7 @@ const HoomepageSlider2 = () => {
         <div className="col-12 col-md-4">
           <div className="box box1">
             <div className="box-content">
-              <p>Lighting & Chair</p>
+              <p>Lighting</p>
               <span className="DiscovernowBNT">Discover now</span>
             </div>
           </div>
@@ -30,7 +30,7 @@ const HoomepageSlider2 = () => {
         <div className="col-12 col-md-4">
           <div className="box box3">
             <div className="box-content">
-              <p>Clothing & Oil</p>
+              <p>Como and Hair Brush</p>
               <span className="DiscovernowBNT">Discover now</span>
             </div>
           </div>

@@ -1,22 +1,35 @@
-.search_container_fluid{
+.search_container_fluid {
     margin: 2px;
     width: 100vw;
     position: absolute;
     left: 0px;
     top: 0px;
 }
+
 @media (max-width: 570px) {
-    .search_container_fluid{
+    .search_container_fluid {
         margin: 2px !important;
     }
 }
-.searchList_container{
+
+.searchList_container {
     text-align: center;
 }
-.search_list{
+
+.search_list {
     padding: 15px;
     width: 90%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.search_data_img_con {
+    background: white;
+    padding: 10px;
+}
+
+.search_data_img_name:hover {
+    padding: 2px;
+    background: var(--secondary-color);
 }

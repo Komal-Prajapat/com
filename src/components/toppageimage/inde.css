@@ -1,10 +1,12 @@
-.pageheading{
+.pageheading {
     color: black !important;
 }
-.bread-crumbangle{
+
+.bread-crumbangle {
     text-decoration: none;
     margin-left: 3px;
 }
-.bread-crumbangle:hover{
-color: #bc8246 !important;
+
+.bread-crumbangle:hover {
+    color: var(--primary-color) !important;
 }

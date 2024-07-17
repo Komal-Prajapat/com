@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import Login from "../../Pages/login/login";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import { IoAddSharp } from "react-icons/io5";
+import { Container } from "react-bootstrap";
 
 const ProductBox = ({
   renderproduct,
@@ -55,132 +56,155 @@ const ProductBox = ({
       }
     } else {
       setShowLoginPopup(!showLoginPopup);
-    } 
+    }
   };
-
+  const numProducts = renderproduct.length;
+  const getGridProps = (numProducts) => {
+    if (numProducts <= 2) {
+      return { xs: 12, sm: 6, md: 5 };
+    } else {
+      return { xs: 12, sm: 6, md: 3 };
+    }
+  };
   return (
     <>
-      <div className="product_grid">
-        <Grid container spacing={3}>
+      <Container className="slider-container">
+        <Grid container>
           {renderproduct.map((item, index) => (
-            <Grid xs={12} sm={6} md={3}>
-              <div className="product_box" key={index}>
-                <div className="product_img_box">
-                  <div className="product_img">
-                    <img
-                      onClick={() =>
-                        handleDetailPage(
-                          item.productId || item.id,
-                          item.product_name || item.productName
-                        )
-                      }
-                      className="product_image"
-                      src={`${ImageUrl}/${item.files || item.file}`}
-                      alt=""
-                    />
+            <Grid key={index} {...getGridProps(numProducts)}>
+              <div className="product-box">
+                <div className="product-img-box">
+                  <div className="likebuttonForMobile">
+                    {item.is_wishlist ? (
+                      <p>
+                        <FavoriteIcon
+                          className="product-icon"
+                          onClick={() =>
+                            handleLikeToggle(
+                              item.id || item.productId,
+                              index,
+                              "remove",
+                              user_id
+                            )
+                          }
+                        />
+                      </p>
+                    ) : (
+                      <p>
+                        <FavoriteBorderIcon
+                          className="product-icon"
+                          onClick={() =>
+                            handleLikeToggle(
+                              item.id || item.productId,
+                              index,
+                              "add",
+                              user_id
+                            )
+                          }
+                        />
+                      </p>
+                    )}
                   </div>
-                  <div className="product_icon">
-                    <ul>
-                      <li>
-                        <ShoppingBagOutlinedIcon
-                          disabled={item.is_active === 0}
+
+                  <img
+                    onClick={() =>
+                      handleDetailPage(
+                        item.productId || item.id,
+                        item.product_name || item.productName
+                      )
+                    }
+                    className="product-image"
+                    src={`${ImageUrl}/${item.files || item.file}`}
+                    alt=""
+                  />
+
+                  <div className="product-icons">
+                    <p>
+                      <ShoppingBagOutlinedIcon
+                        disabled={item.is_active === 0}
+                        sx={{
+                          cursor: item.is_active === 0 ? "no-drop" : "pointer",
+                        }}
+                        onClick={() =>
+                          item.is_active === 0
+                            ? ""
+                            : handleDetailPage(
+                                item.productId || item.id,
+                                item.product_name || item.productName
+                              )
+                        }
+                        className="product-icon"
+                      />
+                    </p>
+                    <p>
+                      {item.is_wishlist ? (
+                        <FavoriteIcon
                           sx={{
-                            cursor:
-                              item.is_active === 0 ? "no-drop" : "pointer",
+                            color: "var(--primary-color)",
+                            cursor: "pointer",
                           }}
                           onClick={() =>
-                            item.is_active === 0
-                              ? ""
-                              : handleDetailPage(
-                                  item.productId || item.id,
-                                  item.product_name || item.productName
-                                )
+                            handleLikeToggle(
+                              item.id || item.productId,
+                              index,
+                              "remove",
+                              user_id
+                            )
                           }
-                          style={{
-                            borderBottom: "0.1px solid black",
-                          }}
+                          className="product-icon"
                         />
-                      </li>
-                      <li>
-                        {item.is_wishlist ? (
-                          <FavoriteIcon
-                            sx={{
-                              color: "var(--colorprimary)",
-                              cursor: "pointer",
-                            }}
-                            onClick={() =>
-                              handleLikeToggle(
-                                item.id || item.productId,
-                                index,
-                                "remove",
-                                user_id
-                              )
-                            }
-                            className="my-2"
-                            style={{
-                              borderBottom: "0.1px solid black",
-                            }}
-                          />
-                        ) : (
-                          <FavoriteBorderIcon
-                            sx={{ cursor: "pointer" }}
-                            onClick={() =>
-                              handleLikeToggle(
-                                item.id || item.productId,
-                                index,
-                                "add",
-                                user_id
-                              )
-                            }
-                            className="my-2"
-                            style={{
-                              borderBottom: "0.1px solid black",
-                            }}
-                          />
-                        )}
-                      </li>
-                    </ul>
+                      ) : (
+                        <FavoriteBorderIcon
+                          sx={{ cursor: "pointer" }}
+                          onClick={() =>
+                            handleLikeToggle(
+                              item.id || item.productId,
+                              index,
+                              "add",
+                              user_id
+                            )
+                          }
+                          className="product-icon"
+                        />
+                      )}
+                    </p>
                   </div>
                 </div>
-                <div className="product_box_description">
+                <div
+                  className="product-description"
+                  style={{ marginTop: "20px" }}
+                >
                   {item.is_active === 0 ? (
                     <p className="outofstock test-align">Out Of Stock</p>
                   ) : (
                     ""
                   )}
-                  <li className="product_name_con">
-                    <span
-                      className="product_name"
-                      onClick={() =>
-                        handleDetailPage(
-                          item.productId || item.id,
-                          item.product_name || item.productName
-                        )
-                      }
-                    >
-                      {item.product_name || item.productName}
-                    </span>
-                  </li>
 
-                  <li className="product_price">
+                  <p
+                    className="product_name"
+                    onClick={() =>
+                      handleDetailPage(
+                        item.productId || item.id,
+                        item.product_name || item.productName
+                      )
+                    }
+                  >
+                    {item.product_name || item.productName}
+                  </p>
+
+                  <p className="product-price">
                     {item.discount_percent === 0 ? (
-                      <span className="mrpwithdiscount">
+                      <span className="mrp-with-discount product-icon_rs">
                         <CurrencyRupeeIcon
-                          style={{
-                            fontSize: "14px",
-                            color: "black",
-                          }}
+                          style={{ fontSize: "14px", color: "black" }}
                         />{" "}
                         {item.discount_amount || item.price}
                       </span>
                     ) : (
                       <>
-                        <span className="mrpwithdiscount">
+                        <span className="mrp-with-discount product-icon_rs">
                           <CurrencyRupeeIcon
-                            style={{
-                              fontSize: "14px",
-                              color: "black",
-                            }}
+                            style={{ fontSize: "14px", color: "black" }}
                           />
                           {item.discount_amount}
                         </span>
@@ -192,12 +216,7 @@ const ProductBox = ({
                         </span>
                       </>
                     )}
-                  </li>
-
-                  {/* <div className="addtocart">
-                             
-                            <IoAddSharp />  <span> Add to cart</span>
-                            </div> */}
+                  </p>
                 </div>
               </div>
             </Grid>
@@ -210,7 +229,7 @@ const ProductBox = ({
             {...{ reload, setReload }}
           />
         )}
-      </div>
+      </Container>
     </>
   );
 };

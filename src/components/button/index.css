@@ -1,13 +1,13 @@
-
 .loading_btn {
     padding: 10px;
     margin: auto;
     width: 200px;
-    /* background: #bc8246; */
+    /* background:  var(--primary-color); */
     border: 0.1px solid rgb(131, 128, 128);
 }
-.loading_btn:hover{
+
+.loading_btn:hover {
 
     color: white;
-        background: #bc8246;
+    background: var(--primary-color);
 }

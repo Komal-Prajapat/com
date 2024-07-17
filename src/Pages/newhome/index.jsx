@@ -49,7 +49,6 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
   const fetchcategoryList = async () => {
     setPending(true);
     try {
-      
       const result = await getApiCall(Activecategory);
 
       if (result.data.status) {
@@ -183,10 +182,7 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
 
         </div> */}
 
-          <div
-            className="home_body_container_two container "
-       
-          >
+          <div className="home_body_container_two container ">
             {pending ? (
               <Homeskeleton />
             ) : (
@@ -225,24 +221,29 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
                         display: "flex",
                         justifyContent: "space-evenly",
                         marginTop: "50px",
-                        width:'90%',
-                        margin:'auto'
+                        width: "90%",
+                        margin: "auto",
                       }}
                     >
                       <hr class="headingLine1 col" style={{ width: "20%" }} />
 
-                      <h3
+                      <h2
                         class="home_body_product_heading col "
-                        style={{ color: "black", textAlign: "center",width:"30%" }}
+                        style={{
+                          color: "var(--heading-color)",
+                          textAlign: "center",
+                          width: "30%",
+                        }}
                       >
                         Trending Products
                         {/* Best Sellers */}
-                      </h3>
+                      </h2>
 
                       <hr class="headingLine1 col" style={{ width: "20%" }} />
                     </div>
                     <p style={{ textAlign: "center" }} className="mb-5">
-                    Discover the latest in-demand products everyone's talking about
+                      Discover the latest in-demand products everyone's talking
+                      about
                     </p>
 
                     <div className="home_body_product_head_container">
@@ -332,23 +333,26 @@ const Newhome = ({ reload, setReload, catval, setCatval }) => {
                         display: "flex",
                         justifyContent: "center",
                         paddingTop: "100px",
-                           width:'90%',
-                        margin:'auto'
+                        width: "90%",
+                        margin: "auto",
                       }}
                     >
                       <hr class="headingLine1 col" style={{ width: "80px" }} />
 
-                      <h3
+                      <h2
                         class="home_body_product_heading col "
-                        style={{ color: "black", textAlign: "center" }}
+                        style={{
+                          color: "var(--heading-color)",
+                          textAlign: "center",
+                        }}
                       >
                         New Arrival
-                      </h3>
+                      </h2>
 
                       <hr class="headingLine1 col" style={{ width: "80px" }} />
                     </div>
                     <p style={{ textAlign: "center" }} className="mb-5">
-                    Check out our latest arrivals – just in time for you
+                      Check out our latest arrivals – just in time for you
                     </p>
                     <div className="newarrival_container">
                       <SliderComponent

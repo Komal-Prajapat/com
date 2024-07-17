@@ -22,7 +22,10 @@ const RemoveTag = ({ ParserText, style }) => {
       <p style={style}>
         {showFullText ? ParserText : truncateText(ParserText)}
         {!showFullText && ParserText.split(" ").length > 100 && (
-          <span style={{ color: "#bc8246", cursor: "pointer" }} onClick={toggleShowFullText}>
+          <span
+            style={{ color: " var(--primary-color)", cursor: "pointer" }}
+            onClick={toggleShowFullText}
+          >
             {" "}
             Read more
           </span>

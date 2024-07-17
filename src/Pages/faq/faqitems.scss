@@ -50,7 +50,7 @@ border-bottom: 0.8px solid hsl(0deg 3.52% 94.56%);
 &[open] >summary  {
     outline:none;
     border:none;
-    color:#bc8246;
+    color: var(--primary-color);
     font-weight:700;
   
 

@@ -34,7 +34,7 @@
     padding: 15px;
 }
 
-.category_lable{
+.category_lable {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,34 +44,38 @@
     gap: 5px;
     cursor: pointer;
 }
-.img_container_category{
+
+.img_container_category {
     border: 1px solid var(--colorborder);
     border-radius: 4px;
     width: 100%;
     height: 80%;
 }
-.img_container_category img{
+
+.img_container_category img {
     border-radius: 4px;
     width: 100%;
     height: 100%;
 }
-.desktop_view_box{
+
+.desktop_view_box {
     padding: 50px;
 }
 
-.category_img{
+.category_img {
     height: 60px;
     width: 60px;
     background-color: #ede9e9;
     border-radius: 10px;
     padding: 10px;
 }
-.category_name{
+
+.category_name {
     /* font-family: var(--fontpoppins) !important; */
     font-size: 10px;
 }
 
-.categories{
+.categories {
     display: flex;
     overflow-x: scroll;
     gap: 15px;
@@ -79,50 +83,58 @@
     margin-bottom: 15px;
     margin-top: 82px;
 }
+
 .categories::-webkit-scrollbar {
     display: none;
 }
+
 .search-container {
     width: 100%;
     margin: 15px 0;
-    background-color: var(--colorWhite);
+    background-color: var(--white-color);
     display: flex;
     justify-content: center;
 }
-.mobile_view_page{
+
+.mobile_view_page {
     display: none;
-} 
+}
 
 @media (max-width: 570px) {
-    .mobile_view_page{
+    .mobile_view_page {
         display: block;
-    } 
-    .desktop_view{
+    }
+
+    .desktop_view {
         display: none;
     }
-    .block2-pic{
+
+    .block2-pic {
         height: 150px;
     }
 }
-.newarrival_container{
+
+.newarrival_container {
     margin-bottom: 30px;
 }
-.head_btn_container{
+
+.head_btn_container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 5px 0px;
 }
-.mbl_view_box{
+
+.mbl_view_box {
     padding: 15px;
 }
-.btn_mbl{
+
+.btn_mbl {
     font-weight: 600;
-    color: var(--colorprimary) !important;
+    color: var(--primary-color) !important;
 }
+
 /* .head_btn_container button{
     font-weight: 600;
 
 } */
-
-

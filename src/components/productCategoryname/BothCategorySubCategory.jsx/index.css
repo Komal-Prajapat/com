@@ -13,7 +13,7 @@
 }
 
 .CategoryAndSubcategoryCon ul li a {
-    text-decoration: none !important; 
+    text-decoration: none !important;
     color: black;
     font-weight: bold;
 }
@@ -24,9 +24,10 @@
 
 .bothList {
     color: black;
-    
+
 }
+
 .bothList:hover {
-    color: #bc8246;
+    color: var(--primary-color);
     font-weight: bold;
 }

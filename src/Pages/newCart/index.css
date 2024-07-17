@@ -14,14 +14,14 @@
   border-collapse: collapse;
   margin-bottom: 20px;
   border: 1px solid #eaedff;
-overflow-x: scroll;
+  overflow-x: scroll;
 
 }
 
 .table-wrapper {
-margin-top: 30px;
+  margin-top: 30px;
 
-  
+
 
 }
 
@@ -86,10 +86,12 @@ margin-top: 30px;
   display: flex;
   align-items: center;
 }
-.carttablecon{
+
+.carttablecon {
   mix-blend-mode: multiply;
   background-color: transparent;
 }
+
 .cartimg_container {
   padding: 10%;
   width: 100%;
@@ -101,10 +103,12 @@ margin-top: 30px;
   mix-blend-mode: multiply;
   background-color: transparent;
 }
-.carttablecon{
-  background: #f5f5f5;
+
+.carttablecon {
+  background: var(--secondary-color);
 
 }
+
 .cart_quantity_remove_container {
   display: flex;
   align-items: center;
@@ -159,10 +163,13 @@ margin-top: 30px;
 
 .addmore_text {
   font-size: 14px;
-  color: #777777;
-  margin-top: 5px;
+  color: var(--black-color);
+
 }
 
+.addmore_rs{
+  color: var(--primary-color);
+}
 /* ************************ total table****************** */
 .tableul {
   width: 30%;
@@ -279,7 +286,7 @@ ul {
 .custom-checkout-button:hover .innercontainer {
   transform: translateY(0);
   /* Translate back to its original position (0% up) */
-  background-color: #bc8246;
+  background-color: var(--primary-color);
   /* Background color for fill effect */
   color: white;
   /* Text color change on hover */
@@ -295,7 +302,9 @@ ul {
   }
 
 }
-.custom-ok-button , .custom_cancel_button{
-  background: #bc8246 !important;
+
+.custom-ok-button,
+.custom_cancel_button {
+  background: var(--primary-color) !important;
   /* border-radius: 0px !important; */
 }

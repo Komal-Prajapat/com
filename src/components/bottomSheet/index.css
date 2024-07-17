@@ -1,6 +1,6 @@
-.CorssButton{
-  color: #bc8246;
+.CorssButton {
+  color: var(--primary-color);
   font-size: 20px;
-margin: auto;
-display: flex;
+  margin: auto;
+  display: flex;
 }

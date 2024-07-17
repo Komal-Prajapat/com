@@ -4,6 +4,7 @@ import "./index.css"
 import { ImageUrl, postApiCall, searchhomeapi } from '../../API/baseUrl';
 import { Divider } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { CiSearch } from 'react-icons/ci';
 
 const SearchPage = ({onClose}) => {
   const navigate = useNavigate();
@@ -45,12 +46,15 @@ const SearchPage = ({onClose}) => {
         <div className='searchList_container'>
           {data.map((item) => {
             return (
-              <>
+              <> <div className="search_data_img_con">
                 <div className="search_data_img_name">
+
+                <CiSearch  />
+
                   <img onClick={() => handleListClick(item.id, item?.productName)} className='' src={`${ImageUrl}/${item.files ? item.files : item.file}`} alt="" height={40} width={40} />
                   <p className='product_list' onClick={() => handleListClick(item.id, item?.productName)} >{item?.productName}</p>
                 </div>
-                
+                </div>
               </>
             )
           })}

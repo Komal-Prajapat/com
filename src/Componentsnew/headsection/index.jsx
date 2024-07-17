@@ -722,7 +722,7 @@ const HeaderSection = ({
                           style={{ color: "#c1bcbc" }}
                           onClick={handlelogout}
                         >
-                          Logout..
+                          Logout
                         </button>
                       ) : (
                         <button

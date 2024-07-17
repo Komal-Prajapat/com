@@ -23,7 +23,7 @@
 .chevron-icon {
   font-size: 24px;
   cursor: pointer;
-  color: #bc8246;
+  color: var(--primary-color);
   text-align: center;
   font-weight: bold;
 }
@@ -40,11 +40,12 @@
   width: 80px;
   height: 80px;
   object-fit: cover;
-  
+
   cursor: pointer;
   margin-bottom: 10px;
 }
-.image_Con{
+
+.image_Con {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -71,13 +72,14 @@
     flex-direction: row;
     align-items: center;
   }
-  .image_Con{
+
+  .image_Con {
     margin-top: 20px;
     display: flex;
     flex-direction: row;
     justify-content: center;
   }
-  
+
   .chevron-icon {
     margin-left: 0;
     margin-top: 10px;

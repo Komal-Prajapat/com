@@ -7,7 +7,8 @@
     flex-wrap: wrap;
     padding-bottom: 30px;
 }
-.center-text{
+
+.center-text {
     text-align: center;
 }
 
@@ -52,6 +53,7 @@
     font-weight: 600;
     margin-top: 3px;
 }
+
 .login_number_container h3,
 .order_changelogin_contain h3 {
     font-size: 14px;
@@ -85,7 +87,7 @@ button.login_change_btn {
 
 .login_continue_btn {
     padding: 10px 43px;
-    background-color:   #bc8246;
+    background-color: var(--primary-color);
     color: #ffffff;
     width: 155px;
     display: flex;
@@ -115,19 +117,22 @@ button.login_change_btn {
     justify-content: space-between;
     padding: 10px;
 }
+
 @media (max-width: 570px) {
     .order_changelogin_inside {
         display: flex;
         flex-direction: column;
         gap: 15px;
     }
-    .card_order_login{
+
+    .card_order_login {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 15px;
     }
 }
+
 .addresstype_radio span {
     color: #1976d2;
 }
@@ -137,7 +142,7 @@ button.login_change_btn {
 }
 
 .order_logout_text {
-    color: var(--colorprimary);
+    color: var(--primary-color);
     cursor: pointer;
     font-weight: 530;
 }
@@ -180,7 +185,8 @@ button.login_change_btn {
     color: red;
     font-size: 10px;
 }
-.header-cart-item-rupee{
+
+.header-cart-item-rupee {
     white-space: nowrap;
 }
 
@@ -196,9 +202,10 @@ button.login_change_btn {
 .edit_button_container {
     display: flex;
 }
-.address_update_btn{
+
+.address_update_btn {
     padding: 10px 43px;
-    background-color: var(--colorprimary);
+    background-color: var(--primary-color);
     color: #ffffff;
     width: 100%;
     display: flex;
@@ -212,9 +219,11 @@ button.login_change_btn {
         display: flex;
         flex-direction: column;
     }
-    .address_update_btn{
+
+    .address_update_btn {
         width: 100% !important;
     }
+
     .addaddress_container {
         padding: 10px !important;
     }
@@ -222,6 +231,6 @@ button.login_change_btn {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }

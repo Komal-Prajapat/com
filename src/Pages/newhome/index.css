@@ -1,170 +1,174 @@
 /* Reset and base styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-  }
-  
-  /* Main container for the entire page */
-  .home_body_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  }
-  
-  /* Container for the main content sections */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Main container for the entire page */
+.home_body_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--secondary-color);
+
+}
+
+/* Container for the main content sections */
+.home_body_container_two {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Category container styles */
+.home_body_category_container {
+  background-color: var(--colornewprimary);
+  padding: 20px 55px;
+  text-align: center;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+/* Category name styles */
+.home_body_category_name {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Product boxes */
+.home_body_box_one,
+.home_body_box_two {
+  overflow: hidden;
+  width: 100%;
+  height: 316px;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+
+/* Product images */
+.home_body_box_one img,
+.home_body_box_two img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.9s ease;
+}
+
+/* Hover effect for product images */
+.home_body_box_one img:hover,
+.home_body_box_two img:hover {
+  transform: scale(1.1);
+}
+
+/* Product container */
+.home_body_product_container {
+  width: 100%;
+  /* padding: 1.5rem; */
+  background-color: white;
+  /* margin-top: 20px; */
+}
+
+/* Heading style */
+.home_body_product_heading {
+  font-size: 24px;
+  font-weight: 600;
+  color: black;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Additional styles for responsiveness */
+
+/* Media query for tablets and smaller desktops */
+@media (max-width: 1090px) {
   .home_body_container_two {
-    width: 100%;
-   
-    display: flex;
-    justify-content: center;
+    flex-direction: column;
+    width: 90%;
     align-items: center;
-    flex-wrap: wrap;
   }
-  
-  /* Category container styles */
-  .home_body_category_container {
-    background-color: var(--colornewprimary);
-    padding: 20px 55px;
-    text-align: center;
-    border-radius: 15px;
-    margin-top: 20px;
-  }
-  
-  /* Category name styles */
-  .home_body_category_name {
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  /* Product boxes */
+}
+
+
+/* Media query for mobile devices */
+@media (max-width: 820px) {
+
   .home_body_box_one,
   .home_body_box_two {
-    overflow: hidden;
-    width: 100%;
-    height: 316px;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    box-sizing: border-box;
-    margin-top: 20px;
+    width: 100% !important;
   }
-  
-  /* Product images */
-  .home_body_box_one img,
-  .home_body_box_two img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    cursor: pointer;
-    transition: transform 0.9s ease;
-  }
-  
-  /* Hover effect for product images */
-  .home_body_box_one img:hover,
-  .home_body_box_two img:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Product container */
+
   .home_body_product_container {
-    width: 100%;
-    /* padding: 1.5rem; */
-    background-color: white;
-    /* margin-top: 20px; */
+    padding: 0px;
   }
-  
-  /* Heading style */
+}
+
+/* Media query for smaller devices like phones */
+@media (max-width: 576px) {
+  .home_body_container {
+    padding: 0px !important;
+  }
+
+  element.style {
+    width: 100%;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .home_body_category_container {
+    padding: 15px;
+  }
+
+  .home_body_box_one,
+  .home_body_box_two {
+    height: 250px;
+    width: 100% !important;
+  }
+
   .home_body_product_heading {
-    font-size: 24px;
-    font-weight: 600;
-    color: black;
-    text-align: center;
-    margin-bottom: 20px;
+    font-size: 20px;
   }
-  
-  /* Additional styles for responsiveness */
-  
-  /* Media query for tablets and smaller desktops */
-  @media (max-width: 1090px) {
-    .home_body_container_two {
-      flex-direction: column;
-      width: 90%;
-      align-items: center;
-    }
-  }
-  
-  
-  /* Media query for mobile devices */
-  @media (max-width: 820px) {
-    .home_body_box_one,
-    .home_body_box_two {
-      width: 100% !important;
-    }
-  
-    .home_body_product_container {
-      padding: 0px;
-    }
-  }
-  
-  /* Media query for smaller devices like phones */
-  @media (max-width: 576px) {
-    .home_body_container {
-      padding: 0px !important;
-    }
-    element.style {
-      width: 100%;
-  }
-  .container{
-    width: 100%;
-  }
-    .home_body_category_container {
-      padding: 15px;
-    }
-  
-    .home_body_box_one,
-    .home_body_box_two {
-      height: 250px;
-      width: 100% !important;
-    }
-  
-    .home_body_product_heading {
-      font-size: 20px;
-    }
-  }
-  
-  /* Loader and skeleton styles (if applicable) */
-  
-  /* Skeleton loading animation */
-  .homeskeleton {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .homeskeleton_container_inside {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  
-  .loader_container {
-    display: none; /* Adjust visibility as needed */
-  }
-  
-  /* End of CSS */
-  
+}
+
+/* Loader and skeleton styles (if applicable) */
+
+/* Skeleton loading animation */
+.homeskeleton {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+  width: 100%;
+}
+
+.homeskeleton_container_inside {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.loader_container {
+  display: none;
+  /* Adjust visibility as needed */
+}
+
+/* End of CSS */

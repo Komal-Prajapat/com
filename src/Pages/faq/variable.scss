@@ -4,9 +4,9 @@ $ipad:1025px;
 $desktop: 1440px;
 //Primairy text variable
 
-$DarkBlue:  var(--colorprimary);
+$DarkBlue:  var(--primary-color);
 ;
-$softRed:   var(--colorprimary);
+$softRed:   var(--primary-color);
 ;
 //nutruel text varible
 $darkGrayishBlue: var(--colorblack);
@@ -17,7 +17,7 @@ $lightGrayishBlue: hsl(240, 5%, 91%);
 //Background gradient:
 
 $softViolet: #ae67e9;
-$SoftBlue:  var(--colorprimary);
+$SoftBlue:  var(--primary-color);
 // font family
 
 $fontFamily: 'Kumbh Sans', sans-serif;

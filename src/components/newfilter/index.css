@@ -1,7 +1,8 @@
-.new_filter_container{
+.new_filter_container {
     display: block;
     padding: 10px 30px;
 }
+
 .selectedlist_display {
     display: flex;
     align-items: center;
@@ -9,7 +10,8 @@
     /* overflow: auto; */
     flex-wrap: wrap !important;
 }
-.price{
+
+.price {
     border: none !important;
     padding: 0px 5px !important;
     width: 60px !important;
@@ -19,13 +21,13 @@
 }
 
 .filter_container_fluid {
-	position: fixed;
+    position: fixed;
     z-index: 1100;
     width: 250px;
     height: 100vh !important;
     top: 0px;
     left: 0px;
-    background-color: var(--colorWhite);
+    background-color: var(--white-color);
     color: var(--colorblack);
     transition: all 0.4s;
     box-shadow: 0 3px 6px 0px rgba(0, 0, 0, 0.18);
@@ -37,24 +39,27 @@
     padding: 5px;
     animation: slideInLeft;
     animation-duration: 1.2s;
-	display: none;
+    display: none;
 }
+
 .filter_container_fluid::-webkit-scrollbar {
-	display: none;
+    display: none;
 }
 
 @media (max-width: 940px) {
-    .new_filter_container{
+    .new_filter_container {
         display: none;
-     }
-     .filter_container_fluid{
+    }
+
+    .filter_container_fluid {
         display: block !important;
     }
 
 }
-.list-filter{
-  text-align: justify !important;
-  white-space: nowrap !important;
+
+.list-filter {
+    text-align: justify !important;
+    white-space: nowrap !important;
 }
 
 .price_slider Tooltip {
@@ -64,10 +69,11 @@
 
 
 /* ****************0 */
-.productheading ,.priceheading{
+.productheading,
+.priceheading {
     font-size: 20px;
 
-	font-family: Poppins, sans-serif;
+    font-family: Poppins, sans-serif;
     color: #201f1f;
     margin-top: 0;
     font-weight: 500;
@@ -75,55 +81,16 @@
     transition: all .3s ease-out 0s;
 }
 
-.productList li ,.list-filter{
+.productList li,
+.list-filter {
     font-size: 100px;
     padding: 0;
     width: 100%;
     text-align: left;
-    background: #ffffff;
+
     position: relative;
-    
+
     font-weight: 400;
     font-size: 16px;
     margin-top: 5px;
-}
-
-
-.css-7o8aqz-MuiSlider-rail 
- {
-    background: #bc8246;
-}
-.css-188mx6n-MuiSlider-root{
-    color: #bc8246 !important;
-    /* background: #bc8246; */
-
-}
-.css-cp2j25-MuiSlider-thumb {
-    color: #bc8246 !important;
-    position: absolute;
-    width: 4px !important;
-    height: 20px  !important;
-    box-sizing: border-box;
-    border-radius: 0%  !important;
-    outline: 0;
-    background-color: currentColor;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-align-items: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-transition: box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, bottom 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    transition: box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, bottom 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
 }

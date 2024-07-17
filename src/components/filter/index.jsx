@@ -342,7 +342,7 @@ const Filter = ({ setShowfilter, setProductList, shownav, showfilter, showtext }
 
 				</div> */}
 
-				<div className="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm filter_container">
+				<div className="wrap-filter flex-w  w-full p-lr-40 p-t-27 p-lr-15-sm filter_container">
 
 					<div className="filter-col1 p-r-15 p-b-10 ">
 						<div className="mtext-102 cl2 p-b-15 htext">
@@ -453,7 +453,7 @@ const Filter = ({ setShowfilter, setProductList, shownav, showfilter, showtext }
 					</div>
 						: ""
 						} */}
-				<div className="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm filter_container">
+				<div className="wrap-filter flex-w  w-full p-lr-40 p-t-27 p-lr-15-sm filter_container">
 
 					<div className="filter-col1 p-r-15 p-b-10 ">
 						<div className="mtext-102 cl2 p-b-15 htext">

@@ -23,8 +23,9 @@
 .map iframe {
   width: 100%;
 }
+
 .contacticon {
-  margin-right: 10px; 
+  margin-right: 10px;
   margin-bottom: 10px;
 }
 
@@ -124,10 +125,12 @@
     padding: 0px;
 
   }
-  .contctinformation{
+
+  .contctinformation {
     font-size: x-small;
 
   }
+
   .contact_heading {
     height: 80px;
   }
@@ -147,20 +150,25 @@
   }
 
   .data li {
-    width: auto; /* Adjust width as needed */
+    width: auto;
+    /* Adjust width as needed */
   }
 
   .contacticon {
-    margin-right: 10px; /* Adjust spacing between icon and data */
-    margin-bottom: 10px; /* Adjust spacing between items */
+    margin-right: 10px;
+    /* Adjust spacing between icon and data */
+    margin-bottom: 10px;
+    /* Adjust spacing between items */
   }
 }
-.footerSocialMediaIcon{
+
+.footerSocialMediaIcon {
   margin-top: 30px;
   font-size: 18px;
   color: #606060;
 }
-.footerSocialMediaIcon:hover{
-  color: #bc8246;
+
+.footerSocialMediaIcon:hover {
+  color: var(--primary-color);
   font-weight: bold;
 }

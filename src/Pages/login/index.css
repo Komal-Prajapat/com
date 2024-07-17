@@ -1,13 +1,14 @@
-.login_container{
+.login_container {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin-top: 50px;
     min-width: 300px;
     padding: 20px 15px;
     background-color: #ffffff;
 }
-.login_container_first{
 
-    background: #f5f5f5;
+.login_container_first {
+
+    background: var(--secondary-color);
     margin-top: 50px;
     width: 300px;
     padding: 25px;
@@ -16,34 +17,38 @@
     flex-direction: column;
     gap: 115px
 }
-.loginIcon_container{
+
+.loginIcon_container {
     text-align: center;
 }
-.Login_heading{
-   
-}
-.Login_text{
+
+.Login_heading {}
+
+.Login_text {
     margin-top: 25px !important;
- 
+
     white-space: wrap;
 }
-.loginprivacy{
-font-size: 12px !important;
-font-weight: 400 !important;
+
+.loginprivacy {
+    font-size: 12px !important;
+    font-weight: 400 !important;
 }
 
 
-.otpverify{
-font-size: 12px !important;
-font-weight: 400 !important;
+.otpverify {
+    font-size: 12px !important;
+    font-weight: 400 !important;
 }
-.otpverify_container{
-margin-top: 20px;
-display: flex;
-flex-direction: column;
-gap: 25px;
+
+.otpverify_container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
-.otpverify_resend{
+
+.otpverify_resend {
     display: flex;
     align-items: center;
     gap: 5px;
@@ -53,53 +58,57 @@ gap: 25px;
     font-weight: 500;
     justify-content: center;
 }
+
 .loginbtn {
     padding: 20px;
     width: 200px;
-    /* background: #bc8246; */
+    /* background:  var(--primary-color); */
     border: 0.1px solid rgb(131, 128, 128);
 }
-.loading_btn:hover{
+
+.loading_btn:hover {
 
     color: white;
-        background: #bc8246;
+    background: var(--primary-color);
 }
+
 .loginbtn:hover {
     color: white;
-    background: #bc8246;
+    background: var(--primary-color);
 }
-.marginBottom{
+
+.marginBottom {
     display: flex;
     flex-direction: column;
     gap: 25px;
 }
+
 @media (max-width: 500px) {
-    .login_container_first{
+    .login_container_first {
         display: none;
     }
 }
+
 @media (max-width: 740px) {
-    .otpverify{
+    .otpverify {
         display: block;
-        }
+    }
 }
-.Login_form-error{
+
+.Login_form-error {
     position: relative;
     top: -20px;
     font-size: x-small;
     color: red;
 }
-.loginprivacy span{
+
+.loginprivacy span {
     cursor: pointer;
 }
 
 /* button.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeMedium.css-78trlr-MuiButtonBase-root-MuiIconButton-root{
     margin-bottom: 15px;
 } */
-.mobile_phone_field input{
+.mobile_phone_field input {
     padding: 21px 3px 5px !important;
 }
-
-
-
-  
