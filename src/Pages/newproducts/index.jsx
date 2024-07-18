@@ -223,10 +223,10 @@ const NewProductpage = ({ reload, setReload }) => {
 
   return (
     <div> 
-       <div  className="TopPageForMobile">
+       {/* <div  className="TopPageForMobile">
        <TopPageImage pagename="Shop" bgimg="https://ng-outstock.vercel.app/assets/img/page-title/page-title-2.jpg"></TopPageImage>
 </div>  
-        
+         */}
          
 
         <section className="bg0 section_container">

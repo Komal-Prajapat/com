@@ -4,7 +4,15 @@ import "./index.css"
 
 
 const loader = <>
-  Loading
+<div className="d-flex "
+style={{
+  justifyContent:"center"
+}}
+>
+<span
+className='mx-3'
+>Loading
+</span>
   <ThreeDots
     height="20"
     width="20"
@@ -15,6 +23,7 @@ const loader = <>
     wrapperClassName=""
     visible={true}
   />
+</div>
 </>
 const ButtonComponent = ({ loading, btn_name, type, onClick }) => {
   

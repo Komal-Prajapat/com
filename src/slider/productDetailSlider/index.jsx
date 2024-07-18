@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import "./index.css";
 import { GoChevronUp, GoChevronDown } from "react-icons/go";
 import { GrFormNext } from "react-icons/gr";
+import ReactImageMagnify from 'react-image-magnify';
 
 const Slider2 = ({ images }) => {
   const [hoveredImage, setHoveredImage] = useState(images[0]);
@@ -57,7 +58,7 @@ const Slider2 = ({ images }) => {
              style={{
               justifyContent:'center'
              }}>
-              {images.slice(startIndex, startIndex + 3).map((src, index) => (
+              {images.slice(startIndex, startIndex + 4).map((src, index) => (
                 <img
                   key={startIndex + index} // Use a unique key
                   src={src} 
@@ -75,16 +76,23 @@ const Slider2 = ({ images }) => {
           </div>
         </div>
         <div className="col-lg-8 col-md-6 mt-4 mt-md-0">
-          {hoveredImage && (
-            <div className="hovered-image-wrapper">
-              <img
-                src={hoveredImage}
-                alt="Hovered"
-                className="img-fluid hovered-image"
-              />
-            </div>
-          )}
+      {hoveredImage && (
+        <div className="hovered-image-wrapper">
+          <ReactImageMagnify {...{
+            smallImage: {
+              alt: 'Hovered',
+              isFluidWidth: true,
+              src: hoveredImage
+            },
+            largeImage: {
+              src: hoveredImage,
+              width: 1200,
+              height: 1800
+            }
+          }} />
         </div>
+      )}
+    </div>
       </div>
     </div>
   );

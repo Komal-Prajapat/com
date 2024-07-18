@@ -191,7 +191,7 @@ const Newcart = ({ reload, setReload }) => {
   return (
     <>
       <div className="CartForLaptop">
-        <TopPageImage pagename="Cart" />
+        {/* <TopPageImage pagename="Cart" /> */}
         {pending ? (
           <Loader />
         ) : (

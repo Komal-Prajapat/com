@@ -46,7 +46,7 @@ const OrderCheckout = ({ reload, setReload }) => {
     const [loader, setLoader] = React.useState(false)
 
 
-    const { values, errors, touched, handleBlur, handleChange, handleSubmit, setFieldValue } =
+    const { values, errors, touched, handleBlur, handleChange, handleSubmit,setFieldTouched, setFieldValue } =
         useFormik({
             initialValues,
             validationSchema: addressformschema,
@@ -67,8 +67,17 @@ const OrderCheckout = ({ reload, setReload }) => {
     };
 
     const handleSubmit2 = (e) => {
-        e.preventDefault()
-        handleSubmit()
+        e.preventDefault();
+        const errorFields = Object.keys(errors);
+        if (errorFields.length > 0) {
+            const firstErrorField = errorFields[0];
+            setFieldTouched(firstErrorField, true, true);
+            const firstErrorFieldElement = document.querySelector(`input[name="${firstErrorField}"]`);
+            if (firstErrorFieldElement) {
+                firstErrorFieldElement.focus();
+            }
+        }
+        handleSubmit();
         console.log("error", errors)
         console.log("values", values)
     }

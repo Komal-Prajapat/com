@@ -81,9 +81,9 @@ const SearchBar = ({
                 Search
               </h3>
             </div>
-            <div className="SearchBarCategoryListForMobile">
+            {/* <div className="SearchBarCategoryListForMobile">
               <CategoryList></CategoryList>
-            </div>
+            </div> */}
 
             <div
               className="search_input_container"

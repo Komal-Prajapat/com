@@ -132,7 +132,7 @@ const CheckOut = ({activeStep ,onBackClick ,onClick}) => {
           
 
           <Grid item xs={12} sm={12} md={12} lg={12} sx={{ marginTop: "5px" }}>
-          <FormLabel id="demo-radio-buttons-group-label">Address Type</FormLabel>
+          <FormLabel id="demo-radio-buttons-group-label">Address Type..</FormLabel>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
             defaultValue="home"

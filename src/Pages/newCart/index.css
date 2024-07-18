@@ -4,7 +4,8 @@
 .newcart_container {
   /* max-width: 1200px; */
   margin: auto;
-  padding: 100px;
+  padding:10px 100px 100px 100px;
+  /* margin-top: 10px !important; */
   background: white;
 }
 

@@ -583,7 +583,7 @@ const HeaderSection = ({
               ref={dropdownRefShop}
             >
               <div className="dropdown navbarListItemsStylex d-flex">
-                <button className="dropbtn" onClick={toggleDropdownShop}>
+                <button className="dropbtn" onMouseOver={toggleDropdownShop}>
                   <span className=" bold navbarListItemsStyle">
                     Shop <IoIosArrowDown className="navbarListItemsStyle" />
                   </span>
@@ -591,7 +591,7 @@ const HeaderSection = ({
                 <div className="">
                   <div
                     className="shoplistdata mx-3"
-                    style={{ width: "1220px" }}
+                    style={{ width: "100vw" }}
                   >
                     {isDropdownOpenShop && (
                       <CategoryAndSubcategoryComponent

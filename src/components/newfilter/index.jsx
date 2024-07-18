@@ -137,58 +137,80 @@ const Newfilter = ({name,categoryvalueforapi,categoryList,categoryheading, setCa
 	const [range, setRange] = React.useState([0, 1000]);
 	const [SortBy, setSortBy] = useState(SortByData);
 	const [namevalue, setNamevalue] = useState(name);
-
+	const [minPrice, setMinPrice] = useState(0);
+    const [maxPrice, setMaxPrice] = useState(1000);
 
 	const minDistance = 100
+	useEffect(() => {
+        setMinPrice(range[0]);
+        setMaxPrice(range[1]);
+    }, [range]);
 
 
 	const handleChange = async (event, newValue, activeThumb) => {
-		if (!Array.isArray(newValue)) {
-			return;
-		}
-		let rangeee
-		if (activeThumb === 0) {
-			rangeee = ([Math.min(newValue[0], range[1] - minDistance), range[1]]);
-		} else {
-			rangeee = ([range[0], Math.max(newValue[1], range[0] + minDistance)]);
-		}
-		setRange([...rangeee])
-		setRanfgevaluefilter((rangeee.toString()).replace(",", "-"))
+        if (!Array.isArray(newValue)) {
+            return;
+        }
+        let rangeee;
+        if (activeThumb === 0) {
+            rangeee = [Math.min(newValue[0], range[1] - minDistance), range[1]];
+        } else {
+            rangeee = [range[0], Math.max(newValue[1], range[0] + minDistance)];
+        }
+        setRange([...rangeee]);
+        updatePriceFilter(rangeee);
+    };
 
 
-		const data = selectedlist.findIndex((item) => item.type === "price")
-		const pricevalue = {
-			id: 49,
-			name: (rangeee.toString()).replace(",", " to "),
-			type: "price",
-		}
+  const handleMinPriceChange = (e) => {
+        const value = Math.max(0, Math.min(e.target.value, maxPrice - minDistance));
+        setMinPrice(value);
+        setRange([value, range[1]]);
+        updatePriceFilter([value, range[1]]);
+    };
 
-		if (data === -1) {
-			setSelectedlist([...selectedlist, pricevalue]);
-		} else {
-			selectedlist.splice(data, 1)
-			setSelectedlist([...selectedlist, pricevalue])
-		}
-		const apicategory = selectedlist.filter(selector => selector.type === "category")
-		try {
-			const result = await postApiCall(filterApi, {
-				search: "",
-				sort_by: sortval,
-				price: (rangeee.toString()).replace(",", "-"),
-				category_name:apicategory.length ? apicategory.map(item => item.category_name).join(", ") : categoryvalueforapi,
-			})
-			if (result.data.status) {
-				setProductList(result.data.data)
-			}
-			
-		} catch (error) {
-			console.log("error", error);
-		} finally {
-		}
+    const handleMaxPriceChange = (e) => {
+        const value = Math.min(10000, Math.max(e.target.value, minPrice + minDistance));
+        setMaxPrice(value);
+        setRange([range[0], value]);
+        updatePriceFilter([range[0], value]);
+    };
 
 
-	};
 
+
+	const updatePriceFilter = async (rangeee) => {
+        setRanfgevaluefilter(rangeee.join("-"));
+
+        const data = selectedlist.findIndex((item) => item.type === "price");
+        const pricevalue = {
+            id: 49,
+            name: rangeee.join(" to "),
+            type: "price",
+        };
+
+        if (data === -1) {
+            setSelectedlist([...selectedlist, pricevalue]);
+        } else {
+            selectedlist.splice(data, 1);
+            setSelectedlist([...selectedlist, pricevalue]);
+        }
+        const apicategory = selectedlist.filter(selector => selector.type === "category");
+        try {
+            const result = await postApiCall(filterApi, {
+                search: "",
+                sort_by: sortval,
+                price: rangeee.join("-"),
+                category_name: apicategory.length ? apicategory.map(item => item.category_name).join(", ") : categoryvalueforapi,
+            });
+            if (result.data.status) {
+                setProductList(result.data.data);
+            }
+        } catch (error) {
+            console.log("error", error);
+        }
+    };
+	
 	const handlefilterapply = async (value ,type) => {
 		let filtercategoryval
 		const apicategory = selectedlist.filter(selector => selector.type === "category")
@@ -307,49 +329,27 @@ const Newfilter = ({name,categoryvalueforapi,categoryList,categoryheading, setCa
 
 	return (
 		<div>
-			
-			<div className="new_filter_container">
-				{/* <div className="filter-title flex-w flex-sb-m p-b-8">
-					<span className="mtext-103 cl2 htext">
-						Filter
-					</span>
-				</div> */}
-
-				{/* <div className='selectedlist_display'>
-					{selectedlist.map((item, index) => {
-						return (
-							<div key={index}> 
-								<li className="">
-									<p className="flex-c-m stext-107 cl6 size-301 bor7 p-lr-10 hov-tag1 trans-04 m-r-5 m-b-5 selected_list">
-										<p className='filter_title'>{item.name ? item.name : item.category_name}</p>
-										<CloseIcon sx={{ fontSize: "14px", cursor: "pointer", color: "#f50606" }} onClick={() => removelist(item)} />
-									</p>
-								</li>
-							</div>
-						)
-					})}
-				</div> */}
-				{selectedlist.length ?
-					<div className='selected_btn_prop'>
-						<div className='filter_apply_dlt'>
-							{/* <button className='clear_filter_btn' onClick={handlefilterapply}>Apply</button> */}
-							{/* <button className='clear_filter_btn' onClick={ClearAll}>Clear All</button> */}
-						</div>
-
+		<div className="new_filter_container">
+			{selectedlist.length ?
+				<div className='selected_btn_prop'>
+					<div className='filter_apply_dlt'>
+						{/* <button className='clear_filter_btn' onClick={handlefilterapply}>Apply</button> */}
+						{/* <button className='clear_filter_btn' onClick={ClearAll}>Clear All</button> */}
 					</div>
-					: ""
-				}
-				<div className="">
-					<div className="filter-col1 p-r-15 p-b-10 ">
-						<div >
-						<h3 className="productheading ">	{categoryheading ? "Product Categories" :"Sub Category" }</h3>
-						</div>
-						<ul className='productList'>
-							{categoryList.map((item, index) => {
-								return (
-									<div key={index}>
-										<li className="p-b-6">
-											{item.category_name === namevalue ? 
+				</div>
+				: ""
+			}
+			<div className="">
+				<div className="filter-col1 p-r-15 p-b-10 ">
+					<div>
+						<h3 className="productheading ">{categoryheading ? "Product Categories" : "Sub Category"}</h3>
+					</div>
+					<ul className='productList'>
+						{categoryList.map((item, index) => {
+							return (
+								<div key={index}>
+									<li className="p-b-6">
+										{item.category_name === namevalue ?
 											<button onClick={item.selected ? () => onlistafterClick(item, categoryList, index) : () => onlistClick(item, categoryList, index)} className="filter-link stext-106 trans-04 list-filter clgray activeFilter">
 												{item.category_name}
 											</button>
@@ -357,55 +357,66 @@ const Newfilter = ({name,categoryvalueforapi,categoryList,categoryheading, setCa
 											<button onClick={item.selected ? () => onlistafterClick(item, categoryList, index) : () => onlistClick(item, categoryList, index)} className={`filter-link stext-106 trans-04 list-filter clgray ${item.selected ? "activeFilter" : ""}`}>
 												{item.category_name}
 											</button>
-							}
-										</li>
-									</div>
-								)
-							})}
-						</ul>
+										}
+									</li>
+								</div>
+							)
+						})}
+					</ul>
+				</div>
+
+				<div className="filter-col2 p-r-15 p-b-10">
+					<div className="priceheading">
+						Filter By Price
 					</div>
 
-
-					<div className="filter-col2 p-r-15 p-b-10">
-						<div className="priceheading">
-						Filter By Price
-						</div>
-
-						<div className='price_slider'>
-							<Slider
-								getAriaLabel={() => 'Minimum distance'}
-								value={range}
-								onChange={handleChange}
-								valueLabelDisplay="auto"
-								step={250}
-								min={0}
-								max={10000}
-								// getAriaValueText={valuetext}
-								disableSwap
+					<div className='price_slider'>
+						<Slider
+							getAriaLabel={() => 'Minimum distance'}
+							value={range}
+							onChange={handleChange}
+							valueLabelDisplay="auto"
+							step={250}
+							min={0}
+							max={10000}
+							disableSwap
+						/>
+					</div>
+					<div className='input_container_filter mt-3'>
+						<div className='price_lable_input'
+						style={{
+							
+						}}>
+							<p>From</p>
+							<input type="number" value={minPrice} onChange={handleMinPriceChange} className='price_input mx-2' 
+							style={{
+							
+							width:"80px",
+							border:"1px solid var(--secondary-color) !important",
+							paddingLeft:"3px"
+						}}	
 							/>
 						</div>
-						<div className='input_container_filter mt-3'>
-							<div className='price_lable_input'>
-								<p>From</p>
-								<div className='price'>{range[0]}</div>
-							</div>
 
-							<div className='price_lable_input'>
-								<p style={{ marginLeft: "10px" }}>To</p>
-								<div className='price'>{range[1]}</div>
-							</div>
-
+						<div className='price_lable_input'
+						style={{
+							
+						}}>
+							<p style={{ marginLeft: "10px" }}>To</p>
+							<input type="number" value={maxPrice} onChange={handleMaxPriceChange} className='price_input mx-2' 
+							style={{
+							
+							width:"80px",
+							border:"1px solid var(--secondary-color) !important",
+							paddingLeft:"3px"
+						}}		
+							/>
 						</div>
 					</div>
 				</div>
-
-
 			</div>
-
-
-
-			
 		</div>
+	</div>
 	)
 }
 

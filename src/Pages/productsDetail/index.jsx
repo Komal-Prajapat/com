@@ -345,9 +345,9 @@ const ProductDetail = ({ reload, setReload, setCatval }) => {
 
   return (
     <>
-      <div className="TopPageForMobile">
+      {/* <div className="TopPageForMobile">
         <TopPageImage pagename="Product Details"></TopPageImage>
-      </div>
+      </div> */}
       {/* <!-- Product Detail --> */}
 
       <div
